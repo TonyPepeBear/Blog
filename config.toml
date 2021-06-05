@@ -680,10 +680,10 @@ uglyURLs = false
 
     # 說明：僅在生產環境（production）下渲染
 
-    googleAdClient = ""
+    googleAdClient = "ca-pub-1667006488909532"
 
     ## 自動廣告
-    enableGoogleAutoAds = false
+    enableGoogleAutoAds = true
 
     ## 廣告單元
     enableGoogleAdUnits = false

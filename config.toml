@@ -8,6 +8,11 @@ hasCJKLanguage = true
 # 版權資訊（支援 Markdown）
 copyright = "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)"
 
+[sitemap]
+  changefreq = "monthly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
 # 主題選擇
 theme = "meme"
 

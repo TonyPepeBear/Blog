@@ -6,7 +6,7 @@ tags:
     - docker
     - play-with-docker
 categories: 
-    - docker
+    - Docker
 ---
 
 學過 Docker 的人都應該有用過 Docker Playground 來學習或是測試過軟體，不想在本機跑 Docker 可以先用 Docker Playground 試試看軟體可不可以跑。
@@ -87,3 +87,8 @@ flag.StringVar(&PlaygroundDomain, "playground-domain", "localhost", "Domain to u
 ### 連上容器內的 Port
 
 就算做完上面的設定，也順利了啟動 Docker 容器，但最後才發現想要連上特定的 Port 還是會失敗，因為他是用子網域的方式去連線 `http://ip<hyphen-ip>-<session_jd>-<port>.direct.pwd.example.com`，所以又會遇到無法解析 DNS 的情況，我的解法是在 DNS 的設定中把 `pwd.example.com` 和 `*.pwd.example.com` 都加入 A Record，才順利連上。
+
+## Reference
+
+
+* [Play With Docker](https://github.com/play-with-docker/play-with-docker)

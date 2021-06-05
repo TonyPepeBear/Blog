@@ -100,9 +100,9 @@ uglyURLs = false
     # 頭像
     avatar = "/icons/apple-touch-icon.png"
     # 網站（預設值：baseURL）
-    website = "https://io-oi.me/"
+    website = "https://tonypepe.com/"
     # 推特
-    twitter = "reuixiy"
+    twitter = ""
 
 # 相關文章
 [related]
@@ -707,7 +707,7 @@ uglyURLs = false
     # 注意：只支援 HSL 顏色值
 
     # 文章的內容寬度
-    postWidth = 60
+    postWidth = 42
     # 說明：如果留空（""），則用 42 作為預設值
     #      單位：em
 
@@ -1104,7 +1104,7 @@ uglyURLs = false
     # 文章分享
 
     # 是否開啟
-    enablePostShare = true
+    enablePostShare = false
 
     # 是否顯示（全域性設定）
     displayPostShare = true
@@ -1197,7 +1197,7 @@ uglyURLs = false
     displayBackToTopInHome = true
 
     # 是否在移動端顯示
-    displayBackToTopOnMobile = false
+    displayBackToTopOnMobile = true
 
     # 按鈕圖示
     backToTopIcon = "arrow-up"
@@ -1247,7 +1247,7 @@ uglyURLs = false
     #      https://busuanzi.ibruce.info/
 
     # 社交連結
-    enableSocials = true
+    enableSocials = false
     # 說明：見 data/Socials.toml
 
 

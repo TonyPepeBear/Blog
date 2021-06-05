@@ -12,6 +12,6 @@ This is my first post in hugo.
 fun String.hi() = "$this HI"
 
 class Test(var i: Int) {
-    var p = "13"
+    var p = "13 13"
 }
 ```

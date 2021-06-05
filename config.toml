@@ -334,16 +334,16 @@ uglyURLs = false
     # 說明：用於 JSON-LD、Open Graph
 
     # 站點的描述
-    siteDescription = "MemE 是一個強大且可高度定製的 GoHugo 部落格主題，專為個人部落格設計。"
+    siteDescription = "紀錄我踩過得坑"
     # 說明：用於 HTML 的頭部元資料、JSON-LD、
     #      Open Graph、Atom、RSS
 
     # 站點的建立時間
-    siteCreatedTime = "1969-07-20T20:17:43+00:00"
+    siteCreatedTime = "2021-06-04T00:00:00+08:00"
     # 注意：請保持此格式，更改數字
 
     # 站點的推特帳號
-    siteTwitter = "reuixiy"
+    siteTwitter = ""
     # 說明：用於 Twitter Cards
 
 
@@ -430,7 +430,7 @@ uglyURLs = false
     chineseZodiac = true
 
     # 是否翻譯年份（僅對年份標題有效）
-    i18nYear = true
+    i18nYear = false
     # 是否翻譯月份（僅對月份標題有效）
     i18nMonth = true
 
@@ -485,7 +485,7 @@ uglyURLs = false
     enableDarkMode = true
 
     # 預設模式
-    defaultTheme = "light"
+    defaultTheme = "dark"
     # 說明：light（淺色模式）或 dark（深色模式）
 
     # 是否隱藏模式切換開關
@@ -707,7 +707,7 @@ uglyURLs = false
     # 注意：只支援 HSL 顏色值
 
     # 文章的內容寬度
-    postWidth = 36
+    postWidth = 60
     # 說明：如果留空（""），則用 42 作為預設值
     #      單位：em
 
@@ -739,7 +739,7 @@ uglyURLs = false
     #      首頁佈局有效
 
     # 日期格式
-    postMetaDateFormat = "2006.1.2"
+    postMetaDateFormat = "2006-1-2"
     # 注意：請遵循格式 https://gohugo.io/functions/format/
 
     # 是否顯示釋出時間
@@ -949,7 +949,7 @@ uglyURLs = false
     ######################################
     ## 字號（單位：px）
 
-    fontSize = 16
+    fontSize = 18
 
     ######################################
     ## 製表符的寬度

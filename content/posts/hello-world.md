@@ -6,6 +6,8 @@ draft: false
 
 This is my first post in hugo.
 
+<!--more-->
+
 ## Kotlin
 
 ```kotlin

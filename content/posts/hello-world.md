@@ -11,5 +11,7 @@ This is my first post in hugo.
 ```kotlin
 fun String.hi() = "$this HI"
 
-class Test(var i: Int)
+class Test(var i: Int) {
+    var p = "13"
+}
 ```

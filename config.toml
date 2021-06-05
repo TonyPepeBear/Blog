@@ -485,7 +485,7 @@ uglyURLs = false
     enableDarkMode = true
 
     # 預設模式
-    defaultTheme = "dark"
+    defaultTheme = "light"
     # 說明：light（淺色模式）或 dark（深色模式）
 
     # 是否隱藏模式切換開關

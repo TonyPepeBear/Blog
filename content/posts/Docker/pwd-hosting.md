@@ -1,7 +1,7 @@
 ---
 title: "Pwd Hosting"
 date: 2021-06-05T16:08:29Z
-draft: true
+draft: false
 tags:
     - docker
     - play-with-docker
@@ -80,7 +80,7 @@ docker-compose up
 flag.StringVar(&PlaygroundDomain, "playground-domain", "localhost", "Domain to use for the playground")
 ```
 
-可以看到 PWD 這裡可以設定了要解析的網址就是 `localhost` 所以只要將此變更為 `pwd.example.com` 就可以用這個網址連上 PWD。
+可以看到 PWD 這裡可以設定要解析的網址就是 `localhost`，所以只要將此變更為 `pwd.example.com`，就可以用這個網址連上 PWD。
 
 ### 連上容器內的 Port
 

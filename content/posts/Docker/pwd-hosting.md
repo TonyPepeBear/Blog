@@ -5,7 +5,8 @@ draft: false
 tags:
     - docker
     - play-with-docker
-categories: docker
+categories: 
+    - docker
 ---
 
 學過 Docker 的人都應該有用過 Docker Playground 來學習或是測試過軟體，不想在本機跑 Docker 可以先用 Docker Playground 試試看軟體可不可以跑。

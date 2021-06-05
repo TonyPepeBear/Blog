@@ -11,6 +11,8 @@ categories:
 
 學過 Docker 的人都應該有用過 Docker Playground 來學習或是測試過軟體，不想在本機跑 Docker 可以先用 Docker Playground 試試看軟體可不可以跑。
 
+<!--more-->
+
 官方已經有架設 [Docker Playground](https://labs.play-with-docker.com/)，可以讓大家方便使用，但我使用的時後常發現他會 Lag，也不知道是 Docker Server 的問題，還是臺灣網路的問題。剛好最近想要教社團 Docker，這樣我架好一個，大家就不需要準備環境，直接就可以開始學了。
 
 本專案的 [GitHub](https://github.com/play-with-docker/play-with-docker)

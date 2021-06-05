@@ -1,7 +1,7 @@
 ---
 title: "Hello World"
 date: 2021-06-05T11:15:18Z
-draft: true
+draft: false
 ---
 
 This is my first post in hugo.

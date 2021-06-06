@@ -2,6 +2,11 @@
 title: "用 Teminal 連接到 Amazon Lightsail"
 date: 2021-06-06T17:16:35+08:00
 draft: false
+tags:
+    - linux
+    - ssh
+categories:
+    - Linux
 ---
 
 AWS 個體，要使用本地的 Terminal 連線都要使用他專門產生的 key 來確保安全性，但需要比較複雜的設定。

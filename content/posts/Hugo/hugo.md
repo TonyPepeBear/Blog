@@ -1,5 +1,5 @@
 ---
-title: "Hugo"
+title: "用 Hugo 來寫文章吧"
 date: 2021-06-07T02:10:46+08:00
 draft: false
 tags: 

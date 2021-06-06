@@ -1,4 +1,122 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.83.1 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Sun, 06 Jun 2021 09:35:45 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>用 Teminal 連接到 Amazon Lightsail</title><link>https://tonypepe.com/posts/linux/amazon-ssh/</link><guid isPermaLink="true">https://tonypepe.com/posts/linux/amazon-ssh/</guid><pubDate>Sun, 06 Jun 2021 17:16:35 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>AWS 個體，要使用本地的 Terminal 連線都要使用他專門產生的 key 來確保安全性，但需要比較複雜的設定。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.83.1 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Sun, 06 Jun 2021 19:17:06 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>用 Hugo 來寫文章吧</title><link>https://tonypepe.com/posts/hugo/hugo/</link><guid isPermaLink="true">https://tonypepe.com/posts/hugo/hugo/</guid><pubDate>Mon, 07 Jun 2021 02:10:46 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>Hugo 是靜態網頁的產生器，類似 Hexo 和 Jekyll，Hugo 由 go 語言編寫，效率極高，我原本是用 Hexo 在產生文章，後來發現 Hugo 這個好東西，也觀望了一陣子&lt;del>其實是懶&lt;/del>，就決定換過來了，目前也用得非常順手。&lt;/p>
+&lt;h2 id="安裝-hugo">安裝 Hugo&lt;/h2>
+&lt;p>這是 Hugo 的&lt;a href="https://gohugo.io/">官網&lt;/a>，進去後可以看到一些簡單的介紹和安裝方法。&lt;/p>
+&lt;p>我蠻推薦在 vscode 的 &lt;code>code in container&lt;/code> 的方式用 Hugo，因為我自己也是這樣用，這樣就不用擔心會弄髒環境，但就讓有興趣的人自己研究吧，這裡我介紹一般電腦的安裝方式。&lt;/p>
+&lt;h3 id="windows">Windows&lt;/h3>
+&lt;p>Windows 我建議是用 Chocolatey 來安裝是最方便的：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-ps1" data-lang="ps1">&lt;span class="n">choco&lt;/span> &lt;span class="n">install&lt;/span> &lt;span class="n">hugo&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>但是如果不想要用 Chocolatey 安裝，可以去官方的 &lt;a href="https://github.com/gohugoio/hugo/releases">Github Release&lt;/a> 下載最新的 Windows 版本，下載完後記得加入 PATH。&lt;/p>
+&lt;h3 id="mac">Mac&lt;/h3>
+&lt;p>macOS 安裝最簡單，用 Homebrew 就可以快速的安裝。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">brew install hugo
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="linux">Linux&lt;/h3>
+&lt;p>Linux 我一律建議從官方的 &lt;a href="https://github.com/gohugoio/hugo/releases">Github Release&lt;/a> 下載最新的版本，並自己加到 PATH。&lt;/p>
+&lt;p>雖然 apt 等版本管理器好像有提供，但官方的文件上都說版本幾乎都不是最新版，所以也不建議。用下載的方式還是最方便的，或是用 Docker 也是好辦法。&lt;/p>
+&lt;h2 id="開始使用-hugo">開始使用 Hugo&lt;/h2>
+&lt;p>先創建一個新的 Hugo 專案，下面的 &lt;code>MyBlog&lt;/code> 可以換成自己想要的專案名稱：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">hugo new site MyBlog
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="新增主題">新增主題&lt;/h3>
+&lt;p>創建好專案後，就可以來新增主題，目前在 Hugo 上提供非常多的主題，我們可以到官方的這個&lt;a href="https://themes.gohugo.io/">網站&lt;/a>找找看，但目前些不要增加難度，用最官房提供的簡單的 ananke 主題就好，反正主題是隨時都可以換的。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">cd&lt;/span> MyBlog
+git init
+git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
+&lt;span class="nb">echo&lt;/span> &lt;span class="nv">theme&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="se">\&amp;#34;&lt;/span>ananke&lt;span class="se">\&amp;#34;&lt;/span> &amp;gt;&amp;gt; config.toml
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以看到，官方是建議使用 &lt;code>git submodule&lt;/code> 的方式新增主題，這樣之後在更新主題的時候也比較方便。&lt;/p>
+&lt;p>最後一行的 &lt;code>echo&lt;/code> 指令會在專案底下產生一個 &lt;code>config.toml&lt;/code> 的檔案，基本上之後所有有關 Hugo 網站的設定，都可以在這裡變更。這一行指令應該會幫你在檔案中產生如下的內容：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="nx">theme&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;ananke&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="新增文章">新增文章&lt;/h3>
+&lt;p>在 Hugo 中新增文章的指令就是如下，可以自己修改檔名。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">hugo new posts/my-first-post.md
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>產生完成後可以看到 Hugo 幫你產生了一些 Front Matter。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-md" data-lang="md">---
+title: &amp;#34;My First Post&amp;#34;
+date: 2019-03-26T08:47:11+01:00
+draft: true
+---
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>上面的 &lt;code>draft&lt;/code> 的指令是草稿的意思，如果沒有在上線前改成 &lt;code>false&lt;/code>，是不會在正式網站中渲染的。&lt;/p>
+&lt;p>現在可以自己產生的 Markdown 檔案中加一些內容，等等就可以看看效果怎麼樣。&lt;/p>
+&lt;h2 id="執行-hugo-server">執行 Hugo Server&lt;/h2>
+&lt;p>要啟動 Hugo Server 也非常簡單：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">hugo server -D
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>上面的 &lt;code>-D&lt;/code> 參數的意思是把 &lt;code>draft&lt;/code> 的草稿文件也渲染，如果想要看看上線的網頁會長怎樣，可以不要加上這個參數。&lt;/p>
+&lt;h2 id="產生靜態網頁">產生靜態網頁&lt;/h2>
+&lt;p>這個最簡單了，連猴子都會，&lt;code>-D&lt;/code> 的參數一樣是渲染草稿文件，可視需求加上。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">hugo
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>到這裡就介紹完成所有 Hugo 基本的使用方法了，之後我會介紹如何使用 Github Action，讓我們每次只需要 Push 專案，Github 就會幫我們重新建置並部署網站。&lt;/p>
+&lt;h2 id="reference">Reference&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://gohugo.io/getting-started/quick-start/">Hugo Quick Start&lt;/a>&lt;/li>
+&lt;/ul></description><category domain="https://tonypepe.com/categories/hugo/">Hugo</category><category domain="https://tonypepe.com/tags/hugo/">hugo</category><category domain="https://tonypepe.com/tags/blog/">blog</category><category domain="https://tonypepe.com/tags/mac/">mac</category><category domain="https://tonypepe.com/tags/linux/">linux</category><category domain="https://tonypepe.com/tags/windows/">windows</category></item><item><title>用 Teminal 連接到 Amazon Lightsail</title><link>https://tonypepe.com/posts/linux/amazon-ssh/</link><guid isPermaLink="true">https://tonypepe.com/posts/linux/amazon-ssh/</guid><pubDate>Sun, 06 Jun 2021 17:16:35 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>AWS 個體，要使用本地的 Terminal 連線都要使用他專門產生的 key 來確保安全性，但需要比較複雜的設定。&lt;/p>
 &lt;h2 id="下載-key">下載 Key&lt;/h2>
 &lt;p>先到這個頁面按下帳戶頁面&lt;/p>
 &lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210606172007.png" alt="">&lt;/p>
@@ -159,7 +277,7 @@ ssh ubuntu@123.45.6.7.89
 &lt;h2 id="reference">Reference&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/play-with-docker/play-with-docker">Play With Docker&lt;/a>&lt;/li>
-&lt;/ul></description><category domain="https://tonypepe.com/categories/docker/">Docker</category><category domain="https://tonypepe.com/tags/docker/">docker</category><category domain="https://tonypepe.com/tags/play-with-docker/">play-with-docker</category></item><item><title>Hello World</title><link>https://tonypepe.com/posts/other/hello-world/</link><guid isPermaLink="true">https://tonypepe.com/posts/other/hello-world/</guid><pubDate>Sat, 05 Jun 2021 11:15:18 +0000</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>This is my first post in hugo.&lt;/p>
+&lt;/ul></description><category domain="https://tonypepe.com/categories/docker/">Docker</category><category domain="https://tonypepe.com/tags/docker/">docker</category><category domain="https://tonypepe.com/tags/play-with-docker/">play-with-docker</category></item><item><title>Hello World</title><link>https://tonypepe.com/posts/ohters/hello-world/</link><guid isPermaLink="true">https://tonypepe.com/posts/ohters/hello-world/</guid><pubDate>Sat, 05 Jun 2021 11:15:18 +0000</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>This is my first post in hugo.&lt;/p>
 &lt;h2 id="kotlin">Kotlin&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">

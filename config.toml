@@ -1273,7 +1273,7 @@ uglyURLs = false
     enableHighlight = true
 
     # 是否開啟豎直滾動
-    enableOverflowY = true
+    enableOverflowY = false
     # 最大高度
     maxHeight = 20
     # 單位：em

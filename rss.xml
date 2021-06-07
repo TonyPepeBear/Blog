@@ -1,4 +1,202 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.83.1 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Mon, 07 Jun 2021 08:04:07 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>用 Hugo 來寫文章吧</title><link>https://tonypepe.com/posts/hugo/hugo/</link><guid isPermaLink="true">https://tonypepe.com/posts/hugo/hugo/</guid><pubDate>Mon, 07 Jun 2021 02:10:46 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>Hugo 是靜態網頁的產生器，類似 Hexo 和 Jekyll，Hugo 由 go 語言編寫，效率極高，我原本是用 Hexo 在產生文章，後來發現 Hugo 這個好東西，也觀望了一陣子&lt;del>其實是懶&lt;/del>，就決定換過來了，目前也用得非常順手。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.83.1 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Mon, 07 Jun 2021 14:52:29 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>用 Github Actions 來發布 Hugo 靜態網頁</title><link>https://tonypepe.com/posts/hugo/hugo-github-actions/</link><guid isPermaLink="true">https://tonypepe.com/posts/hugo/hugo-github-actions/</guid><pubDate>Mon, 07 Jun 2021 21:34:53 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>Github Actions 是 Github 官方提供的 CI/CD 服務，編寫簡單的腳本，就可以在每次 Push、 PR 時，自動的檢查程式碼可不可以通過 Test，或是直接產生 Release 來交付專案成品。另外一個重點是，這個服務完全免費，而在私有 Repo，則是有限制容器的執行時間。本文使用 Github Actions 來自動將 Hugo 專案自動產生靜態網頁，並且將網頁發布到 &lt;code>gh-pages&lt;/code> 的 git 分支。&lt;/p>
+&lt;p>Github Actions 也是容器化技術的一環，也是類似 Docker 容器的一種，如果對 Docker 還不熟悉，應該會對本文有點吃力，但也可以對完全不了解 Docker 的人，多一點對容器化技術的認識。&lt;/p>
+&lt;h2 id="編寫-workflows-檔案">編寫 Workflows 檔案&lt;/h2>
+&lt;p>Workflows 工作流檔案，就是在 CI/CD 中最重要的檔案，這個檔案寫下這個專案的工作流程，像是如何 Test、交付成品，都是寫在這的檔案裡，Github 會自動讀取所有工作留檔案和自動執行，所以只要寫好一次，基本上就一勞永逸，每次只需要 Push，Gihtub 就會按照腳本完成指定的工作。&lt;/p>
+&lt;p>Github Actions 的 Worksflows 檔案都是放在專案跟目錄的 &lt;code>/.github/workflows&lt;/code> 這個資料夾中，Github 會讀取這個資料夾中的 &lt;code>*.yml&lt;/code> 檔案，並且自動執行他們。我們現在在這個目錄下新增一個叫做 &lt;code>hugo-public.yml&lt;/code> 的檔案，檔名可以自訂沒關係，Github 不會關心檔名長怎樣，如果有多個檔案也每個都會分別執行。&lt;/p>
+&lt;p>我們在現在 &lt;code>/.github/workflows/hugo-public.yml&lt;/code> 的檔案中新增如下的腳本：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">github pages&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">push&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">branches&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">master &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Set a branch to deploy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">pull_request&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">jobs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">deploy&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">runs-on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu-20.04&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">actions/checkout@v2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">submodules&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Fetch Hugo themes (true OR recursive)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">fetch-depth&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Fetch all history for .GitInfo and .Lastmod&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Setup Hugo&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">peaceiris/actions-hugo@v2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">hugo-version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;latest&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">extended&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Build&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">run&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hugo --minify&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deploy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">peaceiris/actions-gh-pages@v3&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">if&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">github.ref == &amp;#39;refs/heads/master&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">github_token&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${{ secrets.ACCESS_TOKEN }}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">publish_dir&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">./public&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>下面我們分段來解釋上面腳本每行的意思。&lt;/p>
+&lt;h2 id="name">Name&lt;/h2>
+&lt;p>基本上就是這個腳本的名稱，可以隨意自訂不會影響結果。&lt;/p>
+&lt;h2 id="on">On&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">push&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">branches&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">master &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Set a branch to deploy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">pull_request&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>on&lt;/code> 區段定義了這個腳本什麼時候會被執行，我們現在這個範例中，定義了這個腳本會在 &lt;code>master&lt;/code> 這個分支被 push 的時候自動執行。Github 現在預設的分支名稱是 &lt;code>main&lt;/code>，如果是 &lt;code>main&lt;/code> 的人千萬要記得改，以免這個腳本永遠不會執行。&lt;/p>
+&lt;h2 id="jobs">Jobs&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">jobs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">deploy&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 以下省略&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>jobs 是整個檔案中最核心的部分，可以分成許多不同的 Job，目前我們只有一個叫做 &lt;code>deploy&lt;/code> 的 Job，這個名稱也是可以自訂的，這裡只是取叫 &lt;code>deploy&lt;/code> 看不順眼可以自己換。如果還需要有其他工作，可以自己視情況增加。&lt;/p>
+&lt;h3 id="job">Job&lt;/h3>
+&lt;p>終於來到最核心的部分，deploy 任務中的第一行，就定義了這個任務要 Run 在哪個容器內，或是稱作哪個系統內。這邊是用 &lt;code>ubuntu&lt;/code> 的 20.04，建議不要亂改，因為其他的 Linux 不一定可以完任務。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">deploy&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">runs-on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu-20.04&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">## 以下省略&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="steps">Steps&lt;/h3>
+&lt;p>接下來就是分步驟執行命令，&lt;code>uses&lt;/code> 是利用 Github 上別人已經寫好的 Actions 腳本來執行命令，像是第一個 &lt;code>uses: actions/checkout@v2&lt;/code> 就是李用 Github 上別人已經寫好的 &lt;code>git checkout&lt;/code> 命令來把專案 checkout 到容器中。&lt;/p>
+&lt;p>第二個部分也是使用別人已經寫好的腳本，快速的安裝 Hugo 到容器內，用別人寫好的東西來完成工作，避免不必要的重複造輪子。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">actions/checkout@v2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">submodules&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Fetch Hugo themes (true OR recursive)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">fetch-depth&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Fetch all history for .GitInfo and .Lastmod&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Setup Hugo&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">peaceiris/actions-hugo@v2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">hugo-version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;latest&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">extended&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Build&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">run&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hugo --minify&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deploy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">peaceiris/actions-gh-pages@v3&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">if&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">github.ref == &amp;#39;refs/heads/master&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">github_token&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${{ secrets.ACCESS_TOKEN }}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">publish_dir&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">./public&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>看到這裡也可以發現任務也是分很多步驟，第三部分的 Build 就是像是我們在本機目錄的產生方法一樣，直接輸入 &lt;code>hugo&lt;/code> 命令產生靜態網頁。&lt;/p>
+&lt;p>第四部分的 Deploy 就會比較複雜，這邊也是利用別人寫好用來發布 Github Pages 的任務，他會需要一個 Github Token，這個 Token 是要用來對 Repository 有 Push 的權限，雖然可以直接寫在腳本裡，但是就所有人都看得到你的 Token，那就會產生資安問題。所以 Github 提供 Secrets 的模式，可以把不方便直接寫在專案裡的機敏資料，放在 Github 上。&lt;/p>
+&lt;p>所以我們現在會有兩件事要做：&lt;/p>
+&lt;ol>
+&lt;li>產生 Token&lt;/li>
+&lt;li>把 Token 放到專案的 Secrets 中&lt;/li>
+&lt;/ol>
+&lt;p>我們先來產生 Token，先到個人的設定頁面找到 Developer settings：&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607222716.png" alt="">&lt;/p>
+&lt;p>再到 Token 的頁面產生新的 Token：&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607222844.png" alt="">&lt;/p>
+&lt;p>名稱可以自己隨意訂，Repo 的權限就全部打開，除了 Repo 以外的權限則都不需要。都確定後直接拉到最下面產生 Token：&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607223119.png" alt="">&lt;/p>
+&lt;p>會得到一組新的 Token，請注意不要像我一樣 Show 出來給別人看，請妥善保存，而且 Github 也只會顯示這一次，以後想要看都看不到，只能產生新的 Token。&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607223221.png" alt="">&lt;/p>
+&lt;p>複製下 Token 後，我們到專案層級的設定，注意是&lt;strong>專案&lt;/strong>的設定，不是個人設定：&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607223843.png" alt="">&lt;/p>
+&lt;p>找到 Secrets 並新增 Secrets：&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607224004.png" alt="">&lt;/p>
+&lt;p>名字取好後，填入剛剛拿到的 Token，注意名稱要和剛剛在腳本中寫的一樣：&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607224102.png" alt="">&lt;/p>
+&lt;p>都填完後就大功告成，基本上只要 Push 到 Github 上，應該就會自動觸發上面寫的工作，以後只要文章有新的變動，Push 上來就會自動更新網頁網頁到專案的 &lt;code>gh-pages&lt;/code> 分之上。想要進一步看到 Pages 的設定，可以到專案下的 Pages 的設定下看看，也可以在這裡自訂 Domian。&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607224634.png" alt="">&lt;/p></description><category domain="https://tonypepe.com/categories/hugo/">Hugo</category><category domain="https://tonypepe.com/tags/hugo/">hugo</category><category domain="https://tonypepe.com/tags/github/">github</category><category domain="https://tonypepe.com/tags/github-actions/">github-actions</category><category domain="https://tonypepe.com/tags/web/">web</category></item><item><title>用 Hugo 來寫文章吧</title><link>https://tonypepe.com/posts/hugo/hugo/</link><guid isPermaLink="true">https://tonypepe.com/posts/hugo/hugo/</guid><pubDate>Mon, 07 Jun 2021 02:10:46 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>Hugo 是靜態網頁的產生器，類似 Hexo 和 Jekyll，Hugo 由 go 語言編寫，效率極高，我原本是用 Hexo 在產生文章，後來發現 Hugo 這個好東西，也觀望了一陣子&lt;del>其實是懶&lt;/del>，就決定換過來了，目前也用得非常順手。&lt;/p>
 &lt;h2 id="安裝-hugo">安裝 Hugo&lt;/h2>
 &lt;p>這是 Hugo 的&lt;a href="https://gohugo.io/">官網&lt;/a>，進去後可以看到一些簡單的介紹和安裝方法。&lt;/p>
 &lt;p>我蠻推薦在 vscode 的 &lt;code>code in container&lt;/code> 的方式用 Hugo，因為我自己也是這樣用，這樣就不用擔心會弄髒環境，但就讓有興趣的人自己研究吧，這裡我介紹一般電腦的安裝方式。&lt;/p>

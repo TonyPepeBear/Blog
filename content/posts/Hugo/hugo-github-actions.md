@@ -1,6 +1,6 @@
 ---
 title: "用 Github Actions 來發布 Hugo 靜態網頁"
-date: 2021-06-07T21:34:53+08:00
+date: 2021-06-07T22:00:53+08:00
 draft: false
 tags: 
     - hugo

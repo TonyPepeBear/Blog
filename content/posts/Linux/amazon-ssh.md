@@ -1,7 +1,7 @@
 ---
 title: "用 Teminal 連接到 Amazon Lightsail"
 date: 2021-06-06T17:16:35+08:00
-draft: false
+draft: true
 tags:
     - linux
     - ssh

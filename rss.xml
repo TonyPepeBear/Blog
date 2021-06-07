@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.83.1 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Sun, 06 Jun 2021 19:17:06 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>用 Hugo 來寫文章吧</title><link>https://tonypepe.com/posts/hugo/hugo/</link><guid isPermaLink="true">https://tonypepe.com/posts/hugo/hugo/</guid><pubDate>Mon, 07 Jun 2021 02:10:46 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>Hugo 是靜態網頁的產生器，類似 Hexo 和 Jekyll，Hugo 由 go 語言編寫，效率極高，我原本是用 Hexo 在產生文章，後來發現 Hugo 這個好東西，也觀望了一陣子&lt;del>其實是懶&lt;/del>，就決定換過來了，目前也用得非常順手。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.83.1 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Mon, 07 Jun 2021 08:04:07 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>用 Hugo 來寫文章吧</title><link>https://tonypepe.com/posts/hugo/hugo/</link><guid isPermaLink="true">https://tonypepe.com/posts/hugo/hugo/</guid><pubDate>Mon, 07 Jun 2021 02:10:46 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>Hugo 是靜態網頁的產生器，類似 Hexo 和 Jekyll，Hugo 由 go 語言編寫，效率極高，我原本是用 Hexo 在產生文章，後來發現 Hugo 這個好東西，也觀望了一陣子&lt;del>其實是懶&lt;/del>，就決定換過來了，目前也用得非常順手。&lt;/p>
 &lt;h2 id="安裝-hugo">安裝 Hugo&lt;/h2>
 &lt;p>這是 Hugo 的&lt;a href="https://gohugo.io/">官網&lt;/a>，進去後可以看到一些簡單的介紹和安裝方法。&lt;/p>
 &lt;p>我蠻推薦在 vscode 的 &lt;code>code in container&lt;/code> 的方式用 Hugo，因為我自己也是這樣用，這樣就不用擔心會弄髒環境，但就讓有興趣的人自己研究吧，這裡我介紹一般電腦的安裝方式。&lt;/p>
@@ -116,44 +116,7 @@ draft: true
 &lt;h2 id="reference">Reference&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://gohugo.io/getting-started/quick-start/">Hugo Quick Start&lt;/a>&lt;/li>
-&lt;/ul></description><category domain="https://tonypepe.com/categories/hugo/">Hugo</category><category domain="https://tonypepe.com/tags/hugo/">hugo</category><category domain="https://tonypepe.com/tags/blog/">blog</category><category domain="https://tonypepe.com/tags/mac/">mac</category><category domain="https://tonypepe.com/tags/linux/">linux</category><category domain="https://tonypepe.com/tags/windows/">windows</category></item><item><title>用 Teminal 連接到 Amazon Lightsail</title><link>https://tonypepe.com/posts/linux/amazon-ssh/</link><guid isPermaLink="true">https://tonypepe.com/posts/linux/amazon-ssh/</guid><pubDate>Sun, 06 Jun 2021 17:16:35 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>AWS 個體，要使用本地的 Terminal 連線都要使用他專門產生的 key 來確保安全性，但需要比較複雜的設定。&lt;/p>
-&lt;h2 id="下載-key">下載 Key&lt;/h2>
-&lt;p>先到這個頁面按下帳戶頁面&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210606172007.png" alt="">&lt;/p>
-&lt;p>再到這個頁面創建或下載新的 key&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210606172046.png" alt="">&lt;/p>
-&lt;p>下載的 key 應該會是長 &lt;code>.pem&lt;/code> 的副檔名，我們下面假設他叫 &lt;code>aws.pem&lt;/code>。&lt;/p>
-&lt;h1 id="用-key-連接到-aws-個體">用 Key 連接到 AWS 個體&lt;/h1>
-&lt;p>ssh 為了避免 key 會被其他使用者看到，如果 key 不是私有權限會不讓你連線，所以我們先 &lt;code>chmod&lt;/code>：&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">chmod &lt;span class="m">600&lt;/span> aws.pem
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>改完權限之後應該就可以直接用 &lt;code>ssh -i&lt;/code> 連上個體：&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh -i aws.pem ubuntu@123.45.6.7.89
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>但是每次都要這樣連線也是蠻麻煩的，我們可以把她 add 到我們的 &lt;code>.ssh&lt;/code> 裡面，新增完後就可以直接連線，也不用輸入密碼。&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh-add aws.pem
-ssh ubuntu@123.45.6.7.89
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div></description><category domain="https://tonypepe.com/categories/linux/">Linux</category><category domain="https://tonypepe.com/tags/linux/">linux</category><category domain="https://tonypepe.com/tags/ssh/">ssh</category></item><item><title>Ubuntu 開機黑屏</title><link>https://tonypepe.com/posts/ubuntu/ubuntu-black-screen/</link><guid isPermaLink="true">https://tonypepe.com/posts/ubuntu/ubuntu-black-screen/</guid><pubDate>Sun, 06 Jun 2021 01:17:17 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>我目前的工作環境都是用 Ubuntu &lt;del>(被 Windows 氣到)&lt;/del>，前幾天我重新安裝 Ubuntu 的時候，一直安裝失敗，重新安裝四、五次後都沒有畫面，最後才發現是顯卡驅動問題。&lt;/p>
+&lt;/ul></description><category domain="https://tonypepe.com/categories/hugo/">Hugo</category><category domain="https://tonypepe.com/tags/hugo/">hugo</category><category domain="https://tonypepe.com/tags/blog/">blog</category><category domain="https://tonypepe.com/tags/mac/">mac</category><category domain="https://tonypepe.com/tags/linux/">linux</category><category domain="https://tonypepe.com/tags/windows/">windows</category></item><item><title>Ubuntu 開機黑屏</title><link>https://tonypepe.com/posts/ubuntu/ubuntu-black-screen/</link><guid isPermaLink="true">https://tonypepe.com/posts/ubuntu/ubuntu-black-screen/</guid><pubDate>Sun, 06 Jun 2021 01:17:17 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>我目前的工作環境都是用 Ubuntu &lt;del>(被 Windows 氣到)&lt;/del>，前幾天我重新安裝 Ubuntu 的時候，一直安裝失敗，重新安裝四、五次後都沒有畫面，最後才發現是顯卡驅動問題。&lt;/p>
 &lt;h2 id="解決問題">解決問題&lt;/h2>
 &lt;p>在開機引導時會看到這個畫面，立馬按下鍵盤上的 &lt;code>c&lt;/code> 鍵。&lt;/p>
 &lt;p>&lt;img src="https://i.stack.imgur.com/8RYuZ.png" alt="">&lt;/p>

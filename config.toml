@@ -8,6 +8,8 @@ hasCJKLanguage = true
 # 版權資訊（支援 Markdown）
 copyright = "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)"
 
+googleAnalytics= "G-V6T1WQYZ5Q"
+
 # 主題選擇
 theme = "meme"
 

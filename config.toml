@@ -101,7 +101,7 @@ uglyURLs = false
     # 頭像
     avatar = "/icons/apple-touch-icon.png"
     # 網站（預設值：baseURL）
-    website = "https://tonypepe.com/"
+    website = "https://tonypepe.com/about"
     # 推特
     twitter = ""
 
@@ -1248,7 +1248,7 @@ uglyURLs = false
     #      https://busuanzi.ibruce.info/
 
     # 社交連結
-    enableSocials = false
+    enableSocials = true
     # 說明：見 data/Socials.toml
 
 

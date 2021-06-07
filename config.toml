@@ -8,7 +8,6 @@ hasCJKLanguage = true
 # 版權資訊（支援 Markdown）
 copyright = "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)"
 
-googleAnalytics= "G-V6T1WQYZ5Q"
 
 # 主題選擇
 theme = "meme"
@@ -657,13 +656,13 @@ uglyURLs = false
 
     # 說明：僅在生產環境（production）下渲染
 
-    enableGoogleAnalytics = false
+    enableGoogleAnalytics = true
 
     # 跟蹤程式碼的型別
     trackingCodeType = "gtag"
     # 說明：gtag 或 analytics
 
-    trackingID = ""
+    trackingID = "G-V6T1WQYZ5Q"
 
 
     ######################################

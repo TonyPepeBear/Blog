@@ -1,4 +1,305 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.83.1 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Tue, 15 Jun 2021 18:38:12 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>用 VSCode 寫 C/C++</title><link>https://tonypepe.com/posts/vscode/vscode-clang/</link><guid isPermaLink="true">https://tonypepe.com/posts/vscode/vscode-clang/</guid><pubDate>Tue, 08 Jun 2021 00:55:19 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>其實在 VSCode 寫 C 根本不是一件難事，VSCode 本來就是一個優秀的文字編輯器，所以要要寫 C 完全不是問題，但問題是出在執行或 Debug 寫好的 Code 實在是很麻煩，要先經過不少設定。而且在官方的文件中，其實是教你怎麼建置專案，執行 Debug，如果只是寫一點簡單的小程式根本用不到那麼複雜的設定，所以本文是我目前發現比較容易在 VSCode 中執行 C 和 C++ 的方法。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.83.1 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Tue, 15 Jun 2021 19:05:32 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>發布 Markdown 至 Medium</title><link>https://tonypepe.com/posts/kotlin/medium-api/</link><guid isPermaLink="true">https://tonypepe.com/posts/kotlin/medium-api/</guid><pubDate>Wed, 16 Jun 2021 02:35:56 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>我認為用 Markdown 用來寫技術文章還是最順手的，但是 Medium 的編輯器卻不支援 Markdown。前幾天用 import 的方式也失敗，另尋他處後發現 Medium 支援用 API 發布文章，更還支援用 Markdown 和 Html 發布。雖然不懂官方為何不直接讓用戶用 Markdown 發布，而是要用 API，但是竟然找到了一絲希望，就來試試看用 API 的方式發布文章。&lt;/p>
+&lt;p>本篇使用 Kotlin 和 OKHttp，來嘗試撰寫一個應用程式，來協助發布 Markdwon 至 Medium，專案原始碼在 &lt;a href="https://github.com/TonyPepeBear/MediumMarkdownUploader">Github&lt;/a> 上。&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/2021/02/10-21-47-48-%E6%88%AA%E5%9C%96%202021-02-10%20%E4%B8%8B%E5%8D%889.47.40.png" alt="截圖 2021-02-10 下午9.47.40.png">&lt;/p>
+&lt;h2 id="申請-token">申請 token&lt;/h2>
+&lt;p>Medium API 的 &lt;a href="https://github.com/Medium/medium-api-docs">官方文件&lt;/a> 在這，可以用 &lt;code>HTTP POST&lt;/code> 的方式來發布文章。要使用 API 第一件事就是要有 &lt;code>token&lt;/code>，要申請 &lt;code>token&lt;/code> 不用錢，官方目前好像也沒有使用限制，到 &lt;a href="https://medium.com/me/settings">用戶設定&lt;/a> 的頁面，找到 &lt;code>Integration tokens&lt;/code> 的地方，申請一個 token，說明隨便輸入就好。&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/2021/02/10-01-42-07-%E6%88%AA%E5%9C%96%202021-02-10%20%E4%B8%8A%E5%8D%881.42.04.png" alt="">&lt;/p>
+&lt;h2 id="userid">UserID&lt;/h2>
+&lt;p>根據官方文檔，想要發布文章，需要 UserID，我找了好久才發現 UserID 不是 Name 也不是 UserName，也是要先用 API 的方式取得。&lt;/p>
+&lt;p>用 Http GET 的方式可以取得 token 主人資料，使用方式如下：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-http" data-lang="http">&lt;span class="err">GET https://api.medium.com/v1/me
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-http" data-lang="http">&lt;span class="nf">GET&lt;/span> &lt;span class="nn">/v1/me&lt;/span> &lt;span class="kr">HTTP&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="m">1.1&lt;/span>
+&lt;span class="n">Host&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="l">api.medium.com&lt;/span>
+&lt;span class="n">Authorization&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="l">Bearer 181d415f34379af07b2c11d144dfbe35d&lt;/span>
+&lt;span class="n">Content-Type&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="l">application/json&lt;/span>
+&lt;span class="n">Accept&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="l">application/json&lt;/span>
+&lt;span class="n">Accept-Charset&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="l">utf-8&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>token&lt;/code> 是放在 Post 的 header，的 &lt;code>Authorization:Bearer&lt;/code> 後方，下方是用 Kotlin 和 OKHttp 實作的方法：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">request&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">Request&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Builder&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;https://api.medium.com/v1/me&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="k">get&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">addHeader&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Authorization&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Bearer &lt;/span>&lt;span class="si">$token&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">build&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">response&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">client&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">newCall&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">execute&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>範例的 Response 如下，可以拿到用 UserID、UserName 等資料：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;data&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;id&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;5303d74c64f66366f00cb9b2a94f3251bf5&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;username&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;majelbstoat&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;name&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;Jamie Talbot&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;url&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;https://medium.com/@majelbstoat&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;imageUrl&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;https://images.medium.com/0*fkfQiTzT7TlUGGyI.png&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>根據上方的 Json，可以產生 &lt;code>Kotlin Data Class&lt;/code> 來放取回的資料：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">data&lt;/span> &lt;span class="k">class&lt;/span> &lt;span class="nc">MediumApiMe&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">`data`&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">MediumMeData&lt;/span>
+&lt;span class="p">)&lt;/span>
+&lt;span class="k">data&lt;/span> &lt;span class="k">class&lt;/span> &lt;span class="nc">MediumMeData&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">id&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">imageUrl&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">name&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">url&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">username&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>
+&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>取回的 Response 用 &lt;code>gson&lt;/code> 轉換 json 到 Data Class，最後寫成一個完整的方法如下：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">getUserData&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">token&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">):&lt;/span> &lt;span class="n">MediumApiMe&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">request&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">Request&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Builder&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;https://api.medium.com/v1/me&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="k">get&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">addHeader&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Authorization&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Bearer &lt;/span>&lt;span class="si">$token&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">build&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">response&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">client&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">newCall&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">execute&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">code&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="m">200&lt;/span> &lt;span class="o">||&lt;/span> &lt;span class="n">response&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">body&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="k">null&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">throw&lt;/span> &lt;span class="n">RuntimeException&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;span class="s2">&amp;#34;Can not get User info. Maybe token is wrong.&amp;#34;&lt;/span> &lt;span class="p">+&lt;/span>
+&lt;span class="p">{&lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">body&lt;/span>&lt;span class="o">?.&lt;/span>&lt;span class="n">byteStream&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">?.&lt;/span>&lt;span class="n">reader&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">?.&lt;/span>&lt;span class="n">readLines&lt;/span>&lt;span class="p">()}&lt;/span>
+&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">text&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">response&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">body&lt;/span>&lt;span class="o">!!&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">byteStream&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">reader&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">readText&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="n">gson&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">fromJson&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">text&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">MediumApiMe&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="k">class&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">java&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>上方的程式碼有判斷 Response Code 是否為 200，若不是 200 代表取得資料沒有成功，就拋出 Exception。&lt;/p>
+&lt;h2 id="post-文章">Post 文章&lt;/h2>
+&lt;p>取得 UserID 後就可以用 Http Post 的方式向 Medium 發布文章。下方的 authorId 就是剛剛用 Http Get 的方式取得的 UserID。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-http" data-lang="http">&lt;span class="err">POST https://api.medium.com/v1/users/{{authorId}}/posts
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>下面是 Post 的範例，&lt;code>token&lt;/code> 一樣是放在 &lt;code>header&lt;/code> 裡。官方的範例是用 html 來發布文章，我們只要將 &lt;code>contentFormat&lt;/code> 改成 markdown 就可以達成目的。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-http" data-lang="http">&lt;span class="nf">POST&lt;/span> &lt;span class="nn">/v1/users/5303d74c64f66366f00cb9b2a94f3251bf5/posts&lt;/span> &lt;span class="kr">HTTP&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="m">1.1&lt;/span>
+&lt;span class="n">Host&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="l">api.medium.com&lt;/span>
+&lt;span class="n">Authorization&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="l">Bearer 181d415f34379af07b2c11d144dfbe35d&lt;/span>
+&lt;span class="n">Content-Type&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="l">application/json&lt;/span>
+&lt;span class="n">Accept&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="l">application/json&lt;/span>
+&lt;span class="n">Accept-Charset&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="l">utf-8&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;title&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;Liverpool FC&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;contentFormat&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;html&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;content&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;&amp;lt;h1&amp;gt;Liverpool FC&amp;lt;/h1&amp;gt;&amp;lt;p&amp;gt;You’ll never walk alone.&amp;lt;/p&amp;gt;&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;canonicalUrl&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;http://jamietalbot.com/posts/liverpool-fc&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;tags&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;football&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;sport&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Liverpool&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span>
+&lt;span class="nt">&amp;#34;publishStatus&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;public&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>根據上面 Post 的 Json 範例，我們可以產生出如下的 Kotlin Data Class，我順便寫了一個快速轉成 Json 的方法：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">data&lt;/span> &lt;span class="k">class&lt;/span> &lt;span class="nc">MediumApiPost&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">title&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">content&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">contentFormat&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">tags&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">List&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">listOf&lt;/span>&lt;span class="p">(),&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">publishStatus&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;draft&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="c1">//預設是草稿
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="k">val&lt;/span> &lt;span class="py">canonicalUrl&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">toJson&lt;/span>&lt;span class="p">():&lt;/span> &lt;span class="n">String&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="n">gson&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">toJson&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">this&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>產生出 Data Class 就可以嘗試 Post 看看，是否會發布文章，直接利用剛剛寫好的 &lt;code>getUserData&lt;/code> 拿到 UserID，之後在 Post：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">userID&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">getUserData&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">token&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="k">data&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">id&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">medimuApiPost&lt;/span> &lt;span class="p">=&lt;/span>
+&lt;span class="n">MdieumApiPost&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Title&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;# Title&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">Hi&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;markdown&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">request&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">Request&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Builder&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;https://api.medium.com/v1/users/&lt;/span>&lt;span class="si">$userID&lt;/span>&lt;span class="s2">/posts&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">post&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">mediumApiPost&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">toJson&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="n">toRequestBody&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">contentType&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;application/json&amp;#34;&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">toMediaType&lt;/span>&lt;span class="p">()))&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">addHeader&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Authorization&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Bearer &lt;/span>&lt;span class="si">$token&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">build&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">response&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">client&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">newCall&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">execute&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如果發布成功，可以拿到 Response Code 201，其他的都代表發布失敗。&lt;/p>
+&lt;p>寫成完整的發布方法如下：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">newPost&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">token&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">mediumApiPost&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">MediumApiPost&lt;/span>&lt;span class="p">):&lt;/span> &lt;span class="n">String&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">userID&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">getUserData&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">token&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="k">data&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">id&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">request&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">Request&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Builder&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;https://api.medium.com/v1/users/&lt;/span>&lt;span class="si">$userID&lt;/span>&lt;span class="s2">/posts&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">post&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">mediumApiPost&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">toJson&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="n">toRequestBody&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">contentType&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;application/json&amp;#34;&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">toMediaType&lt;/span>&lt;span class="p">()))&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">addHeader&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Authorization&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Bearer &lt;/span>&lt;span class="si">$token&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="n">build&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">response&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">client&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">newCall&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">execute&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">code&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="m">201&lt;/span> &lt;span class="o">||&lt;/span> &lt;span class="n">response&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">body&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="k">null&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">throw&lt;/span> &lt;span class="n">RuntimeException&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Something Wrong. &lt;/span>&lt;span class="si">${response.body?.byteStream()?.reader()?.readText()}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">val&lt;/span> &lt;span class="py">text&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">response&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">body&lt;/span>&lt;span class="o">!!&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">byteStream&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="n">reader&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="n">readText&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">text&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">var&lt;/span> &lt;span class="py">json&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">gson&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">fromJson&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">text&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">MediumNewPostResponse&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="k">class&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">java&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="n">json&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="k">data&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">url&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>上面的方法會直接回傳發布成功的 URL，失敗則會直接拋出 Exception。&lt;/p>
+&lt;h2 id="gui">GUI&lt;/h2>
+&lt;p>寫好方法後，最後再用 &lt;code>TornadoFX&lt;/code> 寫 GUI，這邊就不講述 GUI 的部分，有興趣可以自己到 GitHub 上看專案的原始碼。&lt;/p>
+&lt;h2 id="程式碼區塊">程式碼區塊&lt;/h2>
+&lt;p>因為 Medium 目前並不支援程式碼高亮，傳上去的程式碼區塊都會變成黑底的，目前我有想到的解法是在 Post 上去之前，就先將程式碼區塊都換成 GitHub Gist，但這就需要更複雜的方式解決問題了，有興趣的人可以自己試試看。&lt;/p>
+&lt;h2 id="reference">Reference&lt;/h2>
+&lt;p>&lt;a href="https://github.com/Medium/medium-api-docs">Medium’s API Documentation&lt;/a>&lt;/p></description><category domain="https://tonypepe.com/categories/kotlin/">Kotlin</category><category domain="https://tonypepe.com/tags/medium/">medium</category><category domain="https://tonypepe.com/tags/markdown/">markdown</category><category domain="https://tonypepe.com/tags/kotlin/">kotlin</category><category domain="https://tonypepe.com/tags/tornadofx/">tornadofx</category></item><item><title>用 VSCode 寫 C/C++</title><link>https://tonypepe.com/posts/vscode/vscode-clang/</link><guid isPermaLink="true">https://tonypepe.com/posts/vscode/vscode-clang/</guid><pubDate>Tue, 08 Jun 2021 00:55:19 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>其實在 VSCode 寫 C 根本不是一件難事，VSCode 本來就是一個優秀的文字編輯器，所以要要寫 C 完全不是問題，但問題是出在執行或 Debug 寫好的 Code 實在是很麻煩，要先經過不少設定。而且在官方的文件中，其實是教你怎麼建置專案，執行 Debug，如果只是寫一點簡單的小程式根本用不到那麼複雜的設定，所以本文是我目前發現比較容易在 VSCode 中執行 C 和 C++ 的方法。&lt;/p>
 &lt;h2 id="gcc-g">gcc g++&lt;/h2>
 &lt;p>在了解如何設定 vscode 前，我們先來了解一下基本的 gcc、g++ 指令，這是一個用來編譯 C 程式碼最快的方法，gcc 就是 C 的編譯器，g++ 則是 C++ 的。這裡不會解說如何安裝，在 Windows 下可以使用 MinGW，macOS 則是只要在 Terminal 下 gcc 指令，就會自動問你要不要安裝。&lt;/p>
 &lt;p>下面的範例會編譯 &lt;code>main.cpp&lt;/code> 的 C++ 檔案：&lt;/p>

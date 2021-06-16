@@ -13,6 +13,8 @@ categories:
 
 我認為用 Markdown 用來寫技術文章還是最順手的，但是 Medium 的編輯器卻不支援 Markdown。前幾天用 import 的方式也失敗，另尋他處後發現 Medium 支援用 API 發布文章，更還支援用 Markdown 和 Html 發布。雖然不懂官方為何不直接讓用戶用 Markdown 發布，而是要用 API，但是竟然找到了一絲希望，就來試試看用 API 的方式發布文章。
 
+<!--more-->
+
 本篇使用 Kotlin 和 OKHttp，來嘗試撰寫一個應用程式，來協助發布 Markdwon 至 Medium，專案原始碼在 [Github](https://github.com/TonyPepeBear/MediumMarkdownUploader) 上。
 
 ![截圖 2021-02-10 下午9.47.40.png](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/2021/02/10-21-47-48-%E6%88%AA%E5%9C%96%202021-02-10%20%E4%B8%8B%E5%8D%889.47.40.png)

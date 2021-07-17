@@ -1,4 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.84.0 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Sun, 20 Jun 2021 13:51:29 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>Frp</title><link>https://tonypepe.com/posts/linux/frp/</link><guid isPermaLink="true">https://tonypepe.com/posts/linux/frp/</guid><pubDate>Sun, 20 Jun 2021 21:48:33 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>frp 全名是 fast reverse proxy，可以將在 NAT 後方的服務快速的發布到公網 ip 上，可以支援 TCP 和 UDP 協議，我覺得唯一的缺點就是所有流量都會經過 Server 端，所以如果 Server 端的流量有限制就需要注意一下。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.85.0 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Sat, 17 Jul 2021 13:49:08 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>Beautiful Terminal</title><link>https://tonypepe.com/posts/others/beautiful-terminal/</link><guid isPermaLink="true">https://tonypepe.com/posts/others/beautiful-terminal/</guid><pubDate>Fri, 16 Jul 2021 23:43:07 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>打不贏別人，至少長得比他帥。最近終於把我的 Terminal 弄成自己喜歡的樣子，所以做一下簡單的紀錄，希望大家都可以把東西變成自己喜歡的樣子。&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210716235146.png" alt="img">&lt;/p>
+&lt;p>我們今天主要會用到下面的幾樣技術：&lt;/p>
+&lt;ol>
+&lt;li>&lt;a href="https://zsh.sourceforge.io/">zsh&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/romkatv/powerlevel10k">powerlevel10K&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://zimfw.sh/#install">zim&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.nerdfonts.com/">Nerd Fonts&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;p>看到這幾項技術其實可以自己先去研究一下，看看這些技術是不是自己需要的，以免亂裝一堆東西，搞的自己 Terminal 亂七八糟無法復原。另外，Windows 應該是無法安裝的，至少我自己是沒辦法，不過 WSL 倒是可以玩成這樣，畢竟就是 Linux 麻。&lt;/p>
+&lt;p>很多人會推薦在 mac 上安裝 iTerm，我自己是沒裝，我覺得 mac 內建的 Terminal 足夠好用，沒必要安裝其他 Terminal。&lt;/p>
+&lt;h2 id="font">Font&lt;/h2>
+&lt;p>好看的第一步就是有好看的字體，&lt;a href="https://www.nerdfonts.com/">Nerd Fonts&lt;/a> 這個專案把一些開發者常用的字體，加上一些在 Terminal 中會用到的一些 icon 和 symbol，常見的 &lt;code>Hack&lt;/code>、&lt;code>Jetbrains Mono&lt;/code> 都有在這個專案裡。到 Nerd Fonts 的官網可以下載到這些字體，注意不要到字體們原本的管網下載，要到 Nerd Fonts 下載包含特殊符號的字體。&lt;/p>
+&lt;p>&lt;img src="https://www.nerdfonts.com/assets/img/sankey-glyphs-combined-diagram.png" alt="img">&lt;/p>
+&lt;p>下載安裝好字體後，記得到自己的 Terminal 中變更字體，選擇有包含 Nerd 的字體，以免等等字體都無法顯示，這部分教學我懶得寫，所以附一張圖：&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210717112205.png" alt="img">&lt;/p>
+&lt;h2 id="zsh">zsh&lt;/h2>
+&lt;p>zsh 可以說是 bash 的進階版，提供客製化自己在 Terminal 中想要的主題和功能。要安裝 zsh 通常各個系統都不一樣，自己上網根據系統安裝即可。安裝完成後也要將預設 shell 改成 zsh。&lt;/p>
+&lt;p>ubuntu:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo apt install zsh
+chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="powerlevel10k">powerlevel10k&lt;/h2>
+&lt;p>powerlevel10k 是一個 zsh 主題，提供可高客製化的主題和客製化嚮導，可以簡單地就把 Terminal 變成自己喜歡的模樣，也是本文最重要的部分。powerlevel10k 提供許多安裝方法，可以透過 oh-my-zsh，也可以用腳本安裝，我是認為用腳本安裝就好，可以不用用到 oh-my-zsh，因我們之後會提到 zim 就提供許多可以替代 oh-my-zsh 的功能。&lt;/p>
+&lt;p>用腳本安裝 powerlevel10k：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git clone --depth&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span> https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+&lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;source ~/powerlevel10k/powerlevel10k.zsh-theme&amp;#39;&lt;/span> &amp;gt;&amp;gt;~/.zshrc
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>安裝方式可能會因版本變動而不一樣，建議還是到官方 Github 上看一下安裝方式。&lt;/p>
+&lt;p>安裝完成後第一次進到 Terminal 會遇到一個安裝嚮導，可以根據自己喜好設定主題樣式。&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210717214526.gif" alt="img ">&lt;/p>
+&lt;p>完成到這裡，Terminal 應該已經變得美美的，如果遇到亂碼，可能是字型沒有調整好。&lt;/p>
+&lt;p>powerlevel10k 會提供一個 &lt;code>p10k&lt;/code> 的命令，可以用於重新啟動嚮導：&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210717174430.png" alt="img">&lt;/p>
+&lt;h2 id="zim">Zim&lt;/h2>
+&lt;p>全名 Zsh IMproved FrameWork，主要是提供一些方便的 zsh plugin，像是自動補全、語法高亮等，如果是希望好看，不用好用，Zim 就可以不用安裝。&lt;/p>
+&lt;p>安裝 Zim 也很簡單，只要 Run 下面的腳本就可以：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh &lt;span class="p">|&lt;/span> zsh
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>到這就算是全部完成，如果有發現更多好用的 Terminal 工具，記得分享給我。&lt;/p>
+&lt;h2 id="reference">Reference&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://zsh.sourceforge.io/">zsh&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/romkatv/powerlevel10k">powerlevel10K&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://zimfw.sh/#install">zim&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.nerdfonts.com/">Nerd Fonts&lt;/a>&lt;/li>
+&lt;/ul></description><category domain="https://tonypepe.com/categories/terminal/">Terminal</category><category domain="https://tonypepe.com/tags/terminl/">terminl</category><category domain="https://tonypepe.com/tags/zsh/">zsh</category><category domain="https://tonypepe.com/tags/zim/">zim</category><category domain="https://tonypepe.com/tags/powerlevel/">powerlevel</category><category domain="https://tonypepe.com/tags/powerlevel10k/">powerlevel10k</category><category domain="https://tonypepe.com/tags/nerd-font/">nerd font</category></item><item><title>Frp</title><link>https://tonypepe.com/posts/linux/frp/</link><guid isPermaLink="true">https://tonypepe.com/posts/linux/frp/</guid><pubDate>Sun, 20 Jun 2021 21:48:33 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>frp 全名是 fast reverse proxy，可以將在 NAT 後方的服務快速的發布到公網 ip 上，可以支援 TCP 和 UDP 協議，我覺得唯一的缺點就是所有流量都會經過 Server 端，所以如果 Server 端的流量有限制就需要注意一下。&lt;/p>
 &lt;p>frp 會需要一台 Server，Server 需要公網 ip，如果沒有公網 ip，可以使用 aws 或 gcp 買一個簡單的 VPS。&lt;/p>
 &lt;h2 id="安裝">安裝&lt;/h2>
 &lt;p>網路上有許多一鍵安裝的到腳本，但我們不使用那些，有興趣的自己上網搜尋。&lt;/p>
@@ -929,7 +995,7 @@ draft: true
 &lt;h2 id="reference">Reference&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/play-with-docker/play-with-docker">Play With Docker&lt;/a>&lt;/li>
-&lt;/ul></description><category domain="https://tonypepe.com/categories/docker/">Docker</category><category domain="https://tonypepe.com/tags/docker/">docker</category><category domain="https://tonypepe.com/tags/play-with-docker/">play-with-docker</category></item><item><title>Hello World</title><link>https://tonypepe.com/posts/ohters/hello-world/</link><guid isPermaLink="true">https://tonypepe.com/posts/ohters/hello-world/</guid><pubDate>Sat, 05 Jun 2021 11:15:18 +0000</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>This is my first post in hugo.&lt;/p>
+&lt;/ul></description><category domain="https://tonypepe.com/categories/docker/">Docker</category><category domain="https://tonypepe.com/tags/docker/">docker</category><category domain="https://tonypepe.com/tags/play-with-docker/">play-with-docker</category></item><item><title>Hello World</title><link>https://tonypepe.com/posts/others/hello-world/</link><guid isPermaLink="true">https://tonypepe.com/posts/others/hello-world/</guid><pubDate>Sat, 05 Jun 2021 11:15:18 +0000</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>This is my first post in hugo.&lt;/p>
 &lt;h2 id="kotlin">Kotlin&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">

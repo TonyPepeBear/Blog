@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.85.0 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Sat, 17 Jul 2021 13:49:08 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>Beautiful Terminal</title><link>https://tonypepe.com/posts/others/beautiful-terminal/</link><guid isPermaLink="true">https://tonypepe.com/posts/others/beautiful-terminal/</guid><pubDate>Fri, 16 Jul 2021 23:43:07 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>打不贏別人，至少長得比他帥。最近終於把我的 Terminal 弄成自己喜歡的樣子，所以做一下簡單的紀錄，希望大家都可以把東西變成自己喜歡的樣子。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.86.0 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Wed, 21 Jul 2021 14:27:56 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>Beautiful Terminal</title><link>https://tonypepe.com/posts/others/beautiful-terminal/</link><guid isPermaLink="true">https://tonypepe.com/posts/others/beautiful-terminal/</guid><pubDate>Fri, 16 Jul 2021 23:43:07 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>打不贏別人，至少長得比他帥。最近終於把我的 Terminal 弄成自己喜歡的樣子，所以做一下簡單的紀錄，希望大家都可以把東西變成自己喜歡的樣子。&lt;/p>
 &lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210716235146.png" alt="img">&lt;/p>
 &lt;p>我們今天主要會用到下面的幾樣技術：&lt;/p>
 &lt;ol>
@@ -19,11 +19,11 @@
 &lt;p>ubuntu:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo apt install zsh
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo apt install zsh
 chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
@@ -32,11 +32,11 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;p>用腳本安裝 powerlevel10k：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git clone --depth&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span> https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">git clone --depth&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span> https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 &lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;source ~/powerlevel10k/powerlevel10k.zsh-theme&amp;#39;&lt;/span> &amp;gt;&amp;gt;~/.zshrc
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
@@ -51,10 +51,10 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;p>安裝 Zim 也很簡單，只要 Run 下面的腳本就可以：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh &lt;span class="p">|&lt;/span> zsh
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh &lt;span class="p">|&lt;/span> zsh
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>到這就算是全部完成，如果有發現更多好用的 Terminal 工具，記得分享給我。&lt;/p>
@@ -73,21 +73,21 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;p>在 Server 上打開設定文件 &lt;code>frps.ini&lt;/code> 可以看到預設就有如下的內容：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="k">[common]&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="k">[common]&lt;/span>
 &lt;span class="na">bind_port&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">7000&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>&lt;code>common&lt;/code> 內綁定了 7000 port，這個 port 是讓 client 端連接用的，基本現在不用改設定就可以直接用。執行 &lt;code>frps&lt;/code> 要用 &lt;code>-c&lt;/code> 參數給定設定檔案：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-shell" data-lang="shell">./frps -c ./frps.ini
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">./frps -c ./frps.ini
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>如果沒看到問題，基本上 Server 端就設定好了，其他功能晚點再介紹，我們先設定好 Client。&lt;/p>
@@ -96,7 +96,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;p>一樣先打開設定檔 &lt;code>frpc.ini&lt;/code>，也會有如下預設內容：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
@@ -107,7 +107,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/span>&lt;span class="lnt">9
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="k">[common]&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="k">[common]&lt;/span>
 &lt;span class="na">server_addr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">127.0.0.1&lt;/span>
 &lt;span class="na">server_port&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">7000&lt;/span>
 &lt;span class="k">[ssh]&lt;/span>
@@ -121,7 +121,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;p>下方方的 ssh 區塊設一個將 Client 端的 ssh 22 port 公開到 Server 端的 6000 port 的範本，如果有其他的 port 要開放，用相同的思維更改即可。像是如過要加 Minecraft 25565 port 也到 Server 端的 25565 port，就可以新增一個區塊：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -138,7 +138,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/span>&lt;span class="lnt">15
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="k">[common]&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="k">[common]&lt;/span>
 &lt;span class="na">server_addr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">example.com&lt;/span>
 &lt;span class="na">server_port&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">7000&lt;/span>
 &lt;span class="k">[ssh]&lt;/span>
@@ -159,12 +159,12 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;p>Server 端範例：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="k">[common]&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="k">[common]&lt;/span>
 &lt;span class="na">bind_port&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">7000&lt;/span>
 &lt;span class="na">token&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">7Jc2ZCvVzHu&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
@@ -172,7 +172,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/div>&lt;p>Client 端範例：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -184,7 +184,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/span>&lt;span class="lnt">10
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="k">[common]&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="k">[common]&lt;/span>
 &lt;span class="na">server_addr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">example.com&lt;/span>
 &lt;span class="na">server_port&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">7000&lt;/span>
 &lt;span class="na">token&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">7Jc2ZCvVzHu&lt;/span>
@@ -209,15 +209,15 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;p>用 Http GET 的方式可以取得 token 主人資料，使用方式如下：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-http" data-lang="http">&lt;span class="err">GET https://api.medium.com/v1/me
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-http" data-lang="http">&lt;span class="err">GET https://api.medium.com/v1/me
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
@@ -225,7 +225,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/span>&lt;span class="lnt">6
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-http" data-lang="http">&lt;span class="nf">GET&lt;/span> &lt;span class="nn">/v1/me&lt;/span> &lt;span class="kr">HTTP&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="m">1.1&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-http" data-lang="http">&lt;span class="nf">GET&lt;/span> &lt;span class="nn">/v1/me&lt;/span> &lt;span class="kr">HTTP&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="m">1.1&lt;/span>
 &lt;span class="n">Host&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="l">api.medium.com&lt;/span>
 &lt;span class="n">Authorization&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="l">Bearer 181d415f34379af07b2c11d144dfbe35d&lt;/span>
 &lt;span class="n">Content-Type&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="l">application/json&lt;/span>
@@ -236,7 +236,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/div>&lt;p>&lt;code>token&lt;/code> 是放在 Post 的 header，的 &lt;code>Authorization:Bearer&lt;/code> 後方，下方是用 Kotlin 和 OKHttp 實作的方法：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
@@ -244,7 +244,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/span>&lt;span class="lnt">6
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">request&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">Request&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Builder&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">request&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">Request&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Builder&lt;/span>&lt;span class="p">()&lt;/span>
 &lt;span class="p">.&lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;https://api.medium.com/v1/me&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;span class="p">.&lt;/span>&lt;span class="k">get&lt;/span>&lt;span class="p">()&lt;/span>
 &lt;span class="p">.&lt;/span>&lt;span class="n">addHeader&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Authorization&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Bearer &lt;/span>&lt;span class="si">$token&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
@@ -255,7 +255,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/div>&lt;p>範例的 Response 如下，可以拿到用 UserID、UserName 等資料：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
@@ -266,7 +266,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/span>&lt;span class="lnt">9
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="p">{&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="p">{&lt;/span>
 &lt;span class="nt">&amp;#34;data&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
 &lt;span class="nt">&amp;#34;id&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;5303d74c64f66366f00cb9b2a94f3251bf5&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
 &lt;span class="nt">&amp;#34;username&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;majelbstoat&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
@@ -280,7 +280,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/div>&lt;p>根據上方的 Json，可以產生 &lt;code>Kotlin Data Class&lt;/code> 來放取回的資料：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -293,7 +293,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/span>&lt;span class="lnt">11
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">data&lt;/span> &lt;span class="k">class&lt;/span> &lt;span class="nc">MediumApiMe&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">data&lt;/span> &lt;span class="k">class&lt;/span> &lt;span class="nc">MediumApiMe&lt;/span>&lt;span class="p">(&lt;/span>
 &lt;span class="k">val&lt;/span> &lt;span class="py">`data`&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">MediumMeData&lt;/span>
 &lt;span class="p">)&lt;/span>
 &lt;span class="k">data&lt;/span> &lt;span class="k">class&lt;/span> &lt;span class="nc">MediumMeData&lt;/span>&lt;span class="p">(&lt;/span>
@@ -308,7 +308,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/div>&lt;p>取回的 Response 用 &lt;code>gson&lt;/code> 轉換 json 到 Data Class，最後寫成一個完整的方法如下：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -328,7 +328,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/span>&lt;span class="lnt">18
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">getUserData&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">token&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">):&lt;/span> &lt;span class="n">MediumApiMe&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">getUserData&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">token&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">):&lt;/span> &lt;span class="n">MediumApiMe&lt;/span> &lt;span class="p">{&lt;/span>
 &lt;span class="k">val&lt;/span> &lt;span class="py">request&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">Request&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Builder&lt;/span>&lt;span class="p">()&lt;/span>
 &lt;span class="p">.&lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;https://api.medium.com/v1/me&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;span class="p">.&lt;/span>&lt;span class="k">get&lt;/span>&lt;span class="p">()&lt;/span>
@@ -352,16 +352,16 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;p>取得 UserID 後就可以用 Http Post 的方式向 Medium 發布文章。下方的 authorId 就是剛剛用 Http Get 的方式取得的 UserID。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-http" data-lang="http">&lt;span class="err">POST https://api.medium.com/v1/users/{{authorId}}/posts
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-http" data-lang="http">&lt;span class="err">POST https://api.medium.com/v1/users/{{authorId}}/posts
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>下面是 Post 的範例，&lt;code>token&lt;/code> 一樣是放在 &lt;code>header&lt;/code> 裡。官方的範例是用 html 來發布文章，我們只要將 &lt;code>contentFormat&lt;/code> 改成 markdown 就可以達成目的。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -378,7 +378,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/span>&lt;span class="lnt">15
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-http" data-lang="http">&lt;span class="nf">POST&lt;/span> &lt;span class="nn">/v1/users/5303d74c64f66366f00cb9b2a94f3251bf5/posts&lt;/span> &lt;span class="kr">HTTP&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="m">1.1&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-http" data-lang="http">&lt;span class="nf">POST&lt;/span> &lt;span class="nn">/v1/users/5303d74c64f66366f00cb9b2a94f3251bf5/posts&lt;/span> &lt;span class="kr">HTTP&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="m">1.1&lt;/span>
 &lt;span class="n">Host&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="l">api.medium.com&lt;/span>
 &lt;span class="n">Authorization&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="l">Bearer 181d415f34379af07b2c11d144dfbe35d&lt;/span>
 &lt;span class="n">Content-Type&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="l">application/json&lt;/span>
@@ -397,7 +397,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/div>&lt;p>根據上面 Post 的 Json 範例，我們可以產生出如下的 Kotlin Data Class，我順便寫了一個快速轉成 Json 的方法：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -411,7 +411,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/span>&lt;span class="lnt">12
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">data&lt;/span> &lt;span class="k">class&lt;/span> &lt;span class="nc">MediumApiPost&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">data&lt;/span> &lt;span class="k">class&lt;/span> &lt;span class="nc">MediumApiPost&lt;/span>&lt;span class="p">(&lt;/span>
 &lt;span class="k">val&lt;/span> &lt;span class="py">title&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">,&lt;/span>
 &lt;span class="k">val&lt;/span> &lt;span class="py">content&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">,&lt;/span>
 &lt;span class="k">val&lt;/span> &lt;span class="py">contentFormat&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">,&lt;/span>
@@ -428,7 +428,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/div>&lt;p>產生出 Data Class 就可以嘗試 Post 看看，是否會發布文章，直接利用剛剛寫好的 &lt;code>getUserData&lt;/code> 拿到 UserID，之後在 Post：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
@@ -439,7 +439,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/span>&lt;span class="lnt">9
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">userID&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">getUserData&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">token&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="k">data&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">id&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">userID&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">getUserData&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">token&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="k">data&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">id&lt;/span>
 &lt;span class="k">val&lt;/span> &lt;span class="py">medimuApiPost&lt;/span> &lt;span class="p">=&lt;/span>
 &lt;span class="n">MdieumApiPost&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Title&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;# Title&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">Hi&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;markdown&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;span class="k">val&lt;/span> &lt;span class="py">request&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">Request&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Builder&lt;/span>&lt;span class="p">()&lt;/span>
@@ -454,7 +454,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;p>寫成完整的發布方法如下：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -476,7 +476,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/span>&lt;span class="lnt">20
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">newPost&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">token&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">mediumApiPost&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">MediumApiPost&lt;/span>&lt;span class="p">):&lt;/span> &lt;span class="n">String&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">newPost&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">token&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">String&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">mediumApiPost&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">MediumApiPost&lt;/span>&lt;span class="p">):&lt;/span> &lt;span class="n">String&lt;/span> &lt;span class="p">{&lt;/span>
 &lt;span class="k">val&lt;/span> &lt;span class="py">userID&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">getUserData&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">token&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="k">data&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">id&lt;/span>
 &lt;span class="k">val&lt;/span> &lt;span class="py">request&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">Request&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Builder&lt;/span>&lt;span class="p">()&lt;/span>
 &lt;span class="p">.&lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;https://api.medium.com/v1/users/&lt;/span>&lt;span class="si">$userID&lt;/span>&lt;span class="s2">/posts&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
@@ -505,30 +505,30 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;p>下面的範例會編譯 &lt;code>main.cpp&lt;/code> 的 C++ 檔案：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">g++ main.cpp
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">g++ main.cpp
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>執行上面的指令後，會產生名為 &lt;code>a.out&lt;/code> 的檔案，因為我們沒有指定輸出檔名，所以預設就是 &lt;code>a.out&lt;/code>，在 Windows 上則為 &lt;code>a.exe&lt;/code> 的執行檔。如果要執行產生的執行檔案：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">./a.out
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">./a.out
 ./a.exe &lt;span class="c1"># On Windows&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>要指定輸出檔名也很簡單，加個 &lt;code>-o&lt;/code>：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">g++ -o main.out main.cpp
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">g++ -o main.out main.cpp
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>這樣就可以將 &lt;code>main.cpp&lt;/code> 編譯成 &lt;code>main.out&lt;/code> 的執行檔。&lt;/p>
@@ -547,10 +547,10 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;p>打開後在裡面新增一行：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="s2">&amp;#34;code-runner.runInTerminal&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="s2">&amp;#34;code-runner.runInTerminal&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>如果前方有其他設定值，記得在前面的設定值的最後面加個逗號 &lt;code>,&lt;/code>：&lt;/p>
@@ -563,7 +563,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;p>我們在現在 &lt;code>/.github/workflows/hugo-public.yml&lt;/code> 的檔案中新增如下的腳本：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -597,7 +597,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/span>&lt;span class="lnt">32
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">github pages&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">github pages&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">push&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
@@ -637,14 +637,14 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;h2 id="on">On&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">push&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">branches&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">master &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Set a branch to deploy&lt;/span>&lt;span class="w">
@@ -655,12 +655,12 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;h2 id="jobs">Jobs&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">jobs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">jobs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">deploy&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 以下省略&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
@@ -670,12 +670,12 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;p>終於來到最核心的部分，deploy 任務中的第一行，就定義了這個任務要 Run 在哪個容器內，或是稱作哪個系統內。這邊是用 &lt;code>ubuntu&lt;/code> 的 20.04，建議不要亂改，因為其他的 Linux 不一定可以完任務。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">deploy&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">deploy&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">runs-on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu-20.04&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">## 以下省略&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
@@ -685,7 +685,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;p>第二個部分也是使用別人已經寫好的腳本，快速的安裝 Hugo 到容器內，用別人寫好的東西來完成工作，避免不必要的重複造輪子。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -708,7 +708,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;/span>&lt;span class="lnt">21
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">actions/checkout@v2&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">submodules&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Fetch Hugo themes (true OR recursive)&lt;/span>&lt;span class="w">
@@ -761,10 +761,10 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;p>Windows 我建議是用 Chocolatey 來安裝是最方便的：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-ps1" data-lang="ps1">&lt;span class="n">choco&lt;/span> &lt;span class="n">install&lt;/span> &lt;span class="n">hugo&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-ps1" data-lang="ps1">&lt;span class="n">choco&lt;/span> &lt;span class="n">install&lt;/span> &lt;span class="n">hugo&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>但是如果不想要用 Chocolatey 安裝，可以去官方的 &lt;a href="https://github.com/gohugoio/hugo/releases">Github Release&lt;/a> 下載最新的 Windows 版本，下載完後記得加入 PATH。&lt;/p>
@@ -772,10 +772,10 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;p>macOS 安裝最簡單，用 Homebrew 就可以快速的安裝。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">brew install hugo
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">brew install hugo
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h3 id="linux">Linux&lt;/h3>
@@ -785,23 +785,23 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;p>先創建一個新的 Hugo 專案，下面的 &lt;code>MyBlog&lt;/code> 可以換成自己想要的專案名稱：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">hugo new site MyBlog
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">hugo new site MyBlog
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h3 id="新增主題">新增主題&lt;/h3>
 &lt;p>創建好專案後，就可以來新增主題，目前在 Hugo 上提供非常多的主題，我們可以到官方的這個&lt;a href="https://themes.gohugo.io/">網站&lt;/a>找找看，但目前些不要增加難度，用最官房提供的簡單的 ananke 主題就好，反正主題是隨時都可以換的。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">cd&lt;/span> MyBlog
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">cd&lt;/span> MyBlog
 git init
 git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
 &lt;span class="nb">echo&lt;/span> &lt;span class="nv">theme&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="se">\&amp;#34;&lt;/span>ananke&lt;span class="se">\&amp;#34;&lt;/span> &amp;gt;&amp;gt; config.toml
@@ -811,33 +811,33 @@ git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git theme
 &lt;p>最後一行的 &lt;code>echo&lt;/code> 指令會在專案底下產生一個 &lt;code>config.toml&lt;/code> 的檔案，基本上之後所有有關 Hugo 網站的設定，都可以在這裡變更。這一行指令應該會幫你在檔案中產生如下的內容：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="nx">theme&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;ananke&amp;#34;&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="nx">theme&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;ananke&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h3 id="新增文章">新增文章&lt;/h3>
 &lt;p>在 Hugo 中新增文章的指令就是如下，可以自己修改檔名。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">hugo new posts/my-first-post.md
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">hugo new posts/my-first-post.md
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>產生完成後可以看到 Hugo 幫你產生了一些 Front Matter。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-md" data-lang="md">---
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-md" data-lang="md">---
 title: &amp;#34;My First Post&amp;#34;
 date: 2019-03-26T08:47:11+01:00
 draft: true
@@ -850,10 +850,10 @@ draft: true
 &lt;p>要啟動 Hugo Server 也非常簡單：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">hugo server -D
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">hugo server -D
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>上面的 &lt;code>-D&lt;/code> 參數的意思是把 &lt;code>draft&lt;/code> 的草稿文件也渲染，如果想要看看上線的網頁會長怎樣，可以不要加上這個參數。&lt;/p>
@@ -861,10 +861,10 @@ draft: true
 &lt;p>這個最簡單了，連猴子都會，&lt;code>-D&lt;/code> 的參數一樣是渲染草稿文件，可視需求加上。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">hugo
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">hugo
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>到這裡就介紹完成所有 Hugo 基本的使用方法了，之後我會介紹如何使用 Github Action，讓我們每次只需要 Push 專案，Github 就會幫我們重新建置並部署網站。&lt;/p>
@@ -883,19 +883,19 @@ draft: true
 &lt;p>開啟 Terminal，輸入下面的指令，可以自動檢查顯卡的驅動&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo ubuntu-drivers devices
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo ubuntu-drivers devices
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>應該可以看到其中一項後面有 recommended，基本上安裝那個版本就沒有問題。下面我們直接用自動安裝的方式安裝推薦的驅動。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo ubuntu-drivers autoinstall
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo ubuntu-drivers autoinstall
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>如果你懶的關心 &lt;code>autoinstall&lt;/code> 會幫你安裝哪個版本，基本上直接執行上面的指令就可以解決問題了。&lt;/p>
@@ -920,11 +920,11 @@ draft: true
 &lt;h3 id="第一步下載專案">第一步：下載專案&lt;/h3>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git clone https://github.com/play-with-docker/play-with-docker
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">git clone https://github.com/play-with-docker/play-with-docker
 &lt;span class="nb">cd&lt;/span> play-with-docker
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
@@ -932,48 +932,48 @@ draft: true
 &lt;p>其實我不是很確定這一步驟是要幹嘛，但是官方文檔有寫到，但是我在 Mac 上無法執行此命令，也可以順利部署。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo modprobe xt_ipvs
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo modprobe xt_ipvs
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h3 id="第三步docker-swarm">第三步：Docker swarm&lt;/h3>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker swarm init
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker swarm init
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h3 id="第四步下載-image">第四步：下載 image&lt;/h3>
 &lt;p>這個 Image 是之後在 PWD 中創建容器時要用到的 Image。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker pull franela/dind
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker pull franela/dind
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h3 id="第五步go-mod">第五步：go mod&lt;/h3>
 &lt;p>這步也是非必要的，我也不懂 Golang 所以也不確定是要幹嘛。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">go mod vendor
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">go mod vendor
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h3 id="最後啟動">最後：啟動&lt;/h3>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker-compose up
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker-compose up
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>若沒有其他問題，理論上現在連接到 &lt;code>http://localhost:80&lt;/code> 就可以看到 PWD 正在執行，也可以開始創建容器使用。&lt;/p>
@@ -983,10 +983,10 @@ draft: true
 &lt;p>設定檔案在 &lt;code>play-with-docker/config/config.go&lt;/code> 之中，其中會有一行長下面的樣子：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="nx">flag&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">StringVar&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="nx">PlaygroundDomain&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;playground-domain&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;localhost&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;Domain to use for the playground&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="nx">flag&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">StringVar&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="nx">PlaygroundDomain&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;playground-domain&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;localhost&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;Domain to use for the playground&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>可以看到 PWD 這裡可以設定要解析的網址就是 &lt;code>localhost&lt;/code>，所以只要將此變更為 &lt;code>pwd.example.com&lt;/code>，就可以用這個網址連上 PWD。&lt;/p>
@@ -999,14 +999,14 @@ draft: true
 &lt;h2 id="kotlin">Kotlin&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">String&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">hi&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">$this&lt;/span>&lt;span class="s2"> HI&amp;#34;&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">fun&lt;/span> &lt;span class="nf">String&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">hi&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">$this&lt;/span>&lt;span class="s2"> HI&amp;#34;&lt;/span>
 &lt;span class="k">class&lt;/span> &lt;span class="nc">Test&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">var&lt;/span> &lt;span class="py">i&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Int&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
 &lt;span class="k">var&lt;/span> &lt;span class="py">p&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;13 13&amp;#34;&lt;/span>
 &lt;span class="p">}&lt;/span>

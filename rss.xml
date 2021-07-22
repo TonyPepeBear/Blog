@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.86.0 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Thu, 22 Jul 2021 08:29:14 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>Beautiful Terminal</title><link>https://tonypepe.com/posts/linux/beautiful-terminal/</link><guid isPermaLink="true">https://tonypepe.com/posts/linux/beautiful-terminal/</guid><pubDate>Fri, 16 Jul 2021 23:43:07 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>打不贏別人，至少長得比他帥。最近終於把我的 Terminal 弄成自己喜歡的樣子，所以做一下簡單的紀錄，希望大家都可以把東西變成自己喜歡的樣子。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.86.0 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Thu, 22 Jul 2021 09:03:50 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>Beautiful Terminal</title><link>https://tonypepe.com/posts/linux/beautiful-terminal/</link><guid isPermaLink="true">https://tonypepe.com/posts/linux/beautiful-terminal/</guid><pubDate>Fri, 16 Jul 2021 23:43:07 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>打不贏別人，至少長得比他帥。最近終於把我的 Terminal 弄成自己喜歡的樣子，所以做一下簡單的紀錄，希望大家都可以把東西變成自己喜歡的樣子。&lt;/p>
 &lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210716235146.png" alt="img">&lt;/p>
 &lt;p>我們今天主要會用到下面的幾樣技術：&lt;/p>
 &lt;ol>
@@ -64,7 +64,197 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;li>&lt;a href="https://github.com/romkatv/powerlevel10k">powerlevel10K&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://zimfw.sh/#install">zim&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.nerdfonts.com/">Nerd Fonts&lt;/a>&lt;/li>
-&lt;/ul></description><category domain="https://tonypepe.com/categories/terminal/">Terminal</category><category domain="https://tonypepe.com/tags/terminl/">terminl</category><category domain="https://tonypepe.com/tags/zsh/">zsh</category><category domain="https://tonypepe.com/tags/zim/">zim</category><category domain="https://tonypepe.com/tags/powerlevel/">powerlevel</category><category domain="https://tonypepe.com/tags/powerlevel10k/">powerlevel10k</category><category domain="https://tonypepe.com/tags/nerd-font/">nerd font</category></item><item><title>Frp</title><link>https://tonypepe.com/posts/linux/frp/</link><guid isPermaLink="true">https://tonypepe.com/posts/linux/frp/</guid><pubDate>Sun, 20 Jun 2021 21:48:33 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>frp 全名是 fast reverse proxy，可以將在 NAT 後方的服務快速的發布到公網 ip 上，可以支援 TCP 和 UDP 協議，我覺得唯一的缺點就是所有流量都會經過 Server 端，所以如果 Server 端的流量有限制就需要注意一下。&lt;/p>
+&lt;/ul></description><category domain="https://tonypepe.com/categories/terminal/">Terminal</category><category domain="https://tonypepe.com/tags/terminl/">terminl</category><category domain="https://tonypepe.com/tags/zsh/">zsh</category><category domain="https://tonypepe.com/tags/zim/">zim</category><category domain="https://tonypepe.com/tags/powerlevel/">powerlevel</category><category domain="https://tonypepe.com/tags/powerlevel10k/">powerlevel10k</category><category domain="https://tonypepe.com/tags/nerd-font/">nerd font</category></item><item><title>Markdown</title><link>https://tonypepe.com/posts/others/markdown/</link><guid isPermaLink="true">https://tonypepe.com/posts/others/markdown/</guid><pubDate>Mon, 05 Jul 2021 17:05:38 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>Markdown 可以想像成 Html 的簡化版本，廣泛用於編寫文章或是技術文件，因為其特性基本上由 Html 簡化而來，所以方便的由寫好的 Markdown 產生 Html 網頁，像是這篇文章也是由 Markdown 編寫。&lt;/p>
+&lt;p>我們來看看 &lt;a href="https://github.com/apple/swift">Swift&lt;/a> 的官網，可以發現 &lt;code>[README.md](http://readme.md)&lt;/code> 這個檔案就是由 Markdown 編寫，Github 也會自動將這個檔案渲染在網頁下方。到這裡可以發現，在 Github 上的所有開源專案的文件，幾乎都是由 Markdown 編寫。&lt;/p>
+&lt;h2 id="哲學">哲學&lt;/h2>
+&lt;p>引述自 &lt;a href="https://markdown.tw">https://markdown.tw&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>Markdown的目標是實現「易讀易寫」。&lt;br>
+不過最需要強調的便是它的可讀性。一份使用Markdown格式撰寫的文件應該可以直接以純文字發佈，並且看起來不會像是由許多標籤或是格式指令所構成。Markdown語法受到一些既有text-to-HTML格式的影響，包括 Setext、atx、Textile、reStructuredText、Grutatext 和 EtText，然而最大靈感來源其實是純文字的電子郵件格式。&lt;br>
+因此Markdown的語法全由標點符號所組成，並經過嚴謹慎選，是為了讓它們看起來就像所要表達的意思。像是在文字兩旁加上星號，看起來就像&lt;em>強調&lt;/em>。Markdown的清單看起來，嗯，就是清單。假如你有使用過電子郵件，區塊引言看起來就真的像是引用一段文字。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="tools">Tools&lt;/h2>
+&lt;p>Q: 那要用什麼來寫呢？&lt;/p>
+&lt;p>因為 Markdown 基本上也是純文字檔案，所以只要是文字編輯器都可以編輯，你要用 txt 來寫也是個不錯的方法❤️。&lt;/p>
+&lt;h3 id="vscode">VSCode&lt;/h3>
+&lt;p>目前最推薦的就是工程師的好夥伴 &lt;code>VSCode&lt;/code> ，VSCode 在寫 Markdown 時，有提供即時渲染，可以快速的看到結果，而且 VSCode 應該在各位工程師的電腦裡都應該有安裝才對。&lt;/p>
+&lt;h3 id="hackmd">HackMD&lt;/h3>
+&lt;p>HackMD 是一個在網頁中的 Markdown 編輯器，可以方便地在網頁中編輯和看到編寫的結果，HackMD 最厲害的功能是可以將 Markdown 轉換成簡報，用 Markdown 取代 PowerPoint？這夠帥吧！&lt;/p>
+&lt;h3 id="marktext">MarkText&lt;/h3>
+&lt;p>這是一個在 &lt;a href="https://github.com/marktext/marktext">Github&lt;/a> 上的開源專案，可以所寫所得，方便使用，但我還是比較推薦新手使用上面兩項工具，因為者東西真的太方便了，有點沒有在寫 Markdown 的感覺。&lt;/p>
+&lt;h2 id="markdown-語法">Markdown 語法&lt;/h2>
+&lt;h1 id="大標題">大標題&lt;/h1>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-md" data-lang="md">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="gh"># 大標題
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="次標題">次標題&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-md" data-lang="md">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h2&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="gu">## 次標題
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h3 id="次次標題">次次標題&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-md" data-lang="md">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h3&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="gu">### 次次標題
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="內文">內文&lt;/h2>
+&lt;p>內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-md" data-lang="md">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="斜體-粗體">斜體 粗體&lt;/h2>
+&lt;p>內文內文內文&lt;em>斜體&lt;/em>內文內文內文內文內文內文&lt;br>
+內文內文內文&lt;strong>粗體&lt;/strong>內文內文內文內文內文內文&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-md" data-lang="md">內文內文內文*斜體*內文內文內文內文內文內文
+內文內文內文**粗體**內文內文內文內文內文內文
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="有序清單">有序清單&lt;/h2>
+&lt;ol>
+&lt;li>有序清單 1&lt;/li>
+&lt;li>有序清單 2&lt;/li>
+&lt;li>有序清單 3&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-md" data-lang="md">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">ol&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="k">1.&lt;/span> 有序清單 1
+&lt;span class="k">2.&lt;/span> 有序清單 2
+&lt;span class="k">3.&lt;/span> 有序清單 3
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="無序清單">無序清單&lt;/h2>
+&lt;ul>
+&lt;li>無序清單 1&lt;/li>
+&lt;li>無序清單 2&lt;/li>
+&lt;li>無序清單 3&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-md" data-lang="md">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">ul&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="k">*&lt;/span> 無序清單 1
+&lt;span class="k">*&lt;/span> 無序清單 2
+&lt;span class="k">*&lt;/span> 無序清單 3
++ 無序清單 1
++ 無序清單 2
++ 無序清單 3
+&lt;span class="k">-&lt;/span> 無序清單 1
+&lt;span class="k">-&lt;/span> 無序清單 2
+&lt;span class="k">-&lt;/span> 無序清單 3
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="程式碼區塊">程式碼區塊&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Hi 程式碼區塊&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210717220425.png" alt="img">&lt;/p>
+&lt;hr>
+&lt;h2 id="標記程式碼">標記程式碼&lt;/h2>
+&lt;p>inline &lt;code>code&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-md" data-lang="md">inline &lt;span class="sb">`code`&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="超連結">超連結&lt;/h2>
+&lt;p>&lt;a href="https://google.com">Google首頁&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-md" data-lang="md">[&lt;span class="nt">Google首頁&lt;/span>](&lt;span class="na">https://google.com&lt;/span>)
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="圖片連結">圖片連結&lt;/h2>
+&lt;p>&lt;img src="https://www.google.com.tw/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="img">&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-md" data-lang="md">![](https://www.google.com.tw/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png)
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="reference">Reference&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://markdown.tw/">Markdown文件&lt;/a>&lt;/li>
+&lt;/ul></description><category domain="https://tonypepe.com/categories/others/">Others</category><category domain="https://tonypepe.com/tags/markdown/">markdown</category></item><item><title>Frp</title><link>https://tonypepe.com/posts/linux/frp/</link><guid isPermaLink="true">https://tonypepe.com/posts/linux/frp/</guid><pubDate>Sun, 20 Jun 2021 21:48:33 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>frp 全名是 fast reverse proxy，可以將在 NAT 後方的服務快速的發布到公網 ip 上，可以支援 TCP 和 UDP 協議，我覺得唯一的缺點就是所有流量都會經過 Server 端，所以如果 Server 端的流量有限制就需要注意一下。&lt;/p>
 &lt;p>frp 會需要一台 Server，Server 需要公網 ip，如果沒有公網 ip，可以使用 aws 或 gcp 買一個簡單的 VPS。&lt;/p>
 &lt;h2 id="安裝">安裝&lt;/h2>
 &lt;p>網路上有許多一鍵安裝的到腳本，但我們不使用那些，有興趣的自己上網搜尋。&lt;/p>

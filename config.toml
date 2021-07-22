@@ -38,7 +38,7 @@ enableGitInfo = false
 enableRobotsTXT = true
 
 # 每一分頁的文章數（僅對「文章摘要」首頁佈局有效）
-paginate = 5
+paginate = 10
 
 # URL 相關
 disablePathToLower = false

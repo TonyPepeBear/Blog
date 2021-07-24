@@ -84,6 +84,9 @@ categories:
 9. ENG 1 FIRE TEST
 10. ENG 2 FIRE TEST
 
+![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210724001302.png)
+![20210724001418](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210724001418.png)
+
 ### 右邊那排
 
 基本上不用動

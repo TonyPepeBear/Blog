@@ -110,5 +110,6 @@ categories:
 
 ## Reference
 
-* [真實機師講解 | A320 冷艙啟動](https://www.youtube.com/watch?v=3Vf3QaYvSUk)
+* [教官我想飛](https://www.youtube.com/channel/UCDKKDx4mNVI7vONL1vqTx7g)
+* [機師阿楷](https://www.youtube.com/channel/UCOHc8xzWD25Nn-snDBJUMGQ)
 * [a320-normal-procedures.pdf](https://www.theairlinepilots.com/forumarchive/a320/a320-normal-procedures.pdf)

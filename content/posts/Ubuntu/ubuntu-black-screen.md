@@ -16,11 +16,11 @@ categories:
 
 在開機引導時會看到這個畫面，立馬按下鍵盤上的 `c` 鍵。
 
-![](https://i.stack.imgur.com/8RYuZ.png)
+![img](https://i.stack.imgur.com/8RYuZ.png)
 
 按下 c 後，會以下畫面，找到 `quite splash`。
 
-![](https://i.stack.imgur.com/0Cfhc.png)
+![img](https://i.stack.imgur.com/0Cfhc.png)
 
 把 `quite splash` 改成 `nomodeset`，不要懷疑，把兩個字刪掉，改成一個字，改錯也沒關係，下次重開就會復原。
 
@@ -47,4 +47,3 @@ sudo ubuntu-drivers autoinstall
 ## Reference
 
 * [My computer boots to a black screen, what options do I have to fix it?](https://askubuntu.com/questions/162075/my-computer-boots-to-a-black-screen-what-options-do-i-have-to-fix-it)
-

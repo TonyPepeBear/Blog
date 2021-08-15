@@ -17,15 +17,15 @@ AWS 個體，要使用本地的 Terminal 連線都要使用他專門產生的 ke
 
 先到這個頁面按下帳戶頁面
 
-![](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210606172007.png)
+![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210606172007.png)
 
 再到這個頁面創建或下載新的 key
 
-![](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210606172046.png)
+![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210606172046.png)
 
 下載的 key 應該會是長 `.pem` 的副檔名，我們下面假設他叫 `aws.pem`。
 
-# 用 Key 連接到 AWS 個體
+## 用 Key 連接到 AWS 個體
 
 ssh 為了避免 key 會被其他使用者看到，如果 key 不是私有權限會不讓你連線，所以我們先 `chmod`：
 

@@ -139,33 +139,32 @@ steps:
 
 我們先來產生 Token，先到個人的設定頁面找到 Developer settings：
 
-![](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607222716.png)
+![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607222716.png)
 
 再到 Token 的頁面產生新的 Token：
 
-![](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607222844.png)
+![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607222844.png)
 
 名稱可以自己隨意訂，Repo 的權限就全部打開，除了 Repo 以外的權限則都不需要。都確定後直接拉到最下面產生 Token：
 
-![](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607223119.png)
+![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607223119.png)
 
 會得到一組新的 Token，請注意不要像我一樣 Show 出來給別人看，請妥善保存，而且 Github 也只會顯示這一次，以後想要看都看不到，只能產生新的 Token。
 
-![](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607223221.png)
+![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607223221.png)
 
 複製下 Token 後，我們到專案層級的設定，注意是**專案**的設定，不是個人設定：
 
-![](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607223843.png)
+![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607223843.png)
 
 找到 Secrets 並新增 Secrets：
 
-![](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607224004.png)
+![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607224004.png)
 
 名字取好後，填入剛剛拿到的 Token，注意名稱要和剛剛在腳本中寫的一樣：
 
-![](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607224102.png)
+![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607224102.png)
 
 都填完後就大功告成，基本上只要 Push 到 Github 上，應該就會自動觸發上面寫的工作，以後只要文章有新的變動，Push 上來就會自動更新網頁網頁到專案的 `gh-pages` 分之上。想要進一步看到 Pages 的設定，可以到專案下的 Pages 的設定下看看，也可以在這裡自訂 Domian。
 
-![](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607224634.png)
-
+![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607224634.png)

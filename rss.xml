@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.87.0 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Sun, 15 Aug 2021 07:22:55 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>Cloudflare Tunnel</title><link>https://tonypepe.com/posts/web/cloudflare-tunnel/</link><guid isPermaLink="true">https://tonypepe.com/posts/web/cloudflare-tunnel/</guid><pubDate>Fri, 13 Aug 2021 15:17:39 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>Cloudflare 真的是佛心公司，提供免費的 DNS、DDoS 防護，還可以拿來託管靜態網頁，而今天是介紹他們公司的 Tunnel，這個服務可以將本地電腦的特定 port 開放到網路上，而且完全免費，在台灣的速度也不慢，真的很佛，幾乎等於拿到免費的 IPv4。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.87.0 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><lastBuildDate>Sun, 15 Aug 2021 07:29:42 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>Cloudflare Tunnel</title><link>https://tonypepe.com/posts/web/cloudflare-tunnel/</link><guid isPermaLink="true">https://tonypepe.com/posts/web/cloudflare-tunnel/</guid><pubDate>Fri, 13 Aug 2021 15:17:39 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>Cloudflare 真的是佛心公司，提供免費的 DNS、DDoS 防護，還可以拿來託管靜態網頁，而今天是介紹他們公司的 Tunnel，這個服務可以將本地電腦的特定 port 開放到網路上，而且完全免費，在台灣的速度也不慢，真的很佛，幾乎等於拿到免費的 IPv4。&lt;/p>
 &lt;p>我覺得目前的缺點就是網路上相關的資料比較少，遇到問題很難找到資料參考，因為他其實主要是 Cloudflare 的一項零信任服務，目標客群都是一些厲害的網管，所以官方寫的文件也都很深奧，如果是新手可能會頭昏眼花。&lt;/p>
 &lt;p>這一項服務可以先不用帳號就能試用，不過就不能自訂 Domain，我會先介紹免登入的，再介紹要登入的。第一步還是要在本地先安裝環境。&lt;/p>
 &lt;h2 id="安裝-cloudflared">安裝 cloudflared&lt;/h2>
@@ -653,7 +653,7 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/2021/02/10-21-47-48-%E6%88%AA%E5%9C%96%202021-02-10%20%E4%B8%8B%E5%8D%889.47.40.png" alt="截圖 2021-02-10 下午9.47.40.png">&lt;/p>
 &lt;h2 id="申請-token">申請 token&lt;/h2>
 &lt;p>Medium API 的 &lt;a href="https://github.com/Medium/medium-api-docs">官方文件&lt;/a> 在這，可以用 &lt;code>HTTP POST&lt;/code> 的方式來發布文章。要使用 API 第一件事就是要有 &lt;code>token&lt;/code>，要申請 &lt;code>token&lt;/code> 不用錢，官方目前好像也沒有使用限制，到 &lt;a href="https://medium.com/me/settings">用戶設定&lt;/a> 的頁面，找到 &lt;code>Integration tokens&lt;/code> 的地方，申請一個 token，說明隨便輸入就好。&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/2021/02/10-01-42-07-%E6%88%AA%E5%9C%96%202021-02-10%20%E4%B8%8A%E5%8D%881.42.04.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/2021/02/10-01-42-07-%E6%88%AA%E5%9C%96%202021-02-10%20%E4%B8%8A%E5%8D%881.42.04.png" alt="img">&lt;/p>
 &lt;h2 id="userid">UserID&lt;/h2>
 &lt;p>根據官方文檔，想要發布文章，需要 UserID，我找了好久才發現 UserID 不是 Name 也不是 UserName，也是要先用 API 的方式取得。&lt;/p>
 &lt;p>用 Http GET 的方式可以取得 token 主人資料，使用方式如下：&lt;/p>
@@ -1189,21 +1189,21 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;li>把 Token 放到專案的 Secrets 中&lt;/li>
 &lt;/ol>
 &lt;p>我們先來產生 Token，先到個人的設定頁面找到 Developer settings：&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607222716.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607222716.png" alt="img">&lt;/p>
 &lt;p>再到 Token 的頁面產生新的 Token：&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607222844.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607222844.png" alt="img">&lt;/p>
 &lt;p>名稱可以自己隨意訂，Repo 的權限就全部打開，除了 Repo 以外的權限則都不需要。都確定後直接拉到最下面產生 Token：&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607223119.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607223119.png" alt="img">&lt;/p>
 &lt;p>會得到一組新的 Token，請注意不要像我一樣 Show 出來給別人看，請妥善保存，而且 Github 也只會顯示這一次，以後想要看都看不到，只能產生新的 Token。&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607223221.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607223221.png" alt="img">&lt;/p>
 &lt;p>複製下 Token 後，我們到專案層級的設定，注意是&lt;strong>專案&lt;/strong>的設定，不是個人設定：&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607223843.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607223843.png" alt="img">&lt;/p>
 &lt;p>找到 Secrets 並新增 Secrets：&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607224004.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607224004.png" alt="img">&lt;/p>
 &lt;p>名字取好後，填入剛剛拿到的 Token，注意名稱要和剛剛在腳本中寫的一樣：&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607224102.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607224102.png" alt="img">&lt;/p>
 &lt;p>都填完後就大功告成，基本上只要 Push 到 Github 上，應該就會自動觸發上面寫的工作，以後只要文章有新的變動，Push 上來就會自動更新網頁網頁到專案的 &lt;code>gh-pages&lt;/code> 分之上。想要進一步看到 Pages 的設定，可以到專案下的 Pages 的設定下看看，也可以在這裡自訂 Domian。&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607224634.png" alt="">&lt;/p></description><category domain="https://tonypepe.com/categories/hugo/">Hugo</category><category domain="https://tonypepe.com/tags/hugo/">hugo</category><category domain="https://tonypepe.com/tags/github/">github</category><category domain="https://tonypepe.com/tags/github-actions/">github-actions</category><category domain="https://tonypepe.com/tags/web/">web</category></item><item><title>用 Hugo 來寫文章吧</title><link>https://tonypepe.com/posts/hugo/hugo/</link><guid isPermaLink="true">https://tonypepe.com/posts/hugo/hugo/</guid><pubDate>Mon, 07 Jun 2021 02:10:46 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>Hugo 是靜態網頁的產生器，類似 Hexo 和 Jekyll，Hugo 由 go 語言編寫，效率極高，我原本是用 Hexo 在產生文章，後來發現 Hugo 這個好東西，也觀望了一陣子&lt;del>其實是懶&lt;/del>，就決定換過來了，目前也用得非常順手。&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210607224634.png" alt="img">&lt;/p></description><category domain="https://tonypepe.com/categories/hugo/">Hugo</category><category domain="https://tonypepe.com/tags/hugo/">hugo</category><category domain="https://tonypepe.com/tags/github/">github</category><category domain="https://tonypepe.com/tags/github-actions/">github-actions</category><category domain="https://tonypepe.com/tags/web/">web</category></item><item><title>用 Hugo 來寫文章吧</title><link>https://tonypepe.com/posts/hugo/hugo/</link><guid isPermaLink="true">https://tonypepe.com/posts/hugo/hugo/</guid><pubDate>Mon, 07 Jun 2021 02:10:46 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright><description>&lt;p>Hugo 是靜態網頁的產生器，類似 Hexo 和 Jekyll，Hugo 由 go 語言編寫，效率極高，我原本是用 Hexo 在產生文章，後來發現 Hugo 這個好東西，也觀望了一陣子&lt;del>其實是懶&lt;/del>，就決定換過來了，目前也用得非常順手。&lt;/p>
 &lt;h2 id="安裝-hugo">安裝 Hugo&lt;/h2>
 &lt;p>這是 Hugo 的&lt;a href="https://gohugo.io/">官網&lt;/a>，進去後可以看到一些簡單的介紹和安裝方法。&lt;/p>
 &lt;p>我蠻推薦在 vscode 的 &lt;code>code in container&lt;/code> 的方式用 Hugo，因為我自己也是這樣用，這樣就不用擔心會弄髒環境，但就讓有興趣的人自己研究吧，這裡我介紹一般電腦的安裝方式。&lt;/p>

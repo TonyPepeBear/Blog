@@ -6,7 +6,7 @@ title = "TonyPepe"
 languageCode = "zh-TW"
 hasCJKLanguage = true
 # 版權資訊（支援 Markdown）
-copyright = "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)"
+copyright = "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)"
 
 
 # 主題選擇
@@ -32,7 +32,7 @@ enableEmoji = false
 footnoteReturnLinkContents = "↩"
 
 # 是否啟用 Git 版本資訊
-enableGitInfo = false
+enableGitInfo = true
 
 # 是否生成 robots.txt 檔案
 enableRobotsTXT = true
@@ -107,7 +107,7 @@ uglyURLs = false
 
 # 相關文章
 [related]
-    threshold = 80
+    threshold = 60
     includeNewer = true
     toLower = true
     [[related.indices]]
@@ -967,7 +967,7 @@ uglyURLs = false
     ## 段首縮排
 
     # 是否開啟
-    enableParagraphIndent = true
+    enableParagraphIndent = false
 
     # 是否縮排第一段（全域性設定）
     indentFirstParagraph = false
@@ -1064,15 +1064,15 @@ uglyURLs = false
     # 文章的 Git 版本資訊
 
     # 是否開啟
-    enablePostGitInfo = false
+    enablePostGitInfo = true
 
     # 是否顯示（全域性設定）
-    displayPostGitInfo = false
+    displayPostGitInfo = true
     # 說明：文章的 Front Matter 中的 `gitinfo`
     #      的優先順序高於此處
 
     # 倉庫地址
-    repoURL = ""
+    repoURL = "https://github.com/TonyPepeBear/HugoBlog"
     # 編輯地址
     repoEditURL = ""
 
@@ -1165,7 +1165,7 @@ uglyURLs = false
     #      的是一篇更舊的文章。
 
     # 是否開啟
-    enablePostNav = true
+    enablePostNav = false
 
     # 是否僅限於相同的文章分割槽
     postNavInSection = true

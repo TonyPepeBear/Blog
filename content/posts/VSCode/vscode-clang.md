@@ -46,23 +46,23 @@ g++ -o main.out main.cpp
 
 第一步就是先在 VSCode 中安裝 **C/C++**，和 **Code Runner**，兩個延伸模組。
 
-![](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210608014749.png)
+![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210608014749.png)
 
-![](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210608021309.png)
+![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210608021309.png)
 
 安裝完成後，應該就會看到右上角出現了一個執行的按鈕，可以按按看程式會不會執行。
 
-![](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210608021808.png)
+![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210608021808.png)
 
 如果找不到按鈕，或是想要停下程式，也可以用按下 `f1` 的方式叫出 VSCode 的指令輸入窗，輸入 `Run Code` 或是 `Stop Code Run`。
 
-![](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210608022037.png)
+![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210608022037.png)
 
 ## Run In Terminal
 
 現在可能會發先一個問題，這種執行模式是沒有辦法接收鍵盤輸入的，如果想要接收鍵盤輸入，我們要把執行模式改成在 Terminal 中。所以我們要開啟 VSCode 的 `settings.json` 設定檔，來更改設定，一樣是用 `f1` 叫出命令輸入區，並尋找 `open settings json`：
 
-![](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210608024052.png)
+![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210608024052.png)
 
 打開後在裡面新增一行：
 
@@ -72,6 +72,6 @@ g++ -o main.out main.cpp
 
 如果前方有其他設定值，記得在前面的設定值的最後面加個逗號 `,`：
 
-![](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210608024259.png)
+![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210608024259.png)
 
 現在就可以方便的在 VSCode 中寫 C，和方便的執行他們。

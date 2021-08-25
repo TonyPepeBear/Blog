@@ -70,7 +70,7 @@ go mod vendor
 docker-compose up
 ```
 
-若沒有其他問題，理論上現在連接到 `http://localhost:80` 就可以看到 PWD 正在執行，也可以開始創建容器使用。 
+若沒有其他問題，理論上現在連接到 `http://localhost:80` 就可以看到 PWD 正在執行，也可以開始創建容器使用。
 
 ## localhost or 404
 
@@ -91,6 +91,5 @@ flag.StringVar(&PlaygroundDomain, "playground-domain", "localhost", "Domain to u
 就算做完上面的設定，也順利了啟動 Docker 容器，但最後才發現想要連上特定的 Port 還是會失敗，因為他是用子網域的方式去連線 `http://ip<hyphen-ip>-<session_jd>-<port>.direct.pwd.example.com`，所以又會遇到無法解析 DNS 的情況，我的解法是在 DNS 的設定中把 `pwd.example.com` 和 `*.pwd.example.com` 都加入 A Record，才順利連上。
 
 ## Reference
-
 
 * [Play With Docker](https://github.com/play-with-docker/play-with-docker)

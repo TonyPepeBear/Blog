@@ -107,10 +107,6 @@ local_port = 22
 remote_port = 6000
 ```
 
-## Dashboard GUI
-
-
-
 ## Refrence
 
 [GitHub](https://github.com/fatedier/frp)

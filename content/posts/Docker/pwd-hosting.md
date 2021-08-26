@@ -96,22 +96,19 @@ flag.StringVar(&PlaygroundDomain, "playground-domain", "localhost", "Domain to u
 這部分我研究了蠻久，如果要把 Server 隱藏在 Nginx 後面，要設定的東西比較複雜，因為 PWD 有使用到 WebSocket，但是這部分我沒有過多的心得，所以直接把我的 `conf` 放在下面，容我不做解釋了：
 
 ```nginx
-server {
-    listen       8070;
-    server_name  pwd.example.com *.pwd.example.com;
+map $http_upgrade $connection_upgrade {
+    default upgrade;
+    ''      close;
+}
 
+server {
+    listen       80;
+    server_name  pwd.example.com *.pwd.example.com;
 
     location / {
         proxy_pass http://192.168.1.1:80;
-        proxy_set_header Host $host;
-        proxy_set_header X-Forwarded-For $remote_addr;
-    }
-
-    location ~ ^/sessions/.+/ws/ {
-        proxy_pass http://192.168.1.1:80;
-        proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
+        proxy_set_header Connection $connection_upgrade;
         proxy_set_header Host $host;
         proxy_cache_bypass $http_upgrade;
     }

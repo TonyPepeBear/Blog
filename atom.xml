@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-TW"><title type="text">TonyPepe</title><subtitle type="html">紀錄我踩過得坑</subtitle><updated>2021-08-25T19:12:36+00:00</updated><id>https://tonypepe.com/</id><link rel="alternate" type="text/html" href="https://tonypepe.com/"/><link rel="self" type="application/atom+xml" href="https://tonypepe.com/atom.xml"/><author><name>TonyPepe</name><uri>https://tonypepe.com/</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><generator uri="https://gohugo.io/" version="0.87.0">Hugo</generator><entry><title type="text">Cloudflare Tunnel</title><link rel="alternate" type="text/html" href="https://tonypepe.com/posts/web/cloudflare-tunnel/"/><id>https://tonypepe.com/posts/web/cloudflare-tunnel/</id><updated>2021-08-13T23:56:24+08:00</updated><published>2021-08-13T15:17:39+08:00</published><author><name>TonyPepe</name><uri>https://tonypepe.com/about</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><summary type="html">&lt;p>Cloudflare 真的是佛心公司，提供免費的 DNS、DDoS 防護，還可以拿來託管靜態網頁，而今天是介紹他們公司的 Tunnel，這個服務可以將本地電腦的特定 port 開放到網路上，而且完全免費，在台灣的速度也不慢，真的很佛，幾乎等於拿到免費的 IPv4。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-TW"><title type="text">TonyPepe</title><subtitle type="html">紀錄我踩過得坑</subtitle><updated>2021-08-26T15:11:08+00:00</updated><id>https://tonypepe.com/</id><link rel="alternate" type="text/html" href="https://tonypepe.com/"/><link rel="self" type="application/atom+xml" href="https://tonypepe.com/atom.xml"/><author><name>TonyPepe</name><uri>https://tonypepe.com/</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><generator uri="https://gohugo.io/" version="0.87.0">Hugo</generator><entry><title type="text">Cloudflare Tunnel</title><link rel="alternate" type="text/html" href="https://tonypepe.com/posts/web/cloudflare-tunnel/"/><id>https://tonypepe.com/posts/web/cloudflare-tunnel/</id><updated>2021-08-13T23:56:24+08:00</updated><published>2021-08-13T15:17:39+08:00</published><author><name>TonyPepe</name><uri>https://tonypepe.com/about</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><summary type="html">&lt;p>Cloudflare 真的是佛心公司，提供免費的 DNS、DDoS 防護，還可以拿來託管靜態網頁，而今天是介紹他們公司的 Tunnel，這個服務可以將本地電腦的特定 port 開放到網路上，而且完全免費，在台灣的速度也不慢，真的很佛，幾乎等於拿到免費的 IPv4。&lt;/p>
 &lt;p>我覺得目前的缺點就是網路上相關的資料比較少，遇到問題很難找到資料參考，因為他其實主要是 Cloudflare 的一項零信任服務，目標客群都是一些厲害的網管，所以官方寫的文件也都很深奧，如果是新手可能會頭昏眼花。&lt;/p>……</summary><content type="html">&lt;p>Cloudflare 真的是佛心公司，提供免費的 DNS、DDoS 防護，還可以拿來託管靜態網頁，而今天是介紹他們公司的 Tunnel，這個服務可以將本地電腦的特定 port 開放到網路上，而且完全免費，在台灣的速度也不慢，真的很佛，幾乎等於拿到免費的 IPv4。&lt;/p>
 &lt;p>我覺得目前的缺點就是網路上相關的資料比較少，遇到問題很難找到資料參考，因為他其實主要是 Cloudflare 的一項零信任服務，目標客群都是一些厲害的網管，所以官方寫的文件也都很深奧，如果是新手可能會頭昏眼花。&lt;/p>
 &lt;p>這一項服務可以先不用帳號就能試用，不過就不能自訂 Domain，我會先介紹免登入的，再介紹要登入的。第一步還是要在本地先安裝環境。&lt;/p>
@@ -1354,7 +1354,7 @@ draft: true
 &lt;h2 id="reference">Reference&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://askubuntu.com/questions/162075/my-computer-boots-to-a-black-screen-what-options-do-i-have-to-fix-it">My computer boots to a black screen, what options do I have to fix it?&lt;/a>&lt;/li>
-&lt;/ul></content><category scheme="https://tonypepe.com/categories/ubuntu/" term="Ubuntu" label="Ubuntu"/><category scheme="https://tonypepe.com/tags/ubuntu/" term="ubuntu" label="ubuntu"/></entry><entry><title type="text">自架 Play With Docker</title><link rel="alternate" type="text/html" href="https://tonypepe.com/posts/docker/pwd-hosting/"/><id>https://tonypepe.com/posts/docker/pwd-hosting/</id><updated>2021-08-25T18:30:18+00:00</updated><published>2021-06-05T16:08:29+00:00</published><author><name>TonyPepe</name><uri>https://tonypepe.com/about</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><summary type="html">&lt;p>學過 Docker 的人都應該有用過 Docker Playground 來學習或是測試過軟體，不想在本機跑 Docker 可以先用 Docker Playground 試試看軟體可不可以跑。&lt;/p>……</summary><content type="html">&lt;p>學過 Docker 的人都應該有用過 Docker Playground 來學習或是測試過軟體，不想在本機跑 Docker 可以先用 Docker Playground 試試看軟體可不可以跑。&lt;/p>
+&lt;/ul></content><category scheme="https://tonypepe.com/categories/ubuntu/" term="Ubuntu" label="Ubuntu"/><category scheme="https://tonypepe.com/tags/ubuntu/" term="ubuntu" label="ubuntu"/></entry><entry><title type="text">自架 Play With Docker</title><link rel="alternate" type="text/html" href="https://tonypepe.com/posts/docker/pwd-hosting/"/><id>https://tonypepe.com/posts/docker/pwd-hosting/</id><updated>2021-08-26T15:10:43+00:00</updated><published>2021-06-05T16:08:29+00:00</published><author><name>TonyPepe</name><uri>https://tonypepe.com/about</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><summary type="html">&lt;p>學過 Docker 的人都應該有用過 Docker Playground 來學習或是測試過軟體，不想在本機跑 Docker 可以先用 Docker Playground 試試看軟體可不可以跑。&lt;/p>……</summary><content type="html">&lt;p>學過 Docker 的人都應該有用過 Docker Playground 來學習或是測試過軟體，不想在本機跑 Docker 可以先用 Docker Playground 試試看軟體可不可以跑。&lt;/p>
 &lt;p>官方已經有架設 &lt;a href="https://labs.play-with-docker.com/">Docker Playground&lt;/a>，可以讓大家方便使用，但我使用的時後常發現他會 Lag，也不知道是 Docker Server 的問題，還是臺灣網路的問題。剛好最近想要教社團 Docker，這樣我架好一個，大家就不需要準備環境，直接就可以開始學了。&lt;/p>
 &lt;p>本專案的 &lt;a href="https://github.com/play-with-docker/play-with-docker">GitHub&lt;/a>&lt;/p>
 &lt;h2 id="準備環境">準備環境&lt;/h2>
@@ -1443,6 +1443,61 @@ draft: true
 &lt;/div>&lt;p>可以看到 PWD 這裡可以設定要解析的網址就是 &lt;code>localhost&lt;/code>，所以只要將此變更為 &lt;code>pwd.example.com&lt;/code>，就可以用這個網址連上 PWD。&lt;/p>
 &lt;h3 id="連上容器內的-port">連上容器內的 Port&lt;/h3>
 &lt;p>就算做完上面的設定，也順利了啟動 Docker 容器，但最後才發現想要連上特定的 Port 還是會失敗，因為他是用子網域的方式去連線 &lt;code>http://ip&amp;lt;hyphen-ip&amp;gt;-&amp;lt;session_jd&amp;gt;-&amp;lt;port&amp;gt;.direct.pwd.example.com&lt;/code>，所以又會遇到無法解析 DNS 的情況，我的解法是在 DNS 的設定中把 &lt;code>pwd.example.com&lt;/code> 和 &lt;code>*.pwd.example.com&lt;/code> 都加入 A Record，才順利連上。&lt;/p>
+&lt;h2 id="nginx-proxy-pass">Nginx Proxy Pass&lt;/h2>
+&lt;p>這部分我研究了蠻久，如果要把 Server 隱藏在 Nginx 後面，要設定的東西比較複雜，因為 PWD 有使用到 WebSocket，但是這部分我沒有過多的心得，所以直接把我的 &lt;code>conf&lt;/code> 放在下面，容我不做解釋了：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="k">server&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="kn">listen&lt;/span> &lt;span class="mi">8070&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="kn">server_name&lt;/span> &lt;span class="s">pwd.example.com&lt;/span> &lt;span class="s">*.pwd.example.com&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="kn">location&lt;/span> &lt;span class="s">/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://192.168.1.1:80&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="kn">proxy_set_header&lt;/span> &lt;span class="s">Host&lt;/span> &lt;span class="nv">$host&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="kn">proxy_set_header&lt;/span> &lt;span class="s">X-Forwarded-For&lt;/span> &lt;span class="nv">$remote_addr&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="kn">location&lt;/span> &lt;span class="p">~&lt;/span> &lt;span class="sr">^/sessions/.+/ws/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://192.168.1.1:80&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="kn">proxy_http_version&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="s">.1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="kn">proxy_set_header&lt;/span> &lt;span class="s">Upgrade&lt;/span> &lt;span class="nv">$http_upgrade&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="kn">proxy_set_header&lt;/span> &lt;span class="s">Connection&lt;/span> &lt;span class="s">&amp;#39;upgrade&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="kn">proxy_set_header&lt;/span> &lt;span class="s">Host&lt;/span> &lt;span class="nv">$host&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="kn">proxy_cache_bypass&lt;/span> &lt;span class="nv">$http_upgrade&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="kn">error_page&lt;/span> &lt;span class="mi">500&lt;/span> &lt;span class="mi">502&lt;/span> &lt;span class="mi">503&lt;/span> &lt;span class="mi">504&lt;/span> &lt;span class="s">/50x.html&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="kn">location&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s">/50x.html&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="kn">root&lt;/span> &lt;span class="s">/usr/share/nginx/html&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>上面是假設 PWD Server 跑在 &lt;code>192.168.1.1:80&lt;/code> 上。&lt;/p>
 &lt;h2 id="reference">Reference&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/play-with-docker/play-with-docker">Play With Docker&lt;/a>&lt;/li>

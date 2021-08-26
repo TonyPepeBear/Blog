@@ -90,6 +90,40 @@ flag.StringVar(&PlaygroundDomain, "playground-domain", "localhost", "Domain to u
 
 就算做完上面的設定，也順利了啟動 Docker 容器，但最後才發現想要連上特定的 Port 還是會失敗，因為他是用子網域的方式去連線 `http://ip<hyphen-ip>-<session_jd>-<port>.direct.pwd.example.com`，所以又會遇到無法解析 DNS 的情況，我的解法是在 DNS 的設定中把 `pwd.example.com` 和 `*.pwd.example.com` 都加入 A Record，才順利連上。
 
+## Nginx Proxy Pass
+
+這部分我研究了蠻久，如果要把 Server 隱藏在 Nginx 後面，要設定的東西比較複雜，因為 PWD 有使用到 WebSocket，但是這部分我沒有過多的心得，所以直接把我的 `conf` 放在下面，容我不做解釋了：
+
+```nginx
+server {
+    listen       8070;
+    server_name  pwd.example.com *.pwd.example.com;
+
+
+    location / {
+        proxy_pass http://192.168.1.1:80;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $remote_addr;
+    }
+
+    location ~ ^/sessions/.+/ws/ {
+        proxy_pass http://192.168.1.1:80;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+```
+
+上面是假設 PWD Server 跑在 `192.168.1.1:80` 上。
+
 ## Reference
 
 * [Play With Docker](https://github.com/play-with-docker/play-with-docker)

@@ -5,6 +5,7 @@ draft: false
 tags:
     - docker
     - play-with-docker
+    - nginx
 categories: 
     - Docker
 ---

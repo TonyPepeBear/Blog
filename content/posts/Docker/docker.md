@@ -67,3 +67,9 @@ docker run -p 8080:80 -d nginxdemos/hello
 上面多了一個 `-p` 的參數，後面跟上 `8080:80`，意思是本機的 8080 Port 對到容器的 80 Port，這樣就可以讓我們在本機的 8080 Port 上看到 Nginx 的網頁了。
 
 ## 創建自己的 Image
+
+要教 Docker 怎麼創建 Image，需要先建立一個 `Dockerfile`：
+
+```dockerfile
+FROM ubuntu:latest
+```

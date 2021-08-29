@@ -9,6 +9,8 @@ tags:
     - powerlevel
     - powerlevel10k
     - nerd font
+    - ubuntu
+    - mac
 categories:
     - Terminal
 ---

@@ -66,6 +66,38 @@ docker run -p 8080:80 -d nginxdemos/hello
 
 上面多了一個 `-p` 的參數，後面跟上 `8080:80`，意思是本機的 8080 Port 對到容器的 80 Port，這樣就可以讓我們在本機的 8080 Port 上看到 Nginx 的網頁了。
 
+## 列出、刪除容器
+
+列出正在執行的容器：
+
+```bash
+docker ps
+```
+
+列出所有容器，包含已經停止的容器：
+
+```bash
+docker ps -a
+```
+
+刪除容器，若是尚未停止的容器則無法刪除：
+
+```bash
+docker rm <container_id>
+```
+
+加上 `-f` 參數，可強制刪除執行中的容器：
+
+```bash
+docker rm -f <container_id>
+```
+
+強制刪除所有容器：
+
+```bash
+docker rm $(docker ps -aq)
+```
+
 ## 創建自己的 Image
 
 要教 Docker 怎麼創建 Image，需要先建立一個 `Dockerfile`：
@@ -85,3 +117,5 @@ Build Image:
 ```bash
 docker build -t my-ubuntu .
 ```
+
+注意上面的指令的最後面有一個 `.`，代表 Build 這個目錄。`-t` 的參數則是 Image 的名稱，或是稱作 Tag。

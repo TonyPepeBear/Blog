@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.87.0 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><lastBuildDate>Mon, 30 Aug 2021 08:27:47 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>Cloud Ide Docker</title><link>https://tonypepe.com/posts/dev/cloud-ide-docker/</link><guid isPermaLink="true">https://tonypepe.com/posts/dev/cloud-ide-docker/</guid><pubDate>Mon, 30 Aug 2021 08:13:47 +0000</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><description>&lt;p>紀錄一下我的 &lt;a href="https://github.com/TonyPepeBear/cloud-ide-docker">Cloud IDE Docker&lt;/a> 使用方法。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.87.0 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><lastBuildDate>Mon, 30 Aug 2021 13:56:26 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>Cloud Ide Docker</title><link>https://tonypepe.com/posts/dev/cloud-ide-docker/</link><guid isPermaLink="true">https://tonypepe.com/posts/dev/cloud-ide-docker/</guid><pubDate>Mon, 30 Aug 2021 08:13:47 +0000</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><description>&lt;p>紀錄一下我的 &lt;a href="https://github.com/TonyPepeBear/cloud-ide-docker">Cloud IDE Docker&lt;/a> 使用方法。&lt;/p>
 &lt;h2 id="pycharm-community">Pycharm Community&lt;/h2>
 &lt;p>&lt;a href="https://hub.docker.com/r/tonypepe/pycharmc">Docker Hub&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -9,7 +9,7 @@
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker run -dp 8887:8887 tonypepe/pycharmc
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description><category domain="https://tonypepe.com/categories/development/">Development</category><category domain="https://tonypepe.com/tags/ide/">ide</category><category domain="https://tonypepe.com/tags/docker/">docker</category><category domain="https://tonypepe.com/tags/jetbrains/">jetbrains</category></item><item><title>Docker</title><link>https://tonypepe.com/posts/docker/docker/</link><guid isPermaLink="true">https://tonypepe.com/posts/docker/docker/</guid><pubDate>Wed, 25 Aug 2021 18:31:57 +0000</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><description>&lt;p>Docker 是一個虛擬化技術，可以將我們編寫好的程式包裹成一個小的「容器」，再發佈到伺服器上。Docker 解決了困擾程式設計多年的環境問題，只要伺服器安裝了 Docker 就可以確保一定可以執行服務。&lt;/p>
+&lt;/div></description><category domain="https://tonypepe.com/categories/development/">Development</category><category domain="https://tonypepe.com/tags/ide/">ide</category><category domain="https://tonypepe.com/tags/docker/">docker</category><category domain="https://tonypepe.com/tags/jetbrains/">jetbrains</category></item><item><title>Docker</title><link>https://tonypepe.com/posts/docker/docker/</link><guid isPermaLink="true">https://tonypepe.com/posts/docker/docker/</guid><pubDate>Wed, 25 Aug 2021 18:31:57 +0000</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><description>&lt;p>Docker 是一個虛擬化技術，可以將我們編寫好的程式包裹成一個小的「容器」，再發佈到伺服器上。Docker 解決了困擾程式界多年來的環境問題，只要伺服器安裝了 Docker 就可以確保一定可以執行服務。&lt;/p>
 &lt;h2 id="docker-vs-vm">Docker v.s. VM&lt;/h2>
 &lt;p>入門 Docker 最常見的問題就是，Docker 和 VM 差在哪裡？這個問題不難理解，VM 「虛擬機」，顧名思義是虛擬化「硬體」。而 Docker 則是只虛擬化作業系統，或是稱作「軟體」。&lt;/p>
 &lt;p>大家都應該知道每創建一個虛擬機，都會耗費掉數分鐘的時間，若還要安裝環境，那耗費的時間則會相當可觀，也會耗費掉相當大的硬體資源。Docker 只虛擬化軟體的優勢，就是可以在幾秒內就啟動服務，耗費資源也相當少，還省去了建立環境的時間。&lt;/p>
@@ -60,7 +60,53 @@
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>上面多了一個 &lt;code>-p&lt;/code> 的參數，後面跟上 &lt;code>8080:80&lt;/code>，意思是本機的 8080 Port 對到容器的 80 Port，這樣就可以讓我們在本機的 8080 Port 上看到 Nginx 的網頁了。&lt;/p>
-&lt;h2 id="創建自己的-image">創建自己的 Image&lt;/h2>
+&lt;h2 id="列出刪除容器">列出、刪除容器&lt;/h2>
+&lt;p>列出正在執行的容器：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker ps
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>列出所有容器，包含已經停止的容器：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker ps -a
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>刪除容器，若是尚未停止的容器則無法刪除：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker rm &amp;lt;container_id&amp;gt;
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>加上 &lt;code>-f&lt;/code> 參數，可強制刪除執行中的容器：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker rm -f &amp;lt;container_id&amp;gt;
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>強制刪除所有容器：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker rm &lt;span class="k">$(&lt;/span>docker ps -aq&lt;span class="k">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="創建自己的-image">創建自己的 Image&lt;/h2>
 &lt;p>要教 Docker 怎麼創建 Image，需要先建立一個 &lt;code>Dockerfile&lt;/code>：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -91,7 +137,7 @@
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker build -t my-ubuntu .
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description><category domain="https://tonypepe.com/categories/docker/">Docker</category><category domain="https://tonypepe.com/tags/docker/">docker</category></item><item><title>Cloudflare Tunnel</title><link>https://tonypepe.com/posts/web/cloudflare-tunnel/</link><guid isPermaLink="true">https://tonypepe.com/posts/web/cloudflare-tunnel/</guid><pubDate>Fri, 13 Aug 2021 15:17:39 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><description>&lt;p>Cloudflare 真的是佛心公司，提供免費的 DNS、DDoS 防護，還可以拿來託管靜態網頁，而今天是介紹他們公司的 Tunnel，這個服務可以將本地電腦的特定 port 開放到網路上，而且完全免費，在台灣的速度也不慢，真的很佛，幾乎等於拿到免費的 IPv4。&lt;/p>
+&lt;/div>&lt;p>注意上面的指令的最後面有一個 &lt;code>.&lt;/code>，代表 Build 這個目錄。&lt;code>-t&lt;/code> 的參數則是 Image 的名稱，或是稱作 Tag。&lt;/p></description><category domain="https://tonypepe.com/categories/docker/">Docker</category><category domain="https://tonypepe.com/tags/docker/">docker</category></item><item><title>Cloudflare Tunnel</title><link>https://tonypepe.com/posts/web/cloudflare-tunnel/</link><guid isPermaLink="true">https://tonypepe.com/posts/web/cloudflare-tunnel/</guid><pubDate>Fri, 13 Aug 2021 15:17:39 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><description>&lt;p>Cloudflare 真的是佛心公司，提供免費的 DNS、DDoS 防護，還可以拿來託管靜態網頁，而今天是介紹他們公司的 Tunnel，這個服務可以將本地電腦的特定 port 開放到網路上，而且完全免費，在台灣的速度也不慢，真的很佛，幾乎等於拿到免費的 IPv4。&lt;/p>
 &lt;p>我覺得目前的缺點就是網路上相關的資料比較少，遇到問題很難找到資料參考，因為他其實主要是 Cloudflare 的一項零信任服務，目標客群都是一些厲害的網管，所以官方寫的文件也都很深奧，如果是新手可能會頭昏眼花。&lt;/p>
 &lt;p>這一項服務可以先不用帳號就能試用，不過就不能自訂 Domain，我會先介紹免登入的，再介紹要登入的。第一步還是要在本地先安裝環境。&lt;/p>
 &lt;h2 id="安裝-cloudflared">安裝 cloudflared&lt;/h2>

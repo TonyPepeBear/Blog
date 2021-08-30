@@ -1,7 +1,7 @@
 ---
 title: "Docker"
 date: 2021-08-25T18:31:57Z
-draft: true
+draft: false
 tags: 
     - docker
 categories:
@@ -72,4 +72,16 @@ docker run -p 8080:80 -d nginxdemos/hello
 
 ```dockerfile
 FROM ubuntu:latest
+
+RUN apt update \
+    && apt install vim git -y \
+    && rm -rf /var/lib/apt/lists/*
+
+CMD ["/bin/bash"]
+```
+
+Build Image:
+
+```bash
+docker build -t my-ubuntu .
 ```

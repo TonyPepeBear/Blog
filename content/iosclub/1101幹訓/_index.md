@@ -9,3 +9,4 @@ draft: false
 * [Cloud Ide](/posts/dev/cloud-ide-docker/)
 * [Markdown](/posts/others/markdown/)
 * [Docker](/posts/docker/docker/)
+* [Command and Git](https://drive.google.com/file/d/1SUcLFZc3rxJg3X8tXbayVtMRZxAOOWFY/view?usp=sharing)

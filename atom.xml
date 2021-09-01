@@ -1,4 +1,107 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-TW"><title type="text">TonyPepe</title><subtitle type="html">紀錄我踩過得坑</subtitle><updated>2021-08-30T13:56:26+00:00</updated><id>https://tonypepe.com/</id><link rel="alternate" type="text/html" href="https://tonypepe.com/"/><link rel="self" type="application/atom+xml" href="https://tonypepe.com/atom.xml"/><author><name>TonyPepe</name><uri>https://tonypepe.com/</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><generator uri="https://gohugo.io/" version="0.87.0">Hugo</generator><entry><title type="text">Cloud Ide Docker</title><link rel="alternate" type="text/html" href="https://tonypepe.com/posts/dev/cloud-ide-docker/"/><id>https://tonypepe.com/posts/dev/cloud-ide-docker/</id><updated>2021-08-30T08:27:22+00:00</updated><published>2021-08-30T08:13:47+00:00</published><author><name>TonyPepe</name><uri>https://tonypepe.com/about</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><summary type="html">&lt;p>紀錄一下我的 &lt;a href="https://github.com/TonyPepeBear/cloud-ide-docker">Cloud IDE Docker&lt;/a> 使用方法。&lt;/p>……</summary><content type="html">&lt;p>紀錄一下我的 &lt;a href="https://github.com/TonyPepeBear/cloud-ide-docker">Cloud IDE Docker&lt;/a> 使用方法。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-TW"><title type="text">TonyPepe</title><subtitle type="html">紀錄我踩過得坑</subtitle><updated>2021-09-01T15:33:40+00:00</updated><id>https://tonypepe.com/</id><link rel="alternate" type="text/html" href="https://tonypepe.com/"/><link rel="self" type="application/atom+xml" href="https://tonypepe.com/atom.xml"/><author><name>TonyPepe</name><uri>https://tonypepe.com/</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><generator uri="https://gohugo.io/" version="0.87.0">Hugo</generator><entry><title type="text">Web Basic</title><link rel="alternate" type="text/html" href="https://tonypepe.com/posts/web/web-basic/"/><id>https://tonypepe.com/posts/web/web-basic/</id><updated>2021-09-01T15:33:11+00:00</updated><published>2021-09-01T14:07:00+00:00</published><author><name>TonyPepe</name><uri>https://tonypepe.com/about</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><summary type="html">&lt;p>瀏覽器只看得懂三種東西：Html、CSS、Javascript。但是常可以發現以這些以外的語言編寫網頁，像是 Python、Ruby、PHP、Java 等等，其實這些東西寫出來的網頁，最後也都是編譯(轉換)成 Html、CSS、Javascript。所以要學網頁，就先從這三樣東西開始學。&lt;/p>……</summary><content type="html">&lt;p>瀏覽器只看得懂三種東西：Html、CSS、Javascript。但是常可以發現以這些以外的語言編寫網頁，像是 Python、Ruby、PHP、Java 等等，其實這些東西寫出來的網頁，最後也都是編譯(轉換)成 Html、CSS、Javascript。所以要學網頁，就先從這三樣東西開始學。&lt;/p>
+&lt;h2 id="html-vs-css-vs-javascript">HTML vs CSS vs Javascript&lt;/h2>
+&lt;p>只是寫個網頁，就要學三種程式語言？不，嚴格來說，只有 Javascript 是程式語言，其他兩個都只是標記語言：HTML 提供網頁的骨幹，CSS 提供衣服，JS 提供大腦。&lt;/p>
+&lt;p>&lt;img src="https://pic1.zhimg.com/80/v2-ee31ec6f20c74c5b03e8d48da1178820_720w.jpg" alt="img">&lt;/p>
+&lt;h2 id="html">HTML&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="cp">&amp;lt;!DOCTYPE html&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Page Title&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Heading &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="css">CSS&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="nt">body&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">background-color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">lightblue&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nt">h1&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">white&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">text-align&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">center&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nt">p&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">font-family&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">verdana&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">font-size&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">20&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="bootstrap">Bootstrap&lt;/h2>
+&lt;p>Bootstrap 就是來拯救世界的，提供網頁設計師們一個好用的框架，用簡單幾句話就可以寫出響應式網頁，也有很多漂亮的原件，讓大家不必每次寫網頁都重新造輪子。用了 Bootstrap 基本上就只需要碰 HTML，CSS 和 JS 都不用寫，就可以寫出堪用的網頁&lt;del>很多大學生的專題都是這樣搞出來&lt;/del>。&lt;/p>
+&lt;p>只要套了下面的模板，就能開始使用 Bootstrap：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="cp">&amp;lt;!doctype html&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span> &lt;span class="na">lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;en&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;utf-8&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;viewport&amp;#34;&lt;/span> &lt;span class="na">content&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;width=device-width, initial-scale=1&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">link&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css&amp;#34;&lt;/span> &lt;span class="na">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;stylesheet&amp;#34;&lt;/span> &lt;span class="na">integrity&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We&amp;#34;&lt;/span> &lt;span class="na">crossorigin&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;anonymous&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Hello, world!&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Hello, world!&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span> &lt;span class="na">src&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js&amp;#34;&lt;/span> &lt;span class="na">integrity&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj&amp;#34;&lt;/span> &lt;span class="na">crossorigin&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;anonymous&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="reference">Reference&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.w3schools.com/html">HTML Tutorial&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.w3schools.com/css">CSS&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.w3schools.com/js">JavaScript Tutorial&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://zhuanlan.zhihu.com/p/67242125">HTML vs JS vs CSS&lt;/a>&lt;/li>
+&lt;/ul></content><category scheme="https://tonypepe.com/categories/web/" term="Web" label="Web"/><category scheme="https://tonypepe.com/tags/web/" term="web" label="web"/><category scheme="https://tonypepe.com/tags/html/" term="html" label="html"/><category scheme="https://tonypepe.com/tags/css/" term="css" label="css"/><category scheme="https://tonypepe.com/tags/javascript/" term="javascript" label="javascript"/></entry><entry><title type="text">Cloud Ide Docker</title><link rel="alternate" type="text/html" href="https://tonypepe.com/posts/dev/cloud-ide-docker/"/><id>https://tonypepe.com/posts/dev/cloud-ide-docker/</id><updated>2021-08-30T08:27:22+00:00</updated><published>2021-08-30T08:13:47+00:00</published><author><name>TonyPepe</name><uri>https://tonypepe.com/about</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><summary type="html">&lt;p>紀錄一下我的 &lt;a href="https://github.com/TonyPepeBear/cloud-ide-docker">Cloud IDE Docker&lt;/a> 使用方法。&lt;/p>……</summary><content type="html">&lt;p>紀錄一下我的 &lt;a href="https://github.com/TonyPepeBear/cloud-ide-docker">Cloud IDE Docker&lt;/a> 使用方法。&lt;/p>
 &lt;h2 id="pycharm-community">Pycharm Community&lt;/h2>
 &lt;p>&lt;a href="https://hub.docker.com/r/tonypepe/pycharmc">Docker Hub&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">

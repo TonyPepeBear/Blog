@@ -15,9 +15,11 @@ categories:
 
 <!--more-->
 
+> 本文目的於 iOS Club 幹訓使用，內容口述為主，所以文章內容有點草率，基本上不適合閱讀不適合。
+
 ## HTML vs CSS vs Javascript
 
-只是寫個網頁，就要學三種程式語言？不，嚴格來說，只有 Javascript 是程式語言，其他兩個都只是標記語言：HTML 提供網頁的骨幹，CSS 提供衣服，JS 提供大腦。
+只是寫個網頁，就要學三種程式語言？不，嚴格來說，只有 Javascript 是程式語言，其他兩個都只是標記語言：HTML 提供網頁的骨幹，CSS 提供衣服，JS 提供大腦，但你也確實要學三樣東西。
 
 ![img](https://pic1.zhimg.com/80/v2-ee31ec6f20c74c5b03e8d48da1178820_720w.jpg)
 

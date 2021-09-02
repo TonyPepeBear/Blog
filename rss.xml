@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.87.0 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><lastBuildDate>Thu, 02 Sep 2021 03:14:19 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>Web Basic</title><link>https://tonypepe.com/posts/web/web-basic/</link><guid isPermaLink="true">https://tonypepe.com/posts/web/web-basic/</guid><pubDate>Wed, 01 Sep 2021 14:07:00 +0000</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><description>&lt;p>瀏覽器只看得懂三種東西：Html、CSS、Javascript。但是常可以發現以這些以外的語言編寫網頁，像是 Python、Ruby、PHP、Java 等等，其實這些東西寫出來的網頁，最後也都是編譯(轉換)成 Html、CSS、Javascript。所以要學網頁，就先從這三樣東西開始學。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.88.0 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><lastBuildDate>Thu, 02 Sep 2021 15:05:13 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>Web Basic</title><link>https://tonypepe.com/posts/web/web-basic/</link><guid isPermaLink="true">https://tonypepe.com/posts/web/web-basic/</guid><pubDate>Wed, 01 Sep 2021 14:07:00 +0000</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><description>&lt;p>瀏覽器只看得懂三種東西：Html、CSS、Javascript。但是常可以發現以這些以外的語言編寫網頁，像是 Python、Ruby、PHP、Java 等等，其實這些東西寫出來的網頁，最後也都是編譯(轉換)成 Html、CSS、Javascript。所以要學網頁，就先從這三樣東西開始學。&lt;/p>
 &lt;blockquote>
 &lt;p>本文目的於 iOS Club 幹訓使用，內容口述為主，所以文章內容有點草率，基本上不適合閱讀不適合。&lt;/p>
 &lt;/blockquote>
@@ -587,6 +587,11 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;p>HackMD 是一個在網頁中的 Markdown 編輯器，可以方便地在網頁中編輯和看到編寫的結果，HackMD 最厲害的功能是可以將 Markdown 轉換成簡報，用 Markdown 取代 PowerPoint？這夠帥吧！&lt;/p>
 &lt;h3 id="marktext">MarkText&lt;/h3>
 &lt;p>這是一個在 &lt;a href="https://github.com/marktext/marktext">Github&lt;/a> 上的開源專案，可以所寫所得，方便使用，但我還是比較推薦新手使用上面兩項工具，因為這東西真的太方便了，有點沒有在寫 Markdown 的感覺。&lt;/p>
+&lt;h3 id="microsoft-word">Microsoft Word&lt;/h3>
+&lt;p>推薦指數：⭐⭐⭐⭐⭐&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.youtube.com/watch?v=X34ZmkeZDos">[YouTube] Why Microsoft Word is the best IDE for programming&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="markdown-語法">Markdown 語法&lt;/h2>
 &lt;h1 id="大標題">大標題&lt;/h1>
 &lt;div class="highlight">&lt;div class="chroma">

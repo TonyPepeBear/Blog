@@ -12,8 +12,14 @@ draft: false
 * [Docker](/posts/docker/docker/)
 * [Command and Git](https://drive.google.com/file/d/1SUcLFZc3rxJg3X8tXbayVtMRZxAOOWFY/view?usp=sharing)
 
-## Pycharm Community
+## PyCharm Community
 
 ```bash
-docker run -dp 8887:8887 8080:8080 tonypepe/pycharmc
+docker run -dp 8887:8887 -p 8080:8080 tonypepe/pycharmc
+```
+
+## Visual Studio Code (Code-Server)
+
+```bash
+docker run -de PASSWORD=0 -p 8080:8080 -p 8081:8081 codercom/code-server
 ```

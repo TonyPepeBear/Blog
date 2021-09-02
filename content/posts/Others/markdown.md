@@ -40,6 +40,12 @@ HackMD 是一個在網頁中的 Markdown 編輯器，可以方便地在網頁中
 
 這是一個在 [Github](https://github.com/marktext/marktext) 上的開源專案，可以所寫所得，方便使用，但我還是比較推薦新手使用上面兩項工具，因為這東西真的太方便了，有點沒有在寫 Markdown 的感覺。
 
+### Microsoft Word
+
+推薦指數：⭐⭐⭐⭐⭐
+
+* [[YouTube] Why Microsoft Word is the best IDE for programming](https://www.youtube.com/watch?v=X34ZmkeZDos)
+
 ## Markdown 語法
 
 # 大標題

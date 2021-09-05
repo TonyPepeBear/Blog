@@ -22,3 +22,11 @@ docker run -dp 8887:8887 -p 8080:8080 tonypepe/pycharmc
 ```bash
 docker run -de PASSWORD=0 -p 8080:8080 -p 8081:8081 codercom/code-server
 ```
+
+### Install VIM
+
+```bash
+sudo apt update
+sudo apt install vim
+export EDITOR=vim
+```

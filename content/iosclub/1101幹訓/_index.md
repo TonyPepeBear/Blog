@@ -29,6 +29,6 @@ docker run -de PASSWORD=0 -p 8080:8080 -p 8081:8081 codercom/code-server
 
 ```bash
 sudo apt update
-sudo apt install vim
+sudo apt install vim -y
 export EDITOR=vim
 ```

@@ -15,7 +15,7 @@ categories:
 
 <!--more-->
 
-> 本文目的於 iOS Club 幹訓使用，內容口述為主，所以文章內容有點草率，基本上不適合閱讀不適合。
+> 本文目的於 iOS Club 幹訓使用，內容口述為主，所以文章內容有點草率，基本上不適合閱讀。
 
 ## HTML vs CSS vs Javascript
 

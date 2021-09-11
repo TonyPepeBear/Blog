@@ -19,6 +19,12 @@ draft: false
 docker run -dp 8887:8887 -p 8080:8080 tonypepe/pycharmc
 ```
 
+## IDEA Community
+
+```bash
+docker run -dp 8887:8887 tonypepe/ideac
+```
+
 ## Visual Studio Code (Code-Server)
 
 ```bash

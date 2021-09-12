@@ -17,13 +17,13 @@ categories:
 
 本篇使用 Kotlin 和 OKHttp，來嘗試撰寫一個應用程式，來協助發布 Markdwon 至 Medium，專案原始碼在 [Github](https://github.com/TonyPepeBear/MediumMarkdownUploader) 上。
 
-![截圖 2021-02-10 下午9.47.40.png](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/2021/02/10-21-47-48-%E6%88%AA%E5%9C%96%202021-02-10%20%E4%B8%8B%E5%8D%889.47.40.png)
+![截圖 2021-02-10 下午9.47.40.png](https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/2021/02/10-21-47-48-%E6%88%AA%E5%9C%96%202021-02-10%20%E4%B8%8B%E5%8D%889.47.40.png)
 
 ## 申請 token
 
 Medium API 的 [官方文件](https://github.com/Medium/medium-api-docs) 在這，可以用 `HTTP POST` 的方式來發布文章。要使用 API 第一件事就是要有 `token`，要申請 `token` 不用錢，官方目前好像也沒有使用限制，到 [用戶設定](https://medium.com/me/settings) 的頁面，找到 `Integration tokens` 的地方，申請一個 token，說明隨便輸入就好。
 
-![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/2021/02/10-01-42-07-%E6%88%AA%E5%9C%96%202021-02-10%20%E4%B8%8A%E5%8D%881.42.04.png)
+![img](https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/2021/02/10-01-42-07-%E6%88%AA%E5%9C%96%202021-02-10%20%E4%B8%8A%E5%8D%881.42.04.png)
 
 ## UserID
 

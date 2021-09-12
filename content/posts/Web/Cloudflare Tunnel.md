@@ -89,7 +89,7 @@ cloudflared tunnel delete <Name or UUID>
 
 有兩個方法可以設定 CNAME，一個是自己去 Cloudflare 的官網設定：
 
-![pic](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210813165733.png)
+![img](https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210813165733.png)
 
 另一個是直接用指令設定，快又方便，把後面的 domain 改成自己想要綁定的：
 

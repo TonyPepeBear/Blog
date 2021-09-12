@@ -148,7 +148,7 @@ HackMD 是一個在網頁中的 Markdown 編輯器，可以方便地在網頁中
 printf("Hi 程式碼區塊");
 ```
 
-![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210717220425.png)
+![img](https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210717220425.png)
 
 ---
 

@@ -68,13 +68,13 @@ echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
 安裝完成後第一次進到 Terminal 會遇到一個安裝嚮導，可以根據自己喜好設定主題樣式。
 
-![img ](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210717214526.gif)
+![img](https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210717214526.gif)
 
 完成到這裡，Terminal 應該已經變得美美的，如果遇到亂碼，可能是字型沒有調整好。
 
 powerlevel10k 會提供一個 `p10k` 的命令，可以用於重新啟動嚮導：
 
-![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210717174430.png)
+![img](https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210717174430.png)
 
 ## Zim
 

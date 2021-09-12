@@ -1,4 +1,99 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-TW"><title type="text">TonyPepe</title><subtitle type="html">紀錄我踩過得坑</subtitle><updated>2021-09-12T15:18:40+00:00</updated><id>https://tonypepe.com/</id><link rel="alternate" type="text/html" href="https://tonypepe.com/"/><link rel="self" type="application/atom+xml" href="https://tonypepe.com/atom.xml"/><author><name>TonyPepe</name><uri>https://tonypepe.com/</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><generator uri="https://gohugo.io/" version="0.88.1">Hugo</generator><entry><title type="text">Web Basic</title><link rel="alternate" type="text/html" href="https://tonypepe.com/posts/web/web-basic/"/><id>https://tonypepe.com/posts/web/web-basic/</id><updated>2021-09-06T16:01:15+00:00</updated><published>2021-09-01T14:07:00+00:00</published><author><name>TonyPepe</name><uri>https://tonypepe.com/about</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><summary type="html">&lt;p>瀏覽器只看得懂三種東西：Html、CSS、Javascript。但是常可以發現以這些以外的語言編寫網頁，像是 Python、Ruby、PHP、Java 等等，其實這些東西寫出來的網頁，最後也都是編譯(轉換)成 Html、CSS、Javascript。所以要學網頁，就先從這三樣東西開始學。&lt;/p>……</summary><content type="html">&lt;p>瀏覽器只看得懂三種東西：Html、CSS、Javascript。但是常可以發現以這些以外的語言編寫網頁，像是 Python、Ruby、PHP、Java 等等，其實這些東西寫出來的網頁，最後也都是編譯(轉換)成 Html、CSS、Javascript。所以要學網頁，就先從這三樣東西開始學。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-TW"><title type="text">TonyPepe</title><subtitle type="html">紀錄我踩過得坑</subtitle><updated>2021-09-12T15:39:24+00:00</updated><id>https://tonypepe.com/</id><link rel="alternate" type="text/html" href="https://tonypepe.com/"/><link rel="self" type="application/atom+xml" href="https://tonypepe.com/atom.xml"/><author><name>TonyPepe</name><uri>https://tonypepe.com/</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><generator uri="https://gohugo.io/" version="0.88.1">Hugo</generator><entry><title type="text">GitHub SSH</title><link rel="alternate" type="text/html" href="https://tonypepe.com/posts/git/github-ssh/"/><id>https://tonypepe.com/posts/git/github-ssh/</id><updated>2021-09-12T15:39:03+00:00</updated><published>2021-09-12T14:32:19+00:00</published><author><name>TonyPepe</name><uri>https://tonypepe.com/about</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><summary type="html">&lt;p>在本機與 GitHub 最安全的方式就是透過 ssh，最大的好處就是不需要輸入帳號密碼來確認身分，也可以享受到 ssh 加密所提供的安全性。&lt;/p>……</summary><content type="html">&lt;p>在本機與 GitHub 最安全的方式就是透過 ssh，最大的好處就是不需要輸入帳號密碼來確認身分，也可以享受到 ssh 加密所提供的安全性。&lt;/p>
+&lt;h2 id="ssh-keygen">ssh-keygen&lt;/h2>
+&lt;p>要使用 ssh 非對稱加密，就會需要公鑰與私鑰，創建 ssh key 的方法就是 &lt;code>ssh-keygen&lt;/code>：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">user@66c0bf85e710:~$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key &lt;span class="o">(&lt;/span>/home/user/.ssh/id_rsa&lt;span class="o">)&lt;/span>:
+Created directory &lt;span class="s1">&amp;#39;/home/user/.ssh&amp;#39;&lt;/span>.
+Enter passphrase &lt;span class="o">(&lt;/span>empty &lt;span class="k">for&lt;/span> no passphrase&lt;span class="o">)&lt;/span>:
+Enter same passphrase again:
+Your identification has been saved in /home/user/.ssh/id_rsa
+Your public key has been saved in /home/user/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:+UUuTN0YLUi2eh7HJoJvuy0whUuLvXIQejjPPTZ9gw4 user@66c0bf85e710
+The key&lt;span class="err">&amp;#39;&lt;/span>s randomart image is:
++---&lt;span class="o">[&lt;/span>RSA 3072&lt;span class="o">]&lt;/span>----+
+&lt;span class="p">|&lt;/span> .o... &lt;span class="p">|&lt;/span>
+&lt;span class="p">|&lt;/span> ..o.+. &lt;span class="p">|&lt;/span>
+&lt;span class="p">|&lt;/span> . o +.. &lt;span class="p">|&lt;/span>
+&lt;span class="p">|&lt;/span> . o..&lt;span class="o">=&lt;/span> + &lt;span class="p">|&lt;/span>
+&lt;span class="p">|&lt;/span> &lt;span class="nv">o&lt;/span> &lt;span class="o">=&lt;/span>.+S * * &lt;span class="p">|&lt;/span>
+&lt;span class="p">|&lt;/span> + + *. &lt;span class="o">=&lt;/span> B &lt;span class="p">|&lt;/span>
+&lt;span class="p">|&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nv">oE&lt;/span>&lt;span class="o">=&lt;/span>o.o &lt;span class="p">|&lt;/span>
+&lt;span class="p">|&lt;/span> + Bo+oo &lt;span class="p">|&lt;/span>
+&lt;span class="p">|&lt;/span> + +++.. &lt;span class="p">|&lt;/span>
++----&lt;span class="o">[&lt;/span>SHA256&lt;span class="o">]&lt;/span>-----+
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>ssh-keygen&lt;/code> 會問一些問題，最快的方式就是直接留白(保持預設)，一直按 enter 就可以看到已經在 &lt;code>~/.ssh&lt;/code> 產生了兩個檔案：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">user@66c0bf85e710:~$ ls -l ~/.ssh
+total &lt;span class="m">8&lt;/span>
+-rw------- &lt;span class="m">1&lt;/span> user user &lt;span class="m">2602&lt;/span> Sep &lt;span class="m">12&lt;/span> 22:42 id_rsa
+-rw-r--r-- &lt;span class="m">1&lt;/span> user user &lt;span class="m">571&lt;/span> Sep &lt;span class="m">12&lt;/span> 22:42 id_rsa.pub
+user@66c0bf85e710:~$
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>id_rsa&lt;/code> 就是私鑰，而多個 pub 結尾的 &lt;code>id_rsa.pub&lt;/code> 就是公鑰。私鑰請不要傳給任何人，公鑰則提供給 GitHub。可以用 cat 將公鑰顯示出來並複製他：&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210912/image.714d829xbug0.png" alt="image">&lt;/p>
+&lt;h2 id="把公鑰交給-github">把公鑰交給 GitHub&lt;/h2>
+&lt;p>到 GitHub 的 Settings -&amp;gt; SSH and GPG keys -&amp;gt; New SSH key：&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210912/image.5frveu05dt00.png" alt="image">&lt;/p>
+&lt;p>把剛剛複製下來的公鑰貼上，Title 可以自己隨便輸入或打這台電腦的名字：&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210912/image.56vkhmb55ps0.png" alt="image">&lt;/p>
+&lt;h2 id="測試連線">測試連線&lt;/h2>
+&lt;p>輸入下面命令就可以知道有沒有連線成功，如果有看到自己的使用者名稱，就代表已經完成 ssh 的認證：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">ssh -T git@github.com
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210912/image.5f99gnzo3ps0.png" alt="image">&lt;/p>
+&lt;p>第一次連線可能會問要不要信任，輸入 &lt;code>yes&lt;/code> 即可。&lt;/p>
+&lt;blockquote>
+&lt;p>如果覺得上面的方法麻煩，也可以直接創建一個私有 repo，然後試著 clone 和 push，就知道有沒有認證成功了。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="reference">Reference&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/testing-your-ssh-connection">Testing your SSH connection&lt;/a>&lt;/li>
+&lt;/ul></content><category scheme="https://tonypepe.com/categories/git/" term="Git" label="Git"/><category scheme="https://tonypepe.com/tags/git/" term="git" label="git"/><category scheme="https://tonypepe.com/tags/github/" term="github" label="github"/><category scheme="https://tonypepe.com/tags/ssh/" term="ssh" label="ssh"/></entry><entry><title type="text">Web Basic</title><link rel="alternate" type="text/html" href="https://tonypepe.com/posts/web/web-basic/"/><id>https://tonypepe.com/posts/web/web-basic/</id><updated>2021-09-06T16:01:15+00:00</updated><published>2021-09-01T14:07:00+00:00</published><author><name>TonyPepe</name><uri>https://tonypepe.com/about</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><summary type="html">&lt;p>瀏覽器只看得懂三種東西：Html、CSS、Javascript。但是常可以發現以這些以外的語言編寫網頁，像是 Python、Ruby、PHP、Java 等等，其實這些東西寫出來的網頁，最後也都是編譯(轉換)成 Html、CSS、Javascript。所以要學網頁，就先從這三樣東西開始學。&lt;/p>……</summary><content type="html">&lt;p>瀏覽器只看得懂三種東西：Html、CSS、Javascript。但是常可以發現以這些以外的語言編寫網頁，像是 Python、Ruby、PHP、Java 等等，其實這些東西寫出來的網頁，最後也都是編譯(轉換)成 Html、CSS、Javascript。所以要學網頁，就先從這三樣東西開始學。&lt;/p>
 &lt;blockquote>
 &lt;p>本文目的於 iOS Club 幹訓使用，內容口述為主，所以文章內容有點草率，基本上不適合閱讀。&lt;/p>
 &lt;/blockquote>

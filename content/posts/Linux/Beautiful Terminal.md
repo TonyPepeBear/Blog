@@ -17,7 +17,7 @@ categories:
 
 打不贏別人，至少長得比他帥。最近終於把我的 Terminal 弄成自己喜歡的樣子，所以做一下簡單的紀錄，希望大家都可以把東西變成自己喜歡的樣子。
 
-![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210716235146.png)
+![img](https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210716235146.png)
 
 <!--more-->
 
@@ -40,7 +40,7 @@ categories:
 
 下載安裝好字體後，記得到自己的 Terminal 中變更字體，選擇有包含 Nerd 的字體，以免等等字體都無法顯示，這部分教學我懶得寫，所以附一張圖：
 
-![img](https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210717112205.png)
+![img](https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210717112205.png)
 
 ## zsh
 

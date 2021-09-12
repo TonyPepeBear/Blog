@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.88.1 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><lastBuildDate>Sun, 12 Sep 2021 15:39:24 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>GitHub SSH</title><link>https://tonypepe.com/posts/git/github-ssh/</link><guid isPermaLink="true">https://tonypepe.com/posts/git/github-ssh/</guid><pubDate>Sun, 12 Sep 2021 14:32:19 +0000</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><description>&lt;p>在本機與 GitHub 最安全的方式就是透過 ssh，最大的好處就是不需要輸入帳號密碼來確認身分，也可以享受到 ssh 加密所提供的安全性。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepe.com/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.88.1 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><lastBuildDate>Sun, 12 Sep 2021 15:43:34 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepe.com/rss.xml"/><item><title>GitHub SSH</title><link>https://tonypepe.com/posts/git/github-ssh/</link><guid isPermaLink="true">https://tonypepe.com/posts/git/github-ssh/</guid><pubDate>Sun, 12 Sep 2021 14:32:19 +0000</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><description>&lt;p>在本機與 GitHub 最安全的方式就是透過 ssh，最大的好處就是不需要輸入帳號密碼來確認身分，也可以享受到 ssh 加密所提供的安全性。&lt;/p>
 &lt;h2 id="ssh-keygen">ssh-keygen&lt;/h2>
 &lt;p>要使用 ssh 非對稱加密，就會需要公鑰與私鑰，創建 ssh key 的方法就是 &lt;code>ssh-keygen&lt;/code>：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -599,7 +599,7 @@ user@66c0bf85e710:~$
 &lt;li>&lt;a href="https://www.youtube.com/channel/UCOHc8xzWD25Nn-snDBJUMGQ">機師阿楷&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.theairlinepilots.com/forumarchive/a320/a320-normal-procedures.pdf">a320-normal-procedures.pdf&lt;/a>&lt;/li>
 &lt;/ul></description><category domain="https://tonypepe.com/categories/flight/">Flight</category><category domain="https://tonypepe.com/tags/a320neo/">a320neo</category><category domain="https://tonypepe.com/tags/airbus/">airbus</category><category domain="https://tonypepe.com/tags/msfs/">msfs</category></item><item><title>Beautiful Terminal</title><link>https://tonypepe.com/posts/linux/beautiful-terminal/</link><guid isPermaLink="true">https://tonypepe.com/posts/linux/beautiful-terminal/</guid><pubDate>Fri, 16 Jul 2021 23:43:07 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><description>&lt;p>打不贏別人，至少長得比他帥。最近終於把我的 Terminal 弄成自己喜歡的樣子，所以做一下簡單的紀錄，希望大家都可以把東西變成自己喜歡的樣子。&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210716235146.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210716235146.png" alt="img">&lt;/p>
 &lt;p>我們今天主要會用到下面的幾樣技術：&lt;/p>
 &lt;ol>
 &lt;li>&lt;a href="https://zsh.sourceforge.io/">zsh&lt;/a>&lt;/li>
@@ -613,7 +613,7 @@ user@66c0bf85e710:~$
 &lt;p>好看的第一步就是有好看的字體，&lt;a href="https://www.nerdfonts.com/">Nerd Fonts&lt;/a> 這個專案把一些開發者常用的字體，加上一些在 Terminal 中會用到的一些 icon 和 symbol，常見的 &lt;code>Hack&lt;/code>、&lt;code>Jetbrains Mono&lt;/code> 都有在這個專案裡。到 Nerd Fonts 的官網可以下載到這些字體，注意不要到字體們原本的管網下載，要到 Nerd Fonts 下載包含特殊符號的字體。&lt;/p>
 &lt;p>&lt;img src="https://www.nerdfonts.com/assets/img/sankey-glyphs-combined-diagram.png" alt="img">&lt;/p>
 &lt;p>下載安裝好字體後，記得到自己的 Terminal 中變更字體，選擇有包含 Nerd 的字體，以免等等字體都無法顯示，這部分教學我懶得寫，所以附一張圖：&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/TonyPepeBear/ImageBed/main/20210717112205.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210717112205.png" alt="img">&lt;/p>
 &lt;h2 id="zsh">zsh&lt;/h2>
 &lt;p>zsh 可以說是 bash 的進階版，提供客製化自己在 Terminal 中想要的主題和功能。要安裝 zsh 通常各個系統都不一樣，自己上網根據系統安裝即可。安裝完成後也要將預設 shell 改成 zsh。&lt;/p>
 &lt;p>ubuntu:&lt;/p>

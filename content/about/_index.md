@@ -19,3 +19,9 @@ draft: false
 * 網頁託管於 [Cloudflare Pages](https://pages.cloudflare.com/)，無限請求，無限流量
 * [jsDeliver](https://www.jsdelivr.com/) 圖片 CDN
 * [GitHub](https://github.com) 提供 git repo
+
+## 再次感謝 Cloudflare 對本站性能的極大貢獻
+
+[Performance Report: https://tonypepe.com](https://www.fastorslow.com/app/profile/567c05fa-1457-5ab5-a631-0e7cd0779e0e)
+
+![image](https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210912/image.6s5lom6yvfs0.png)

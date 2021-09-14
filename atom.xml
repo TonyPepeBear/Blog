@@ -1,4 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-TW"><title type="text">TonyPepe</title><subtitle type="html">紀錄我踩過得坑</subtitle><updated>2021-09-13T14:21:07+00:00</updated><id>https://tonypepebear.github.io/HugoBlog/</id><link rel="alternate" type="text/html" href="https://tonypepebear.github.io/HugoBlog/"/><link rel="self" type="application/atom+xml" href="https://tonypepebear.github.io/HugoBlog/atom.xml"/><author><name>TonyPepe</name><uri>https://tonypepebear.github.io/</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><generator uri="https://gohugo.io/" version="0.88.1">Hugo</generator><entry><title type="text">GitHub SSH</title><link rel="alternate" type="text/html" href="https://tonypepebear.github.io/HugoBlog/posts/git/github-ssh/"/><id>https://tonypepebear.github.io/HugoBlog/posts/git/github-ssh/</id><updated>2021-09-13T02:25:52+00:00</updated><published>2021-09-12T14:32:19+00:00</published><author><name>TonyPepe</name><uri>https://tonypepebear.github.io/HugoBlog/about</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><summary type="html">&lt;p>在本機與 GitHub 溝通最安全的方式就是透過 ssh，最大的好處就是不需要輸入帳號密碼來確認身分，也可以享受到 ssh 加密所提供的安全性。&lt;/p>……</summary><content type="html">&lt;p>在本機與 GitHub 溝通最安全的方式就是透過 ssh，最大的好處就是不需要輸入帳號密碼來確認身分，也可以享受到 ssh 加密所提供的安全性。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-TW"><title type="text">TonyPepe</title><subtitle type="html">紀錄我踩過得坑</subtitle><updated>2021-09-14T05:29:42+00:00</updated><id>https://tonypepebear.github.io/HugoBlog/</id><link rel="alternate" type="text/html" href="https://tonypepebear.github.io/HugoBlog/"/><link rel="self" type="application/atom+xml" href="https://tonypepebear.github.io/HugoBlog/atom.xml"/><author><name>TonyPepe</name><uri>https://tonypepebear.github.io/</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><generator uri="https://gohugo.io/" version="0.88.1">Hugo</generator><entry><title type="text">Git Submodule</title><link rel="alternate" type="text/html" href="https://tonypepebear.github.io/HugoBlog/posts/git/git-submodule/"/><id>https://tonypepebear.github.io/HugoBlog/posts/git/git-submodule/</id><updated>2021-09-14T05:29:21+00:00</updated><published>2021-09-14T05:11:27+00:00</published><author><name>TonyPepe</name><uri>https://tonypepebear.github.io/HugoBlog/about</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><summary type="html">&lt;p>要在一個 Git 專案中有子專案 (我稱為 git in git)，有兩個辦法，一個是直接 clone 到目錄下，另一個就是使用 submodule。兩者的不同是前者的子專案會在母專案中佔掉所有的空間，而後者只會紀錄 submodule 的路徑和 commit 版本。&lt;/p>……</summary><content type="html">&lt;p>要在一個 Git 專案中有子專案 (我稱為 git in git)，有兩個辦法，一個是直接 clone 到目錄下，另一個就是使用 submodule。兩者的不同是前者的子專案會在母專案中佔掉所有的空間，而後者只會紀錄 submodule 的路徑和 commit 版本。&lt;/p>
+&lt;h2 id="add-submodule">Add Submodule&lt;/h2>
+&lt;p>要將專案新增到現有的目錄中，可以使用 &lt;code>git submodule add&lt;/code>：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">git submodule add &amp;lt;repo_url&amp;gt; &amp;lt;folder&amp;gt;
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>執行後，可以看到 git 會自動幫你把 submodule clone 到指定的目錄中，並多了一個檔案 &lt;code>.gitmodules&lt;/code>，這個檔案就是上面說到的 Submodule 只紀錄 commit 版本，和 Submodule URL 的檔案。&lt;/p>
+&lt;p>add submodule 後，還是要 commit，因為 Submodule 也就只是紀錄要用子專案的哪一個 commit 版本，所以也可以確保大家都是使用到同一個 Submodule 的版本。可以試著將專案 commit and push 到 GitHub 上，應該可以看到 Submodule 就是連結到另外一個專案的某一個 commit，下面是本站的 Hugo 主題的 submodule：&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210913/CleanShot%202021-09-13%20at%2021.31.12@2x.63e3xkepuq80.png" alt="image">&lt;/p>
+&lt;h2 id="clone-submodule">Clone Submodule&lt;/h2>
+&lt;p>在 Clone 含有 Submodule 的專案時，Git 預設是不會自動 clone 子專案的，需要加上 &lt;code>--recursive&lt;/code> 這個參數，才會自動把 Submodule 也 Clone 下來。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">git clone --recursive &amp;lt;repo_url&amp;gt;
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如果 Clone 下來後才發現有 Submodule，可以用下面的方式補救，把子專案都 Clone 下來：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">git submodule init
+git submodule update --recursive
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></content><category scheme="https://tonypepebear.github.io/HugoBlog/categories/git/" term="Git" label="Git"/><category scheme="https://tonypepebear.github.io/HugoBlog/tags/git/" term="git" label="git"/><category scheme="https://tonypepebear.github.io/HugoBlog/tags/submodule/" term="submodule" label="submodule"/><category scheme="https://tonypepebear.github.io/HugoBlog/tags/linux/" term="linux" label="linux"/></entry><entry><title type="text">GitHub SSH</title><link rel="alternate" type="text/html" href="https://tonypepebear.github.io/HugoBlog/posts/git/github-ssh/"/><id>https://tonypepebear.github.io/HugoBlog/posts/git/github-ssh/</id><updated>2021-09-13T02:25:52+00:00</updated><published>2021-09-12T14:32:19+00:00</published><author><name>TonyPepe</name><uri>https://tonypepebear.github.io/HugoBlog/about</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><summary type="html">&lt;p>在本機與 GitHub 溝通最安全的方式就是透過 ssh，最大的好處就是不需要輸入帳號密碼來確認身分，也可以享受到 ssh 加密所提供的安全性。&lt;/p>……</summary><content type="html">&lt;p>在本機與 GitHub 溝通最安全的方式就是透過 ssh，最大的好處就是不需要輸入帳號密碼來確認身分，也可以享受到 ssh 加密所提供的安全性。&lt;/p>
 &lt;h2 id="ssh-keygen">ssh-keygen&lt;/h2>
 &lt;p>要使用 ssh 非對稱加密，就會需要公鑰與私鑰，創建 ssh key 的方法就是 &lt;code>ssh-keygen&lt;/code>：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">

@@ -1,8 +1,8 @@
 # Hugo Blog
 
-[![GitHub issues](https://img.shields.io/github/issues/TonyPepeBear/HugoBlog?style=for-the-badge)](https://github.com/TonyPepeBear/HugoBlog/issues)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TonyPepeBear/HugoBlog/Lint%20Code%20Base?label=Lint%20Code&style=for-the-badge)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TonyPepeBear/HugoBlog/github%20pages?style=for-the-badge)
+[![GitHub issues](https://img.shields.io/github/issues/TonyPepeBear/HugoBlog?style=flat-square)](https://github.com/TonyPepeBear/HugoBlog/issues)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TonyPepeBear/HugoBlog/Lint%20Code%20Base?label=Lint%20Code&style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TonyPepeBear/HugoBlog/github%20pages?style=flat-square)
 
 網頁網址：[TonyPepe](https://tonypepe.com)
 

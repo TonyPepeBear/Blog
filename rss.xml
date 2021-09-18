@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepebear.github.io/HugoBlog/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.88.1 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><lastBuildDate>Fri, 17 Sep 2021 06:51:29 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepebear.github.io/HugoBlog/rss.xml"/><item><title>Git Submodule</title><link>https://tonypepebear.github.io/HugoBlog/posts/git/git-submodule/</link><guid isPermaLink="true">https://tonypepebear.github.io/HugoBlog/posts/git/git-submodule/</guid><pubDate>Tue, 14 Sep 2021 05:11:27 +0000</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><description>&lt;p>要在一個 Git 專案中有子專案 (我稱為 git in git)，有兩個辦法，一個是直接 clone 到目錄下，另一個就是使用 submodule。兩者的不同是前者的子專案會在母專案中佔掉所有的空間，而後者只會紀錄 submodule 的路徑和 commit 版本。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepebear.github.io/HugoBlog/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.88.1 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><lastBuildDate>Sat, 18 Sep 2021 08:55:02 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepebear.github.io/HugoBlog/rss.xml"/><item><title>Git Submodule</title><link>https://tonypepebear.github.io/HugoBlog/posts/git/git-submodule/</link><guid isPermaLink="true">https://tonypepebear.github.io/HugoBlog/posts/git/git-submodule/</guid><pubDate>Tue, 14 Sep 2021 05:11:27 +0000</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><description>&lt;p>要在一個 Git 專案中有子專案 (我稱為 git in git)，有兩個辦法，一個是直接 clone 到目錄下，另一個就是使用 submodule。兩者的不同是前者的子專案會在母專案中佔掉所有的空間，而後者只會紀錄 submodule 的路徑和 commit 版本。&lt;/p>
 &lt;h2 id="add-submodule">Add Submodule&lt;/h2>
 &lt;p>要將專案新增到現有的目錄中，可以使用 &lt;code>git submodule add&lt;/code>：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -11,7 +11,7 @@
 &lt;/div>
 &lt;/div>&lt;p>執行後，可以看到 git 會自動幫你把 submodule clone 到指定的目錄中，並多了一個檔案 &lt;code>.gitmodules&lt;/code>，這個檔案就是上面說到的 Submodule 只紀錄 commit 版本，和 Submodule URL 的檔案。&lt;/p>
 &lt;p>add submodule 後，還是要 commit，因為 Submodule 也就只是紀錄要用子專案的哪一個 commit 版本，所以也可以確保大家都是使用到同一個 Submodule 的版本。可以試著將專案 commit and push 到 GitHub 上，應該可以看到 Submodule 就是連結到另外一個專案的某一個 commit，下面是本站的 Hugo 主題的 submodule：&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210913/CleanShot%202021-09-13%20at%2021.31.12@2x.63e3xkepuq80.png" alt="image">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/c4ba8819-787e-4726-fb58-db317f9ed400/public" alt="image">&lt;/p>
 &lt;h2 id="clone-submodule">Clone Submodule&lt;/h2>
 &lt;p>在 Clone 含有 Submodule 的專案時，Git 預設是不會自動 clone 子專案的，需要加上 &lt;code>--recursive&lt;/code> 這個參數，才會自動把 Submodule 也 Clone 下來。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -534,8 +534,8 @@ user@66c0bf85e710:~$
 &lt;/ul>
 &lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210723215225.png" alt="img">
-&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210723215410.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/7e29f7e1-bf0b-44d4-7589-29286ed81b00/public" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/ca5109ba-4baf-40e3-850e-ee4002882c00/public" alt="img">&lt;/p>
 &lt;h2 id="啟動飛機">啟動飛機&lt;/h2>
 &lt;ol>
 &lt;li>Batt 1 and 2 -&amp;gt; ON&lt;/li>
@@ -576,10 +576,10 @@ user@66c0bf85e710:~$
 &lt;/ul>
 &lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210723230551.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/bcc428a6-c065-4bc3-0d19-ad204b860700/public" alt="img">&lt;/p>
 &lt;h2 id="overhead-panel-上方儀表">Overhead Panel 上方儀表&lt;/h2>
 &lt;p>基本上，由左至右，由下而上的檢查&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210723223858.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/4aa17d2f-419c-40e6-09f8-e31ca2833a00/public" alt="img">&lt;/p>
 &lt;h3 id="左邊那排">左邊那排&lt;/h3>
 &lt;ol>
 &lt;li>CREW SUPPLY -&amp;gt; ON
@@ -593,8 +593,8 @@ user@66c0bf85e710:~$
 &lt;/ul>
 &lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210723223442.png" alt="img">
-&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210723223529.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/b25f2e34-5ff9-4534-4fc2-927961a5ce00/public" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/16fb299e-1847-4767-8093-aa0d058cd400/public" alt="img">&lt;/p>
 &lt;h3 id="中間那排">中間那排&lt;/h3>
 &lt;ol>
 &lt;li>NAV &amp;amp; LOGO Light -&amp;gt; ON&lt;/li>
@@ -608,8 +608,8 @@ user@66c0bf85e710:~$
 &lt;li>ENG 1 FIRE TEST&lt;/li>
 &lt;li>ENG 2 FIRE TEST&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210724001302.png" alt="img">
-&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210724001418.png" alt="20210724001418">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/e5f05a70-bc36-4bc3-fff2-61f413e6b900/public" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/613ca5d3-3519-4c5d-cb82-4f9371e1d500/public" alt="img">&lt;/p>
 &lt;h3 id="右邊那排">右邊那排&lt;/h3>
 &lt;p>基本上不用動&lt;/p>
 &lt;h2 id="mcdu-飛行電腦">MCDU 飛行電腦&lt;/h2>

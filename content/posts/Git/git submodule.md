@@ -26,7 +26,7 @@ git submodule add <repo_url> <folder>
 
 add submodule 後，還是要 commit，因為 Submodule 也就只是紀錄要用子專案的哪一個 commit 版本，所以也可以確保大家都是使用到同一個 Submodule 的版本。可以試著將專案 commit and push 到 GitHub 上，應該可以看到 Submodule 就是連結到另外一個專案的某一個 commit，下面是本站的 Hugo 主題的 submodule：
 
-![image](https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210913/CleanShot%202021-09-13%20at%2021.31.12@2x.63e3xkepuq80.png)
+![image](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/c4ba8819-787e-4726-fb58-db317f9ed400/public)
 
 ## Clone Submodule
 

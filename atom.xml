@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-TW"><title type="text">TonyPepe</title><subtitle type="html">紀錄我踩過得坑</subtitle><updated>2021-09-18T08:55:02+00:00</updated><id>https://tonypepebear.github.io/HugoBlog/</id><link rel="alternate" type="text/html" href="https://tonypepebear.github.io/HugoBlog/"/><link rel="self" type="application/atom+xml" href="https://tonypepebear.github.io/HugoBlog/atom.xml"/><author><name>TonyPepe</name><uri>https://tonypepebear.github.io/</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><generator uri="https://gohugo.io/" version="0.88.1">Hugo</generator><entry><title type="text">Git Submodule</title><link rel="alternate" type="text/html" href="https://tonypepebear.github.io/HugoBlog/posts/git/git-submodule/"/><id>https://tonypepebear.github.io/HugoBlog/posts/git/git-submodule/</id><updated>2021-09-18T08:54:40+00:00</updated><published>2021-09-14T05:11:27+00:00</published><author><name>TonyPepe</name><uri>https://tonypepebear.github.io/HugoBlog/about</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><summary type="html">&lt;p>要在一個 Git 專案中有子專案 (我稱為 git in git)，有兩個辦法，一個是直接 clone 到目錄下，另一個就是使用 submodule。兩者的不同是前者的子專案會在母專案中佔掉所有的空間，而後者只會紀錄 submodule 的路徑和 commit 版本。&lt;/p>……</summary><content type="html">&lt;p>要在一個 Git 專案中有子專案 (我稱為 git in git)，有兩個辦法，一個是直接 clone 到目錄下，另一個就是使用 submodule。兩者的不同是前者的子專案會在母專案中佔掉所有的空間，而後者只會紀錄 submodule 的路徑和 commit 版本。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-TW"><title type="text">TonyPepe</title><subtitle type="html">紀錄我踩過得坑</subtitle><updated>2021-09-18T09:18:37+00:00</updated><id>https://tonypepebear.github.io/HugoBlog/</id><link rel="alternate" type="text/html" href="https://tonypepebear.github.io/HugoBlog/"/><link rel="self" type="application/atom+xml" href="https://tonypepebear.github.io/HugoBlog/atom.xml"/><author><name>TonyPepe</name><uri>https://tonypepebear.github.io/</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><generator uri="https://gohugo.io/" version="0.88.1">Hugo</generator><entry><title type="text">Git Submodule</title><link rel="alternate" type="text/html" href="https://tonypepebear.github.io/HugoBlog/posts/git/git-submodule/"/><id>https://tonypepebear.github.io/HugoBlog/posts/git/git-submodule/</id><updated>2021-09-18T08:54:40+00:00</updated><published>2021-09-14T05:11:27+00:00</published><author><name>TonyPepe</name><uri>https://tonypepebear.github.io/HugoBlog/about</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><summary type="html">&lt;p>要在一個 Git 專案中有子專案 (我稱為 git in git)，有兩個辦法，一個是直接 clone 到目錄下，另一個就是使用 submodule。兩者的不同是前者的子專案會在母專案中佔掉所有的空間，而後者只會紀錄 submodule 的路徑和 commit 版本。&lt;/p>……</summary><content type="html">&lt;p>要在一個 Git 專案中有子專案 (我稱為 git in git)，有兩個辦法，一個是直接 clone 到目錄下，另一個就是使用 submodule。兩者的不同是前者的子專案會在母專案中佔掉所有的空間，而後者只會紀錄 submodule 的路徑和 commit 版本。&lt;/p>
 &lt;h2 id="add-submodule">Add Submodule&lt;/h2>
 &lt;p>要將專案新增到現有的目錄中，可以使用 &lt;code>git submodule add&lt;/code>：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -502,7 +502,7 @@ user@66c0bf85e710:~$
 &lt;h2 id="reference">Reference&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://developers.cloudflare.com/cloudflare-one/">Cloudflare for Teams documentation&lt;/a>&lt;/li>
-&lt;/ul></content><category scheme="https://tonypepebear.github.io/HugoBlog/categories/web/" term="Web" label="Web"/><category scheme="https://tonypepebear.github.io/HugoBlog/tags/cloudflare/" term="cloudflare" label="cloudflare"/><category scheme="https://tonypepebear.github.io/HugoBlog/tags/tunnel/" term="tunnel" label="tunnel"/><category scheme="https://tonypepebear.github.io/HugoBlog/tags/teams/" term="teams" label="teams"/><category scheme="https://tonypepebear.github.io/HugoBlog/tags/cloudflare-tunnel/" term="cloudflare-tunnel" label="cloudflare-tunnel"/></entry><entry><title type="text">A320neo 冷艙到飛行</title><link rel="alternate" type="text/html" href="https://tonypepebear.github.io/HugoBlog/posts/flight/a320-note/"/><id>https://tonypepebear.github.io/HugoBlog/posts/flight/a320-note/</id><updated>2021-09-18T08:54:40+00:00</updated><published>2021-07-21T22:08:20+08:00</published><author><name>TonyPepe</name><uri>https://tonypepebear.github.io/HugoBlog/about</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><summary type="html">&lt;p>簡單記錄我所認知的 A320 的一些程序。&lt;/p>……</summary><content type="html">&lt;p>簡單記錄我所認知的 A320 的一些程序。&lt;/p>
+&lt;/ul></content><category scheme="https://tonypepebear.github.io/HugoBlog/categories/web/" term="Web" label="Web"/><category scheme="https://tonypepebear.github.io/HugoBlog/tags/cloudflare/" term="cloudflare" label="cloudflare"/><category scheme="https://tonypepebear.github.io/HugoBlog/tags/tunnel/" term="tunnel" label="tunnel"/><category scheme="https://tonypepebear.github.io/HugoBlog/tags/teams/" term="teams" label="teams"/><category scheme="https://tonypepebear.github.io/HugoBlog/tags/cloudflare-tunnel/" term="cloudflare-tunnel" label="cloudflare-tunnel"/></entry><entry><title type="text">A320neo 冷艙到飛行</title><link rel="alternate" type="text/html" href="https://tonypepebear.github.io/HugoBlog/posts/flight/a320-note/"/><id>https://tonypepebear.github.io/HugoBlog/posts/flight/a320-note/</id><updated>2021-09-18T09:18:17+00:00</updated><published>2021-07-21T22:08:20+08:00</published><author><name>TonyPepe</name><uri>https://tonypepebear.github.io/HugoBlog/about</uri><email>tonybear55665566@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</rights><summary type="html">&lt;p>簡單記錄我所認知的 A320 的一些程序。&lt;/p>……</summary><content type="html">&lt;p>簡單記錄我所認知的 A320 的一些程序。&lt;/p>
 &lt;blockquote>
 &lt;p>注意這些都不是標準程序，只是我自己亂理解的，也省去蠻多步驟，基本上就是能起讓飛機動起來，標準程序肯定是更複雜的。&lt;/p>
 &lt;/blockquote>
@@ -535,8 +535,8 @@ user@66c0bf85e710:~$
 &lt;/ul>
 &lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/7e29f7e1-bf0b-44d4-7589-29286ed81b00/public" alt="img">&lt;/p>
-&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/ca5109ba-4baf-40e3-850e-ee4002882c00/public" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/7e29f7e1-bf0b-44d4-7589-29286ed81b00/large" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/ca5109ba-4baf-40e3-850e-ee4002882c00/large" alt="img">&lt;/p>
 &lt;h2 id="啟動飛機">啟動飛機&lt;/h2>
 &lt;ol>
 &lt;li>Batt 1 and 2 -&amp;gt; ON&lt;/li>
@@ -577,10 +577,10 @@ user@66c0bf85e710:~$
 &lt;/ul>
 &lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/bcc428a6-c065-4bc3-0d19-ad204b860700/public" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/bcc428a6-c065-4bc3-0d19-ad204b860700/large" alt="img">&lt;/p>
 &lt;h2 id="overhead-panel-上方儀表">Overhead Panel 上方儀表&lt;/h2>
 &lt;p>基本上，由左至右，由下而上的檢查&lt;/p>
-&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/4aa17d2f-419c-40e6-09f8-e31ca2833a00/public" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/4aa17d2f-419c-40e6-09f8-e31ca2833a00/large" alt="img">&lt;/p>
 &lt;h3 id="左邊那排">左邊那排&lt;/h3>
 &lt;ol>
 &lt;li>CREW SUPPLY -&amp;gt; ON
@@ -594,8 +594,8 @@ user@66c0bf85e710:~$
 &lt;/ul>
 &lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/b25f2e34-5ff9-4534-4fc2-927961a5ce00/public" alt="img">&lt;/p>
-&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/16fb299e-1847-4767-8093-aa0d058cd400/public" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/b25f2e34-5ff9-4534-4fc2-927961a5ce00/large" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/16fb299e-1847-4767-8093-aa0d058cd400/large" alt="img">&lt;/p>
 &lt;h3 id="中間那排">中間那排&lt;/h3>
 &lt;ol>
 &lt;li>NAV &amp;amp; LOGO Light -&amp;gt; ON&lt;/li>
@@ -609,8 +609,8 @@ user@66c0bf85e710:~$
 &lt;li>ENG 1 FIRE TEST&lt;/li>
 &lt;li>ENG 2 FIRE TEST&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/e5f05a70-bc36-4bc3-fff2-61f413e6b900/public" alt="img">&lt;/p>
-&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/613ca5d3-3519-4c5d-cb82-4f9371e1d500/public" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/e5f05a70-bc36-4bc3-fff2-61f413e6b900/large" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/613ca5d3-3519-4c5d-cb82-4f9371e1d500/large" alt="img">&lt;/p>
 &lt;h3 id="右邊那排">右邊那排&lt;/h3>
 &lt;p>基本上不用動&lt;/p>
 &lt;h2 id="mcdu-飛行電腦">MCDU 飛行電腦&lt;/h2>

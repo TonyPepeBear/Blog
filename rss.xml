@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepebear.github.io/HugoBlog/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.88.1 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><lastBuildDate>Sat, 18 Sep 2021 08:55:02 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepebear.github.io/HugoBlog/rss.xml"/><item><title>Git Submodule</title><link>https://tonypepebear.github.io/HugoBlog/posts/git/git-submodule/</link><guid isPermaLink="true">https://tonypepebear.github.io/HugoBlog/posts/git/git-submodule/</guid><pubDate>Tue, 14 Sep 2021 05:11:27 +0000</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><description>&lt;p>要在一個 Git 專案中有子專案 (我稱為 git in git)，有兩個辦法，一個是直接 clone 到目錄下，另一個就是使用 submodule。兩者的不同是前者的子專案會在母專案中佔掉所有的空間，而後者只會紀錄 submodule 的路徑和 commit 版本。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepebear.github.io/HugoBlog/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.88.1 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><lastBuildDate>Sat, 18 Sep 2021 09:18:37 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepebear.github.io/HugoBlog/rss.xml"/><item><title>Git Submodule</title><link>https://tonypepebear.github.io/HugoBlog/posts/git/git-submodule/</link><guid isPermaLink="true">https://tonypepebear.github.io/HugoBlog/posts/git/git-submodule/</guid><pubDate>Tue, 14 Sep 2021 05:11:27 +0000</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><description>&lt;p>要在一個 Git 專案中有子專案 (我稱為 git in git)，有兩個辦法，一個是直接 clone 到目錄下，另一個就是使用 submodule。兩者的不同是前者的子專案會在母專案中佔掉所有的空間，而後者只會紀錄 submodule 的路徑和 commit 版本。&lt;/p>
 &lt;h2 id="add-submodule">Add Submodule&lt;/h2>
 &lt;p>要將專案新增到現有的目錄中，可以使用 &lt;code>git submodule add&lt;/code>：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -534,8 +534,8 @@ user@66c0bf85e710:~$
 &lt;/ul>
 &lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/7e29f7e1-bf0b-44d4-7589-29286ed81b00/public" alt="img">&lt;/p>
-&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/ca5109ba-4baf-40e3-850e-ee4002882c00/public" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/7e29f7e1-bf0b-44d4-7589-29286ed81b00/large" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/ca5109ba-4baf-40e3-850e-ee4002882c00/large" alt="img">&lt;/p>
 &lt;h2 id="啟動飛機">啟動飛機&lt;/h2>
 &lt;ol>
 &lt;li>Batt 1 and 2 -&amp;gt; ON&lt;/li>
@@ -576,10 +576,10 @@ user@66c0bf85e710:~$
 &lt;/ul>
 &lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/bcc428a6-c065-4bc3-0d19-ad204b860700/public" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/bcc428a6-c065-4bc3-0d19-ad204b860700/large" alt="img">&lt;/p>
 &lt;h2 id="overhead-panel-上方儀表">Overhead Panel 上方儀表&lt;/h2>
 &lt;p>基本上，由左至右，由下而上的檢查&lt;/p>
-&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/4aa17d2f-419c-40e6-09f8-e31ca2833a00/public" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/4aa17d2f-419c-40e6-09f8-e31ca2833a00/large" alt="img">&lt;/p>
 &lt;h3 id="左邊那排">左邊那排&lt;/h3>
 &lt;ol>
 &lt;li>CREW SUPPLY -&amp;gt; ON
@@ -593,8 +593,8 @@ user@66c0bf85e710:~$
 &lt;/ul>
 &lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/b25f2e34-5ff9-4534-4fc2-927961a5ce00/public" alt="img">&lt;/p>
-&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/16fb299e-1847-4767-8093-aa0d058cd400/public" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/b25f2e34-5ff9-4534-4fc2-927961a5ce00/large" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/16fb299e-1847-4767-8093-aa0d058cd400/large" alt="img">&lt;/p>
 &lt;h3 id="中間那排">中間那排&lt;/h3>
 &lt;ol>
 &lt;li>NAV &amp;amp; LOGO Light -&amp;gt; ON&lt;/li>
@@ -608,8 +608,8 @@ user@66c0bf85e710:~$
 &lt;li>ENG 1 FIRE TEST&lt;/li>
 &lt;li>ENG 2 FIRE TEST&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/e5f05a70-bc36-4bc3-fff2-61f413e6b900/public" alt="img">&lt;/p>
-&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/613ca5d3-3519-4c5d-cb82-4f9371e1d500/public" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/e5f05a70-bc36-4bc3-fff2-61f413e6b900/large" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/613ca5d3-3519-4c5d-cb82-4f9371e1d500/large" alt="img">&lt;/p>
 &lt;h3 id="右邊那排">右邊那排&lt;/h3>
 &lt;p>基本上不用動&lt;/p>
 &lt;h2 id="mcdu-飛行電腦">MCDU 飛行電腦&lt;/h2>

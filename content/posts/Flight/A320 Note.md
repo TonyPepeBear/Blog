@@ -31,9 +31,9 @@ categories:
 5. Wipers -> Both OFF
    * 兩個雨刷都關閉
 
-![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/7e29f7e1-bf0b-44d4-7589-29286ed81b00/public)
+![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/7e29f7e1-bf0b-44d4-7589-29286ed81b00/large)
 
-![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/ca5109ba-4baf-40e3-850e-ee4002882c00/public)
+![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/ca5109ba-4baf-40e3-850e-ee4002882c00/large)
 
 ## 啟動飛機
 
@@ -54,13 +54,13 @@ categories:
 8. EXT Power -> OFF
    * 移除外部電源
 
-![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/bcc428a6-c065-4bc3-0d19-ad204b860700/public)
+![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/bcc428a6-c065-4bc3-0d19-ad204b860700/large)
 
 ## Overhead Panel 上方儀表
 
 基本上，由左至右，由下而上的檢查
 
-![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/4aa17d2f-419c-40e6-09f8-e31ca2833a00/public)
+![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/4aa17d2f-419c-40e6-09f8-e31ca2833a00/large)
 
 ### 左邊那排
 
@@ -69,9 +69,9 @@ categories:
 2. ADIRS 1, 2, 3 -> NAV
    * 開啟三個慣性導航，需等待 6-7 分鐘校準
 
-![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/b25f2e34-5ff9-4534-4fc2-927961a5ce00/public)
+![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/b25f2e34-5ff9-4534-4fc2-927961a5ce00/large)
 
-![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/16fb299e-1847-4767-8093-aa0d058cd400/public)
+![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/16fb299e-1847-4767-8093-aa0d058cd400/large)
 
 ### 中間那排
 
@@ -86,9 +86,9 @@ categories:
 9. ENG 1 FIRE TEST
 10. ENG 2 FIRE TEST
 
-![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/e5f05a70-bc36-4bc3-fff2-61f413e6b900/public)
+![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/e5f05a70-bc36-4bc3-fff2-61f413e6b900/large)
 
-![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/613ca5d3-3519-4c5d-cb82-4f9371e1d500/public)
+![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/613ca5d3-3519-4c5d-cb82-4f9371e1d500/large)
 
 ### 右邊那排
 

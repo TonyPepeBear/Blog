@@ -24,6 +24,6 @@ draft: false
 
 [Performance Report: https://tonypepe.com](https://www.fastorslow.com/app/profile/567c05fa-1457-5ab5-a631-0e7cd0779e0e)
 
-![image](https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210912/image.6s5lom6yvfs0.png)
+![image](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/b0372f6a-61f0-4cef-6cc9-9603642db300/large)
 
-![image](https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210913/image.dvbrtx11wf4.gif)
+![image](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/be79b2f8-fdf0-48dc-f6ed-f5086b30dd00/large)

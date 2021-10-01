@@ -1,4 +1,180 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepebear.github.io/HugoBlog/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.88.1 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><lastBuildDate>Sat, 18 Sep 2021 09:18:37 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepebear.github.io/HugoBlog/rss.xml"/><item><title>Git Submodule</title><link>https://tonypepebear.github.io/HugoBlog/posts/git/git-submodule/</link><guid isPermaLink="true">https://tonypepebear.github.io/HugoBlog/posts/git/git-submodule/</guid><pubDate>Tue, 14 Sep 2021 05:11:27 +0000</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><description>&lt;p>要在一個 Git 專案中有子專案 (我稱為 git in git)，有兩個辦法，一個是直接 clone 到目錄下，另一個就是使用 submodule。兩者的不同是前者的子專案會在母專案中佔掉所有的空間，而後者只會紀錄 submodule 的路徑和 commit 版本。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>TonyPepe</title><link>https://tonypepebear.github.io/HugoBlog/</link><description>紀錄我踩過得坑</description><generator>Hugo 0.88.1 https://gohugo.io/</generator><language>zh-TW</language><managingEditor>tonybear55665566@gmail.com (TonyPepe)</managingEditor><webMaster>tonybear55665566@gmail.com (TonyPepe)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><lastBuildDate>Fri, 01 Oct 2021 06:20:25 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://tonypepebear.github.io/HugoBlog/rss.xml"/><item><title>Kotlin Coroutine</title><link>https://tonypepebear.github.io/HugoBlog/posts/kotlin/kotlin-coroutine/</link><guid isPermaLink="true">https://tonypepebear.github.io/HugoBlog/posts/kotlin/kotlin-coroutine/</guid><pubDate>Sun, 19 Sep 2021 07:26:56 +0000</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><description>&lt;p>Kotlin 在非同步處理上有新的方法，協程 &lt;code>Coroutine&lt;/code>。&lt;code>Coroutine&lt;/code> 不會像 &lt;code>Thread&lt;/code> 會耗費大量的資源，能在原本的&lt;code>線程&lt;/code>上創建極為輕量的&lt;code>協程&lt;/code>，且較不會發生記憶體洩漏的情況。&lt;/p>
+&lt;h2 id="導入-coroutine">導入 Coroutine&lt;/h2>
+&lt;p>在 &lt;code>build.gradle&lt;/code> 中添加依賴項&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-groovy" data-lang="groovy">&lt;span class="n">dependencies&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;span class="n">implementation&lt;/span> &lt;span class="s1">&amp;#39;org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2&amp;#39;&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>若要在 &lt;code>Android&lt;/code> 中使用需要再添加 &lt;code>Android&lt;/code> 依賴&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-groovy" data-lang="groovy">&lt;span class="n">implementation&lt;/span> &lt;span class="s1">&amp;#39;org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="第一個-coroutine">第一個 Coroutine&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">import&lt;/span> &lt;span class="nn">kotlinx.coroutines.*&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">GlobalScope&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">launch&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="c1">//在後台啟動一個新的縣協程
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">delay&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1000L&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">//非阻塞式的等待 1 秒鐘
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;World!&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Hello,&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">Thread&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">sleep&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">2000L&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 阻塞主線程兩秒確保主線程存活
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>上面的程式碼輸出結果：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="n">Hellow&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="n">World&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>基本上 &lt;code>Coroutine&lt;/code> 就是輕量的協程&lt;/p>
+&lt;p>也可以分別將 &lt;code>GlobalScope.launch{...}&lt;/code> 和 &lt;code>delay(...)&lt;/code> 替換成&lt;code>thread { ... }&lt;/code> 和 &lt;code>Thread.Sleap(...)&lt;/code>，也可以得到相同的結果，可以嘗試一下。&lt;/p>
+&lt;p>如果只將 &lt;code>GlobalScope.launch{...}&lt;/code> 替換成 &lt;code>thread{...}&lt;/code> 你會得到以下錯誤：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">Error: Kotlin: Suspend functions are only allowed to be called from a coroutine or another &lt;span class="nb">suspend&lt;/span> &lt;span class="k">function&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>因為 &lt;code>delay()&lt;/code> 是一個特殊的 &lt;code>suspend function&lt;/code> (有人譯作 &lt;code>掛起函數&lt;/code>)，他不會阻塞線程，但是會 &lt;code>suspend&lt;/code> 協程，而且只能在協程中使用。&lt;/p>
+&lt;h2 id="橋接阻塞和非阻塞的世界">橋接阻塞和非阻塞的世界&lt;/h2>
+&lt;p>上面的範例中同時使用了非阻塞式的 &lt;code>delay()&lt;/code> 和阻塞式的 &lt;code>Thread.sleap()&lt;/code>，這樣很容易讓我們混淆哪個會阻塞線程。下面我們使用 &lt;code>runblocking{...}&lt;/code> 來阻塞線程&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">import&lt;/span> &lt;span class="nn">kotlinx.coroutines.*&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">GlobalScope&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">launch&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="c1">// 在後台啟動一個新的協程
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">delay&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1000L&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;World!&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Hello,&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">runBlocking&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="c1">// 這個表達式會阻塞主線程
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">delay&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">2000L&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 延遲兩秒來確保主線程存活
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>結果基本上是相似的，只是都是使用了非組塞式的 &lt;code>delay()&lt;/code>。調用了 &lt;code>runblocking{...}&lt;/code> 的主線程會被阻塞直到 &lt;code>runblocking{...}&lt;/code> 內的協程執行完畢。&lt;/p>
+&lt;p>下面用一個更合乎慣用法的方法在寫一次，用 &lt;code>runblocking{...}&lt;/code> 來包裝 &lt;code>main&lt;/code> 方法：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">import&lt;/span> &lt;span class="nn">kotlinx.coroutines.*&lt;/span>
+&lt;span class="k">fun&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">runBlocking&lt;/span>&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="n">Unit&lt;/span>&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="c1">// 開始執行主協程
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">GlobalScope&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">launch&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="c1">// 在後台啓動一個協程並繼續執行
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">delay&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1000L&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;World!&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Hello,&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">delay&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">2000L&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 延遲 2 秒來確保主線程存活
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>這裡的 &lt;code>runBlocking {...}&lt;/code> 用來啟動主線程。我們顯式指定了其返回類型 &lt;code>Unit&lt;/code>，因為在 Kotlin 中 &lt;code>main&lt;/code> 方法必須回傳 &lt;code>Unit&lt;/code>。&lt;/p>
+&lt;h2 id="等待一個作業完成">等待一個作業完成&lt;/h2>
+&lt;p>延遲一段時間來確保協程的運行並不是一個好辦法利用 &lt;code>job.join()&lt;/code> 來確保工作執行結束。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">job&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Job&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">GlobalScope&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">launch&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">delay&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1000L&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;World!&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Hello,&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">job&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>launch&lt;/code> 會回傳一個 &lt;code>Job&lt;/code> 物件，而 &lt;code>job.join()&lt;/code> 其實就是會等待 &lt;code>job&lt;/code> 的工作完成再繼續持行。&lt;/p>
+&lt;p>我們也可以利用 &lt;code>job.cancel()&lt;/code> 取消協程：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-kotlin" data-lang="kotlin">&lt;span class="k">val&lt;/span> &lt;span class="py">job&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Job&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="n">GlobalScope&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">launch&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="n">delay&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="m">1000L&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;World!&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="n">println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Hello,&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">job&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">cancel&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>但是如果 &lt;code>job&lt;/code> 已經完成工作，&lt;code>cancel&lt;/code> 是不會發生任何事。&lt;/p>
+&lt;h2 id="參考資料">參考資料&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://kotlinlang.org/docs/reference/coroutines/basics.html">Coroutine Basics&lt;/a>&lt;/li>
+&lt;/ul></description><category domain="https://tonypepebear.github.io/HugoBlog/categories/kotlin/">Kotlin</category><category domain="https://tonypepebear.github.io/HugoBlog/tags/kotlin/">kotlin</category><category domain="https://tonypepebear.github.io/HugoBlog/tags/coroutine/">coroutine</category></item><item><title>Git Submodule</title><link>https://tonypepebear.github.io/HugoBlog/posts/git/git-submodule/</link><guid isPermaLink="true">https://tonypepebear.github.io/HugoBlog/posts/git/git-submodule/</guid><pubDate>Tue, 14 Sep 2021 05:11:27 +0000</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><description>&lt;p>要在一個 Git 專案中有子專案 (我稱為 git in git)，有兩個辦法，一個是直接 clone 到目錄下，另一個就是使用 submodule。兩者的不同是前者的子專案會在母專案中佔掉所有的空間，而後者只會紀錄 submodule 的路徑和 commit 版本。&lt;/p>
 &lt;h2 id="add-submodule">Add Submodule&lt;/h2>
 &lt;p>要將專案新增到現有的目錄中，可以使用 &lt;code>git submodule add&lt;/code>：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -1568,21 +1744,21 @@ chsh -s /bin/zsh &lt;span class="nv">$USRR&lt;/span>
 &lt;li>把 Token 放到專案的 Secrets 中&lt;/li>
 &lt;/ol>
 &lt;p>我們先來產生 Token，先到個人的設定頁面找到 Developer settings：&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210607222716.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/9cec1b4f-5bf6-4e41-9177-3cbe9ccfd400/large" alt="img">&lt;/p>
 &lt;p>再到 Token 的頁面產生新的 Token：&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210607222844.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/dfa652f6-b8b1-4df2-5b7f-ccdda2e8df00/large" alt="img">&lt;/p>
 &lt;p>名稱可以自己隨意訂，Repo 的權限就全部打開，除了 Repo 以外的權限則都不需要。都確定後直接拉到最下面產生 Token：&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210607223119.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/94de0480-f57a-4bef-b1e1-9ce3f75d2c00/large" alt="img">&lt;/p>
 &lt;p>會得到一組新的 Token，請注意不要像我一樣 Show 出來給別人看，請妥善保存，而且 Github 也只會顯示這一次，以後想要看都看不到，只能產生新的 Token。&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210607223221.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/13bcbfe0-5bbc-4292-5679-cd5d1dba9f00/large" alt="img">&lt;/p>
 &lt;p>複製下 Token 後，我們到專案層級的設定，注意是&lt;strong>專案&lt;/strong>的設定，不是個人設定：&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210607223843.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/d5b06f39-8b64-4f76-3f68-84d30fbc9a00/large" alt="img">&lt;/p>
 &lt;p>找到 Secrets 並新增 Secrets：&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210607224004.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/409789e1-87f4-4469-fcf4-032a27e05700/large" alt="img">&lt;/p>
 &lt;p>名字取好後，填入剛剛拿到的 Token，注意名稱要和剛剛在腳本中寫的一樣：&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210607224102.png" alt="img">&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/8e7912d5-53fc-491a-a638-bee48f87be00/large" alt="img">&lt;/p>
 &lt;p>都填完後就大功告成，基本上只要 Push 到 Github 上，應該就會自動觸發上面寫的工作，以後只要文章有新的變動，Push 上來就會自動更新網頁網頁到專案的 &lt;code>gh-pages&lt;/code> 分之上。想要進一步看到 Pages 的設定，可以到專案下的 Pages 的設定下看看，也可以在這裡自訂 Domian。&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210607224634.png" alt="img">&lt;/p></description><category domain="https://tonypepebear.github.io/HugoBlog/categories/hugo/">Hugo</category><category domain="https://tonypepebear.github.io/HugoBlog/tags/hugo/">hugo</category><category domain="https://tonypepebear.github.io/HugoBlog/tags/github/">github</category><category domain="https://tonypepebear.github.io/HugoBlog/tags/github-actions/">github-actions</category><category domain="https://tonypepebear.github.io/HugoBlog/tags/web/">web</category></item><item><title>用 Hugo 來寫文章吧</title><link>https://tonypepebear.github.io/HugoBlog/posts/hugo/hugo/</link><guid isPermaLink="true">https://tonypepebear.github.io/HugoBlog/posts/hugo/hugo/</guid><pubDate>Mon, 07 Jun 2021 02:10:46 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><description>&lt;p>Hugo 是靜態網頁的產生器，類似 Hexo 和 Jekyll，Hugo 由 go 語言編寫，效率極高，我原本是用 Hexo 在產生文章，後來發現 Hugo 這個好東西，也觀望了一陣子&lt;del>其實是懶&lt;/del>，就決定換過來了，目前也用得非常順手。&lt;/p>
+&lt;p>&lt;img src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/e1c327a2-2e73-45ff-7305-a8440010d600/large" alt="img">&lt;/p></description><category domain="https://tonypepebear.github.io/HugoBlog/categories/hugo/">Hugo</category><category domain="https://tonypepebear.github.io/HugoBlog/tags/hugo/">hugo</category><category domain="https://tonypepebear.github.io/HugoBlog/tags/github/">github</category><category domain="https://tonypepebear.github.io/HugoBlog/tags/github-actions/">github-actions</category><category domain="https://tonypepebear.github.io/HugoBlog/tags/web/">web</category></item><item><title>用 Hugo 來寫文章吧</title><link>https://tonypepebear.github.io/HugoBlog/posts/hugo/hugo/</link><guid isPermaLink="true">https://tonypepebear.github.io/HugoBlog/posts/hugo/hugo/</guid><pubDate>Mon, 07 Jun 2021 02:10:46 +0800</pubDate><author>tonybear55665566@gmail.com (TonyPepe)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)</copyright><description>&lt;p>Hugo 是靜態網頁的產生器，類似 Hexo 和 Jekyll，Hugo 由 go 語言編寫，效率極高，我原本是用 Hexo 在產生文章，後來發現 Hugo 這個好東西，也觀望了一陣子&lt;del>其實是懶&lt;/del>，就決定換過來了，目前也用得非常順手。&lt;/p>
 &lt;h2 id="安裝-hugo">安裝 Hugo&lt;/h2>
 &lt;p>這是 Hugo 的&lt;a href="https://gohugo.io/">官網&lt;/a>，進去後可以看到一些簡單的介紹和安裝方法。&lt;/p>
 &lt;p>我蠻推薦在 vscode 的 &lt;code>code in container&lt;/code> 的方式用 Hugo，因為我自己也是這樣用，這樣就不用擔心會弄髒環境，但就讓有興趣的人自己研究吧，這裡我介紹一般電腦的安裝方式。&lt;/p>

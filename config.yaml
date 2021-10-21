@@ -16,7 +16,7 @@ DefaultContentLanguage: zh-tw
 
 # Set hasCJKLanguage to true if DefaultContentLanguage is in [zh-cn ja ko]
 # This will make .Summary and .WordCount behave correctly for CJK languages.
-hasCJKLanguage: false
+hasCJKLanguage: true
 
 permalinks:
     post: /p/:slug/
@@ -27,23 +27,23 @@ params:
         - posts
     featuredImageField: image
     rssFullContent: true
-    favicon: 
+    favicon: favicon.ico
 
     footer:
         since: 2020
         customText:
 
     dateFormat:
-        published: Jan 02, 2006
-        lastUpdated: Jan 02, 2006 15:04 MST
+        published: 2006 Jan 02
+        lastUpdated: 2006 Jan 02, 15:04 MST
 
     sidebar:
-        emoji: 🍥
-        subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        emoji: 🐰
+        subtitle: 紀錄
         avatar:
             enabled: true
-            local: true
-            src: img/avatar.png
+            local: false
+            src: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/cfccf3e2-7fd5-4e6c-adcb-a3cc5064f900/public
 
     article:
         math: false
@@ -54,7 +54,7 @@ params:
             default: Licensed under CC BY-NC-SA 4.0
 
     comments:
-        enabled: true
+        enabled: false
         provider: disqus
 
         disqusjs:
@@ -177,7 +177,17 @@ menu:
           pre: home
           params:
               ### For demonstration purpose, the home link will be open in a new tab
-              newTab: true
+              newTab: false
+        - identifier: search
+          name: Search
+          url: /search
+          weight: -60
+          pre: search
+        - identifier: archives
+          name: Archives
+          url: /archives
+          weight: -70
+          pre: archives
 
 related:
     includeNewer: true

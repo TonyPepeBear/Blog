@@ -2,6 +2,8 @@
 title: "Cloudflare Speed Week"
 date: 2021-10-05T16:10:58Z
 draft: false
+description: 上個月看到 Cloudflare 發布了一關於速度週的文章，雖然看起來像是 Cloudflare 廣告自己的產品用的，我細讀後才發現，他詳細了說明了現在在上網時為何會有的網頁可以很快，有的網頁卻慢的跟烏龜一樣，詳細說明網路會遇到的一些困境和原理 (單然解法就是用他們家的產品)，在技術方面值得一讀，我就稍微統整一下。
+image: https://images.unsplash.com/photo-1534078362425-387ae9668c17?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1769&q=80
 tags: 
     - cloudflare
     - web

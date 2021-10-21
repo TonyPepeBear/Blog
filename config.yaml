@@ -188,6 +188,11 @@ menu:
           url: /archives
           weight: -70
           pre: archives
+        - identifier: about
+          name: About
+          url: /about
+          weight: -50
+          pre: user
 
 related:
     includeNewer: true

@@ -1,7 +1,9 @@
 ---
 title: "Ubuntu 開機黑屏"
+description: 聽說 Ubuntu 開機沒有畫面或是只有 Logo，十次有九次都是顯卡驅動的問題。
 date: 2021-06-06T01:17:17+08:00
 draft: false
+image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/87c17ef3-d429-42ba-30ab-32ac2864c500/public
 tags:
     - ubuntu
 categories:

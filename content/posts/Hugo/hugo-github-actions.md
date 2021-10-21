@@ -1,7 +1,9 @@
 ---
 title: "用 Github Actions 來發布 Hugo 靜態網頁"
+description: Github Actions 是 Github 官方提供的 CI/CD 服務，編寫簡單的腳本，就可以在每次 Push、 PR 時，自動的檢查程式碼可不可以通過 Test，或是直接產生 Release 來交付專案成品。另外一個重點是，這個服務完全免費，而在私有 Repo，則是有限制容器的執行時間。本文使用 Github Actions 來自動將 Hugo 專案自動產生靜態網頁，並且將網頁發布到 gh-pages 的 git 分支。
 date: 2021-06-07T22:00:53+08:00
 draft: false
+image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/3820056d-8496-4b29-efa0-716d71a45100/public
 tags: 
     - hugo
     - github

@@ -1,7 +1,9 @@
 ---
 title: "Docker"
+description: Docker 是一個虛擬化技術，可以將我們編寫好的程式包裹成一個小的「容器」，再發佈到伺服器上。Docker 解決了困擾程式界多年來的環境問題，只要伺服器安裝了 Docker 就可以確保一定可以執行服務。
 date: 2021-08-25T18:31:57Z
 draft: false
+image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/a45b7e65-d6dd-4ef5-23b4-44e2090c5b00/public
 tags: 
     - docker
 categories:

@@ -1,7 +1,9 @@
 ---
 title: "自架 Play With Docker"
+description: 學過 Docker 的人都應該有用過 Docker Playground 來學習或是測試過軟體，不想在本機跑 Docker 可以先用 Docker Playground 試試看軟體可不可以跑。
 date: 2021-06-05T16:08:29Z
 draft: false
+image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f6db1841-15c5-40fc-7174-8a5e73647700/public
 tags:
     - docker
     - play-with-docker

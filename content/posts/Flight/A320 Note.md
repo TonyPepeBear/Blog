@@ -1,7 +1,9 @@
 ---
 title: "A320neo 冷艙到飛行"
+description: 簡單記錄我所認知的 A320 的一些程序。
 date: 2021-07-21T22:08:20+08:00
 draft: false
+image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/06a43a08-dc77-48eb-9f4a-f47a29566900/public
 tags: 
     - a320neo
     - airbus

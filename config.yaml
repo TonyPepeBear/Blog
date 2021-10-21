@@ -178,11 +178,6 @@ menu:
           params:
               ### For demonstration purpose, the home link will be open in a new tab
               newTab: false
-        - identifier: search
-          name: Search
-          url: /search
-          weight: -60
-          pre: search
         - identifier: archives
           name: Archives
           url: /archives
@@ -191,8 +186,13 @@ menu:
         - identifier: about
           name: About
           url: /about
-          weight: -50
+          weight: -60
           pre: user
+        - identifier: search
+          name: Search
+          url: /search
+          weight: -50
+          pre: search
 
 related:
     includeNewer: true

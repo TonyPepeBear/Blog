@@ -1,7 +1,9 @@
 ---
 title: "Beautiful Terminal"
+description: 打不贏別人，至少長得比他帥。最近終於把我的 Terminal 弄成自己喜歡的樣子，所以做一下簡單的紀錄，希望大家都可以把東西變成自己喜歡的樣子。
 date: 2021-07-16T23:43:07+08:00
 draft: false
+image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/939d8b79-aeab-465b-8bc7-fcf3cc4def00/public
 tags: 
     - terminl
     - zsh
@@ -12,7 +14,7 @@ tags:
     - ubuntu
     - mac
 categories:
-    - Terminal
+    - Linux
 ---
 
 打不贏別人，至少長得比他帥。最近終於把我的 Terminal 弄成自己喜歡的樣子，所以做一下簡單的紀錄，希望大家都可以把東西變成自己喜歡的樣子。

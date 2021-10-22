@@ -1,7 +1,9 @@
 ---
 title: "Cloudflare Tunnel"
+description: Cloudflare 真的是佛心公司，提供免費的 DNS、DDoS 防護，還可以拿來託管靜態網頁，而今天是介紹他們公司的 Tunnel，這個服務可以將本地電腦的特定 port 開放到網路上，而且完全免費，在台灣的速度也不慢，真的很佛，幾乎等於拿到免費的 IPv4。
 date: 2021-08-13T15:17:39+08:00
 draft: false
+image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/00e85cf1-4c03-45ea-004c-f61e6216d400/public
 tags: 
     - cloudflare
     - tunnel

@@ -1,0 +1,20 @@
+<!-- htmlhint doctype-first:false -->
+<style>
+    :root {
+        --base-font-family: "JetBrains Mono","Noto Serif TC";
+        --article-font-family: "JetBrains Mono", "Noto Serif TC";
+        --code-font-family: "JetBrains Mono";
+    }
+</style>
+
+<script>
+		(function () {
+		    const customFont = document.createElement('link');
+		    customFont.href = "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Sans+TC:wght@500&family=Noto+Serif+TC:wght@500&display=swap";
+		
+		    customFont.type = "text/css";
+		    customFont.rel = "stylesheet";
+		
+		    document.head.appendChild(customFont);
+		}());
+</script>

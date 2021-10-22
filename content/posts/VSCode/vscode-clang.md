@@ -1,7 +1,9 @@
 ---
 title: "用 VSCode 寫 C/C++"
+description: 其實在 VSCode 寫 C 根本不是一件難事，VSCode 本來就是一個優秀的文字編輯器，所以要要寫 C 完全不是問題，但問題是出在執行或 Debug 寫好的 Code 實在是很麻煩。
 date: 2021-06-08T00:55:19+08:00
 draft: false
+image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/48d8b9f1-209f-44ab-0f7b-92b5f082a500/public
 tags: 
     - vscode
     - code

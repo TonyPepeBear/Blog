@@ -1,7 +1,9 @@
 ---
 title: "GitHub SSH"
+description: 在本機與 GitHub 溝通最安全的方式就是透過 ssh，最大的好處就是不需要輸入帳號密碼來確認身分，也可以享受到 ssh 加密所提供的安全性。
 date: 2021-09-12T14:32:19Z
 draft: false
+image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/8fdd1b8a-21b2-4d15-9947-a6bdcc6f1000/public
 tags: 
     - git
     - github

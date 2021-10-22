@@ -1,7 +1,9 @@
 ---
 title: "用 Hugo 來寫文章吧"
+description: Hugo 是靜態網頁的產生器，類似 Hexo 和 Jekyll，Hugo 由 go 語言編寫，效率極高。
 date: 2021-06-07T02:10:46+08:00
 draft: false
+image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f50473d3-1acc-431a-402d-3c79f4170b00/public
 tags: 
     - hugo
     - blog

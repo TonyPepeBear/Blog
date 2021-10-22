@@ -1,11 +1,13 @@
 ---
 title: "Markdown"
+description: Markdown 可以想像成 Html 的簡化版本，廣泛用於編寫文章或是技術文件，因為其特性基本上由 Html 簡化而來，所以方便的由寫好的 Markdown 產生 Html 網頁，像是這篇文章也是由 Markdown 編寫。
 date: 2021-07-05T17:05:38+08:00
 draft: false
+image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/0ecfde1e-521f-4e7c-ab46-30357d4e5e00/public
 tags: 
     - markdown
 categories:
-    - Others
+    - Web
 ---
 
 Markdown 可以想像成 Html 的簡化版本，廣泛用於編寫文章或是技術文件，因為其特性基本上由 Html 簡化而來，所以方便的由寫好的 Markdown 產生 Html 網頁，像是這篇文章也是由 Markdown 編寫。
@@ -48,7 +50,9 @@ HackMD 是一個在網頁中的 Markdown 編輯器，可以方便地在網頁中
 
 ## Markdown 語法
 
+<!-- markdownlint-disable MD025 -->
 # 大標題
+<!-- markdownlint-enable MD025 -->
 
 ```md
 <h1>

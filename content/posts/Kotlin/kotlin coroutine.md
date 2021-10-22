@@ -1,7 +1,9 @@
 ---
 title: "Kotlin Coroutine"
+description: Kotlin 在非同步處理上有新的方法，協程 Coroutine，Coroutine 不會像 Thread 會耗費大量的資源，能在原本的線程上創建極為輕量的協程，且較不會發生記憶體洩漏的情況。
 date: 2021-09-19T07:26:56Z
 draft: false
+image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/6f11a63e-3923-4ce5-3b6e-d06243815300/public
 tags: 
     - kotlin
     - coroutine

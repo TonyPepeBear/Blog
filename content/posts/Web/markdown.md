@@ -50,7 +50,9 @@ HackMD 是一個在網頁中的 Markdown 編輯器，可以方便地在網頁中
 
 ## Markdown 語法
 
+<!-- markdownlint-disable MD025 -->
 # 大標題
+<!-- markdownlint-enable MD025 -->
 
 ```md
 <h1>

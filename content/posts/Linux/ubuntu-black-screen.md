@@ -7,7 +7,7 @@ image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/87c17ef3-d429-42ba-30ab-
 tags:
     - ubuntu
 categories:
-    - Ubuntu
+    - Linux
 ---
 
 我目前的工作環境都是用 Ubuntu ~~(被 Windows 氣到)~~，前幾天我重新安裝 Ubuntu 的時候，一直安裝失敗，重新安裝四、五次後都沒有畫面，最後才發現是顯卡驅動問題。

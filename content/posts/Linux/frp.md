@@ -8,7 +8,7 @@ tags:
     - frp
     - linux
 categories:
-    - Linxu
+    - Linux
 ---
 
 frp 全名是 fast reverse proxy，可以將在 NAT 後方的服務快速的發布到公網 ip 上，可以支援 TCP 和 UDP 協議，我覺得唯一的缺點就是所有流量都會經過 Server 端，所以如果 Server 端的流量有限制就需要注意一下。

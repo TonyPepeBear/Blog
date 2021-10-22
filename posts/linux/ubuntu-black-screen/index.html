@@ -1,0 +1,198 @@
+<!doctype html><html lang=zh-tw>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="聽說 Ubuntu 開機沒有畫面或是只有 Logo，十次有九次都是顯卡驅動的問題。"><title>Ubuntu 開機黑屏</title>
+<link rel=canonical href=https://tonypepebear.github.io/HugoBlog/posts/linux/ubuntu-black-screen/>
+<link rel=stylesheet href=/HugoBlog/scss/style.min.css><meta property="og:title" content="Ubuntu 開機黑屏">
+<meta property="og:description" content="聽說 Ubuntu 開機沒有畫面或是只有 Logo，十次有九次都是顯卡驅動的問題。">
+<meta property="og:url" content="https://tonypepebear.github.io/HugoBlog/posts/linux/ubuntu-black-screen/">
+<meta property="og:site_name" content="TonyPepe">
+<meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:tag" content="ubuntu"><meta property="article:published_time" content="2021-06-06T01:17:17+08:00"><meta property="article:modified_time" content="2021-06-06T01:17:17+08:00"><meta property="og:image" content="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/87c17ef3-d429-42ba-30ab-32ac2864c500/public">
+<meta name=twitter:title content="Ubuntu 開機黑屏">
+<meta name=twitter:description content="聽說 Ubuntu 開機沒有畫面或是只有 Logo，十次有九次都是顯卡驅動的問題。"><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/87c17ef3-d429-42ba-30ab-32ac2864c500/public">
+<link rel="shortcut icon" href=favicon.ico>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V6T1WQYZ5Q"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-V6T1WQYZ5Q',{anonymize_ip:!1})}</script>
+<style>:root{--base-font-family:"JetBrains Mono","Noto Serif TC";--article-font-family:"JetBrains Mono", "Noto Serif TC";--code-font-family:"JetBrains Mono"}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Sans+TC:wght@500&family=Noto+Serif+TC:wght@500&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=/HugoBlog class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>返回</span>
+</a>
+</div>
+<main class="main full-width">
+<article class="has-image main-article">
+<header class=article-header>
+<div class=article-image>
+<a href=/HugoBlog/posts/linux/ubuntu-black-screen/>
+<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/87c17ef3-d429-42ba-30ab-32ac2864c500/public loading=lazy alt="Featured image of post Ubuntu 開機黑屏">
+</a>
+</div>
+<div class=article-details>
+<header class=article-category>
+<a href=/HugoBlog/categories/linux/ style=background-color:#2a9d8f;color:#fff>
+Linux
+</a>
+</header>
+<h2 class=article-title>
+<a href=/HugoBlog/posts/linux/ubuntu-black-screen/>Ubuntu 開機黑屏</a>
+</h2>
+<h3 class=article-subtitle>
+聽說 Ubuntu 開機沒有畫面或是只有 Logo，十次有九次都是顯卡驅動的問題。
+</h3>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2021 Jun 06</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+閱讀時間: 1 分鐘
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<p>我目前的工作環境都是用 Ubuntu <del>(被 Windows 氣到)</del>，前幾天我重新安裝 Ubuntu 的時候，一直安裝失敗，重新安裝四、五次後都沒有畫面，最後才發現是顯卡驅動問題。</p>
+<blockquote>
+<p>聽說 Ubuntu 開機沒有畫面或是只有 Logo，十次有九次都是顯卡驅動的問題</p>
+</blockquote>
+<h2 id=解決問題>解決問題</h2>
+<p>在開機引導時會看到這個畫面，立馬按下鍵盤上的 <code>c</code> 鍵。</p>
+<p><figure>
+<a href=https://i.stack.imgur.com/8RYuZ.png>
+<img src=https://i.stack.imgur.com/8RYuZ.png loading=lazy alt=img>
+</a>
+<figcaption>img</figcaption>
+</figure></p>
+<p>按下 c 後，會以下畫面，找到 <code>quite splash</code>。</p>
+<p><figure>
+<a href=https://i.stack.imgur.com/0Cfhc.png>
+<img src=https://i.stack.imgur.com/0Cfhc.png loading=lazy alt=img>
+</a>
+<figcaption>img</figcaption>
+</figure></p>
+<p>把 <code>quite splash</code> 改成 <code>nomodeset</code>，不要懷疑，把兩個字刪掉，改成一個字，改錯也沒關係，下次重開就會復原。</p>
+<p>改完後，按下 <code>f10</code> 應該就可以順利進入系統，只是是在沒有顯卡驅動的狀態，畫面可能非常不流暢，所以我們現在來安裝顯卡驅動。</p>
+<h2 id=顯卡驅動>顯卡驅動</h2>
+<p>開啟 Terminal，輸入下面的指令，可以自動檢查顯卡的驅動</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo ubuntu-drivers devices
+</code></pre></div><p>應該可以看到其中一項後面有 recommended，基本上安裝那個版本就沒有問題。下面我們直接用自動安裝的方式安裝推薦的驅動。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo ubuntu-drivers autoinstall
+</code></pre></div><p>如果你懶的關心 <code>autoinstall</code> 會幫你安裝哪個版本，基本上直接執行上面的指令就可以解決問題了。</p>
+<p>安裝完成後重開機，如果沒有遇到其他問題，這樣應該就可以順利進入系統了。</p>
+<h2 id=reference>Reference</h2>
+<ul>
+<li><a class=link href=https://askubuntu.com/questions/162075/my-computer-boots-to-a-black-screen-what-options-do-i-have-to-fix-it target=_blank rel=noopener>My computer boots to a black screen, what options do I have to fix it?</a></li>
+</ul>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/HugoBlog/tags/ubuntu/>ubuntu</a>
+</section>
+<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+</article>
+<aside class=related-contents--wrapper>
+<h2 class=section-title>相關文章</h2>
+<div class=related-contents>
+<div class="flex article-list--tile">
+<article class=has-image>
+<a href=/HugoBlog/posts/linux/beautiful-terminal/>
+<div class=article-image>
+<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/939d8b79-aeab-465b-8bc7-fcf3cc4def00/public loading=lazy data-key data-hash=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/939d8b79-aeab-465b-8bc7-fcf3cc4def00/public>
+</div>
+<div class=article-details>
+<h2 class=article-title>Beautiful Terminal</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/HugoBlog/posts/linux/frp/>
+<div class=article-image>
+<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/34046c81-cb6e-40a5-7b3a-8623c613f400/public loading=lazy data-key data-hash=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/34046c81-cb6e-40a5-7b3a-8623c613f400/public>
+</div>
+<div class=article-details>
+<h2 class=article-title>Frp</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2020 -
+2021 TonyPepe
+</section>
+<section class=powerby>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.2.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">目錄</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ol>
+<li><a href=#解決問題>解決問題</a></li>
+<li><a href=#顯卡驅動>顯卡驅動</a></li>
+<li><a href=#reference>Reference</a></li>
+</ol>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/HugoBlog/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>

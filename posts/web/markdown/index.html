@@ -1,0 +1,311 @@
+<!doctype html><html lang=zh-tw>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Markdown 可以想像成 Html 的簡化版本，廣泛用於編寫文章或是技術文件，因為其特性基本上由 Html 簡化而來，所以方便的由寫好的 Markdown 產生 Html 網頁，像是這篇文章也是由 Markdown 編寫。"><title>Markdown</title>
+<link rel=canonical href=https://tonypepebear.github.io/HugoBlog/posts/web/markdown/>
+<link rel=stylesheet href=/HugoBlog/scss/style.min.css><meta property="og:title" content="Markdown">
+<meta property="og:description" content="Markdown 可以想像成 Html 的簡化版本，廣泛用於編寫文章或是技術文件，因為其特性基本上由 Html 簡化而來，所以方便的由寫好的 Markdown 產生 Html 網頁，像是這篇文章也是由 Markdown 編寫。">
+<meta property="og:url" content="https://tonypepebear.github.io/HugoBlog/posts/web/markdown/">
+<meta property="og:site_name" content="TonyPepe">
+<meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:tag" content="markdown"><meta property="article:published_time" content="2021-07-05T17:05:38+08:00"><meta property="article:modified_time" content="2021-07-05T17:05:38+08:00"><meta property="og:image" content="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/0ecfde1e-521f-4e7c-ab46-30357d4e5e00/public">
+<meta name=twitter:title content="Markdown">
+<meta name=twitter:description content="Markdown 可以想像成 Html 的簡化版本，廣泛用於編寫文章或是技術文件，因為其特性基本上由 Html 簡化而來，所以方便的由寫好的 Markdown 產生 Html 網頁，像是這篇文章也是由 Markdown 編寫。"><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/0ecfde1e-521f-4e7c-ab46-30357d4e5e00/public">
+<link rel="shortcut icon" href=favicon.ico>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V6T1WQYZ5Q"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-V6T1WQYZ5Q',{anonymize_ip:!1})}</script>
+<style>:root{--base-font-family:"JetBrains Mono","Noto Serif TC";--article-font-family:"JetBrains Mono", "Noto Serif TC";--code-font-family:"JetBrains Mono"}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Sans+TC:wght@500&family=Noto+Serif+TC:wght@500&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=/HugoBlog class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>返回</span>
+</a>
+</div>
+<main class="main full-width">
+<article class="has-image main-article">
+<header class=article-header>
+<div class=article-image>
+<a href=/HugoBlog/posts/web/markdown/>
+<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/0ecfde1e-521f-4e7c-ab46-30357d4e5e00/public loading=lazy alt="Featured image of post Markdown">
+</a>
+</div>
+<div class=article-details>
+<header class=article-category>
+<a href=/HugoBlog/categories/web/ style=background-color:#2a9d8f;color:#fff>
+Web
+</a>
+</header>
+<h2 class=article-title>
+<a href=/HugoBlog/posts/web/markdown/>Markdown</a>
+</h2>
+<h3 class=article-subtitle>
+Markdown 可以想像成 Html 的簡化版本，廣泛用於編寫文章或是技術文件，因為其特性基本上由 Html 簡化而來，所以方便的由寫好的 Markdown 產生 Html 網頁，像是這篇文章也是由 Markdown 編寫。
+</h3>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2021 Jul 05</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+閱讀時間: 3 分鐘
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<p>Markdown 可以想像成 Html 的簡化版本，廣泛用於編寫文章或是技術文件，因為其特性基本上由 Html 簡化而來，所以方便的由寫好的 Markdown 產生 Html 網頁，像是這篇文章也是由 Markdown 編寫。</p>
+<p>我們來看看 <a class=link href=https://github.com/apple/swift target=_blank rel=noopener>Swift</a> 的官網，可以發現 <code>[README.md](http://readme.md)</code> 這個檔案就是由 Markdown 編寫，Github 也會自動將這個檔案渲染在網頁下方。到這裡可以發現，在 Github 上的所有開源專案的文件，幾乎都是由 Markdown 編寫。</p>
+<h2 id=哲學>哲學</h2>
+<p>引述自 <a class=link href=https://markdown.tw target=_blank rel=noopener>https://markdown.tw</a></p>
+<blockquote>
+<p>Markdown的目標是實現「易讀易寫」。<br>
+不過最需要強調的便是它的可讀性。一份使用Markdown格式撰寫的文件應該可以直接以純文字發佈，並且看起來不會像是由許多標籤或是格式指令所構成。Markdown語法受到一些既有text-to-HTML格式的影響，包括 Setext、atx、Textile、reStructuredText、Grutatext 和 EtText，然而最大靈感來源其實是純文字的電子郵件格式。<br>
+因此Markdown的語法全由標點符號所組成，並經過嚴謹慎選，是為了讓它們看起來就像所要表達的意思。像是在文字兩旁加上星號，看起來就像<em>強調</em>。Markdown的清單看起來，嗯，就是清單。假如你有使用過電子郵件，區塊引言看起來就真的像是引用一段文字。</p>
+</blockquote>
+<h2 id=tools>Tools</h2>
+<p>Q: 那要用什麼來寫呢？</p>
+<p>因為 Markdown 基本上也是純文字檔案，所以只要是文字編輯器都可以編輯，你要用 txt 來寫也是個不錯的方法❤️。</p>
+<h3 id=vscode>VSCode</h3>
+<p>目前最推薦的就是工程師的好夥伴 <code>VSCode</code> ，VSCode 在寫 Markdown 時，有提供即時渲染，可以快速的看到結果，而且 VSCode 應該在各位工程師的電腦裡都應該有安裝才對。</p>
+<h3 id=hackmd>HackMD</h3>
+<p>HackMD 是一個在網頁中的 Markdown 編輯器，可以方便地在網頁中編輯和看到編寫的結果，HackMD 最厲害的功能是可以將 Markdown 轉換成簡報，用 Markdown 取代 PowerPoint？這夠帥吧！</p>
+<h3 id=marktext>MarkText</h3>
+<p>這是一個在 <a class=link href=https://github.com/marktext/marktext target=_blank rel=noopener>Github</a> 上的開源專案，可以所寫所得，方便使用，但我還是比較推薦新手使用上面兩項工具，因為這東西真的太方便了，有點沒有在寫 Markdown 的感覺。</p>
+<h3 id=microsoft-word>Microsoft Word</h3>
+<p>推薦指數：⭐⭐⭐⭐⭐</p>
+<ul>
+<li><a class=link href="https://www.youtube.com/watch?v=X34ZmkeZDos" target=_blank rel=noopener>[YouTube] Why Microsoft Word is the best IDE for programming</a></li>
+</ul>
+<h2 id=markdown-語法>Markdown 語法</h2>
+<h1 id=大標題>大標題</h1>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-md data-lang=md><span class=p>&lt;</span><span class=nt>h1</span><span class=p>&gt;</span>
+
+<span class=gh># 大標題
+</span></code></pre></div><hr>
+<h2 id=次標題>次標題</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-md data-lang=md><span class=p>&lt;</span><span class=nt>h2</span><span class=p>&gt;</span>
+
+<span class=gu>## 次標題
+</span></code></pre></div><hr>
+<h3 id=次次標題>次次標題</h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-md data-lang=md><span class=p>&lt;</span><span class=nt>h3</span><span class=p>&gt;</span>
+
+<span class=gu>### 次次標題
+</span></code></pre></div><hr>
+<h2 id=內文>內文</h2>
+<p>內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-md data-lang=md><span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span>
+
+內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文
+</code></pre></div><hr>
+<h2 id=斜體-粗體>斜體 粗體</h2>
+<p>內文內文內文<em>斜體</em>內文內文內文內文內文內文<br>
+內文內文內文<strong>粗體</strong>內文內文內文內文內文內文</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-md data-lang=md>內文內文內文*斜體*內文內文內文內文內文內文  
+內文內文內文**粗體**內文內文內文內文內文內文  
+</code></pre></div><hr>
+<h2 id=有序清單>有序清單</h2>
+<ol>
+<li>有序清單 1</li>
+<li>有序清單 2</li>
+<li>有序清單 3</li>
+</ol>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-md data-lang=md><span class=p>&lt;</span><span class=nt>ol</span><span class=p>&gt;</span>
+
+<span class=k>1.</span> 有序清單 1
+<span class=k>2.</span> 有序清單 2
+<span class=k>3.</span> 有序清單 3
+</code></pre></div><hr>
+<h2 id=無序清單>無序清單</h2>
+<ul>
+<li>無序清單 1</li>
+<li>無序清單 2</li>
+<li>無序清單 3</li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-md data-lang=md><span class=p>&lt;</span><span class=nt>ul</span><span class=p>&gt;</span>
+
+<span class=k>*</span> 無序清單 1
+<span class=k>*</span> 無序清單 2
+<span class=k>*</span> 無序清單 3
+
++ 無序清單 1
++ 無序清單 2
++ 無序清單 3
+
+<span class=k>-</span> 無序清單 1
+<span class=k>-</span> 無序清單 2
+<span class=k>-</span> 無序清單 3
+</code></pre></div><hr>
+<h2 id=程式碼區塊>程式碼區塊</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=n>printf</span><span class=p>(</span><span class=s>&#34;Hi 程式碼區塊&#34;</span><span class=p>);</span>
+</code></pre></div><p><figure>
+<a href=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210717220425.png>
+<img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210717220425.png loading=lazy alt=img>
+</a>
+<figcaption>img</figcaption>
+</figure></p>
+<hr>
+<h2 id=標記程式碼>標記程式碼</h2>
+<p>inline <code>code</code></p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-md data-lang=md>inline <span class=sb>`code`</span>
+</code></pre></div><hr>
+<h2 id=超連結>超連結</h2>
+<p><a class=link href=https://google.com target=_blank rel=noopener>Google首頁</a></p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-md data-lang=md>[<span class=nt>Google首頁</span>](<span class=na>https://google.com</span>)
+</code></pre></div><hr>
+<h2 id=圖片連結>圖片連結</h2>
+<p><figure>
+<a href=https://www.google.com.tw/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png>
+<img src=https://www.google.com.tw/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png loading=lazy alt=img>
+</a>
+<figcaption>img</figcaption>
+</figure></p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-md data-lang=md>![](https://www.google.com.tw/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png)
+</code></pre></div><h2 id=reference>Reference</h2>
+<ul>
+<li><a class=link href=https://markdown.tw/ target=_blank rel=noopener>Markdown文件</a></li>
+</ul>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/HugoBlog/tags/markdown/>markdown</a>
+</section>
+<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+</article>
+<aside class=related-contents--wrapper>
+<h2 class=section-title>相關文章</h2>
+<div class=related-contents>
+<div class="flex article-list--tile">
+<article class=has-image>
+<a href=/HugoBlog/posts/web/cloudflare-speed-week/>
+<div class=article-image>
+<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/be2106f3-0557-4e94-803a-9dda63550300/public loading=lazy data-key data-hash=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/be2106f3-0557-4e94-803a-9dda63550300/public>
+</div>
+<div class=article-details>
+<h2 class=article-title>Cloudflare Speed Week</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/HugoBlog/posts/web/web-basic/>
+<div class=article-image>
+<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/8d7dadd3-36a3-42c8-a452-3c93c541c600/public loading=lazy data-key data-hash=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/8d7dadd3-36a3-42c8-a452-3c93c541c600/public>
+</div>
+<div class=article-details>
+<h2 class=article-title>Web Basic</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/HugoBlog/posts/web/cloudflare-tunnel/>
+<div class=article-image>
+<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/00e85cf1-4c03-45ea-004c-f61e6216d400/public loading=lazy data-key data-hash=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/00e85cf1-4c03-45ea-004c-f61e6216d400/public>
+</div>
+<div class=article-details>
+<h2 class=article-title>Cloudflare Tunnel</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2020 -
+2021 TonyPepe
+</section>
+<section class=powerby>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.2.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">目錄</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ol>
+<li><a href=#哲學>哲學</a></li>
+<li><a href=#tools>Tools</a>
+<ol>
+<li><a href=#vscode>VSCode</a></li>
+<li><a href=#hackmd>HackMD</a></li>
+<li><a href=#marktext>MarkText</a></li>
+<li><a href=#microsoft-word>Microsoft Word</a></li>
+</ol>
+</li>
+<li><a href=#markdown-語法>Markdown 語法</a></li>
+</ol>
+<ol>
+<li><a href=#次標題>次標題</a>
+<ol>
+<li><a href=#次次標題>次次標題</a></li>
+</ol>
+</li>
+<li><a href=#內文>內文</a></li>
+<li><a href=#斜體-粗體>斜體 粗體</a></li>
+<li><a href=#有序清單>有序清單</a></li>
+<li><a href=#無序清單>無序清單</a></li>
+<li><a href=#程式碼區塊>程式碼區塊</a></li>
+<li><a href=#標記程式碼>標記程式碼</a></li>
+<li><a href=#超連結>超連結</a></li>
+<li><a href=#圖片連結>圖片連結</a></li>
+<li><a href=#reference>Reference</a></li>
+</ol>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/HugoBlog/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>

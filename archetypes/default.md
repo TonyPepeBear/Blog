@@ -5,4 +5,8 @@ date: {{ .Date }}
 image: 
 hidden: false
 draft: true
+tags: 
+    - tag
+categories:
+    - Category
 ---

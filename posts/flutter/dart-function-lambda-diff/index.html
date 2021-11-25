@@ -16,50 +16,15 @@
 <style>:root{--base-font-family:"JetBrains Mono","Noto Serif TC";--article-font-family:"JetBrains Mono", "Noto Serif TC";--code-font-family:"JetBrains Mono"}</style>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Sans+TC:wght@500&family=Noto+Serif+TC:wght@500&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
 </head>
-<body class=article-page>
+<body class="article-page has-toc">
 <script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
 <div class="container main-container flex
-on-phone--column extended">
-<aside class="sidebar left-sidebar sticky">
-<button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
-<span class=hamburger-box>
-<span class=hamburger-inner></span>
-</span>
-</button>
-<header class=site-info>
-<figure class=site-avatar>
-<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/cfccf3e2-7fd5-4e6c-adcb-a3cc5064f900/public width=300 height=300 class=site-logo loading=lazy alt=Avatar>
-<span class=emoji>🐰</span>
-</figure>
-<h1 class=site-name><a href=/HugoBlog>TonyPepe</a></h1>
-<h2 class=site-description>紀錄</h2>
-</header>
-<ol class=menu id=main-menu>
-<li>
-<a href=/HugoBlog/HugoBlog/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
-<span>Home</span>
+extended">
+<div id=article-toolbar>
+<a href=javascript:history.back() class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>返回</span>
 </a>
-</li>
-<li>
-<a href=/HugoBlog/HugoBlog/archives><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
-<span>Archives</span>
-</a>
-</li>
-<li>
-<a href=/HugoBlog/HugoBlog/about><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
-<span>About</span>
-</a>
-</li>
-<li>
-<a href=/HugoBlog/HugoBlog/search><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
-<span>Search</span>
-</a>
-</li>
-<li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
-<span>夜晚模式</span>
-</li>
-</ol>
-</aside>
+</div>
 <main class="main full-width">
 <article class="has-image main-article">
 <header class=article-header>
@@ -94,6 +59,7 @@ Flutter 因為大量使用依賴注入，所以常常會需要傳入 Function。
 </header>
 <section class=article-content>
 <p>Flutter 因為大量使用依賴注入，所以常常會需要傳入 Function。傳入 Function 時，常常會看到兩種寫法，一下是 <code>() {}</code> 寫法，另一個是 <code>() =></code> 寫法。我剛開始寫的時候被搞得頭昏腦脹，查了一下才發現這兩個本身沒什麼不同。</p>
+<h2 id=不同在哪>不同在哪</h2>
 <p>下面我用在寫 Flutter 中常見的創建一個有 10 個 Text 的 List 舉例。</p>
 <p>創建一個有 10 項元素的 List：</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-dart data-lang=dart><span class=n>List</span><span class=o>&lt;</span><span class=n>Text</span><span class=o>&gt;</span> <span class=n>list</span> <span class=o>=</span> <span class=n>List</span><span class=p>.</span><span class=n>generate</span><span class=p>(</span><span class=m>10</span><span class=p>,</span> <span class=p>(</span><span class=n>index</span><span class=p>)</span> <span class=o>=&gt;</span> <span class=n>Text</span><span class=p>(</span><span class=n>index</span><span class=p>.</span><span class=n>toString</span><span class=p>()));</span>
@@ -170,6 +136,21 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 </div>
 </div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
 </main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">目錄</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ol>
+<li><a href=#不同在哪>不同在哪</a></li>
+<li><a href=#reference>Reference</a></li>
+</ol>
+</nav>
+</div>
+</section>
+</aside>
 </div>
 <script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/HugoBlog/ts/main.js defer></script>
 <script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>

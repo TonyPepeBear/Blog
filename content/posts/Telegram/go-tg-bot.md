@@ -55,13 +55,13 @@ if err != nil {
 }
 ```
 
-上面用環境變數的方式來取得 TOKEN，避免需要直接寫在程式碼裡，如果覺得在測試時設定環境變數很麻煩，可以用 JetBrains 的 [GoLand](https://www.jetbrains.com/go/)，設定 Run Time 的環境變數：
+上面用環境變數的方式來取得 TOKEN，避免需要直接寫在程式碼裡，如果覺得在測試時設定環境變數很麻煩，可以用 JetBrains 的 [GoLand](https://www.jetbrains.com/go/)，設定 Runtime 的環境變數：
 
 ![image](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/9af5d8a5-3504-479d-ab04-f8b0adf93500/public)
 
 ## 處理 Update
 
-要接收使用者傳過來的訊息，Telegram Api 稱為 Update，我們使用的函示庫基本上都自動處理好了，只需要接收一個 Channel 就好。使用 `bot.GetUpdatesChan(config)` 會需要給一個 Config，這可以用 `tgbotapi.NewUpdate(0)` 來生，然後這邊設定 Timeout 為 60，如果對這個設定值有興趣，可以去看 Telegram 的文件。
+要接收使用者傳過來的訊息，Telegram API 稱為 Update，我們使用的函示庫基本上都自動處理好了，只需要接收一個 Channel 就好。使用 `bot.GetUpdatesChan(config)` 會需要給一個 Config，這可以用 `tgbotapi.NewUpdate(0)` 來生，然後這邊設定 Timeout 為 60，如果對這個設定值有興趣，可以去看 Telegram 的文件。
 
 ```go
 updateConfig := tgbotapi.NewUpdate(0)

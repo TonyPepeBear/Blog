@@ -1,0 +1,302 @@
+<!doctype html><html lang=zh-tw>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Telegram Bot 沒有任何使用限制，可以寫出許多屬於自己的幫手。本篇簡單的用 Go 寫一個鸚鵡機器人，用戶說什麼，機器人就回什麼。"><title>用 Go 寫 Telegram Bot</title>
+<link rel=canonical href=https://tonypepebear.github.io/HugoBlog/posts/telegram/go-tg-bot/>
+<link rel=stylesheet href=/HugoBlog/scss/style.min.css><meta property="og:title" content="用 Go 寫 Telegram Bot">
+<meta property="og:description" content="Telegram Bot 沒有任何使用限制，可以寫出許多屬於自己的幫手。本篇簡單的用 Go 寫一個鸚鵡機器人，用戶說什麼，機器人就回什麼。">
+<meta property="og:url" content="https://tonypepebear.github.io/HugoBlog/posts/telegram/go-tg-bot/">
+<meta property="og:site_name" content="TonyPepe">
+<meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:tag" content="go"><meta property="article:tag" content="golang"><meta property="article:tag" content="telegram"><meta property="article:tag" content="bot"><meta property="article:tag" content="telegram-bot"><meta property="article:published_time" content="2021-12-11T14:30:15+00:00"><meta property="article:modified_time" content="2021-12-11T14:30:15+00:00"><meta property="og:image" content="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f8c04956-a2ef-4cba-b9fe-2a5ceff40b00/public">
+<meta name=twitter:title content="用 Go 寫 Telegram Bot">
+<meta name=twitter:description content="Telegram Bot 沒有任何使用限制，可以寫出許多屬於自己的幫手。本篇簡單的用 Go 寫一個鸚鵡機器人，用戶說什麼，機器人就回什麼。"><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f8c04956-a2ef-4cba-b9fe-2a5ceff40b00/public">
+<link rel="shortcut icon" href=favicon.ico>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V6T1WQYZ5Q"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-V6T1WQYZ5Q',{anonymize_ip:!1})}</script>
+<style>:root{--base-font-family:"JetBrains Mono","Noto Serif TC";--article-font-family:"JetBrains Mono", "Noto Serif TC";--code-font-family:"JetBrains Mono"}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Sans+TC:wght@500&family=Noto+Serif+TC:wght@500&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=javascript:history.back() class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>返回</span>
+</a>
+</div>
+<main class="main full-width">
+<article class="has-image main-article">
+<header class=article-header>
+<div class=article-image>
+<a href=/HugoBlog/posts/telegram/go-tg-bot/>
+<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f8c04956-a2ef-4cba-b9fe-2a5ceff40b00/public loading=lazy alt="Featured image of post 用 Go 寫 Telegram Bot">
+</a>
+</div>
+<div class=article-details>
+<header class=article-category>
+<a href=/HugoBlog/categories/telegram/ style=background-color:#2a9d8f;color:#fff>
+Telegram
+</a>
+</header>
+<h2 class=article-title>
+<a href=/HugoBlog/posts/telegram/go-tg-bot/>用 Go 寫 Telegram Bot</a>
+</h2>
+<h3 class=article-subtitle>
+Telegram Bot 沒有任何使用限制，可以寫出許多屬於自己的幫手。本篇簡單的用 Go 寫一個鸚鵡機器人，用戶說什麼，機器人就回什麼。
+</h3>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2021 Dec 11</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+閱讀時間: 3 分鐘
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<p>Telegram Bot 沒有任何使用限制，可以寫出許多屬於自己的幫手。本篇簡單的用 Go 寫一個鸚鵡機器人，用戶說什麼，機器人就回什麼。</p>
+<h2 id=新增自己的-bot>新增自己的 Bot</h2>
+<p><figure>
+<a href=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/fbf36cb0-84f4-4f7a-2553-04ecccf44800/public>
+<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/fbf36cb0-84f4-4f7a-2553-04ecccf44800/public loading=lazy alt=image>
+</a>
+<figcaption>image</figcaption>
+</figure></p>
+<p>Telegram 非常有趣，要新增自己的 Bot，只要跟 Telegram 上的 <a class=link href=https://telegram.me/BotFather target=_blank rel=noopener>BotFather</a> <code>說一下</code>，他就會給你一個 Bot。</p>
+<p><figure>
+<a href=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/9200bc38-828c-4ad4-a022-d34c3a692d00/public>
+<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/9200bc38-828c-4ad4-a022-d34c3a692d00/public loading=lazy alt=image>
+</a>
+<figcaption>image</figcaption>
+</figure></p>
+<p>按 BotFather 給你的步驟做，最後可以看到他會提供一個 API Token 給你，只要有這個 Token 就可以跟 Bot 溝通，要保存好，等等會用到，也不要給別人看到，以免自己的 Bot 變成別人的玩具。</p>
+<h2 id=go-telegram-bot-api>go-telegram-bot-api</h2>
+<p>Go 已經有社區開發的函式庫可以用 <a class=link href=https://github.com/go-telegram-bot-api/telegram-bot-api target=_blank rel=noopener>telegram-bot-api</a>。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>go get -u github.com/go-telegram-bot-api/telegram-bot-api/v5
+
+</code></pre></div><p>之後只要 import 就可以使用：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kn>import</span> <span class=p>(</span>
+    <span class=nx>tgbotapi</span> <span class=s>&#34;github.com/go-telegram-bot-api/telegram-bot-api/v5&#34;</span>
+<span class=p>)</span>
+</code></pre></div><h2 id=連線到-telegram-bot>連線到 Telegram Bot</h2>
+<p>利用剛剛 import 的函式庫，只需要剛剛創建好的 Bot 的 API Token 就可以連線到 Telegram。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>bot</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>tgbotapi</span><span class=p>.</span><span class=nf>NewBotAPI</span><span class=p>(</span><span class=nx>os</span><span class=p>.</span><span class=nf>Getenv</span><span class=p>(</span><span class=s>&#34;TELEGRAM_API_TOKEN&#34;</span><span class=p>))</span>
+<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+    <span class=nb>panic</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></div><p>上面用環境變數的方式來取得 TOKEN，避免需要直接寫在程式碼裡，如果覺得在測試時設定環境變數很麻煩，可以用 JetBrains 的 <a class=link href=https://www.jetbrains.com/go/ target=_blank rel=noopener>GoLand</a>，設定 Run Time 的環境變數：</p>
+<p><figure>
+<a href=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/9af5d8a5-3504-479d-ab04-f8b0adf93500/public>
+<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/9af5d8a5-3504-479d-ab04-f8b0adf93500/public loading=lazy alt=image>
+</a>
+<figcaption>image</figcaption>
+</figure></p>
+<h2 id=處理-update>處理 Update</h2>
+<p>要接收使用者傳過來的訊息，Telegram Api 稱為 Update，我們使用的函示庫基本上都自動處理好了，只需要接收一個 Channel 就好。使用 <code>bot.GetUpdatesChan(config)</code> 會需要給一個 Config，這可以用 <code>tgbotapi.NewUpdate(0)</code> 來生，然後這邊設定 Timeout 為 60，如果對這個設定值有興趣，可以去看 Telegram 的文件。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>updateConfig</span> <span class=o>:=</span> <span class=nx>tgbotapi</span><span class=p>.</span><span class=nf>NewUpdate</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>
+<span class=nx>updateConfig</span><span class=p>.</span><span class=nx>Timeout</span> <span class=p>=</span> <span class=mi>60</span>
+<span class=nx>updates</span> <span class=o>:=</span> <span class=nx>bot</span><span class=p>.</span><span class=nf>GetUpdatesChan</span><span class=p>(</span><span class=nx>updateConfig</span><span class=p>)</span>
+</code></pre></div><h2 id=回復>回復</h2>
+<p>我們先簡單寫一隻鸚鵡，把用戶傳過來的 Text，直接傳回去。</p>
+<p><figure>
+<a href=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/19bbc73e-3090-4a0d-0eec-d65671c01900/public>
+<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/19bbc73e-3090-4a0d-0eec-d65671c01900/public loading=lazy alt=image>
+</a>
+<figcaption>image</figcaption>
+</figure></p>
+<p>用 for 把 Channel 中的 Update 一個一個拿出來，然後用 <code>tgbotapi</code> 產生一個 Message 物件，裡面放在聊天室的 ID 和要回傳的 Text，最後用 bot 把 Message 傳回去。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=k>for</span> <span class=nx>update</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>updates</span> <span class=p>{</span>
+    <span class=nx>text</span> <span class=o>:=</span> <span class=nx>update</span><span class=p>.</span><span class=nx>Message</span><span class=p>.</span><span class=nx>Text</span>
+    <span class=nx>chatID</span> <span class=o>:=</span> <span class=nx>update</span><span class=p>.</span><span class=nx>Message</span><span class=p>.</span><span class=nx>Chat</span><span class=p>.</span><span class=nx>ID</span>
+    <span class=nx>replyMsg</span> <span class=o>:=</span> <span class=nx>tgbotapi</span><span class=p>.</span><span class=nf>NewMessage</span><span class=p>(</span><span class=nx>chatID</span><span class=p>,</span> <span class=nx>text</span><span class=p>)</span>
+    <span class=nx>_</span><span class=p>,</span> <span class=nx>_</span> <span class=p>=</span> <span class=nx>bot</span><span class=p>.</span><span class=nf>Send</span><span class=p>(</span><span class=nx>replyMsg</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></div><h2 id=簡單鸚鵡的完整程式碼>簡單鸚鵡的完整程式碼</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>main</span>
+
+<span class=kn>import</span> <span class=p>(</span>
+    <span class=nx>tgbotapi</span> <span class=s>&#34;github.com/go-telegram-bot-api/telegram-bot-api/v5&#34;</span>
+    <span class=s>&#34;os&#34;</span>
+<span class=p>)</span>
+
+<span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=nx>bot</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>tgbotapi</span><span class=p>.</span><span class=nf>NewBotAPI</span><span class=p>(</span><span class=nx>os</span><span class=p>.</span><span class=nf>Getenv</span><span class=p>(</span><span class=s>&#34;TELEGRAM_API_TOKEN&#34;</span><span class=p>))</span>
+    <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+        <span class=nb>panic</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+    <span class=p>}</span>
+    <span class=nx>bot</span><span class=p>.</span><span class=nx>Debug</span> <span class=p>=</span> <span class=kc>true</span>
+    <span class=nx>updateConfig</span> <span class=o>:=</span> <span class=nx>tgbotapi</span><span class=p>.</span><span class=nf>NewUpdate</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>
+    <span class=nx>updateConfig</span><span class=p>.</span><span class=nx>Timeout</span> <span class=p>=</span> <span class=mi>60</span>
+    <span class=nx>updates</span> <span class=o>:=</span> <span class=nx>bot</span><span class=p>.</span><span class=nf>GetUpdatesChan</span><span class=p>(</span><span class=nx>updateConfig</span><span class=p>)</span>
+    <span class=k>for</span> <span class=nx>update</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>updates</span> <span class=p>{</span>
+        <span class=nx>text</span> <span class=o>:=</span> <span class=nx>update</span><span class=p>.</span><span class=nx>Message</span><span class=p>.</span><span class=nx>Text</span>
+        <span class=nx>chatID</span> <span class=o>:=</span> <span class=nx>update</span><span class=p>.</span><span class=nx>Message</span><span class=p>.</span><span class=nx>Chat</span><span class=p>.</span><span class=nx>ID</span>
+        <span class=nx>replyMsg</span> <span class=o>:=</span> <span class=nx>tgbotapi</span><span class=p>.</span><span class=nf>NewMessage</span><span class=p>(</span><span class=nx>chatID</span><span class=p>,</span> <span class=nx>text</span><span class=p>)</span>
+        <span class=nx>_</span><span class=p>,</span> <span class=nx>_</span> <span class=p>=</span> <span class=nx>bot</span><span class=p>.</span><span class=nf>Send</span><span class=p>(</span><span class=nx>replyMsg</span><span class=p>)</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></div><h2 id=改寫成非阻塞的-goroutine>改寫成非阻塞的 Goroutine</h2>
+<p>因為每次處理和回復都會需要一點時間，甚至是要去 DB 找資料，如果用上面的寫法，在處理多人或高速傳訊息的時候會被卡住，一次只能處理的一個訊息。還好 Go 的併發寫法非常簡單，只要放一個 go 在前面，就可以非阻塞的執行 function 中的內容。</p>
+<p>我們先把 <code>handleUpdate</code> 提取成一個 function，然後再用 go 去執行他：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=nx>bot</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>tgbotapi</span><span class=p>.</span><span class=nf>NewBotAPI</span><span class=p>(</span><span class=nx>os</span><span class=p>.</span><span class=nf>Getenv</span><span class=p>(</span><span class=s>&#34;TELEGRAM_API_TOKEN&#34;</span><span class=p>))</span>
+    <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+        <span class=nb>panic</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+    <span class=p>}</span>
+    <span class=nx>bot</span><span class=p>.</span><span class=nx>Debug</span> <span class=p>=</span> <span class=kc>true</span>
+    <span class=nx>updateConfig</span> <span class=o>:=</span> <span class=nx>tgbotapi</span><span class=p>.</span><span class=nf>NewUpdate</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>
+    <span class=nx>updateConfig</span><span class=p>.</span><span class=nx>Timeout</span> <span class=p>=</span> <span class=mi>60</span>
+    <span class=nx>updates</span> <span class=o>:=</span> <span class=nx>bot</span><span class=p>.</span><span class=nf>GetUpdatesChan</span><span class=p>(</span><span class=nx>updateConfig</span><span class=p>)</span>
+    <span class=k>for</span> <span class=nx>update</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>updates</span> <span class=p>{</span>
+        <span class=k>go</span> <span class=nf>handleUpdate</span><span class=p>(</span><span class=nx>bot</span><span class=p>,</span> <span class=nx>update</span><span class=p>)</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>handleUpdate</span><span class=p>(</span><span class=nx>bot</span> <span class=o>*</span><span class=nx>tgbotapi</span><span class=p>.</span><span class=nx>BotAPI</span><span class=p>,</span> <span class=nx>update</span> <span class=nx>tgbotapi</span><span class=p>.</span><span class=nx>Update</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>text</span> <span class=o>:=</span> <span class=nx>update</span><span class=p>.</span><span class=nx>Message</span><span class=p>.</span><span class=nx>Text</span>
+    <span class=nx>chatID</span> <span class=o>:=</span> <span class=nx>update</span><span class=p>.</span><span class=nx>Message</span><span class=p>.</span><span class=nx>Chat</span><span class=p>.</span><span class=nx>ID</span>
+    <span class=nx>replyMsg</span> <span class=o>:=</span> <span class=nx>tgbotapi</span><span class=p>.</span><span class=nf>NewMessage</span><span class=p>(</span><span class=nx>chatID</span><span class=p>,</span> <span class=nx>text</span><span class=p>)</span>
+    <span class=nx>_</span><span class=p>,</span> <span class=nx>_</span> <span class=p>=</span> <span class=nx>bot</span><span class=p>.</span><span class=nf>Send</span><span class=p>(</span><span class=nx>replyMsg</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></div><h2 id=回復特定訊息>回復特定訊息</h2>
+<p>要回復 <code>回復訊息</code> ，像是下面的效果也很簡單：</p>
+<p><figure>
+<a href=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/22010000-e325-45e6-52f9-64eec6b28500/public>
+<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/22010000-e325-45e6-52f9-64eec6b28500/public loading=lazy alt=image>
+</a>
+<figcaption>image</figcaption>
+</figure></p>
+<p>只需要設定 <code>replyMsg.ReplyToMessageID</code> 就可以回復特定的訊息，下面就是直接回覆接收到的訊息：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>handleUpdate</span><span class=p>(</span><span class=nx>bot</span> <span class=o>*</span><span class=nx>tgbotapi</span><span class=p>.</span><span class=nx>BotAPI</span><span class=p>,</span> <span class=nx>update</span> <span class=nx>tgbotapi</span><span class=p>.</span><span class=nx>Update</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>text</span> <span class=o>:=</span> <span class=nx>update</span><span class=p>.</span><span class=nx>Message</span><span class=p>.</span><span class=nx>Text</span>
+    <span class=nx>chatID</span> <span class=o>:=</span> <span class=nx>update</span><span class=p>.</span><span class=nx>Message</span><span class=p>.</span><span class=nx>Chat</span><span class=p>.</span><span class=nx>ID</span>
+    <span class=nx>replyMsg</span> <span class=o>:=</span> <span class=nx>tgbotapi</span><span class=p>.</span><span class=nf>NewMessage</span><span class=p>(</span><span class=nx>chatID</span><span class=p>,</span> <span class=nx>text</span><span class=p>)</span>
+    <span class=nx>replyMsg</span><span class=p>.</span><span class=nx>ReplyToMessageID</span> <span class=p>=</span> <span class=nx>update</span><span class=p>.</span><span class=nx>Message</span><span class=p>.</span><span class=nx>MessageID</span>
+    <span class=nx>_</span><span class=p>,</span> <span class=nx>_</span> <span class=p>=</span> <span class=nx>bot</span><span class=p>.</span><span class=nf>Send</span><span class=p>(</span><span class=nx>replyMsg</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></div><h2 id=處理-command>處理 Command</h2>
+<p>Telegram 中，用 <code>/</code> 開頭的文字就是 Command，這個函示庫也有寫好處理 Command 的方法，只需要用 <code>isCommand()</code>，確認一下是不是 Command 就可以：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>handleUpdate</span><span class=p>(</span><span class=nx>bot</span> <span class=o>*</span><span class=nx>tgbotapi</span><span class=p>.</span><span class=nx>BotAPI</span><span class=p>,</span> <span class=nx>update</span> <span class=nx>tgbotapi</span><span class=p>.</span><span class=nx>Update</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>text</span> <span class=o>:=</span> <span class=nx>update</span><span class=p>.</span><span class=nx>Message</span><span class=p>.</span><span class=nx>Text</span>
+    <span class=nx>chatID</span> <span class=o>:=</span> <span class=nx>update</span><span class=p>.</span><span class=nx>Message</span><span class=p>.</span><span class=nx>Chat</span><span class=p>.</span><span class=nx>ID</span>
+    <span class=nx>replyMsg</span> <span class=o>:=</span> <span class=nx>tgbotapi</span><span class=p>.</span><span class=nf>NewMessage</span><span class=p>(</span><span class=nx>chatID</span><span class=p>,</span> <span class=nx>text</span><span class=p>)</span>
+    <span class=k>if</span> <span class=nx>update</span><span class=p>.</span><span class=nx>Message</span><span class=p>.</span><span class=nf>IsCommand</span><span class=p>()</span> <span class=p>{</span>
+        <span class=k>switch</span> <span class=nx>update</span><span class=p>.</span><span class=nx>Message</span><span class=p>.</span><span class=nf>Command</span><span class=p>()</span> <span class=p>{</span>
+        <span class=k>case</span> <span class=s>&#34;start&#34;</span><span class=p>:</span>
+            <span class=nx>replyMsg</span><span class=p>.</span><span class=nx>Text</span> <span class=p>=</span> <span class=s>&#34;Hello &#34;</span> <span class=o>+</span> <span class=nx>update</span><span class=p>.</span><span class=nx>Message</span><span class=p>.</span><span class=nx>From</span><span class=p>.</span><span class=nx>FirstName</span>
+        <span class=k>case</span> <span class=s>&#34;help&#34;</span><span class=p>:</span>
+            <span class=nx>replyMsg</span><span class=p>.</span><span class=nx>Text</span> <span class=p>=</span> <span class=s>&#34;What can I help you?&#34;</span>
+        <span class=k>default</span><span class=p>:</span>
+            <span class=nx>replyMsg</span><span class=p>.</span><span class=nx>Text</span> <span class=p>=</span> <span class=s>&#34;No such command!!!&#34;</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+    <span class=nx>_</span><span class=p>,</span> <span class=nx>_</span> <span class=p>=</span> <span class=nx>bot</span><span class=p>.</span><span class=nf>Send</span><span class=p>(</span><span class=nx>replyMsg</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></div><p>上面的程式碼其實也可以看到如何拿到傳送者的一些基本資料。</p>
+<p><figure>
+<a href=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/0fd54240-5c18-4b75-c7be-981cdb144e00/public>
+<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/0fd54240-5c18-4b75-c7be-981cdb144e00/public loading=lazy alt=image>
+</a>
+<figcaption>image</figcaption>
+</figure></p>
+<h2 id=reference>Reference</h2>
+<ul>
+<li><a class=link href=https://core.telegram.org/ target=_blank rel=noopener>Telegram APIs</a></li>
+<li><a class=link href=https://github.com/go-telegram-bot-api/telegram-bot-api target=_blank rel=noopener>Golang bindings for the Telegram Bot API - GitHub</a></li>
+</ul>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/HugoBlog/tags/go/>go</a>
+<a href=/HugoBlog/tags/golang/>golang</a>
+<a href=/HugoBlog/tags/telegram/>telegram</a>
+<a href=/HugoBlog/tags/bot/>bot</a>
+<a href=/HugoBlog/tags/telegram-bot/>telegram-bot</a>
+</section>
+<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+</article>
+<aside class=related-contents--wrapper>
+</aside>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2020 -
+2021 TonyPepe
+</section>
+<section class=powerby>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.2.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">目錄</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ol>
+<li><a href=#新增自己的-bot>新增自己的 Bot</a></li>
+<li><a href=#go-telegram-bot-api>go-telegram-bot-api</a></li>
+<li><a href=#連線到-telegram-bot>連線到 Telegram Bot</a></li>
+<li><a href=#處理-update>處理 Update</a></li>
+<li><a href=#回復>回復</a></li>
+<li><a href=#簡單鸚鵡的完整程式碼>簡單鸚鵡的完整程式碼</a></li>
+<li><a href=#改寫成非阻塞的-goroutine>改寫成非阻塞的 Goroutine</a></li>
+<li><a href=#回復特定訊息>回復特定訊息</a></li>
+<li><a href=#處理-command>處理 Command</a></li>
+<li><a href=#reference>Reference</a></li>
+</ol>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/HugoBlog/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>

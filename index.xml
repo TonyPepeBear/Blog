@@ -36,7 +36,7 @@ alt="image">
 &lt;span class="nb">panic&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">err&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;span class="p">}&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>上面用環境變數的方式來取得 TOKEN，避免需要直接寫在程式碼裡，如果覺得在測試時設定環境變數很麻煩，可以用 JetBrains 的 &lt;a class="link" href="https://www.jetbrains.com/go/" target="_blank" rel="noopener"
->GoLand&lt;/a>，設定 Run Time 的環境變數：&lt;/p>
+>GoLand&lt;/a>，設定 Runtime 的環境變數：&lt;/p>
 &lt;p>&lt;figure
 >
 &lt;a href="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/9af5d8a5-3504-479d-ab04-f8b0adf93500/public" >
@@ -47,7 +47,7 @@ alt="image">
 &lt;figcaption>image&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;h2 id="處理-update">處理 Update&lt;/h2>
-&lt;p>要接收使用者傳過來的訊息，Telegram Api 稱為 Update，我們使用的函示庫基本上都自動處理好了，只需要接收一個 Channel 就好。使用 &lt;code>bot.GetUpdatesChan(config)&lt;/code> 會需要給一個 Config，這可以用 &lt;code>tgbotapi.NewUpdate(0)&lt;/code> 來生，然後這邊設定 Timeout 為 60，如果對這個設定值有興趣，可以去看 Telegram 的文件。&lt;/p>
+&lt;p>要接收使用者傳過來的訊息，Telegram API 稱為 Update，我們使用的函示庫基本上都自動處理好了，只需要接收一個 Channel 就好。使用 &lt;code>bot.GetUpdatesChan(config)&lt;/code> 會需要給一個 Config，這可以用 &lt;code>tgbotapi.NewUpdate(0)&lt;/code> 來生，然後這邊設定 Timeout 為 60，如果對這個設定值有興趣，可以去看 Telegram 的文件。&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="nx">updateConfig&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">tgbotapi&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">NewUpdate&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;span class="nx">updateConfig&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Timeout&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="mi">60&lt;/span>
 &lt;span class="nx">updates&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">bot&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">GetUpdatesChan&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">updateConfig&lt;/span>&lt;span class="p">)&lt;/span>

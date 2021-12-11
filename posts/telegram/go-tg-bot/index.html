@@ -88,7 +88,7 @@ Telegram Bot 沒有任何使用限制，可以寫出許多屬於自己的幫手�
 <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
     <span class=nb>panic</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
 <span class=p>}</span>
-</code></pre></div><p>上面用環境變數的方式來取得 TOKEN，避免需要直接寫在程式碼裡，如果覺得在測試時設定環境變數很麻煩，可以用 JetBrains 的 <a class=link href=https://www.jetbrains.com/go/ target=_blank rel=noopener>GoLand</a>，設定 Run Time 的環境變數：</p>
+</code></pre></div><p>上面用環境變數的方式來取得 TOKEN，避免需要直接寫在程式碼裡，如果覺得在測試時設定環境變數很麻煩，可以用 JetBrains 的 <a class=link href=https://www.jetbrains.com/go/ target=_blank rel=noopener>GoLand</a>，設定 Runtime 的環境變數：</p>
 <p><figure>
 <a href=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/9af5d8a5-3504-479d-ab04-f8b0adf93500/public>
 <img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/9af5d8a5-3504-479d-ab04-f8b0adf93500/public loading=lazy alt=image>
@@ -96,7 +96,7 @@ Telegram Bot 沒有任何使用限制，可以寫出許多屬於自己的幫手�
 <figcaption>image</figcaption>
 </figure></p>
 <h2 id=處理-update>處理 Update</h2>
-<p>要接收使用者傳過來的訊息，Telegram Api 稱為 Update，我們使用的函示庫基本上都自動處理好了，只需要接收一個 Channel 就好。使用 <code>bot.GetUpdatesChan(config)</code> 會需要給一個 Config，這可以用 <code>tgbotapi.NewUpdate(0)</code> 來生，然後這邊設定 Timeout 為 60，如果對這個設定值有興趣，可以去看 Telegram 的文件。</p>
+<p>要接收使用者傳過來的訊息，Telegram API 稱為 Update，我們使用的函示庫基本上都自動處理好了，只需要接收一個 Channel 就好。使用 <code>bot.GetUpdatesChan(config)</code> 會需要給一個 Config，這可以用 <code>tgbotapi.NewUpdate(0)</code> 來生，然後這邊設定 Timeout 為 60，如果對這個設定值有興趣，可以去看 Telegram 的文件。</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>updateConfig</span> <span class=o>:=</span> <span class=nx>tgbotapi</span><span class=p>.</span><span class=nf>NewUpdate</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>
 <span class=nx>updateConfig</span><span class=p>.</span><span class=nx>Timeout</span> <span class=p>=</span> <span class=mi>60</span>
 <span class=nx>updates</span> <span class=o>:=</span> <span class=nx>bot</span><span class=p>.</span><span class=nf>GetUpdatesChan</span><span class=p>(</span><span class=nx>updateConfig</span><span class=p>)</span>

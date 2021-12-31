@@ -1,0 +1,8 @@
+{{ define "main" }}
+<main>
+    {{ range .Paginator.Pages }}
+        {{ partial "list_card_item.html" . }}
+    {{ end }}
+    {{ partial "paginator.html" . }}
+</main>
+{{ end }}

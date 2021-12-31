@@ -1,2 +1,6 @@
 baseurl: https://tonypepe.com
 title: TonyPepe
+params:
+    mainSections:
+        - posts
+paginate: 8

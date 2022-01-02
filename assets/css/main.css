@@ -70,3 +70,7 @@ article > p > code {
     @apply rounded-md bg-gray-300;
     padding: 3px;
 }
+
+.hljs {
+    @apply overflow-x-scroll w-full;
+}

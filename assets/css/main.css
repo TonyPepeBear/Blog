@@ -5,3 +5,68 @@
 body {
     font-family: 'JetBrains Mono', 'Noto Serif TC', monospace;
 }
+
+article * {
+    @apply text-lg leading-7;
+}
+
+article > * {
+    @apply my-3;
+}
+
+article > p {
+    /* @apply  ; */
+}
+
+article > h2 {
+    @apply text-3xl text-blue-900 cursor-default hover:underline transition-all duration-300;
+}
+
+article > h2:before {
+    margin-right: 0.75rem;
+    content: url('/svg/h2.svg');
+    display: inline;
+}
+
+article > h3 {
+    @apply text-2xl text-blue-900 cursor-default hover:underline transition-all duration-300;
+}
+
+article > h3:before {
+    margin-right: 0.75rem;
+    content: url('/svg/h3.svg');
+    display: inline;
+}
+
+article > ul {
+    @apply list-disc list-inside;
+}
+
+article > ol {
+    @apply list-decimal list-inside;
+}
+
+article * > a {
+    @apply text-blue-900 hover:underline transition-all duration-300;
+}
+
+article * > img {
+    @apply mx-auto;
+}
+
+.page-right-nav > nav > ul {
+    @apply list-decimal list-inside;
+}
+
+.page-right-nav > nav > ul > li > ul {
+    @apply list-disc list-inside ml-3;
+}
+
+article * > code {
+    @apply leading-normal;
+}
+
+article > p > code {
+    @apply rounded-md bg-gray-300;
+    padding: 3px;
+}

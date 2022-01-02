@@ -1,3 +1,9 @@
-<footer class="h-32 bg-gray-800 flex justify-center items-center">
-    <p class="order-2 md:order-1 mt-8 md:mt-0 text-gray-100"> &copy; TonyPepe, 2020 - {{ time.Format "2006" .Date }} </p>
+<footer class="h-48 bg-gray-800 flex justify-center items-center flex-col space-y-3">
+    <p class="order-1 text-gray-100">&copy; TonyPepe, 2020 - {{ time.Format "2006" .Date }}</p>
+    <div class="order-2 text-gray-100 inline-flex">
+        <p>Made with </p>
+        <span class="iconify mx-1" data-icon="ant-design:heart-filled" style="color: #f21111;"></span>
+        <p>and Hugo</p>
+    </div>
+    <span class="order-3 iconify" data-icon="twemoji:flag-for-flag-taiwan" style="color: #f21111;" data-width="35"></span>
 </footer>

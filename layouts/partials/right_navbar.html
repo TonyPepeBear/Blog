@@ -1,8 +1,9 @@
 <nav>
-    right nav
     {{ if .IsPage }}
+    <div class="page-right-nav rounded-lg shadow-md bg-gray-50 mt-10 p-3">
         {{ .TableOfContents }}
+    </div>
     {{ else }}
-        hi list
+    hi list
     {{ end }}
 </nav>

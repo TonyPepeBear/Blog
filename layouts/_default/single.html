@@ -1,7 +1,18 @@
 {{ define "main" }}
 
 <main>
-    {{ .Content }}
+    <div class="bg-white shadow-md rounded-xl my-5 mx-2">
+        {{ $image := .Params.image }}
+        {{ if $image }}
+        <img src="{{ .Params.image }}" class="filter w-full h-80 object-cover rounded-t-xl">
+        {{ end }}
+        <div class="px-3">
+            <h1 class="text-4xl my-5 inline-block text-center w-full text-black">{{ .Title }}</h1>
+            <article class="mx-2 pb-4">
+                {{ .Content }}
+            </article>
+        </div>
+    </div>
 </main>
 
 {{ end }}

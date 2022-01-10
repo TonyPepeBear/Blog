@@ -1,6 +1,7 @@
 ---
 title: "About"
 date: 2021-06-05T11:15:25Z
+layout: "single"
 draft: false
 ---
 
@@ -17,16 +18,15 @@ draft: false
 ## 感謝
 
 * 使用 [Hugo](https://gohugo.io/) 產生網頁
-* 使用 [Stack](https://github.com/CaiJimmy/hugo-theme-stack) 主題
 * 網頁託管於 [Cloudflare Pages](https://pages.cloudflare.com/)，無限請求，無限流量
-* [jsDeliver](https://www.jsdelivr.com/) 圖片 CDN
 * [GitHub](https://github.com) 提供 git repo
 * [Unsplash](https://unsplash.com/) 提供精美的圖片
+* [TailwindCSS](https://tailwindcss.com/) 讓我輕鬆寫出這個網站
+* [highlight.js](https://highlightjs.org/) 程式碼高亮
+* [iconify](https://iconify.design/) 提供精美的圖標
 
 ## 再次感謝 Cloudflare 對本站性能的極大貢獻
 
 [Performance Report: https://tonypepe.com](https://www.fastorslow.com/app/profile/567c05fa-1457-5ab5-a631-0e7cd0779e0e)
 
 ![ ](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/b0372f6a-61f0-4cef-6cc9-9603642db300/large)
-
-![ ](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/be79b2f8-fdf0-48dc-f6ed-f5086b30dd00/large)

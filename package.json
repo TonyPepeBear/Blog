@@ -1,0 +1,25 @@
+{
+  "name": "hugoblog",
+  "version": "1.0.0",
+  "description": "![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TonyPepeBear/HugoBlog/github%20pages?style=flat-square) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TonyPepeBear/HugoBlog/Lint%20Code%20Base?label=Lint%20Code&style=flat-square) [![GitHub issues](https://img.shields.io/github/issues/TonyPepeBear/HugoBlog?style=flat-square)](https://github.com/TonyPepeBear/HugoBlog/issues)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TonyPepeBear/HugoBlog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TonyPepeBear/HugoBlog/issues"
+  },
+  "homepage": "https://github.com/TonyPepeBear/HugoBlog#readme",
+  "dependencies": {
+    "autoprefixer": "^10.4.1",
+    "postcss": "^8.4.5",
+    "postcss-cli": "^9.1.0",
+    "tailwindcss": "2.2.19"
+  }
+}

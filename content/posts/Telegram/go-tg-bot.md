@@ -17,6 +17,8 @@ categories:
 
 Telegram Bot 沒有任何使用限制，可以寫出許多屬於自己的幫手。本篇簡單的用 Go 寫一個鸚鵡機器人，用戶說什麼，機器人就回什麼。
 
+<!--more-->
+
 ## 新增自己的 Bot
 
 ![image](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/fbf36cb0-84f4-4f7a-2553-04ecccf44800/public)

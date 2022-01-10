@@ -9,11 +9,11 @@
         <div class="px-3">
             <h1 class="text-4xl my-5 inline-block text-center w-full text-black">{{ .Title }}</h1>
             <div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
-                <a href="{{ $.Site.Params.gitHubURL }}/commit/{{ .GitInfo.Hash }}" class="flex flex-row items-center">
+                <a href="{{ $.Site.Params.gitHubURL }}/commit/{{ .GitInfo.Hash }}" target="_blank" class="flex flex-row items-center">
                     <span class="iconify" data-icon="bi:git"></span>
                     <p class="ml-1">{{ .GitInfo.AbbreviatedHash }}</p>
                 </a>
-                <a href="{{ $.Site.Params.gitHubURL }}/issue" class="flex flex-row items-center ml-5">
+                <a href="{{ $.Site.Params.gitHubURL }}/issues" target="_blank" class="flex flex-row items-center ml-5">
                     <span class="iconify" data-icon="bi:info-circle-fill"></span>
                     <p class="ml-1">Issue</p>
                 </a>

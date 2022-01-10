@@ -1,66 +1,66 @@
 <!doctype html><html lang=zh-tw>
-<head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="學過 Docker 的人都應該有用過 Docker Playground 來學習或是測試過軟體，不想在本機跑 Docker 可以先用 Docker Playground 試試看軟體可不可以跑。"><title>自架 Play With Docker</title>
-<link rel=canonical href=https://tonypepebear.github.io/HugoBlog/posts/docker/pwd-hosting/>
-<link rel=stylesheet href=/HugoBlog/scss/style.min.css><meta property="og:title" content="自架 Play With Docker">
-<meta property="og:description" content="學過 Docker 的人都應該有用過 Docker Playground 來學習或是測試過軟體，不想在本機跑 Docker 可以先用 Docker Playground 試試看軟體可不可以跑。">
-<meta property="og:url" content="https://tonypepebear.github.io/HugoBlog/posts/docker/pwd-hosting/">
-<meta property="og:site_name" content="TonyPepe">
-<meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:tag" content="docker"><meta property="article:tag" content="play-with-docker"><meta property="article:tag" content="nginx"><meta property="article:published_time" content="2021-06-05T16:08:29+00:00"><meta property="article:modified_time" content="2021-06-05T16:08:29+00:00"><meta property="og:image" content="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f6db1841-15c5-40fc-7174-8a5e73647700/public">
-<meta name=twitter:title content="自架 Play With Docker">
-<meta name=twitter:description content="學過 Docker 的人都應該有用過 Docker Playground 來學習或是測試過軟體，不想在本機跑 Docker 可以先用 Docker Playground 試試看軟體可不可以跑。"><meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f6db1841-15c5-40fc-7174-8a5e73647700/public">
-<link rel="shortcut icon" href=favicon.ico>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V6T1WQYZ5Q"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-V6T1WQYZ5Q',{anonymize_ip:!1})}</script>
-<style>:root{--base-font-family:"JetBrains Mono","Noto Serif TC";--article-font-family:"JetBrains Mono", "Noto Serif TC";--code-font-family:"JetBrains Mono"}</style>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Sans+TC:wght@500&family=Noto+Serif+TC:wght@500&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<head>
+<meta http-equiv=content-type content="text/html" charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=stylesheet href="/HugoBlog/css/main.min.0f421e0455023937695ac69eaabab11d978a9a8243d82b00d3dad6f4e9b3a735.css" integrity="sha256-D0IeBFUCOTdpWsaeqrqxHZeKmoJD2CsA09rW9OmzpzU=">
+<title>自架 Play With Docker - TonyPepe</title>
 </head>
-<body class="article-page has-toc">
-<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
-<div class="container main-container flex
-extended">
-<div id=article-toolbar>
-<a href=javascript:history.back() class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
-<span>返回</span>
+<body class=bg-gray-200>
+<script src=https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js defer></script>
+<div class="container mx-auto lg:flex">
+<aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4">
+<nav class="mx-4 lg:mx-0 flex flex-row lg:flex-col xl:ml-28">
+<div>
+<img class="rounded-full w-32 h-32 hover:-rotate-12 transform duration-700" src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/cfccf3e2-7fd5-4e6c-adcb-a3cc5064f900/public alt>
+<div class=mt-3>
+<a href=/ class="mt-10 text-2xl font-black text-gray-800">TonyPepe</a>
+</div>
+</div>
+<div>
+<div class="flex flex-col ml-4 lg:ml-0">
+<a href=/ class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
+<div class="flex flex-row items-center">
+<span class=iconify data-icon=mdi:home></span>
+<p class=ml-2>Home</p>
+</div>
+</a>
+<a href=/search class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
+<div class="flex flex-row items-center">
+<span class=iconify data-icon=mdi:file-search></span>
+<p class=ml-2>Search</p>
+</div>
+</a>
+<a href=/about class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900 transition">
+<div class="flex flex-row items-center">
+<span class=iconify data-icon=mdi:human-greeting-variant></span>
+<p class=ml-2>About</p>
+</div>
 </a>
 </div>
-<main class="main full-width">
-<article class="has-image main-article">
-<header class=article-header>
-<div class=article-image>
-<a href=/HugoBlog/posts/docker/pwd-hosting/>
-<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f6db1841-15c5-40fc-7174-8a5e73647700/public loading=lazy alt="Featured image of post 自架 Play With Docker">
+</div>
+</nav>
+</aside>
+<div class="lg:w-3/5 z-10 mt-12">
+<main>
+<div class="bg-white shadow-md rounded-xl my-5 mx-2">
+<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f6db1841-15c5-40fc-7174-8a5e73647700/public class="filter w-full h-80 object-cover rounded-t-xl">
+<div class=px-3>
+<h1 class="text-4xl my-5 inline-block text-center w-full text-black">自架 Play With Docker</h1>
+<div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
+<a href=https://github.com/TonyPepeBear/HugoBlog/commit/d98398c3ef9c1d13cddfb0fafc1656a4b681f4f9 target=_blank class="flex flex-row items-center">
+<span class=iconify data-icon=bi:git></span>
+<p class=ml-1>d98398c</p>
+</a>
+<a href=https://github.com/TonyPepeBear/HugoBlog/issues target=_blank class="flex flex-row items-center ml-5">
+<span class=iconify data-icon=bi:info-circle-fill></span>
+<p class=ml-1>Issue</p>
 </a>
 </div>
-<div class=article-details>
-<header class=article-category>
-<a href=/HugoBlog/categories/docker/ style=background-color:#2a9d8f;color:#fff>
-Docker
-</a>
-</header>
-<h2 class=article-title>
-<a href=/HugoBlog/posts/docker/pwd-hosting/>自架 Play With Docker</a>
-</h2>
-<h3 class=article-subtitle>
-學過 Docker 的人都應該有用過 Docker Playground 來學習或是測試過軟體，不想在本機跑 Docker 可以先用 Docker Playground 試試看軟體可不可以跑。
-</h3>
-<footer class=article-time>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>2021 Jun 05</time>
-</div>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>
-閱讀時間: 3 分鐘
-</time>
-</div>
-</footer>
-</div>
-</header>
-<section class=article-content>
+<article class="mx-2 pb-4">
 <p>學過 Docker 的人都應該有用過 Docker Playground 來學習或是測試過軟體，不想在本機跑 Docker 可以先用 Docker Playground 試試看軟體可不可以跑。</p>
-<p>官方已經有架設 <a class=link href=https://labs.play-with-docker.com/ target=_blank rel=noopener>Docker Playground</a>，可以讓大家方便使用，但我使用的時後常發現他會 Lag，也不知道是 Docker Server 的問題，還是臺灣網路的問題。剛好最近想要教社團 Docker，這樣我架好一個，大家就不需要準備環境，直接就可以開始學了。</p>
-<p>本專案的 <a class=link href=https://github.com/play-with-docker/play-with-docker target=_blank rel=noopener>GitHub</a></p>
+<p>官方已經有架設 <a href=https://labs.play-with-docker.com/>Docker Playground</a>，可以讓大家方便使用，但我使用的時後常發現他會 Lag，也不知道是 Docker Server 的問題，還是臺灣網路的問題。剛好最近想要教社團 Docker，這樣我架好一個，大家就不需要準備環境，直接就可以開始學了。</p>
+<p>本專案的 <a href=https://github.com/play-with-docker/play-with-docker>GitHub</a></p>
 <h2 id=準備環境>準備環境</h2>
 <ul>
 <li>
@@ -73,169 +73,114 @@ Docker
 <p>以上的安裝兩個在這邊都不贅述，請自行參閱官方文檔。</p>
 <h2 id=開始部署>開始部署</h2>
 <h3 id=第一步下載專案>第一步：下載專案</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git clone https://github.com/play-with-docker/play-with-docker
-<span class=nb>cd</span> play-with-docker
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git clone https://github.com/play-with-docker/play-with-docker
+cd play-with-docker
 </code></pre></div><h3 id=第二步確認驅動>第二步：確認驅動</h3>
 <p>其實我不是很確定這一步驟是要幹嘛，但是官方文檔有寫到，但是我在 Mac 上無法執行此命令，也可以順利部署。</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo modprobe xt_ipvs
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo modprobe xt_ipvs
 </code></pre></div><h3 id=第三步docker-swarm>第三步：Docker swarm</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>docker swarm init
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker swarm init
 </code></pre></div><h3 id=第四步下載-image>第四步：下載 image</h3>
 <p>這個 Image 是之後在 PWD 中創建容器時要用到的 Image。</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>docker pull franela/dind
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker pull franela/dind
 </code></pre></div><h3 id=第五步go-mod>第五步：go mod</h3>
 <p>這步也是非必要的，我也不懂 Golang 所以也不確定是要幹嘛。</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>go mod vendor
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>go mod vendor
 </code></pre></div><h3 id=最後啟動>最後：啟動</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>docker-compose up
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker-compose up
 </code></pre></div><p>若沒有其他問題，理論上現在連接到 <code>http://localhost:80</code> 就可以看到 PWD 正在執行，也可以開始創建容器使用。</p>
 <h2 id=localhost-or-404>localhost or 404</h2>
 <p>上一段的最後寫到可以連接到 localhost，但如果你試著用 localhost 以外的方式連接，就會出現問題，不管是 <code>127.0.0.1</code> 或是用網址 <code>pwd.example.com</code> 之類的都沒有辦法連接到 PWD，會不斷地出現 404，就是只有 localhost 可以。官方的文件就寫到這裡，也沒寫解法，以下是我自己發現的解決方法。</p>
 <p>基本上這個問題是 DNS 解析發生的問題，PWD 一次只能解析一種網址，預設是 <code>localhost</code>，我們可以去他的設定檔中變更他。</p>
 <p>設定檔案在 <code>play-with-docker/config/config.go</code> 之中，其中會有一行長下面的樣子：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>flag</span><span class=p>.</span><span class=nf>StringVar</span><span class=p>(</span><span class=o>&amp;</span><span class=nx>PlaygroundDomain</span><span class=p>,</span> <span class=s>&#34;playground-domain&#34;</span><span class=p>,</span> <span class=s>&#34;localhost&#34;</span><span class=p>,</span> <span class=s>&#34;Domain to use for the playground&#34;</span><span class=p>)</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>flag</span>.<span style=color:#a6e22e>StringVar</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>PlaygroundDomain</span>, <span style=color:#e6db74>&#34;playground-domain&#34;</span>, <span style=color:#e6db74>&#34;localhost&#34;</span>, <span style=color:#e6db74>&#34;Domain to use for the playground&#34;</span>)
 </code></pre></div><p>可以看到 PWD 這裡可以設定要解析的網址就是 <code>localhost</code>，所以只要將此變更為 <code>pwd.example.com</code>，就可以用這個網址連上 PWD。</p>
 <h3 id=連上容器內的-port>連上容器內的 Port</h3>
 <p>就算做完上面的設定，也順利了啟動 Docker 容器，但最後才發現想要連上特定的 Port 還是會失敗，因為他是用子網域的方式去連線 <code>http://ip&lt;hyphen-ip>-&lt;session_jd>-&lt;port>.direct.pwd.example.com</code>，所以又會遇到無法解析 DNS 的情況，我的解法是在 DNS 的設定中把 <code>pwd.example.com</code> 和 <code>*.pwd.example.com</code> 都加入 A Record，才順利連上。</p>
 <h2 id=nginx-proxy-pass>Nginx Proxy Pass</h2>
 <p>這部分我研究了蠻久，如果要把 Server 隱藏在 Nginx 後面，要設定的東西比較複雜，因為 PWD 有使用到 WebSocket，但是這部分我沒有過多的心得，所以直接把我的 <code>conf</code> 放在下面，容我不做解釋了：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-nginx data-lang=nginx><span class=k>map</span> <span class=nv>$http_upgrade</span> <span class=nv>$connection_upgrade</span> <span class=p>{</span>
-    <span class=kn>default</span> <span class=s>upgrade</span><span class=p>;</span>
-    <span class=kn>&#39;&#39;</span>      <span class=s>close</span><span class=p>;</span>
-<span class=p>}</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-nginx data-lang=nginx><span style=color:#66d9ef>map</span> $http_upgrade $connection_upgrade {
+    <span style=color:#f92672>default</span> <span style=color:#e6db74>upgrade</span>;
+    <span style=color:#f92672>&#39;&#39;</span>      <span style=color:#e6db74>close</span>;
+}
 
-<span class=k>server</span> <span class=p>{</span>
-    <span class=kn>listen</span>       <span class=mi>80</span><span class=p>;</span>
-    <span class=kn>server_name</span>  <span class=s>pwd.example.com</span> <span class=s>*.pwd.example.com</span><span class=p>;</span>
+<span style=color:#66d9ef>server</span> {
+    <span style=color:#f92672>listen</span>       <span style=color:#ae81ff>80</span>;
+    <span style=color:#f92672>server_name</span>  <span style=color:#e6db74>pwd.example.com</span> <span style=color:#e6db74>*.pwd.example.com</span>;
 
-    <span class=kn>location</span> <span class=s>/</span> <span class=p>{</span>
-        <span class=kn>proxy_pass</span> <span class=s>http://192.168.1.1:80</span><span class=p>;</span>
-        <span class=kn>proxy_set_header</span> <span class=s>Upgrade</span> <span class=nv>$http_upgrade</span><span class=p>;</span>
-        <span class=kn>proxy_set_header</span> <span class=s>Connection</span> <span class=nv>$connection_upgrade</span><span class=p>;</span>
-        <span class=kn>proxy_set_header</span> <span class=s>Host</span> <span class=nv>$host</span><span class=p>;</span>
-        <span class=kn>proxy_cache_bypass</span> <span class=nv>$http_upgrade</span><span class=p>;</span>
-    <span class=p>}</span>
+    <span style=color:#f92672>location</span> <span style=color:#e6db74>/</span> {
+        <span style=color:#f92672>proxy_pass</span> <span style=color:#e6db74>http://192.168.1.1:80</span>;
+        <span style=color:#f92672>proxy_set_header</span> <span style=color:#e6db74>Upgrade</span> $http_upgrade;
+        <span style=color:#f92672>proxy_set_header</span> <span style=color:#e6db74>Connection</span> $connection_upgrade;
+        <span style=color:#f92672>proxy_set_header</span> <span style=color:#e6db74>Host</span> $host;
+        <span style=color:#f92672>proxy_cache_bypass</span> $http_upgrade;
+    }
 
-    <span class=kn>error_page</span>   <span class=mi>500</span> <span class=mi>502</span> <span class=mi>503</span> <span class=mi>504</span>  <span class=s>/50x.html</span><span class=p>;</span>
-    <span class=kn>location</span> <span class=p>=</span> <span class=s>/50x.html</span> <span class=p>{</span>
-        <span class=kn>root</span>   <span class=s>/usr/share/nginx/html</span><span class=p>;</span>
-    <span class=p>}</span>
-<span class=p>}</span>
+    <span style=color:#f92672>error_page</span>   <span style=color:#ae81ff>500</span> <span style=color:#ae81ff>502</span> <span style=color:#ae81ff>503</span> <span style=color:#ae81ff>504</span>  <span style=color:#e6db74>/50x.html</span>;
+    <span style=color:#f92672>location</span> = <span style=color:#e6db74>/50x.html</span> {
+        <span style=color:#f92672>root</span>   <span style=color:#e6db74>/usr/share/nginx/html</span>;
+    }
+}
 </code></pre></div><p>上面是假設 PWD Server 跑在 <code>192.168.1.1:80</code> 上。</p>
 <h2 id=reference>Reference</h2>
 <ul>
-<li><a class=link href=https://github.com/play-with-docker/play-with-docker target=_blank rel=noopener>Play With Docker</a></li>
+<li><a href=https://github.com/play-with-docker/play-with-docker>Play With Docker</a></li>
 </ul>
-</section>
-<footer class=article-footer>
-<section class=article-tags>
-<a href=/HugoBlog/tags/docker/>docker</a>
-<a href=/HugoBlog/tags/play-with-docker/>play-with-docker</a>
-<a href=/HugoBlog/tags/nginx/>nginx</a>
-</section>
-<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
-<span>Licensed under CC BY-NC-SA 4.0</span>
-</section>
-</footer>
-</article>
-<aside class=related-contents--wrapper>
-<h2 class=section-title>相關文章</h2>
-<div class=related-contents>
-<div class="flex article-list--tile">
-<article class=has-image>
-<a href=/HugoBlog/posts/docker/docker/>
-<div class=article-image>
-<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/a45b7e65-d6dd-4ef5-23b4-44e2090c5b00/public loading=lazy data-key data-hash=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/a45b7e65-d6dd-4ef5-23b4-44e2090c5b00/public>
-</div>
-<div class=article-details>
-<h2 class=article-title>Docker</h2>
-</div>
-</a>
 </article>
 </div>
 </div>
-</aside>
-<footer class=site-footer>
-<section class=copyright>
-&copy;
-2020 -
-2021 TonyPepe
-</section>
-<section class=powerby>
-Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.2.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
-</section>
-</footer>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-<button class="pswp__button pswp__button--share" title=Share></button>
-<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-</button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
 </main>
-<aside class="sidebar right-sidebar sticky">
-<section class="widget archives">
-<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
 </div>
-<h2 class="widget-title section-title">目錄</h2>
-<div class=widget--toc>
+<aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4 pl-3">
+<nav>
+<div class="page-right-nav rounded-lg shadow-md bg-gray-50 my-10 p-3 mr-3">
+<h2 class="text-3xl m-4 text-gray-600">目錄</h2>
 <nav id=TableOfContents>
-<ol>
+<ul>
 <li><a href=#準備環境>準備環境</a></li>
 <li><a href=#開始部署>開始部署</a>
-<ol>
+<ul>
 <li><a href=#第一步下載專案>第一步：下載專案</a></li>
 <li><a href=#第二步確認驅動>第二步：確認驅動</a></li>
 <li><a href=#第三步docker-swarm>第三步：Docker swarm</a></li>
 <li><a href=#第四步下載-image>第四步：下載 image</a></li>
 <li><a href=#第五步go-mod>第五步：go mod</a></li>
 <li><a href=#最後啟動>最後：啟動</a></li>
-</ol>
+</ul>
 </li>
 <li><a href=#localhost-or-404>localhost or 404</a>
-<ol>
+<ul>
 <li><a href=#連上容器內的-port>連上容器內的 Port</a></li>
-</ol>
+</ul>
 </li>
 <li><a href=#nginx-proxy-pass>Nginx Proxy Pass</a></li>
 <li><a href=#reference>Reference</a></li>
-</ol>
+</ul>
 </nav>
 </div>
-</section>
+</nav>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/HugoBlog/ts/main.js defer></script>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<footer class="h-48 bg-gray-800 flex justify-center items-center flex-col space-y-3">
+<p class="order-1 text-gray-100">&copy; TonyPepe, 2020 - 2021</p>
+<div class="order-2 text-gray-100 inline-flex">
+<p>Made with </p>
+<span class="iconify mx-1" data-icon=ant-design:heart-filled style=color:#f21111></span>
+<p>and Hugo</p>
+</div>
+<span class="order-3 iconify" data-icon=twemoji:flag-for-flag-taiwan style=color:#f21111 data-width=35></span>
+</footer>
+<link rel=preconnect href=https://fonts.googleapis.com>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Serif+TC:wght@700&display=swap" rel=stylesheet>
+<script src=https://code.iconify.design/2/2.1.0/iconify.min.js></script>
+<link rel=stylesheet href=//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/base16/dracula.min.css>
+<script src=//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/kotlin.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/groovy.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/dart.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/dockerfile.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/http.min.js></script>
+<script>hljs.highlightAll()</script>
 </body>
 </html>

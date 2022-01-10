@@ -1,231 +1,167 @@
 <!doctype html><html lang=zh-tw>
-<head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="frp 全名是 fast reverse proxy，可以將在 NAT 後方的服務快速的發布到公網 ip 上，可以支援 TCP 和 UDP 協議，我覺得唯一的缺點就是所有流量都會經過 Server 端，所以如果 Server 端的流量有限制就需要注意一下。"><title>Frp</title>
-<link rel=canonical href=https://tonypepebear.github.io/HugoBlog/posts/linux/frp/>
-<link rel=stylesheet href=/HugoBlog/scss/style.min.css><meta property="og:title" content="Frp">
-<meta property="og:description" content="frp 全名是 fast reverse proxy，可以將在 NAT 後方的服務快速的發布到公網 ip 上，可以支援 TCP 和 UDP 協議，我覺得唯一的缺點就是所有流量都會經過 Server 端，所以如果 Server 端的流量有限制就需要注意一下。">
-<meta property="og:url" content="https://tonypepebear.github.io/HugoBlog/posts/linux/frp/">
-<meta property="og:site_name" content="TonyPepe">
-<meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:tag" content="frp"><meta property="article:tag" content="linux"><meta property="article:published_time" content="2021-06-20T21:48:33+08:00"><meta property="article:modified_time" content="2021-06-20T21:48:33+08:00"><meta property="og:image" content="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/34046c81-cb6e-40a5-7b3a-8623c613f400/public">
-<meta name=twitter:title content="Frp">
-<meta name=twitter:description content="frp 全名是 fast reverse proxy，可以將在 NAT 後方的服務快速的發布到公網 ip 上，可以支援 TCP 和 UDP 協議，我覺得唯一的缺點就是所有流量都會經過 Server 端，所以如果 Server 端的流量有限制就需要注意一下。"><meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/34046c81-cb6e-40a5-7b3a-8623c613f400/public">
-<link rel="shortcut icon" href=favicon.ico>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V6T1WQYZ5Q"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-V6T1WQYZ5Q',{anonymize_ip:!1})}</script>
-<style>:root{--base-font-family:"JetBrains Mono","Noto Serif TC";--article-font-family:"JetBrains Mono", "Noto Serif TC";--code-font-family:"JetBrains Mono"}</style>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Sans+TC:wght@500&family=Noto+Serif+TC:wght@500&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<head>
+<meta http-equiv=content-type content="text/html" charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=stylesheet href="/HugoBlog/css/main.min.0f421e0455023937695ac69eaabab11d978a9a8243d82b00d3dad6f4e9b3a735.css" integrity="sha256-D0IeBFUCOTdpWsaeqrqxHZeKmoJD2CsA09rW9OmzpzU=">
+<title>Frp - TonyPepe</title>
 </head>
-<body class="article-page has-toc">
-<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
-<div class="container main-container flex
-extended">
-<div id=article-toolbar>
-<a href=javascript:history.back() class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
-<span>返回</span>
+<body class=bg-gray-200>
+<script src=https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js defer></script>
+<div class="container mx-auto lg:flex">
+<aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4">
+<nav class="mx-4 lg:mx-0 flex flex-row lg:flex-col xl:ml-28">
+<div>
+<img class="rounded-full w-32 h-32 hover:-rotate-12 transform duration-700" src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/cfccf3e2-7fd5-4e6c-adcb-a3cc5064f900/public alt>
+<div class=mt-3>
+<a href=/ class="mt-10 text-2xl font-black text-gray-800">TonyPepe</a>
+</div>
+</div>
+<div>
+<div class="flex flex-col ml-4 lg:ml-0">
+<a href=/ class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
+<div class="flex flex-row items-center">
+<span class=iconify data-icon=mdi:home></span>
+<p class=ml-2>Home</p>
+</div>
+</a>
+<a href=/search class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
+<div class="flex flex-row items-center">
+<span class=iconify data-icon=mdi:file-search></span>
+<p class=ml-2>Search</p>
+</div>
+</a>
+<a href=/about class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900 transition">
+<div class="flex flex-row items-center">
+<span class=iconify data-icon=mdi:human-greeting-variant></span>
+<p class=ml-2>About</p>
+</div>
 </a>
 </div>
-<main class="main full-width">
-<article class="has-image main-article">
-<header class=article-header>
-<div class=article-image>
-<a href=/HugoBlog/posts/linux/frp/>
-<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/34046c81-cb6e-40a5-7b3a-8623c613f400/public loading=lazy alt="Featured image of post Frp">
+</div>
+</nav>
+</aside>
+<div class="lg:w-3/5 z-10 mt-12">
+<main>
+<div class="bg-white shadow-md rounded-xl my-5 mx-2">
+<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/34046c81-cb6e-40a5-7b3a-8623c613f400/public class="filter w-full h-80 object-cover rounded-t-xl">
+<div class=px-3>
+<h1 class="text-4xl my-5 inline-block text-center w-full text-black">Frp</h1>
+<div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
+<a href=https://github.com/TonyPepeBear/HugoBlog/commit/02e38ab7db1a7cadf85446bd53e6724fd4745ebb target=_blank class="flex flex-row items-center">
+<span class=iconify data-icon=bi:git></span>
+<p class=ml-1>02e38ab</p>
+</a>
+<a href=https://github.com/TonyPepeBear/HugoBlog/issues target=_blank class="flex flex-row items-center ml-5">
+<span class=iconify data-icon=bi:info-circle-fill></span>
+<p class=ml-1>Issue</p>
 </a>
 </div>
-<div class=article-details>
-<header class=article-category>
-<a href=/HugoBlog/categories/linux/ style=background-color:#2a9d8f;color:#fff>
-Linux
-</a>
-</header>
-<h2 class=article-title>
-<a href=/HugoBlog/posts/linux/frp/>Frp</a>
-</h2>
-<h3 class=article-subtitle>
-frp 全名是 fast reverse proxy，可以將在 NAT 後方的服務快速的發布到公網 ip 上，可以支援 TCP 和 UDP 協議，我覺得唯一的缺點就是所有流量都會經過 Server 端，所以如果 Server 端的流量有限制就需要注意一下。
-</h3>
-<footer class=article-time>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>2021 Jun 20</time>
-</div>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>
-閱讀時間: 2 分鐘
-</time>
-</div>
-</footer>
-</div>
-</header>
-<section class=article-content>
+<article class="mx-2 pb-4">
 <p>frp 全名是 fast reverse proxy，可以將在 NAT 後方的服務快速的發布到公網 ip 上，可以支援 TCP 和 UDP 協議，我覺得唯一的缺點就是所有流量都會經過 Server 端，所以如果 Server 端的流量有限制就需要注意一下。</p>
 <p>frp 會需要一台 Server，Server 需要公網 ip，如果沒有公網 ip，可以使用 aws 或 gcp 買一個簡單的 VPS。</p>
 <h2 id=安裝>安裝</h2>
 <p>網路上有許多一鍵安裝的到腳本，但我們不使用那些，有興趣的自己上網搜尋。</p>
-<p>到官方 <a class=link href=https://github.com/fatedier/frp/releases target=_blank rel=noopener>Release</a> 下載最新版，根據系統選擇，解壓後會看到 <code>frps</code> 、<code>frpc</code> 各有三個檔案，跟 <code>frps</code> 有關的就是 Server 端用的，<code>frpc</code> 的就是 Client 端用的。如果是 Server 端，就可以將 <code>frpc</code> 的檔案都刪除。</p>
+<p>到官方 <a href=https://github.com/fatedier/frp/releases>Release</a> 下載最新版，根據系統選擇，解壓後會看到 <code>frps</code> 、<code>frpc</code> 各有三個檔案，跟 <code>frps</code> 有關的就是 Server 端用的，<code>frpc</code> 的就是 Client 端用的。如果是 Server 端，就可以將 <code>frpc</code> 的檔案都刪除。</p>
 <h2 id=server-端設定>Server 端設定</h2>
 <p>在 Server 上打開設定文件 <code>frps.ini</code> 可以看到預設就有如下的內容：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=k>[common]</span>
-<span class=na>bind_port</span> <span class=o>=</span> <span class=s>7000</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ini data-lang=ini><span style=color:#66d9ef>[common]</span>
+<span style=color:#a6e22e>bind_port</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>7000</span>
 </code></pre></div><p><code>common</code> 內綁定了 7000 port，這個 port 是讓 client 端連接用的，基本現在不用改設定就可以直接用。執行 <code>frps</code> 要用 <code>-c</code> 參數給定設定檔案：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>./frps -c ./frps.ini
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>./frps -c ./frps.ini
 </code></pre></div><p>如果沒看到問題，基本上 Server 端就設定好了，其他功能晚點再介紹，我們先設定好 Client。</p>
 <h2 id=client-端設定>Client 端設定</h2>
 <p>Client 就是要發布服務伺服器，所以雖然叫做 Client 但本身應該也是一台提供服務的 Server。Client 就可以刪除有關 <code>frps</code> 相關的檔案。</p>
 <p>一樣先打開設定檔 <code>frpc.ini</code>，也會有如下預設內容：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=k>[common]</span>
-<span class=na>server_addr</span> <span class=o>=</span> <span class=s>127.0.0.1</span>
-<span class=na>server_port</span> <span class=o>=</span> <span class=s>7000</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ini data-lang=ini><span style=color:#66d9ef>[common]</span>
+<span style=color:#a6e22e>server_addr</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>127.0.0.1</span>
+<span style=color:#a6e22e>server_port</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>7000</span>
 
-<span class=k>[ssh]</span>
-<span class=na>type</span> <span class=o>=</span> <span class=s>tcp</span>
-<span class=na>local_ip</span> <span class=o>=</span> <span class=s>127.0.0.1</span>
-<span class=na>local_port</span> <span class=o>=</span> <span class=s>22</span>
-<span class=na>remote_port</span> <span class=o>=</span> <span class=s>6000</span>
+<span style=color:#66d9ef>[ssh]</span>
+<span style=color:#a6e22e>type</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>tcp</span>
+<span style=color:#a6e22e>local_ip</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>127.0.0.1</span>
+<span style=color:#a6e22e>local_port</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>22</span>
+<span style=color:#a6e22e>remote_port</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>6000</span>
 </code></pre></div><p>Client 端的設定檔就不能直接用，需要修改 Server ip 才行，更改 <code>server_addr</code> 為剛剛 Server 端的 ip 地址或是 Domain 都可以。</p>
 <p>下方方的 ssh 區塊設一個將 Client 端的 ssh 22 port 公開到 Server 端的 6000 port 的範本，如果有其他的 port 要開放，用相同的思維更改即可。像是如過要加 Minecraft 25565 port 也到 Server 端的 25565 port，就可以新增一個區塊：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=k>[common]</span>
-<span class=na>server_addr</span> <span class=o>=</span> <span class=s>example.com</span>
-<span class=na>server_port</span> <span class=o>=</span> <span class=s>7000</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ini data-lang=ini><span style=color:#66d9ef>[common]</span>
+<span style=color:#a6e22e>server_addr</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>example.com</span>
+<span style=color:#a6e22e>server_port</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>7000</span>
 
-<span class=k>[ssh]</span>
-<span class=na>type</span> <span class=o>=</span> <span class=s>tcp</span>
-<span class=na>local_ip</span> <span class=o>=</span> <span class=s>127.0.0.1</span>
-<span class=na>local_port</span> <span class=o>=</span> <span class=s>22</span>
-<span class=na>remote_port</span> <span class=o>=</span> <span class=s>6000</span>
+<span style=color:#66d9ef>[ssh]</span>
+<span style=color:#a6e22e>type</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>tcp</span>
+<span style=color:#a6e22e>local_ip</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>127.0.0.1</span>
+<span style=color:#a6e22e>local_port</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>22</span>
+<span style=color:#a6e22e>remote_port</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>6000</span>
 
-<span class=k>[minecraft]</span>
-<span class=na>type</span> <span class=o>=</span> <span class=s>tcp</span>
-<span class=na>local_ip</span> <span class=o>=</span> <span class=s>127.0.0.1</span>
-<span class=na>local_port</span> <span class=o>=</span> <span class=s>25565</span>
-<span class=na>remote_port</span> <span class=o>=</span> <span class=s>25565</span>
+<span style=color:#66d9ef>[minecraft]</span>
+<span style=color:#a6e22e>type</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>tcp</span>
+<span style=color:#a6e22e>local_ip</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>127.0.0.1</span>
+<span style=color:#a6e22e>local_port</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>25565</span>
+<span style=color:#a6e22e>remote_port</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>25565</span>
 </code></pre></div><p>到目前為止應該就可以用 Server 端的 ip 連接到 Client 端了，如果連不上，可能要檢查一下 Server 端防火牆的設定，這邊就不贅述。</p>
 <h2 id=token-認證>Token 認證</h2>
 <p>不知道大家有沒有發現，基本上只要知道你 Server ip 或 domain 的人都可以新增自己的 port，要避免這樣的狀況，我們可以使用 token。使用方法也很簡單，只要在 Server 和 Client 端的 <code>[common]</code> 都加上相同的 token 參數，就可以進行簡單的認證。</p>
 <p>Server 端範例：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=k>[common]</span>
-<span class=na>bind_port</span> <span class=o>=</span> <span class=s>7000</span>
-<span class=na>token</span> <span class=o>=</span> <span class=s>7Jc2ZCvVzHu</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ini data-lang=ini><span style=color:#66d9ef>[common]</span>
+<span style=color:#a6e22e>bind_port</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>7000</span>
+<span style=color:#a6e22e>token</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>7Jc2ZCvVzHu</span>
 </code></pre></div><p>Client 端範例：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=k>[common]</span>
-<span class=na>server_addr</span> <span class=o>=</span> <span class=s>example.com</span>
-<span class=na>server_port</span> <span class=o>=</span> <span class=s>7000</span>
-<span class=na>token</span> <span class=o>=</span> <span class=s>7Jc2ZCvVzHu</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ini data-lang=ini><span style=color:#66d9ef>[common]</span>
+<span style=color:#a6e22e>server_addr</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>example.com</span>
+<span style=color:#a6e22e>server_port</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>7000</span>
+<span style=color:#a6e22e>token</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>7Jc2ZCvVzHu</span>
 
-<span class=k>[ssh]</span>
-<span class=na>type</span> <span class=o>=</span> <span class=s>tcp</span>
-<span class=na>local_ip</span> <span class=o>=</span> <span class=s>127.0.0.1</span>
-<span class=na>local_port</span> <span class=o>=</span> <span class=s>22</span>
-<span class=na>remote_port</span> <span class=o>=</span> <span class=s>6000</span>
+<span style=color:#66d9ef>[ssh]</span>
+<span style=color:#a6e22e>type</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>tcp</span>
+<span style=color:#a6e22e>local_ip</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>127.0.0.1</span>
+<span style=color:#a6e22e>local_port</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>22</span>
+<span style=color:#a6e22e>remote_port</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>6000</span>
 </code></pre></div><h2 id=refrence>Refrence</h2>
-<p><a class=link href=https://github.com/fatedier/frp target=_blank rel=noopener>GitHub</a></p>
-<p><a class=link href=https://gofrp.org/docs/ target=_blank rel=noopener>中文文檔</a></p>
-</section>
-<footer class=article-footer>
-<section class=article-tags>
-<a href=/HugoBlog/tags/frp/>frp</a>
-<a href=/HugoBlog/tags/linux/>linux</a>
-</section>
-<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
-<span>Licensed under CC BY-NC-SA 4.0</span>
-</section>
-</footer>
-</article>
-<aside class=related-contents--wrapper>
-<h2 class=section-title>相關文章</h2>
-<div class=related-contents>
-<div class="flex article-list--tile">
-<article class=has-image>
-<a href=/HugoBlog/posts/linux/beautiful-terminal/>
-<div class=article-image>
-<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/939d8b79-aeab-465b-8bc7-fcf3cc4def00/public loading=lazy data-key data-hash=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/939d8b79-aeab-465b-8bc7-fcf3cc4def00/public>
-</div>
-<div class=article-details>
-<h2 class=article-title>Beautiful Terminal</h2>
-</div>
-</a>
-</article>
-<article class=has-image>
-<a href=/HugoBlog/posts/linux/ubuntu-black-screen/>
-<div class=article-image>
-<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/87c17ef3-d429-42ba-30ab-32ac2864c500/public loading=lazy data-key data-hash=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/87c17ef3-d429-42ba-30ab-32ac2864c500/public>
-</div>
-<div class=article-details>
-<h2 class=article-title>Ubuntu 開機黑屏</h2>
-</div>
-</a>
+<p><a href=https://github.com/fatedier/frp>GitHub</a></p>
+<p><a href=https://gofrp.org/docs/>中文文檔</a></p>
 </article>
 </div>
 </div>
-</aside>
-<footer class=site-footer>
-<section class=copyright>
-&copy;
-2020 -
-2021 TonyPepe
-</section>
-<section class=powerby>
-Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.2.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
-</section>
-</footer>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-<button class="pswp__button pswp__button--share" title=Share></button>
-<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-</button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
 </main>
-<aside class="sidebar right-sidebar sticky">
-<section class="widget archives">
-<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
 </div>
-<h2 class="widget-title section-title">目錄</h2>
-<div class=widget--toc>
+<aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4 pl-3">
+<nav>
+<div class="page-right-nav rounded-lg shadow-md bg-gray-50 my-10 p-3 mr-3">
+<h2 class="text-3xl m-4 text-gray-600">目錄</h2>
 <nav id=TableOfContents>
-<ol>
+<ul>
 <li><a href=#安裝>安裝</a></li>
 <li><a href=#server-端設定>Server 端設定</a></li>
 <li><a href=#client-端設定>Client 端設定</a></li>
 <li><a href=#token-認證>Token 認證</a></li>
 <li><a href=#refrence>Refrence</a></li>
-</ol>
+</ul>
 </nav>
 </div>
-</section>
+</nav>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/HugoBlog/ts/main.js defer></script>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<footer class="h-48 bg-gray-800 flex justify-center items-center flex-col space-y-3">
+<p class="order-1 text-gray-100">&copy; TonyPepe, 2020 - 2021</p>
+<div class="order-2 text-gray-100 inline-flex">
+<p>Made with </p>
+<span class="iconify mx-1" data-icon=ant-design:heart-filled style=color:#f21111></span>
+<p>and Hugo</p>
+</div>
+<span class="order-3 iconify" data-icon=twemoji:flag-for-flag-taiwan style=color:#f21111 data-width=35></span>
+</footer>
+<link rel=preconnect href=https://fonts.googleapis.com>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Serif+TC:wght@700&display=swap" rel=stylesheet>
+<script src=https://code.iconify.design/2/2.1.0/iconify.min.js></script>
+<link rel=stylesheet href=//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/base16/dracula.min.css>
+<script src=//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/kotlin.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/groovy.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/dart.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/dockerfile.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/http.min.js></script>
+<script>hljs.highlightAll()</script>
 </body>
 </html>

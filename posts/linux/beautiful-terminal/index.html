@@ -1,244 +1,149 @@
 <!doctype html><html lang=zh-tw>
-<head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="打不贏別人，至少長得比他帥。最近終於把我的 Terminal 弄成自己喜歡的樣子，所以做一下簡單的紀錄，希望大家都可以把東西變成自己喜歡的樣子。"><title>Beautiful Terminal</title>
-<link rel=canonical href=https://tonypepebear.github.io/HugoBlog/posts/linux/beautiful-terminal/>
-<link rel=stylesheet href=/HugoBlog/scss/style.min.css><meta property="og:title" content="Beautiful Terminal">
-<meta property="og:description" content="打不贏別人，至少長得比他帥。最近終於把我的 Terminal 弄成自己喜歡的樣子，所以做一下簡單的紀錄，希望大家都可以把東西變成自己喜歡的樣子。">
-<meta property="og:url" content="https://tonypepebear.github.io/HugoBlog/posts/linux/beautiful-terminal/">
-<meta property="og:site_name" content="TonyPepe">
-<meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:tag" content="terminl"><meta property="article:tag" content="zsh"><meta property="article:tag" content="zim"><meta property="article:tag" content="powerlevel"><meta property="article:tag" content="powerlevel10k"><meta property="article:tag" content="nerd font"><meta property="article:tag" content="ubuntu"><meta property="article:tag" content="mac"><meta property="article:published_time" content="2021-07-16T23:43:07+08:00"><meta property="article:modified_time" content="2021-07-16T23:43:07+08:00"><meta property="og:image" content="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/939d8b79-aeab-465b-8bc7-fcf3cc4def00/public">
-<meta name=twitter:title content="Beautiful Terminal">
-<meta name=twitter:description content="打不贏別人，至少長得比他帥。最近終於把我的 Terminal 弄成自己喜歡的樣子，所以做一下簡單的紀錄，希望大家都可以把東西變成自己喜歡的樣子。"><meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/939d8b79-aeab-465b-8bc7-fcf3cc4def00/public">
-<link rel="shortcut icon" href=favicon.ico>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V6T1WQYZ5Q"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-V6T1WQYZ5Q',{anonymize_ip:!1})}</script>
-<style>:root{--base-font-family:"JetBrains Mono","Noto Serif TC";--article-font-family:"JetBrains Mono", "Noto Serif TC";--code-font-family:"JetBrains Mono"}</style>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Sans+TC:wght@500&family=Noto+Serif+TC:wght@500&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<head>
+<meta http-equiv=content-type content="text/html" charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=stylesheet href="/HugoBlog/css/main.min.0f421e0455023937695ac69eaabab11d978a9a8243d82b00d3dad6f4e9b3a735.css" integrity="sha256-D0IeBFUCOTdpWsaeqrqxHZeKmoJD2CsA09rW9OmzpzU=">
+<title>Beautiful Terminal - TonyPepe</title>
 </head>
-<body class="article-page has-toc">
-<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
-<div class="container main-container flex
-extended">
-<div id=article-toolbar>
-<a href=javascript:history.back() class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
-<span>返回</span>
+<body class=bg-gray-200>
+<script src=https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js defer></script>
+<div class="container mx-auto lg:flex">
+<aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4">
+<nav class="mx-4 lg:mx-0 flex flex-row lg:flex-col xl:ml-28">
+<div>
+<img class="rounded-full w-32 h-32 hover:-rotate-12 transform duration-700" src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/cfccf3e2-7fd5-4e6c-adcb-a3cc5064f900/public alt>
+<div class=mt-3>
+<a href=/ class="mt-10 text-2xl font-black text-gray-800">TonyPepe</a>
+</div>
+</div>
+<div>
+<div class="flex flex-col ml-4 lg:ml-0">
+<a href=/ class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
+<div class="flex flex-row items-center">
+<span class=iconify data-icon=mdi:home></span>
+<p class=ml-2>Home</p>
+</div>
+</a>
+<a href=/search class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
+<div class="flex flex-row items-center">
+<span class=iconify data-icon=mdi:file-search></span>
+<p class=ml-2>Search</p>
+</div>
+</a>
+<a href=/about class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900 transition">
+<div class="flex flex-row items-center">
+<span class=iconify data-icon=mdi:human-greeting-variant></span>
+<p class=ml-2>About</p>
+</div>
 </a>
 </div>
-<main class="main full-width">
-<article class="has-image main-article">
-<header class=article-header>
-<div class=article-image>
-<a href=/HugoBlog/posts/linux/beautiful-terminal/>
-<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/939d8b79-aeab-465b-8bc7-fcf3cc4def00/public loading=lazy alt="Featured image of post Beautiful Terminal">
+</div>
+</nav>
+</aside>
+<div class="lg:w-3/5 z-10 mt-12">
+<main>
+<div class="bg-white shadow-md rounded-xl my-5 mx-2">
+<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/939d8b79-aeab-465b-8bc7-fcf3cc4def00/public class="filter w-full h-80 object-cover rounded-t-xl">
+<div class=px-3>
+<h1 class="text-4xl my-5 inline-block text-center w-full text-black">Beautiful Terminal</h1>
+<div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
+<a href=https://github.com/TonyPepeBear/HugoBlog/commit/d98398c3ef9c1d13cddfb0fafc1656a4b681f4f9 target=_blank class="flex flex-row items-center">
+<span class=iconify data-icon=bi:git></span>
+<p class=ml-1>d98398c</p>
+</a>
+<a href=https://github.com/TonyPepeBear/HugoBlog/issues target=_blank class="flex flex-row items-center ml-5">
+<span class=iconify data-icon=bi:info-circle-fill></span>
+<p class=ml-1>Issue</p>
 </a>
 </div>
-<div class=article-details>
-<header class=article-category>
-<a href=/HugoBlog/categories/linux/ style=background-color:#2a9d8f;color:#fff>
-Linux
-</a>
-</header>
-<h2 class=article-title>
-<a href=/HugoBlog/posts/linux/beautiful-terminal/>Beautiful Terminal</a>
-</h2>
-<h3 class=article-subtitle>
-打不贏別人，至少長得比他帥。最近終於把我的 Terminal 弄成自己喜歡的樣子，所以做一下簡單的紀錄，希望大家都可以把東西變成自己喜歡的樣子。
-</h3>
-<footer class=article-time>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>2021 Jul 16</time>
-</div>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>
-閱讀時間: 2 分鐘
-</time>
-</div>
-</footer>
-</div>
-</header>
-<section class=article-content>
+<article class="mx-2 pb-4">
 <p>打不贏別人，至少長得比他帥。最近終於把我的 Terminal 弄成自己喜歡的樣子，所以做一下簡單的紀錄，希望大家都可以把東西變成自己喜歡的樣子。</p>
-<p><figure>
-<a href=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210716235146.png>
-<img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210716235146.png loading=lazy alt=img>
-</a>
-<figcaption>img</figcaption>
-</figure></p>
+<p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210716235146.png alt=img></p>
 <p>我們今天主要會用到下面的幾樣技術：</p>
 <ol>
-<li><a class=link href=https://zsh.sourceforge.io/ target=_blank rel=noopener>zsh</a></li>
-<li><a class=link href=https://github.com/romkatv/powerlevel10k target=_blank rel=noopener>powerlevel10K</a></li>
-<li><a class=link href=https://zimfw.sh/#install target=_blank rel=noopener>zim</a></li>
-<li><a class=link href=https://www.nerdfonts.com/ target=_blank rel=noopener>Nerd Fonts</a></li>
+<li><a href=https://zsh.sourceforge.io/>zsh</a></li>
+<li><a href=https://github.com/romkatv/powerlevel10k>powerlevel10K</a></li>
+<li><a href=https://zimfw.sh/#install>zim</a></li>
+<li><a href=https://www.nerdfonts.com/>Nerd Fonts</a></li>
 </ol>
 <p>看到這幾項技術其實可以自己先去研究一下，看看這些技術是不是自己需要的，以免亂裝一堆東西，搞的自己 Terminal 亂七八糟無法復原。另外，Windows 應該是無法安裝的，至少我自己是沒辦法，不過 WSL 倒是可以玩成這樣，畢竟就是 Linux 麻。</p>
 <p>很多人會推薦在 mac 上安裝 iTerm，我自己是沒裝，我覺得 mac 內建的 Terminal 足夠好用，沒必要安裝其他 Terminal。</p>
 <h2 id=font>Font</h2>
-<p>好看的第一步就是有好看的字體，<a class=link href=https://www.nerdfonts.com/ target=_blank rel=noopener>Nerd Fonts</a> 這個專案把一些開發者常用的字體，加上一些在 Terminal 中會用到的一些 icon 和 symbol，常見的 <code>Hack</code>、<code>Jetbrains Mono</code> 都有在這個專案裡。到 Nerd Fonts 的官網可以下載到這些字體，注意不要到字體們原本的管網下載，要到 Nerd Fonts 下載包含特殊符號的字體。</p>
-<p><figure>
-<a href=https://www.nerdfonts.com/assets/img/sankey-glyphs-combined-diagram.png>
-<img src=https://www.nerdfonts.com/assets/img/sankey-glyphs-combined-diagram.png loading=lazy alt=img>
-</a>
-<figcaption>img</figcaption>
-</figure></p>
+<p>好看的第一步就是有好看的字體，<a href=https://www.nerdfonts.com/>Nerd Fonts</a> 這個專案把一些開發者常用的字體，加上一些在 Terminal 中會用到的一些 icon 和 symbol，常見的 <code>Hack</code>、<code>Jetbrains Mono</code> 都有在這個專案裡。到 Nerd Fonts 的官網可以下載到這些字體，注意不要到字體們原本的管網下載，要到 Nerd Fonts 下載包含特殊符號的字體。</p>
+<p><img src=https://www.nerdfonts.com/assets/img/sankey-glyphs-combined-diagram.png alt=img></p>
 <p>下載安裝好字體後，記得到自己的 Terminal 中變更字體，選擇有包含 Nerd 的字體，以免等等字體都無法顯示，這部分教學我懶得寫，所以附一張圖：</p>
-<p><figure>
-<a href=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210717112205.png>
-<img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210717112205.png loading=lazy alt=img>
-</a>
-<figcaption>img</figcaption>
-</figure></p>
+<p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210717112205.png alt=img></p>
 <h2 id=zsh>zsh</h2>
 <p>zsh 可以說是 bash 的進階版，提供客製化自己在 Terminal 中想要的主題和功能。要安裝 zsh 通常各個系統都不一樣，自己上網根據系統安裝即可。安裝完成後也要將預設 shell 改成 zsh。</p>
 <p>ubuntu:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo apt install zsh
-chsh -s /bin/zsh <span class=nv>$USRR</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo apt install zsh
+chsh -s /bin/zsh $USRR
 </code></pre></div><h2 id=powerlevel10k>powerlevel10k</h2>
 <p>powerlevel10k 是一個 zsh 主題，提供可高客製化的主題和客製化嚮導，可以簡單地就把 Terminal 變成自己喜歡的模樣，也是本文最重要的部分。powerlevel10k 提供許多安裝方法，可以透過 oh-my-zsh，也可以用腳本安裝，我是認為用腳本安裝就好，可以不用用到 oh-my-zsh，因我們之後會提到 zim 就提供許多可以替代 oh-my-zsh 的功能。</p>
 <p>用腳本安裝 powerlevel10k：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git clone --depth<span class=o>=</span><span class=m>1</span> https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-<span class=nb>echo</span> <span class=s1>&#39;source ~/powerlevel10k/powerlevel10k.zsh-theme&#39;</span> &gt;&gt;~/.zshrc
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git clone --depth<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span> https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+echo <span style=color:#e6db74>&#39;source ~/powerlevel10k/powerlevel10k.zsh-theme&#39;</span> &gt;&gt;~/.zshrc
 </code></pre></div><p>安裝方式可能會因版本變動而不一樣，建議還是到官方 Github 上看一下安裝方式。</p>
 <p>安裝完成後第一次進到 Terminal 會遇到一個安裝嚮導，可以根據自己喜好設定主題樣式。</p>
-<p><figure>
-<a href=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210717214526.gif>
-<img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210717214526.gif loading=lazy alt=img>
-</a>
-<figcaption>img</figcaption>
-</figure></p>
+<p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210717214526.gif alt=img></p>
 <p>完成到這裡，Terminal 應該已經變得美美的，如果遇到亂碼，可能是字型沒有調整好。</p>
 <p>powerlevel10k 會提供一個 <code>p10k</code> 的命令，可以用於重新啟動嚮導：</p>
-<p><figure>
-<a href=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210717174430.png>
-<img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210717174430.png loading=lazy alt=img>
-</a>
-<figcaption>img</figcaption>
-</figure></p>
+<p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210717174430.png alt=img></p>
 <h2 id=zim>Zim</h2>
 <p>全名 Zsh IMproved FrameWork，主要是提供一些方便的 zsh plugin，像是自動補全、語法高亮等，如果是希望好看，不用好用，Zim 就可以不用安裝。</p>
 <p>安裝 Zim 也很簡單，只要 Run 下面的腳本就可以：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh <span class=p>|</span> zsh
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 </code></pre></div><p>到這就算是全部完成，如果有發現更多好用的 Terminal 工具，記得分享給我。</p>
 <h2 id=reference>Reference</h2>
 <ul>
-<li><a class=link href=https://zsh.sourceforge.io/ target=_blank rel=noopener>zsh</a></li>
-<li><a class=link href=https://github.com/romkatv/powerlevel10k target=_blank rel=noopener>powerlevel10K</a></li>
-<li><a class=link href=https://zimfw.sh/#install target=_blank rel=noopener>zim</a></li>
-<li><a class=link href=https://www.nerdfonts.com/ target=_blank rel=noopener>Nerd Fonts</a></li>
+<li><a href=https://zsh.sourceforge.io/>zsh</a></li>
+<li><a href=https://github.com/romkatv/powerlevel10k>powerlevel10K</a></li>
+<li><a href=https://zimfw.sh/#install>zim</a></li>
+<li><a href=https://www.nerdfonts.com/>Nerd Fonts</a></li>
 </ul>
-</section>
-<footer class=article-footer>
-<section class=article-tags>
-<a href=/HugoBlog/tags/terminl/>terminl</a>
-<a href=/HugoBlog/tags/zsh/>zsh</a>
-<a href=/HugoBlog/tags/zim/>zim</a>
-<a href=/HugoBlog/tags/powerlevel/>powerlevel</a>
-<a href=/HugoBlog/tags/powerlevel10k/>powerlevel10k</a>
-<a href=/HugoBlog/tags/nerd-font/>nerd font</a>
-<a href=/HugoBlog/tags/ubuntu/>ubuntu</a>
-<a href=/HugoBlog/tags/mac/>mac</a>
-</section>
-<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
-<span>Licensed under CC BY-NC-SA 4.0</span>
-</section>
-</footer>
-</article>
-<aside class=related-contents--wrapper>
-<h2 class=section-title>相關文章</h2>
-<div class=related-contents>
-<div class="flex article-list--tile">
-<article class=has-image>
-<a href=/HugoBlog/posts/linux/ubuntu-black-screen/>
-<div class=article-image>
-<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/87c17ef3-d429-42ba-30ab-32ac2864c500/public loading=lazy data-key data-hash=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/87c17ef3-d429-42ba-30ab-32ac2864c500/public>
-</div>
-<div class=article-details>
-<h2 class=article-title>Ubuntu 開機黑屏</h2>
-</div>
-</a>
-</article>
-<article class=has-image>
-<a href=/HugoBlog/posts/linux/frp/>
-<div class=article-image>
-<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/34046c81-cb6e-40a5-7b3a-8623c613f400/public loading=lazy data-key data-hash=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/34046c81-cb6e-40a5-7b3a-8623c613f400/public>
-</div>
-<div class=article-details>
-<h2 class=article-title>Frp</h2>
-</div>
-</a>
 </article>
 </div>
 </div>
-</aside>
-<footer class=site-footer>
-<section class=copyright>
-&copy;
-2020 -
-2021 TonyPepe
-</section>
-<section class=powerby>
-Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.2.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
-</section>
-</footer>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-<button class="pswp__button pswp__button--share" title=Share></button>
-<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-</button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
 </main>
-<aside class="sidebar right-sidebar sticky">
-<section class="widget archives">
-<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
 </div>
-<h2 class="widget-title section-title">目錄</h2>
-<div class=widget--toc>
+<aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4 pl-3">
+<nav>
+<div class="page-right-nav rounded-lg shadow-md bg-gray-50 my-10 p-3 mr-3">
+<h2 class="text-3xl m-4 text-gray-600">目錄</h2>
 <nav id=TableOfContents>
-<ol>
+<ul>
 <li><a href=#font>Font</a></li>
 <li><a href=#zsh>zsh</a></li>
 <li><a href=#powerlevel10k>powerlevel10k</a></li>
 <li><a href=#zim>Zim</a></li>
 <li><a href=#reference>Reference</a></li>
-</ol>
+</ul>
 </nav>
 </div>
-</section>
+</nav>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/HugoBlog/ts/main.js defer></script>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<footer class="h-48 bg-gray-800 flex justify-center items-center flex-col space-y-3">
+<p class="order-1 text-gray-100">&copy; TonyPepe, 2020 - 2021</p>
+<div class="order-2 text-gray-100 inline-flex">
+<p>Made with </p>
+<span class="iconify mx-1" data-icon=ant-design:heart-filled style=color:#f21111></span>
+<p>and Hugo</p>
+</div>
+<span class="order-3 iconify" data-icon=twemoji:flag-for-flag-taiwan style=color:#f21111 data-width=35></span>
+</footer>
+<link rel=preconnect href=https://fonts.googleapis.com>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Serif+TC:wght@700&display=swap" rel=stylesheet>
+<script src=https://code.iconify.design/2/2.1.0/iconify.min.js></script>
+<link rel=stylesheet href=//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/base16/dracula.min.css>
+<script src=//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/kotlin.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/groovy.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/dart.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/dockerfile.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/http.min.js></script>
+<script>hljs.highlightAll()</script>
 </body>
 </html>

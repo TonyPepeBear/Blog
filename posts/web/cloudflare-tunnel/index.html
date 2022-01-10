@@ -1,235 +1,135 @@
 <!doctype html><html lang=zh-tw>
-<head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Cloudflare 真的是佛心公司，提供免費的 DNS、DDoS 防護，還可以拿來託管靜態網頁，而今天是介紹他們公司的 Tunnel，這個服務可以將本地電腦的特定 port 開放到網路上，而且完全免費，在台灣的速度也不慢，真的很佛，幾乎等於拿到免費的 IPv4。"><title>Cloudflare Tunnel</title>
-<link rel=canonical href=https://tonypepebear.github.io/HugoBlog/posts/web/cloudflare-tunnel/>
-<link rel=stylesheet href=/HugoBlog/scss/style.min.css><meta property="og:title" content="Cloudflare Tunnel">
-<meta property="og:description" content="Cloudflare 真的是佛心公司，提供免費的 DNS、DDoS 防護，還可以拿來託管靜態網頁，而今天是介紹他們公司的 Tunnel，這個服務可以將本地電腦的特定 port 開放到網路上，而且完全免費，在台灣的速度也不慢，真的很佛，幾乎等於拿到免費的 IPv4。">
-<meta property="og:url" content="https://tonypepebear.github.io/HugoBlog/posts/web/cloudflare-tunnel/">
-<meta property="og:site_name" content="TonyPepe">
-<meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:tag" content="cloudflare"><meta property="article:tag" content="tunnel"><meta property="article:tag" content="teams"><meta property="article:tag" content="cloudflare-tunnel"><meta property="article:published_time" content="2021-08-13T15:17:39+08:00"><meta property="article:modified_time" content="2021-08-13T15:17:39+08:00"><meta property="og:image" content="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/00e85cf1-4c03-45ea-004c-f61e6216d400/public">
-<meta name=twitter:title content="Cloudflare Tunnel">
-<meta name=twitter:description content="Cloudflare 真的是佛心公司，提供免費的 DNS、DDoS 防護，還可以拿來託管靜態網頁，而今天是介紹他們公司的 Tunnel，這個服務可以將本地電腦的特定 port 開放到網路上，而且完全免費，在台灣的速度也不慢，真的很佛，幾乎等於拿到免費的 IPv4。"><meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/00e85cf1-4c03-45ea-004c-f61e6216d400/public">
-<link rel="shortcut icon" href=favicon.ico>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V6T1WQYZ5Q"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-V6T1WQYZ5Q',{anonymize_ip:!1})}</script>
-<style>:root{--base-font-family:"JetBrains Mono","Noto Serif TC";--article-font-family:"JetBrains Mono", "Noto Serif TC";--code-font-family:"JetBrains Mono"}</style>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Sans+TC:wght@500&family=Noto+Serif+TC:wght@500&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<head>
+<meta http-equiv=content-type content="text/html" charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=stylesheet href="/HugoBlog/css/main.min.0f421e0455023937695ac69eaabab11d978a9a8243d82b00d3dad6f4e9b3a735.css" integrity="sha256-D0IeBFUCOTdpWsaeqrqxHZeKmoJD2CsA09rW9OmzpzU=">
+<title>Cloudflare Tunnel - TonyPepe</title>
 </head>
-<body class="article-page has-toc">
-<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
-<div class="container main-container flex
-extended">
-<div id=article-toolbar>
-<a href=javascript:history.back() class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
-<span>返回</span>
+<body class=bg-gray-200>
+<script src=https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js defer></script>
+<div class="container mx-auto lg:flex">
+<aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4">
+<nav class="mx-4 lg:mx-0 flex flex-row lg:flex-col xl:ml-28">
+<div>
+<img class="rounded-full w-32 h-32 hover:-rotate-12 transform duration-700" src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/cfccf3e2-7fd5-4e6c-adcb-a3cc5064f900/public alt>
+<div class=mt-3>
+<a href=/ class="mt-10 text-2xl font-black text-gray-800">TonyPepe</a>
+</div>
+</div>
+<div>
+<div class="flex flex-col ml-4 lg:ml-0">
+<a href=/ class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
+<div class="flex flex-row items-center">
+<span class=iconify data-icon=mdi:home></span>
+<p class=ml-2>Home</p>
+</div>
+</a>
+<a href=/search class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
+<div class="flex flex-row items-center">
+<span class=iconify data-icon=mdi:file-search></span>
+<p class=ml-2>Search</p>
+</div>
+</a>
+<a href=/about class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900 transition">
+<div class="flex flex-row items-center">
+<span class=iconify data-icon=mdi:human-greeting-variant></span>
+<p class=ml-2>About</p>
+</div>
 </a>
 </div>
-<main class="main full-width">
-<article class="has-image main-article">
-<header class=article-header>
-<div class=article-image>
-<a href=/HugoBlog/posts/web/cloudflare-tunnel/>
-<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/00e85cf1-4c03-45ea-004c-f61e6216d400/public loading=lazy alt="Featured image of post Cloudflare Tunnel">
+</div>
+</nav>
+</aside>
+<div class="lg:w-3/5 z-10 mt-12">
+<main>
+<div class="bg-white shadow-md rounded-xl my-5 mx-2">
+<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/00e85cf1-4c03-45ea-004c-f61e6216d400/public class="filter w-full h-80 object-cover rounded-t-xl">
+<div class=px-3>
+<h1 class="text-4xl my-5 inline-block text-center w-full text-black">Cloudflare Tunnel</h1>
+<div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
+<a href=https://github.com/TonyPepeBear/HugoBlog/commit/d98398c3ef9c1d13cddfb0fafc1656a4b681f4f9 target=_blank class="flex flex-row items-center">
+<span class=iconify data-icon=bi:git></span>
+<p class=ml-1>d98398c</p>
+</a>
+<a href=https://github.com/TonyPepeBear/HugoBlog/issues target=_blank class="flex flex-row items-center ml-5">
+<span class=iconify data-icon=bi:info-circle-fill></span>
+<p class=ml-1>Issue</p>
 </a>
 </div>
-<div class=article-details>
-<header class=article-category>
-<a href=/HugoBlog/categories/web/ style=background-color:#2a9d8f;color:#fff>
-Web
-</a>
-</header>
-<h2 class=article-title>
-<a href=/HugoBlog/posts/web/cloudflare-tunnel/>Cloudflare Tunnel</a>
-</h2>
-<h3 class=article-subtitle>
-Cloudflare 真的是佛心公司，提供免費的 DNS、DDoS 防護，還可以拿來託管靜態網頁，而今天是介紹他們公司的 Tunnel，這個服務可以將本地電腦的特定 port 開放到網路上，而且完全免費，在台灣的速度也不慢，真的很佛，幾乎等於拿到免費的 IPv4。
-</h3>
-<footer class=article-time>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>2021 Aug 13</time>
-</div>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>
-閱讀時間: 3 分鐘
-</time>
-</div>
-</footer>
-</div>
-</header>
-<section class=article-content>
+<article class="mx-2 pb-4">
 <p>Cloudflare 真的是佛心公司，提供免費的 DNS、DDoS 防護，還可以拿來託管靜態網頁，而今天是介紹他們公司的 Tunnel，這個服務可以將本地電腦的特定 port 開放到網路上，而且完全免費，在台灣的速度也不慢，真的很佛，幾乎等於拿到免費的 IPv4。</p>
 <p>我覺得目前的缺點就是網路上相關的資料比較少，遇到問題很難找到資料參考，因為他其實主要是 Cloudflare 的一項零信任服務，目標客群都是一些厲害的網管，所以官方寫的文件也都很深奧，如果是新手可能會頭昏眼花。</p>
 <p>這一項服務可以先不用帳號就能試用，不過就不能自訂 Domain，我會先介紹免登入的，再介紹要登入的。第一步還是要在本地先安裝環境。</p>
 <h2 id=安裝-cloudflared>安裝 cloudflared</h2>
 <h3 id=全系統適用>全系統適用</h3>
-<p>注意 Cloudflare 後面多了一個 <code>d</code>，這是他連上 Tunnel 的必要程式，是用 Go 編寫，安裝方式就是到<a class=link href=https://github.com/cloudflare/cloudflared/releases target=_blank rel=noopener>官方 Github</a>下載符合自己環境的執行檔。</p>
+<p>注意 Cloudflare 後面多了一個 <code>d</code>，這是他連上 Tunnel 的必要程式，是用 Go 編寫，安裝方式就是到<a href=https://github.com/cloudflare/cloudflared/releases>官方 Github</a>下載符合自己環境的執行檔。</p>
 <h3 id=macos>macOS</h3>
 <p>mac 可以用 Homebrew 安裝：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>brew install cloudflare/cloudflare/cloudflared
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>brew install cloudflare/cloudflare/cloudflared
 </code></pre></div><h3 id=windows>Windows</h3>
 <p>Windows 永遠是最麻煩的，下載完執行檔後，隨便丟到一個資料夾，然後加到 PATH 裡。</p>
 <h3 id=update>Update</h3>
 <p>要更新這個執行檔，只要 Run 下面的指令，另外，Windows 不支援自動更新，要更新就只能手動下載覆蓋：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>cloudflared update
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>cloudflared update
 </code></pre></div><h2 id=免登入測試-tunnel>免登入測試 Tunnel</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>cloudflared tunnel --url http://localhost:8080  
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>cloudflared tunnel --url http://localhost:8080  
 </code></pre></div><p>執行上面的指令，就可以將本地電腦的 8080 port 用 http 公開到網路上，應該會看到輸出中會給一串個 <code>*-*-*.trycloudflare.com</code> 的網址，現在只要訪問那個網址，就可以發現本地的網頁已經可以從全網連到，不需註冊，也不用設定複雜的 Domain，還不限流量。</p>
 <h2 id=登入-cloudflare>登入 Cloudflare</h2>
 <p>第一步就是先登入 Cloudflare 的帳號，也要有一個已經託管給 Cloudflare 的 Domain：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>cloudflared tunnel login
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>cloudflared tunnel login
 </code></pre></div><p>執行這個命令後，應該會跳出瀏覽器授權，如果沒有跳出，就手動複製提供的授權網址登入 Cloudflare 帳號。</p>
 <h2 id=創建並使用-tunnel>創建並使用 Tunnel</h2>
 <p>登入完成後就可以開始創建通道，創建只會在本地產生一些文件，並不會有任何連線的動作，可以放心執行：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>cloudflared tunnel create &lt;Name&gt;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>cloudflared tunnel create &lt;Name&gt;
 </code></pre></div><p>創建完成後，Cloudflare 會給一組 UUID，可以看一下有沒有創建成功：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>cloudflared tunnel list
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>cloudflared tunnel list
 </code></pre></div><p>如果要刪除就是 Delete：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>cloudflared tunnel delete &lt;Name or UUID&gt;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>cloudflared tunnel delete &lt;Name or UUID&gt;
 </code></pre></div><h2 id=dns-設定>DNS 設定</h2>
 <p>在創建 Tunnel 後，Cloudflare 會將剛剛創建隧道時產生的 UUID 綁定到 <code>&lt;UUID>.cfargotunnel.com</code> 這個 Domain，不過 Cloudflare 會擋掉用這個 Domain 直接連線的流量，所以我們要把我們的 Domain 新增一個 CNAME 紀錄，把流量往這邊導。</p>
 <p>有兩個方法可以設定 CNAME，一個是自己去 Cloudflare 的官網設定：</p>
-<p><figure>
-<a href=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210813165733.png>
-<img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210813165733.png loading=lazy alt=img>
-</a>
-<figcaption>img</figcaption>
-</figure></p>
+<p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210813165733.png alt=img></p>
 <p>另一個是直接用指令設定，快又方便，把後面的 domain 改成自己想要綁定的：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>cloudflared tunnel route dns &lt;Name or UUID&gt; test.example.com
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>cloudflared tunnel route dns &lt;Name or UUID&gt; test.example.com
 </code></pre></div><p>打完後如果不放心，還是可以自己到 Cloudflare 的 Dns 設定看一下有沒有設定完成，應該會看到跟上圖一樣產生一個 CNAME Record。</p>
 <h2 id=tunnel-config>Tunnel Config</h2>
 <p>下面是最簡單的 Config 範例，這是一個 <code>yml</code> 檔案：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=nt>tunnel</span><span class=p>:</span><span class=w> </span><span class=l>&lt;Name&gt;</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=nt>ingress</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span>- <span class=nt>hostname</span><span class=p>:</span><span class=w> </span><span class=l>test.example.com</span><span class=w>
-</span><span class=w>    </span><span class=nt>service</span><span class=p>:</span><span class=w> </span><span class=l>http://localhost:8080</span><span class=w>
-</span><span class=w>  </span>- <span class=nt>service</span><span class=p>:</span><span class=w> </span><span class=l>http_status:404</span><span class=w>
-</span></code></pre></div><p>上面會把 8080 的 HTTP 流量導到 <code>domain.example.com</code>，使用剛剛創建的 Tunnel。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml data-lang=yml><span style=color:#f92672>tunnel</span>: <span style=color:#ae81ff>&lt;Name&gt;</span>
+
+<span style=color:#f92672>ingress</span>:
+  - <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>test.example.com</span>
+    <span style=color:#f92672>service</span>: <span style=color:#ae81ff>http://localhost:8080</span>
+  - <span style=color:#f92672>service</span>: <span style=color:#ae81ff>http_status:404</span>
+</code></pre></div><p>上面會把 8080 的 HTTP 流量導到 <code>domain.example.com</code>，使用剛剛創建的 Tunnel。</p>
 <p>最後一行一定要有一個可以接受所有流量的 Service，不然服務會不能啟動，這裡全部往 404 導。</p>
 <h2 id=run-tunnel>Run Tunnel</h2>
 <p>最後一步，加上 config 的參數，把剛剛的 yml 檔喂給 Cloudflare，就可以啟動通道了：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh>cloudflared tunnel --config test.yml run
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>cloudflared tunnel --config test.yml run
 </code></pre></div><h2 id=後記>後記</h2>
 <p>這篇只介紹了如何創建一個 Http 的 Tunnel，如果要開其他的 TCP Port，還需要其他的設定，而且在 Client 端也會需要安裝 Cloudflared，所以我留到下一篇在介紹。</p>
 <h2 id=reference>Reference</h2>
 <ul>
-<li><a class=link href=https://developers.cloudflare.com/cloudflare-one/ target=_blank rel=noopener>Cloudflare for Teams documentation</a></li>
+<li><a href=https://developers.cloudflare.com/cloudflare-one/>Cloudflare for Teams documentation</a></li>
 </ul>
-</section>
-<footer class=article-footer>
-<section class=article-tags>
-<a href=/HugoBlog/tags/cloudflare/>cloudflare</a>
-<a href=/HugoBlog/tags/tunnel/>tunnel</a>
-<a href=/HugoBlog/tags/teams/>teams</a>
-<a href=/HugoBlog/tags/cloudflare-tunnel/>cloudflare-tunnel</a>
-</section>
-<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
-<span>Licensed under CC BY-NC-SA 4.0</span>
-</section>
-</footer>
-</article>
-<aside class=related-contents--wrapper>
-<h2 class=section-title>相關文章</h2>
-<div class=related-contents>
-<div class="flex article-list--tile">
-<article class=has-image>
-<a href=/HugoBlog/posts/web/cloudflare-speed-week/>
-<div class=article-image>
-<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/be2106f3-0557-4e94-803a-9dda63550300/public loading=lazy data-key data-hash=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/be2106f3-0557-4e94-803a-9dda63550300/public>
-</div>
-<div class=article-details>
-<h2 class=article-title>Cloudflare Speed Week</h2>
-</div>
-</a>
-</article>
-<article class=has-image>
-<a href=/HugoBlog/posts/web/web-basic/>
-<div class=article-image>
-<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/8d7dadd3-36a3-42c8-a452-3c93c541c600/public loading=lazy data-key data-hash=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/8d7dadd3-36a3-42c8-a452-3c93c541c600/public>
-</div>
-<div class=article-details>
-<h2 class=article-title>Web Basic</h2>
-</div>
-</a>
-</article>
-<article class=has-image>
-<a href=/HugoBlog/posts/web/markdown/>
-<div class=article-image>
-<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/0ecfde1e-521f-4e7c-ab46-30357d4e5e00/public loading=lazy data-key data-hash=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/0ecfde1e-521f-4e7c-ab46-30357d4e5e00/public>
-</div>
-<div class=article-details>
-<h2 class=article-title>Markdown</h2>
-</div>
-</a>
 </article>
 </div>
 </div>
-</aside>
-<footer class=site-footer>
-<section class=copyright>
-&copy;
-2020 -
-2021 TonyPepe
-</section>
-<section class=powerby>
-Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.2.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
-</section>
-</footer>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-<button class="pswp__button pswp__button--share" title=Share></button>
-<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-</button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
 </main>
-<aside class="sidebar right-sidebar sticky">
-<section class="widget archives">
-<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
 </div>
-<h2 class="widget-title section-title">目錄</h2>
-<div class=widget--toc>
+<aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4 pl-3">
+<nav>
+<div class="page-right-nav rounded-lg shadow-md bg-gray-50 my-10 p-3 mr-3">
+<h2 class="text-3xl m-4 text-gray-600">目錄</h2>
 <nav id=TableOfContents>
-<ol>
+<ul>
 <li><a href=#安裝-cloudflared>安裝 cloudflared</a>
-<ol>
+<ul>
 <li><a href=#全系統適用>全系統適用</a></li>
 <li><a href=#macos>macOS</a></li>
 <li><a href=#windows>Windows</a></li>
 <li><a href=#update>Update</a></li>
-</ol>
+</ul>
 </li>
 <li><a href=#免登入測試-tunnel>免登入測試 Tunnel</a></li>
 <li><a href=#登入-cloudflare>登入 Cloudflare</a></li>
@@ -239,13 +139,32 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 <li><a href=#run-tunnel>Run Tunnel</a></li>
 <li><a href=#後記>後記</a></li>
 <li><a href=#reference>Reference</a></li>
-</ol>
+</ul>
 </nav>
 </div>
-</section>
+</nav>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/HugoBlog/ts/main.js defer></script>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<footer class="h-48 bg-gray-800 flex justify-center items-center flex-col space-y-3">
+<p class="order-1 text-gray-100">&copy; TonyPepe, 2020 - 2021</p>
+<div class="order-2 text-gray-100 inline-flex">
+<p>Made with </p>
+<span class="iconify mx-1" data-icon=ant-design:heart-filled style=color:#f21111></span>
+<p>and Hugo</p>
+</div>
+<span class="order-3 iconify" data-icon=twemoji:flag-for-flag-taiwan style=color:#f21111 data-width=35></span>
+</footer>
+<link rel=preconnect href=https://fonts.googleapis.com>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Serif+TC:wght@700&display=swap" rel=stylesheet>
+<script src=https://code.iconify.design/2/2.1.0/iconify.min.js></script>
+<link rel=stylesheet href=//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/base16/dracula.min.css>
+<script src=//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/kotlin.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/groovy.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/dart.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/dockerfile.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/http.min.js></script>
+<script>hljs.highlightAll()</script>
 </body>
 </html>

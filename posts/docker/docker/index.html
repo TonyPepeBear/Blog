@@ -1,63 +1,63 @@
 <!doctype html><html lang=zh-tw>
-<head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Docker 是一個虛擬化技術，可以將我們編寫好的程式包裹成一個小的「容器」，再發佈到伺服器上。Docker 解決了困擾程式界多年來的環境問題，只要伺服器安裝了 Docker 就可以確保一定可以執行服務。"><title>Docker</title>
-<link rel=canonical href=https://tonypepebear.github.io/HugoBlog/posts/docker/docker/>
-<link rel=stylesheet href=/HugoBlog/scss/style.min.css><meta property="og:title" content="Docker">
-<meta property="og:description" content="Docker 是一個虛擬化技術，可以將我們編寫好的程式包裹成一個小的「容器」，再發佈到伺服器上。Docker 解決了困擾程式界多年來的環境問題，只要伺服器安裝了 Docker 就可以確保一定可以執行服務。">
-<meta property="og:url" content="https://tonypepebear.github.io/HugoBlog/posts/docker/docker/">
-<meta property="og:site_name" content="TonyPepe">
-<meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:tag" content="docker"><meta property="article:published_time" content="2021-08-25T18:31:57+00:00"><meta property="article:modified_time" content="2021-08-25T18:31:57+00:00"><meta property="og:image" content="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/a45b7e65-d6dd-4ef5-23b4-44e2090c5b00/public">
-<meta name=twitter:title content="Docker">
-<meta name=twitter:description content="Docker 是一個虛擬化技術，可以將我們編寫好的程式包裹成一個小的「容器」，再發佈到伺服器上。Docker 解決了困擾程式界多年來的環境問題，只要伺服器安裝了 Docker 就可以確保一定可以執行服務。"><meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/a45b7e65-d6dd-4ef5-23b4-44e2090c5b00/public">
-<link rel="shortcut icon" href=favicon.ico>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V6T1WQYZ5Q"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-V6T1WQYZ5Q',{anonymize_ip:!1})}</script>
-<style>:root{--base-font-family:"JetBrains Mono","Noto Serif TC";--article-font-family:"JetBrains Mono", "Noto Serif TC";--code-font-family:"JetBrains Mono"}</style>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Sans+TC:wght@500&family=Noto+Serif+TC:wght@500&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<head>
+<meta http-equiv=content-type content="text/html" charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=stylesheet href="/HugoBlog/css/main.min.0f421e0455023937695ac69eaabab11d978a9a8243d82b00d3dad6f4e9b3a735.css" integrity="sha256-D0IeBFUCOTdpWsaeqrqxHZeKmoJD2CsA09rW9OmzpzU=">
+<title>Docker - TonyPepe</title>
 </head>
-<body class="article-page has-toc">
-<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
-<div class="container main-container flex
-extended">
-<div id=article-toolbar>
-<a href=javascript:history.back() class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
-<span>返回</span>
+<body class=bg-gray-200>
+<script src=https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js defer></script>
+<div class="container mx-auto lg:flex">
+<aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4">
+<nav class="mx-4 lg:mx-0 flex flex-row lg:flex-col xl:ml-28">
+<div>
+<img class="rounded-full w-32 h-32 hover:-rotate-12 transform duration-700" src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/cfccf3e2-7fd5-4e6c-adcb-a3cc5064f900/public alt>
+<div class=mt-3>
+<a href=/ class="mt-10 text-2xl font-black text-gray-800">TonyPepe</a>
+</div>
+</div>
+<div>
+<div class="flex flex-col ml-4 lg:ml-0">
+<a href=/ class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
+<div class="flex flex-row items-center">
+<span class=iconify data-icon=mdi:home></span>
+<p class=ml-2>Home</p>
+</div>
+</a>
+<a href=/search class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
+<div class="flex flex-row items-center">
+<span class=iconify data-icon=mdi:file-search></span>
+<p class=ml-2>Search</p>
+</div>
+</a>
+<a href=/about class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900 transition">
+<div class="flex flex-row items-center">
+<span class=iconify data-icon=mdi:human-greeting-variant></span>
+<p class=ml-2>About</p>
+</div>
 </a>
 </div>
-<main class="main full-width">
-<article class="has-image main-article">
-<header class=article-header>
-<div class=article-image>
-<a href=/HugoBlog/posts/docker/docker/>
-<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/a45b7e65-d6dd-4ef5-23b4-44e2090c5b00/public loading=lazy alt="Featured image of post Docker">
+</div>
+</nav>
+</aside>
+<div class="lg:w-3/5 z-10 mt-12">
+<main>
+<div class="bg-white shadow-md rounded-xl my-5 mx-2">
+<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/a45b7e65-d6dd-4ef5-23b4-44e2090c5b00/public class="filter w-full h-80 object-cover rounded-t-xl">
+<div class=px-3>
+<h1 class="text-4xl my-5 inline-block text-center w-full text-black">Docker</h1>
+<div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
+<a href=https://github.com/TonyPepeBear/HugoBlog/commit/d98398c3ef9c1d13cddfb0fafc1656a4b681f4f9 target=_blank class="flex flex-row items-center">
+<span class=iconify data-icon=bi:git></span>
+<p class=ml-1>d98398c</p>
+</a>
+<a href=https://github.com/TonyPepeBear/HugoBlog/issues target=_blank class="flex flex-row items-center ml-5">
+<span class=iconify data-icon=bi:info-circle-fill></span>
+<p class=ml-1>Issue</p>
 </a>
 </div>
-<div class=article-details>
-<header class=article-category>
-<a href=/HugoBlog/categories/docker/ style=background-color:#2a9d8f;color:#fff>
-Docker
-</a>
-</header>
-<h2 class=article-title>
-<a href=/HugoBlog/posts/docker/docker/>Docker</a>
-</h2>
-<h3 class=article-subtitle>
-Docker 是一個虛擬化技術，可以將我們編寫好的程式包裹成一個小的「容器」，再發佈到伺服器上。Docker 解決了困擾程式界多年來的環境問題，只要伺服器安裝了 Docker 就可以確保一定可以執行服務。
-</h3>
-<footer class=article-time>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>2021 Aug 25</time>
-</div>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>
-閱讀時間: 3 分鐘
-</time>
-</div>
-</footer>
-</div>
-</header>
-<section class=article-content>
+<article class="mx-2 pb-4">
 <p>Docker 是一個虛擬化技術，可以將我們編寫好的程式包裹成一個小的「容器」，再發佈到伺服器上。Docker 解決了困擾程式界多年來的環境問題，只要伺服器安裝了 Docker 就可以確保一定可以執行服務。</p>
 <h2 id=docker-vs-vm>Docker v.s. VM</h2>
 <p>入門 Docker 最常見的問題就是，Docker 和 VM 差在哪裡？這個問題不難理解，VM 「虛擬機」，顧名思義是虛擬化「硬體」。而 Docker 則是只虛擬化作業系統，或是稱作「軟體」。</p>
@@ -79,121 +79,49 @@ Docker 是一個虛擬化技術，可以將我們編寫好的程式包裹成一�
 <p>Docker 用 Image 創建 Container，也就是說，Container 是 Image 的實例，Container 基本上就是一個完整的作業系統，可以執行任何的程式。</p>
 <h2 id=docker-run>Docker Run</h2>
 <p>我們簡單創建一個 Ubuntu 的 Container，並且啟動它：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>docker run ubuntu
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker run ubuntu
 </code></pre></div><p>執行後可以看到 Docker 自動從 Docker Hub 上下載 Ubuntu 的 Image，但是開始執行後卻甚麼都沒發生就結束了。這是因為 Ubuntu 的 Image 預設是啟動一個 Shell，如果沒有 Attach 到 Sheel 上，Container 馬上就結束了。</p>
 <p>所以如果我們要 Attach 到 Ubuntu 的 Shell 上，可以這樣執行：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>docker run -it ubuntu
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker run -it ubuntu
 </code></pre></div><p>執行應該就會看到我們到 ubuntu 的 Shell 裡。</p>
 <h2 id=啟動一個網頁服務>啟動一個網頁服務</h2>
 <p>Nginx 有官方的 Hello Image，可以更清楚的看到 Container 有在執行 Nginx 服務。</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>docker run -p 8080:80 -d nginxdemos/hello
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker run -p 8080:80 -d nginxdemos/hello
 </code></pre></div><p>上面多了一個 <code>-p</code> 的參數，後面跟上 <code>8080:80</code>，意思是本機的 8080 Port 對到容器的 80 Port，這樣就可以讓我們在本機的 8080 Port 上看到 Nginx 的網頁了。</p>
 <h2 id=列出刪除容器>列出、刪除容器</h2>
 <p>列出正在執行的容器：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>docker ps
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker ps
 </code></pre></div><p>列出所有容器，包含已經停止的容器：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>docker ps -a
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker ps -a
 </code></pre></div><p>刪除容器，若是尚未停止的容器則無法刪除：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>docker rm &lt;container_id&gt;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker rm &lt;container_id&gt;
 </code></pre></div><p>加上 <code>-f</code> 參數，可強制刪除執行中的容器：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>docker rm -f &lt;container_id&gt;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker rm -f &lt;container_id&gt;
 </code></pre></div><p>強制刪除所有容器：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>docker rm <span class=k>$(</span>docker ps -aq<span class=k>)</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker rm <span style=color:#66d9ef>$(</span>docker ps -aq<span style=color:#66d9ef>)</span>
 </code></pre></div><h2 id=創建自己的-image>創建自己的 Image</h2>
 <p>要教 Docker 怎麼創建 Image，需要先建立一個 <code>Dockerfile</code>：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-dockerfile data-lang=dockerfile><span class=k>FROM</span><span class=s> ubuntu:latest</span><span class=err>
-</span><span class=err>
-</span><span class=err></span><span class=k>RUN</span> apt update <span class=se>\
-</span><span class=se></span>    <span class=o>&amp;&amp;</span> apt install vim git -y <span class=se>\
-</span><span class=se></span>    <span class=o>&amp;&amp;</span> rm -rf /var/lib/apt/lists/*<span class=err>
-</span><span class=err>
-</span><span class=err></span><span class=k>CMD</span> <span class=p>[</span><span class=s2>&#34;/bin/bash&#34;</span><span class=p>]</span><span class=err>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-dockerfile data-lang=dockerfile><span style=color:#66d9ef>FROM</span><span style=color:#e6db74> ubuntu:latest</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>RUN</span> apt update <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    <span style=color:#f92672>&amp;&amp;</span> apt install vim git -y <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    <span style=color:#f92672>&amp;&amp;</span> rm -rf /var/lib/apt/lists/*<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>CMD</span> [<span style=color:#e6db74>&#34;/bin/bash&#34;</span>]<span style=color:#960050;background-color:#1e0010>
 </span></code></pre></div><p>Build Image:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>docker build -t my-ubuntu .
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker build -t my-ubuntu .
 </code></pre></div><p>注意上面的指令的最後面有一個 <code>.</code>，代表 Build 這個目錄。<code>-t</code> 的參數則是 Image 的名稱，或是稱作 Tag。</p>
-</section>
-<footer class=article-footer>
-<section class=article-tags>
-<a href=/HugoBlog/tags/docker/>docker</a>
-</section>
-<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
-<span>Licensed under CC BY-NC-SA 4.0</span>
-</section>
-</footer>
-</article>
-<aside class=related-contents--wrapper>
-<h2 class=section-title>相關文章</h2>
-<div class=related-contents>
-<div class="flex article-list--tile">
-<article class=has-image>
-<a href=/HugoBlog/posts/docker/pwd-hosting/>
-<div class=article-image>
-<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f6db1841-15c5-40fc-7174-8a5e73647700/public loading=lazy data-key data-hash=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f6db1841-15c5-40fc-7174-8a5e73647700/public>
-</div>
-<div class=article-details>
-<h2 class=article-title>自架 Play With Docker</h2>
-</div>
-</a>
 </article>
 </div>
 </div>
-</aside>
-<footer class=site-footer>
-<section class=copyright>
-&copy;
-2020 -
-2021 TonyPepe
-</section>
-<section class=powerby>
-Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.2.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
-</section>
-</footer>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-<button class="pswp__button pswp__button--share" title=Share></button>
-<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-</button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
 </main>
-<aside class="sidebar right-sidebar sticky">
-<section class="widget archives">
-<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
 </div>
-<h2 class="widget-title section-title">目錄</h2>
-<div class=widget--toc>
+<aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4 pl-3">
+<nav>
+<div class="page-right-nav rounded-lg shadow-md bg-gray-50 my-10 p-3 mr-3">
+<h2 class="text-3xl m-4 text-gray-600">目錄</h2>
 <nav id=TableOfContents>
-<ol>
+<ul>
 <li><a href=#docker-vs-vm>Docker v.s. VM</a></li>
 <li><a href=#docker-hub>Docker Hub</a></li>
 <li><a href=#image>Image</a></li>
@@ -202,13 +130,32 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 <li><a href=#啟動一個網頁服務>啟動一個網頁服務</a></li>
 <li><a href=#列出刪除容器>列出、刪除容器</a></li>
 <li><a href=#創建自己的-image>創建自己的 Image</a></li>
-</ol>
+</ul>
 </nav>
 </div>
-</section>
+</nav>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/HugoBlog/ts/main.js defer></script>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<footer class="h-48 bg-gray-800 flex justify-center items-center flex-col space-y-3">
+<p class="order-1 text-gray-100">&copy; TonyPepe, 2020 - 2021</p>
+<div class="order-2 text-gray-100 inline-flex">
+<p>Made with </p>
+<span class="iconify mx-1" data-icon=ant-design:heart-filled style=color:#f21111></span>
+<p>and Hugo</p>
+</div>
+<span class="order-3 iconify" data-icon=twemoji:flag-for-flag-taiwan style=color:#f21111 data-width=35></span>
+</footer>
+<link rel=preconnect href=https://fonts.googleapis.com>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Serif+TC:wght@700&display=swap" rel=stylesheet>
+<script src=https://code.iconify.design/2/2.1.0/iconify.min.js></script>
+<link rel=stylesheet href=//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/base16/dracula.min.css>
+<script src=//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/kotlin.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/groovy.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/dart.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/dockerfile.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/http.min.js></script>
+<script>hljs.highlightAll()</script>
 </body>
 </html>

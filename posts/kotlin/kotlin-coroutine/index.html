@@ -1,234 +1,180 @@
 <!doctype html><html lang=zh-tw>
-<head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Kotlin 在非同步處理上有新的方法，協程 Coroutine，Coroutine 不會像 Thread 會耗費大量的資源，能在原本的線程上創建極為輕量的協程，且較不會發生記憶體洩漏的情況。"><title>Kotlin Coroutine</title>
-<link rel=canonical href=https://tonypepebear.github.io/HugoBlog/posts/kotlin/kotlin-coroutine/>
-<link rel=stylesheet href=/HugoBlog/scss/style.min.css><meta property="og:title" content="Kotlin Coroutine">
-<meta property="og:description" content="Kotlin 在非同步處理上有新的方法，協程 Coroutine，Coroutine 不會像 Thread 會耗費大量的資源，能在原本的線程上創建極為輕量的協程，且較不會發生記憶體洩漏的情況。">
-<meta property="og:url" content="https://tonypepebear.github.io/HugoBlog/posts/kotlin/kotlin-coroutine/">
-<meta property="og:site_name" content="TonyPepe">
-<meta property="og:type" content="article"><meta property="article:section" content="Posts"><meta property="article:tag" content="kotlin"><meta property="article:tag" content="coroutine"><meta property="article:published_time" content="2021-09-19T07:26:56+00:00"><meta property="article:modified_time" content="2021-09-19T07:26:56+00:00"><meta property="og:image" content="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/6f11a63e-3923-4ce5-3b6e-d06243815300/public">
-<meta name=twitter:title content="Kotlin Coroutine">
-<meta name=twitter:description content="Kotlin 在非同步處理上有新的方法，協程 Coroutine，Coroutine 不會像 Thread 會耗費大量的資源，能在原本的線程上創建極為輕量的協程，且較不會發生記憶體洩漏的情況。"><meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/6f11a63e-3923-4ce5-3b6e-d06243815300/public">
-<link rel="shortcut icon" href=favicon.ico>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V6T1WQYZ5Q"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-V6T1WQYZ5Q',{anonymize_ip:!1})}</script>
-<style>:root{--base-font-family:"JetBrains Mono","Noto Serif TC";--article-font-family:"JetBrains Mono", "Noto Serif TC";--code-font-family:"JetBrains Mono"}</style>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Sans+TC:wght@500&family=Noto+Serif+TC:wght@500&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<head>
+<meta http-equiv=content-type content="text/html" charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=stylesheet href="/HugoBlog/css/main.min.0f421e0455023937695ac69eaabab11d978a9a8243d82b00d3dad6f4e9b3a735.css" integrity="sha256-D0IeBFUCOTdpWsaeqrqxHZeKmoJD2CsA09rW9OmzpzU=">
+<title>Kotlin Coroutine - TonyPepe</title>
 </head>
-<body class="article-page has-toc">
-<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
-<div class="container main-container flex
-extended">
-<div id=article-toolbar>
-<a href=javascript:history.back() class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
-<span>返回</span>
+<body class=bg-gray-200>
+<script src=https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js defer></script>
+<div class="container mx-auto lg:flex">
+<aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4">
+<nav class="mx-4 lg:mx-0 flex flex-row lg:flex-col xl:ml-28">
+<div>
+<img class="rounded-full w-32 h-32 hover:-rotate-12 transform duration-700" src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/cfccf3e2-7fd5-4e6c-adcb-a3cc5064f900/public alt>
+<div class=mt-3>
+<a href=/ class="mt-10 text-2xl font-black text-gray-800">TonyPepe</a>
+</div>
+</div>
+<div>
+<div class="flex flex-col ml-4 lg:ml-0">
+<a href=/ class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
+<div class="flex flex-row items-center">
+<span class=iconify data-icon=mdi:home></span>
+<p class=ml-2>Home</p>
+</div>
+</a>
+<a href=/search class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
+<div class="flex flex-row items-center">
+<span class=iconify data-icon=mdi:file-search></span>
+<p class=ml-2>Search</p>
+</div>
+</a>
+<a href=/about class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900 transition">
+<div class="flex flex-row items-center">
+<span class=iconify data-icon=mdi:human-greeting-variant></span>
+<p class=ml-2>About</p>
+</div>
 </a>
 </div>
-<main class="main full-width">
-<article class="has-image main-article">
-<header class=article-header>
-<div class=article-image>
-<a href=/HugoBlog/posts/kotlin/kotlin-coroutine/>
-<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/6f11a63e-3923-4ce5-3b6e-d06243815300/public loading=lazy alt="Featured image of post Kotlin Coroutine">
+</div>
+</nav>
+</aside>
+<div class="lg:w-3/5 z-10 mt-12">
+<main>
+<div class="bg-white shadow-md rounded-xl my-5 mx-2">
+<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/6f11a63e-3923-4ce5-3b6e-d06243815300/public class="filter w-full h-80 object-cover rounded-t-xl">
+<div class=px-3>
+<h1 class="text-4xl my-5 inline-block text-center w-full text-black">Kotlin Coroutine</h1>
+<div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
+<a href=https://github.com/TonyPepeBear/HugoBlog/commit/d98398c3ef9c1d13cddfb0fafc1656a4b681f4f9 target=_blank class="flex flex-row items-center">
+<span class=iconify data-icon=bi:git></span>
+<p class=ml-1>d98398c</p>
+</a>
+<a href=https://github.com/TonyPepeBear/HugoBlog/issues target=_blank class="flex flex-row items-center ml-5">
+<span class=iconify data-icon=bi:info-circle-fill></span>
+<p class=ml-1>Issue</p>
 </a>
 </div>
-<div class=article-details>
-<header class=article-category>
-<a href=/HugoBlog/categories/kotlin/ style=background-color:#2a9d8f;color:#fff>
-Kotlin
-</a>
-</header>
-<h2 class=article-title>
-<a href=/HugoBlog/posts/kotlin/kotlin-coroutine/>Kotlin Coroutine</a>
-</h2>
-<h3 class=article-subtitle>
-Kotlin 在非同步處理上有新的方法，協程 Coroutine，Coroutine 不會像 Thread 會耗費大量的資源，能在原本的線程上創建極為輕量的協程，且較不會發生記憶體洩漏的情況。
-</h3>
-<footer class=article-time>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>2021 Sep 19</time>
-</div>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>
-閱讀時間: 2 分鐘
-</time>
-</div>
-</footer>
-</div>
-</header>
-<section class=article-content>
+<article class="mx-2 pb-4">
 <p>Kotlin 在非同步處理上有新的方法，協程 <code>Coroutine</code>。<code>Coroutine</code> 不會像 <code>Thread</code> 會耗費大量的資源，能在原本的<code>線程</code>上創建極為輕量的<code>協程</code>，且較不會發生記憶體洩漏的情況。</p>
 <h2 id=導入-coroutine>導入 Coroutine</h2>
 <p>在 <code>build.gradle</code> 中添加依賴項</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-groovy data-lang=groovy><span class=n>dependencies</span> <span class=o>{</span>
-    <span class=n>implementation</span> <span class=s1>&#39;org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2&#39;</span>
-<span class=o>}</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-groovy data-lang=groovy>dependencies <span style=color:#f92672>{</span>
+    implementation <span style=color:#e6db74>&#39;org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2&#39;</span>
+<span style=color:#f92672>}</span>
 </code></pre></div><p>若要在 <code>Android</code> 中使用需要再添加 <code>Android</code> 依賴</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-groovy data-lang=groovy><span class=n>implementation</span> <span class=s1>&#39;org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2&#39;</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-groovy data-lang=groovy>implementation <span style=color:#e6db74>&#39;org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2&#39;</span>
 </code></pre></div><h2 id=第一個-coroutine>第一個 Coroutine</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>import</span> <span class=nn>kotlinx.coroutines.*</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> kotlinx.coroutines.*
 
-<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-    <span class=n>GlobalScope</span><span class=p>.</span><span class=n>launch</span> <span class=p>{</span> <span class=c1>//在後台啟動一個新的縣協程
-</span><span class=c1></span>        <span class=n>delay</span><span class=p>(</span><span class=m>1000L</span><span class=p>)</span> <span class=c1>//非阻塞式的等待 1 秒鐘
-</span><span class=c1></span>        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;World!&#34;</span><span class=p>)</span>
-    <span class=p>}</span>
-    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Hello,&#34;</span><span class=p>)</span>
-    <span class=n>Thread</span><span class=p>.</span><span class=n>sleep</span><span class=p>(</span><span class=m>2000L</span><span class=p>)</span> <span class=c1>// 阻塞主線程兩秒確保主線程存活
-</span><span class=c1></span><span class=p>}</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>() {
+    GlobalScope.launch { <span style=color:#75715e>//在後台啟動一個新的縣協程
+</span><span style=color:#75715e></span>        delay(<span style=color:#ae81ff>1000L</span>) <span style=color:#75715e>//非阻塞式的等待 1 秒鐘
+</span><span style=color:#75715e></span>        println(<span style=color:#e6db74>&#34;World!&#34;</span>)
+    }
+    println(<span style=color:#e6db74>&#34;Hello,&#34;</span>)
+    Thread.sleep(<span style=color:#ae81ff>2000L</span>) <span style=color:#75715e>// 阻塞主線程兩秒確保主線程存活
+</span><span style=color:#75715e></span>}
 </code></pre></div><p>上面的程式碼輸出結果：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-kotlin data-lang=kotlin><span class=n>Hellow</span><span class=p>,</span> 
-<span class=n>World</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin>Hellow, 
+World
 </code></pre></div><p>基本上 <code>Coroutine</code> 就是輕量的協程</p>
 <p>也可以分別將 <code>GlobalScope.launch{...}</code> 和 <code>delay(...)</code> 替換成<code>thread { ... }</code> 和 <code>Thread.Sleap(...)</code>，也可以得到相同的結果，可以嘗試一下。</p>
 <p>如果只將 <code>GlobalScope.launch{...}</code> 替換成 <code>thread{...}</code> 你會得到以下錯誤：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>Error: Kotlin: Suspend functions are only allowed to be called from a coroutine or another <span class=nb>suspend</span> <span class=k>function</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>Error: Kotlin: Suspend functions are only allowed to be called from a coroutine or another suspend <span style=color:#66d9ef>function</span>
 </code></pre></div><p>因為 <code>delay()</code> 是一個特殊的 <code>suspend function</code> (有人譯作 <code>掛起函數</code>)，他不會阻塞線程，但是會 <code>suspend</code> 協程，而且只能在協程中使用。</p>
 <h2 id=橋接阻塞和非阻塞的世界>橋接阻塞和非阻塞的世界</h2>
 <p>上面的範例中同時使用了非阻塞式的 <code>delay()</code> 和阻塞式的 <code>Thread.sleap()</code>，這樣很容易讓我們混淆哪個會阻塞線程。下面我們使用 <code>runblocking{...}</code> 來阻塞線程</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>import</span> <span class=nn>kotlinx.coroutines.*</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> kotlinx.coroutines.*
 
-<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-    <span class=n>GlobalScope</span><span class=p>.</span><span class=n>launch</span> <span class=p>{</span> <span class=c1>// 在後台啟動一個新的協程
-</span><span class=c1></span>        <span class=n>delay</span><span class=p>(</span><span class=m>1000L</span><span class=p>)</span>
-        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;World!&#34;</span><span class=p>)</span>
-    <span class=p>}</span>
-    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Hello,&#34;</span><span class=p>)</span> 
-    <span class=n>runBlocking</span> <span class=p>{</span>     <span class=c1>// 這個表達式會阻塞主線程
-</span><span class=c1></span>        <span class=n>delay</span><span class=p>(</span><span class=m>2000L</span><span class=p>)</span>  <span class=c1>// 延遲兩秒來確保主線程存活
-</span><span class=c1></span>    <span class=p>}</span>
-<span class=p>}</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>() {
+    GlobalScope.launch { <span style=color:#75715e>// 在後台啟動一個新的協程
+</span><span style=color:#75715e></span>        delay(<span style=color:#ae81ff>1000L</span>)
+        println(<span style=color:#e6db74>&#34;World!&#34;</span>)
+    }
+    println(<span style=color:#e6db74>&#34;Hello,&#34;</span>) 
+    runBlocking {     <span style=color:#75715e>// 這個表達式會阻塞主線程
+</span><span style=color:#75715e></span>        delay(<span style=color:#ae81ff>2000L</span>)  <span style=color:#75715e>// 延遲兩秒來確保主線程存活
+</span><span style=color:#75715e></span>    }
+}
 </code></pre></div><p>結果基本上是相似的，只是都是使用了非組塞式的 <code>delay()</code>。調用了 <code>runblocking{...}</code> 的主線程會被阻塞直到 <code>runblocking{...}</code> 內的協程執行完畢。</p>
 <p>下面用一個更合乎慣用法的方法在寫一次，用 <code>runblocking{...}</code> 來包裝 <code>main</code> 方法：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>import</span> <span class=nn>kotlinx.coroutines.*</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>import</span> kotlinx.coroutines.*
 
-<span class=k>fun</span> <span class=nf>main</span><span class=p>()</span> <span class=p>=</span> <span class=n>runBlocking</span><span class=p>&lt;</span><span class=n>Unit</span><span class=p>&gt;</span> <span class=p>{</span> <span class=c1>// 開始執行主協程
-</span><span class=c1></span>    <span class=n>GlobalScope</span><span class=p>.</span><span class=n>launch</span> <span class=p>{</span> <span class=c1>// 在後台啓動一個協程並繼續執行
-</span><span class=c1></span>        <span class=n>delay</span><span class=p>(</span><span class=m>1000L</span><span class=p>)</span>
-        <span class=n>println</span><span class=p>(</span><span class=s2>&#34;World!&#34;</span><span class=p>)</span>
-    <span class=p>}</span>
-    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;Hello,&#34;</span><span class=p>)</span> 
-    <span class=n>delay</span><span class=p>(</span><span class=m>2000L</span><span class=p>)</span>  <span class=c1>// 延遲 2 秒來確保主線程存活
-</span><span class=c1></span><span class=p>}</span>
+<span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>() = runBlocking&lt;Unit&gt; { <span style=color:#75715e>// 開始執行主協程
+</span><span style=color:#75715e></span>    GlobalScope.launch { <span style=color:#75715e>// 在後台啓動一個協程並繼續執行
+</span><span style=color:#75715e></span>        delay(<span style=color:#ae81ff>1000L</span>)
+        println(<span style=color:#e6db74>&#34;World!&#34;</span>)
+    }
+    println(<span style=color:#e6db74>&#34;Hello,&#34;</span>) 
+    delay(<span style=color:#ae81ff>2000L</span>)  <span style=color:#75715e>// 延遲 2 秒來確保主線程存活
+</span><span style=color:#75715e></span>}
 </code></pre></div><p>這裡的 <code>runBlocking {...}</code> 用來啟動主線程。我們顯式指定了其返回類型 <code>Unit</code>，因為在 Kotlin 中 <code>main</code> 方法必須回傳 <code>Unit</code>。</p>
 <h2 id=等待一個作業完成>等待一個作業完成</h2>
 <p>延遲一段時間來確保協程的運行並不是一個好辦法利用 <code>job.join()</code> 來確保工作執行結束。</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>job</span><span class=p>:</span> <span class=n>Job</span> <span class=p>=</span> <span class=n>GlobalScope</span><span class=p>.</span><span class=n>launch</span> <span class=p>{</span> 
-    <span class=n>delay</span><span class=p>(</span><span class=m>1000L</span><span class=p>)</span>
-    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;World!&#34;</span><span class=p>)</span>
-<span class=p>}</span>
-<span class=n>println</span><span class=p>(</span><span class=s2>&#34;Hello,&#34;</span><span class=p>)</span>
-<span class=n>job</span><span class=p>.</span><span class=n>join</span><span class=p>()</span> 
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> job: Job = GlobalScope.launch { 
+    delay(<span style=color:#ae81ff>1000L</span>)
+    println(<span style=color:#e6db74>&#34;World!&#34;</span>)
+}
+println(<span style=color:#e6db74>&#34;Hello,&#34;</span>)
+job.join() 
 </code></pre></div><p><code>launch</code> 會回傳一個 <code>Job</code> 物件，而 <code>job.join()</code> 其實就是會等待 <code>job</code> 的工作完成再繼續持行。</p>
 <p>我們也可以利用 <code>job.cancel()</code> 取消協程：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-kotlin data-lang=kotlin><span class=k>val</span> <span class=py>job</span><span class=p>:</span> <span class=n>Job</span> <span class=p>=</span> <span class=n>GlobalScope</span><span class=p>.</span><span class=n>launch</span> <span class=p>{</span> 
-    <span class=n>delay</span><span class=p>(</span><span class=m>1000L</span><span class=p>)</span>
-    <span class=n>println</span><span class=p>(</span><span class=s2>&#34;World!&#34;</span><span class=p>)</span>
-<span class=p>}</span>
-<span class=n>println</span><span class=p>(</span><span class=s2>&#34;Hello,&#34;</span><span class=p>)</span>
-<span class=n>job</span><span class=p>.</span><span class=n>cancel</span><span class=p>()</span> 
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> job: Job = GlobalScope.launch { 
+    delay(<span style=color:#ae81ff>1000L</span>)
+    println(<span style=color:#e6db74>&#34;World!&#34;</span>)
+}
+println(<span style=color:#e6db74>&#34;Hello,&#34;</span>)
+job.cancel() 
 </code></pre></div><p>但是如果 <code>job</code> 已經完成工作，<code>cancel</code> 是不會發生任何事。</p>
 <h2 id=參考資料>參考資料</h2>
 <ul>
-<li><a class=link href=https://kotlinlang.org/docs/reference/coroutines/basics.html target=_blank rel=noopener>Coroutine Basics</a></li>
+<li><a href=https://kotlinlang.org/docs/reference/coroutines/basics.html>Coroutine Basics</a></li>
 </ul>
-</section>
-<footer class=article-footer>
-<section class=article-tags>
-<a href=/HugoBlog/tags/kotlin/>kotlin</a>
-<a href=/HugoBlog/tags/coroutine/>coroutine</a>
-</section>
-<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
-<span>Licensed under CC BY-NC-SA 4.0</span>
-</section>
-</footer>
-</article>
-<aside class=related-contents--wrapper>
-<h2 class=section-title>相關文章</h2>
-<div class=related-contents>
-<div class="flex article-list--tile">
-<article class=has-image>
-<a href=/HugoBlog/posts/kotlin/medium-api/>
-<div class=article-image>
-<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/98587dc3-5d4e-446a-7d98-b0b1ad36d500/public loading=lazy data-key data-hash=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/98587dc3-5d4e-446a-7d98-b0b1ad36d500/public>
-</div>
-<div class=article-details>
-<h2 class=article-title>發布 Markdown 至 Medium</h2>
-</div>
-</a>
 </article>
 </div>
 </div>
-</aside>
-<footer class=site-footer>
-<section class=copyright>
-&copy;
-2020 -
-2021 TonyPepe
-</section>
-<section class=powerby>
-Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.2.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
-</section>
-</footer>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-<button class="pswp__button pswp__button--share" title=Share></button>
-<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-</button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
 </main>
-<aside class="sidebar right-sidebar sticky">
-<section class="widget archives">
-<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
 </div>
-<h2 class="widget-title section-title">目錄</h2>
-<div class=widget--toc>
+<aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4 pl-3">
+<nav>
+<div class="page-right-nav rounded-lg shadow-md bg-gray-50 my-10 p-3 mr-3">
+<h2 class="text-3xl m-4 text-gray-600">目錄</h2>
 <nav id=TableOfContents>
-<ol>
+<ul>
 <li><a href=#導入-coroutine>導入 Coroutine</a></li>
 <li><a href=#第一個-coroutine>第一個 Coroutine</a></li>
 <li><a href=#橋接阻塞和非阻塞的世界>橋接阻塞和非阻塞的世界</a></li>
 <li><a href=#等待一個作業完成>等待一個作業完成</a></li>
 <li><a href=#參考資料>參考資料</a></li>
-</ol>
+</ul>
 </nav>
 </div>
-</section>
+</nav>
 </aside>
 </div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/HugoBlog/ts/main.js defer></script>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+<footer class="h-48 bg-gray-800 flex justify-center items-center flex-col space-y-3">
+<p class="order-1 text-gray-100">&copy; TonyPepe, 2020 - 2021</p>
+<div class="order-2 text-gray-100 inline-flex">
+<p>Made with </p>
+<span class="iconify mx-1" data-icon=ant-design:heart-filled style=color:#f21111></span>
+<p>and Hugo</p>
+</div>
+<span class="order-3 iconify" data-icon=twemoji:flag-for-flag-taiwan style=color:#f21111 data-width=35></span>
+</footer>
+<link rel=preconnect href=https://fonts.googleapis.com>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Serif+TC:wght@700&display=swap" rel=stylesheet>
+<script src=https://code.iconify.design/2/2.1.0/iconify.min.js></script>
+<link rel=stylesheet href=//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/base16/dracula.min.css>
+<script src=//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/kotlin.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/groovy.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/dart.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/dockerfile.min.js></script>
+<script src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/http.min.js></script>
+<script>hljs.highlightAll()</script>
 </body>
 </html>

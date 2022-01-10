@@ -21,6 +21,8 @@ draft: false
 * 網頁託管於 [Cloudflare Pages](https://pages.cloudflare.com/)，無限請求，無限流量
 * [GitHub](https://github.com) 提供 git repo
 * [Unsplash](https://unsplash.com/) 提供精美的圖片
+* [TailwindCSS](https://tailwindcss.com/) 讓我輕鬆寫出這個網站
+* [highlight.js](https://highlightjs.org/) 程式碼高亮
 
 ## 再次感謝 Cloudflare 對本站性能的極大貢獻
 

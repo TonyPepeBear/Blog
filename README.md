@@ -13,3 +13,4 @@
 * [Unsplash](https://unsplash.com/) 提供精美的圖片
 * [TailwindCSS](https://tailwindcss.com/) 讓我輕鬆寫出這個網站
 * [highlight.js](https://highlightjs.org/) 程式碼高亮
+* [iconify](https://iconify.design/) 提供精美的圖標

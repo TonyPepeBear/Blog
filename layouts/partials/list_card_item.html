@@ -1,5 +1,5 @@
 <div class="bg-gray-50 shadow-md mb-6 mx-3 lg:mx-0 flex-col justify-center rounded-xl hover:scale-105 transform transition duration-300">
-    <a href="{{ .URL }}">
+    <a href="{{ .RelPermalink }}">
         {{ $image := .Params.image }}
         {{ if not (eq $image "") }}
         <img src="{{ $image }}" class="filter w-full h-80 object-cover rounded-t-xl" loading="lazy">

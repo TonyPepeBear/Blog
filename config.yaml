@@ -4,3 +4,7 @@ params:
     mainSections:
         - posts
 paginate: 8
+enableGitInfo: true
+
+params:
+    gitHubURL: https://github.com/TonyPepeBear/HugoBlog

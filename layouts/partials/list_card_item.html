@@ -2,7 +2,7 @@
     <a href="{{ .RelPermalink }}">
         {{ $image := .Params.image }}
         {{ if not (eq $image "") }}
-        <img src="{{ $image }}" class="filter w-full h-80 object-cover rounded-t-xl" loading="lazy">
+        <img src="{{ $image }}" class="filter w-full object-cover rounded-t-xl h-64 lg:h-80" loading="lazy">
         {{ end }}
         <div class="p-3">
             <h2 class="text-xl font-bold ">{{ .Title }}</h2>

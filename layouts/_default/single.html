@@ -13,11 +13,13 @@
                 <time class="ml-1" datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>
                     {{- .Date.Format (or .Site.Params.dateFormat.published "2006-Jan-02") -}}
                 </time>
+                {{ if .GitInfo }}
                 <a href="{{ $.Site.Params.gitHubURL }}/commit/{{ .GitInfo.Hash }}" target="_blank"
                     class="flex flex-row items-center ml-5">
                     <span class="iconify" data-icon="bi:git"></span>
                     <p class="ml-1">{{ .GitInfo.AbbreviatedHash }}</p>
                 </a>
+                {{ end }}
                 <a href="{{ $.Site.Params.gitHubURL }}/issues" target="_blank" class="flex flex-row items-center ml-5">
                     <span class="iconify" data-icon="bi:info-circle-fill"></span>
                     <p class="ml-1">Issue</p>

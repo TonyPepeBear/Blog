@@ -78,3 +78,19 @@ article > blockquote {
 .hljs {
     @apply overflow-x-scroll w-full;
 }
+
+.ais-SearchBox-input {
+    @apply w-full h-12 p-3 rounded-md shadow-md;
+}
+
+.ais-Hits-item {
+    @apply my-4 p-4 bg-white text-gray-900 rounded-lg shadow-md;
+}
+
+.ais-Hits-item * > h2 {
+    @apply text-3xl mb-3;
+}
+
+.ais-Hits--empty {
+    @apply text-center text-4xl my-10;
+}

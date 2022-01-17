@@ -1,5 +1,8 @@
-{{- $.Scratch.Add "searchindex" slice -}}
-{{- range $index, $element := (where .Site.Pages "Kind" "page") -}}
-    {{- $.Scratch.Add "searchindex" (dict "id" $index "title" $element.Title "uri" $element.Permalink "tags" $element.Params.tags "section" $element.Section "content" $element.Plain "summary" $element.Summary "year" ($element.Date.Format "2006")) -}}
-{{- end -}}
-{{- $.Scratch.Get "searchindex" | jsonify -}}
+[ {{- $i := 0 -}}
+    {{- range where .Site.RegularPages "Section" "ne" "" -}}
+       {{- if not .Params.noSearch -}}
+          {{- if gt $i 0 }},{{ end -}}
+          {"date":"{{ .Date.Unix }}", "url":"{{ .Permalink }}", "title":{{ .Title | jsonify  }}, "summary":{{ with .Description}}{{ . | plainify | jsonify }}{{ else }}{{ .Summary | plainify | jsonify }}{{ end }}, "content":{{ .Content | plainify | jsonify }},"tags":[ {{- $t := 0 }}{{- range .Param "tags" -}}{{ if gt $t 0 }},{{ end }}{{ . | jsonify }}{{ $t = add $t 1 }}{{ end -}} ], "section": {{ .Section | jsonify -}} }
+        {{- $i = add $i 1 -}}
+    {{- end -}}
+{{- end -}} ]

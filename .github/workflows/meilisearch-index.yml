@@ -1,0 +1,39 @@
+name: MeiliSearch Index
+
+on:
+  push:
+    branches:
+      - master  # Set a branch to deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build
+        run: | 
+          npm i
+          hugo --minify
+
+      - name: Post Index
+        run: | 
+          curl \
+            -X POST "https://search.tonypepe.com/indexes/hugo_blog/documents" \
+            -H 'Authorization: Bearer ${{ secrets.MEILISEARCH_KEY }}' \
+            -H 'Content-Type: application/json' \
+            --data-binary "public/searchindex.json"

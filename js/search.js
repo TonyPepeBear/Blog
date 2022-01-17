@@ -24,7 +24,7 @@ search.addWidgets([
       empty: 'No results',
       item: `
           <div class="hit-name">
-            <a href='{{ uri }}'>
+            <a href='{{ url }}'>
               <h2>{{ title }}</h2>
               <p>{{ summary }}</p>
             </a>

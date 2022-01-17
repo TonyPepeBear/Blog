@@ -8,3 +8,13 @@ enableGitInfo: true
 
 params:
     gitHubURL: https://github.com/TonyPepeBear/HugoBlog
+    
+outputFormats:
+    SearchIndex:
+        mediaType: "application/json"
+        baseName: "searchindex"
+        isPlainText: true
+        notAlternative: true
+
+outputs:
+    home: ["HTML","RSS", "SearchIndex"]

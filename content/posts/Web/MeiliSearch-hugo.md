@@ -5,10 +5,11 @@ image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f9f8be53-5393-4190-b6da-
 draft: false
 tags: 
     - meilisearch
-    - meili
     - search
     - web
     - hugo
+    - github
+    - actions
 categories:
     - Web
 ---

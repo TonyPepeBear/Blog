@@ -42,8 +42,24 @@ article > ul {
     @apply list-disc list-inside;
 }
 
+article > ul * > ul {
+    @apply mx-8 list-disc list-inside;
+}
+
+article > ul * > ol {
+    @apply mx-8 list-decimal list-inside;
+}
+
 article > ol {
     @apply list-decimal list-inside;
+}
+
+article > ol * > ul {
+    @apply mx-8 list-disc list-inside;
+}
+
+article > ol * > ol {
+    @apply mx-8 list-decimal list-inside;
 }
 
 article * > a {

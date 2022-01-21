@@ -111,10 +111,67 @@ categories:
 * PREF
 * PROG
 
-## TODO
+> 飛行電腦設定蠻複雜的，本文就先跳過詳細步驟，專注在冷操到起飛。
+
+## 後推 and 啟動引擎前檢查
+
+記得等 IRS 校準完後再後推。
+
+1. 申請後推
+2. BECON Light -> ON
+   * 啟動 BECAON 燈
+3. Trust Levers -> IDLE
+   * 確定推力桿在 IDLE
+
+![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f3d16c92-7e28-4b76-c106-458211015c00/public)
+
+在 MSFS 的 FlyByWire 中可以用旁邊的 FlyPad 申請後推。
+
+![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/71f815a8-11e0-4d0b-38a5-2de486a4e000/public)
+
+## 啟動引擎
+
+1. ENG MODE selector -> IGN/START
+   * 把 ENG MODE selector 轉到右邊的啟動引擎模式
+2. ENGINE 2 START -> ON
+   * 啟動右邊的 2 號引擎
+   * 我也不知道為甚麼都是先啟動 2 號引擎
+   * 等待發動完成後再發動 1 號引擎
+   * 發動時應監控引擎數據，19% N1, 68% N2, 520°C EGT, 290 kg/h FF，等待 2 號引擎 AVAIL 字樣出現
+3. ENGINE 1 START -> ON
+   * 啟動左邊的 1 號引擎，重複第 2 步直到 1 號引擎 AVAIL 字樣出現
+
+![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/1e82de0e-18d0-402e-b279-780fe5f6b800/public)
+
+![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/d164d67d-9afb-4bd6-2eb9-835d7fe24300/public)
+
+## 啟動引擎後
+
+1. ENG MODE selectgor -> NORM
+   * 引擎模式轉回中間 NORM
+2. APU Bleed -> OFF
+   * 關閉 APU 供氣
+3. APU MASTER -> OFF
+   * 關閉 APU
+4. FLAPS lever -> SET TAKEOFF POSITION
+   * 放出襟翼到起飛需要的位置
+
+## 滑行 Taxi
+
+1. NOSE Light -> Taxi
+   * 開啟滑行燈
+2. RWY TURN OFF -> ON
+   * 開啟脫離跑道燈 (轉彎燈)
+3. PARK BRK -> OFF
+   * 關閉手煞車
+4. AUTO BRK MAX -> ON
+   * 開啟最大自動煞車
+
+## 起飛
 
 ## Reference
 
 * [教官我想飛](https://www.youtube.com/channel/UCDKKDx4mNVI7vONL1vqTx7g)
 * [機師阿楷](https://www.youtube.com/channel/UCOHc8xzWD25Nn-snDBJUMGQ)
-* [a320-normal-procedures.pdf](https://www.theairlinepilots.com/forumarchive/a320/a320-normal-procedures.pdf)
+* [FBW A32NX Checklist.pdf](https://github.com/flybywiresim/manuals/blob/master/pdf/A32NX%20Documentation/FBW%20A32NX%20Checklist.pdf)
+* [FBW A32NX SOP.pdf](https://github.com/flybywiresim/manuals/blob/master/pdf/A32NX%20Documentation/FBW%20A32NX%20SOP.pdf)

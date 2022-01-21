@@ -3,7 +3,7 @@
 <meta http-equiv=content-type content="text/html" charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
 <meta name=viewport content="width=device-width,initial-scale=1">
-<link rel=stylesheet href="/HugoBlog/css/main.min.d154d6f36397c28e88d96471893b4eb71cc4748a722172a06487a80e2180f813.css" integrity="sha256-0VTW82OXwo6I2WRxiTtOtxzEdIpyIXKgZIeoDiGA+BM=">
+<link rel=stylesheet href="/HugoBlog/css/main.min.ec65659f16e27fb708381e54bb6c75962ea17bb015b43ce715b936fb92141460.css" integrity="sha256-7GVlnxbif7cIOB5Uu2x1li6he7AVtDznFbk2+5IUFGA=">
 <title>A320neo 冷艙到飛行 - TonyPepe</title>
 </head>
 <body class=bg-gray-200>
@@ -50,9 +50,9 @@
 <div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
 <span class=iconify data-icon=mdi:calendar-range></span>
 <time class=ml-1 datetime=2021-07-21T22:08:20+08:00>2021-Jul-21</time>
-<a href=https://github.com/TonyPepeBear/HugoBlog/commit/d98398c3ef9c1d13cddfb0fafc1656a4b681f4f9 target=_blank class="flex flex-row items-center ml-5">
+<a href=https://github.com/TonyPepeBear/HugoBlog/commit/cece758e6da31503b18aa412acbe583ba41a4cfe target=_blank class="flex flex-row items-center ml-5">
 <span class=iconify data-icon=bi:git></span>
-<p class=ml-1>d98398c</p>
+<p class=ml-1>cece758</p>
 </a>
 <a href=https://github.com/TonyPepeBear/HugoBlog/issues target=_blank class="flex flex-row items-center ml-5">
 <span class=iconify data-icon=bi:info-circle-fill></span>
@@ -186,12 +186,103 @@
 <li>PREF</li>
 <li>PROG</li>
 </ul>
-<h2 id=todo>TODO</h2>
+<blockquote>
+<p>飛行電腦設定蠻複雜的，本文就先跳過詳細步驟，專注在冷操到起飛。</p>
+</blockquote>
+<h2 id=後推-and-啟動引擎前檢查>後推 and 啟動引擎前檢查</h2>
+<p>記得等 IRS 校準完後再後推。</p>
+<ol>
+<li>申請後推</li>
+<li>BECON Light -> ON
+<ul>
+<li>啟動 BECAON 燈</li>
+</ul>
+</li>
+<li>Trust Levers -> IDLE
+<ul>
+<li>確定推力桿在 IDLE</li>
+</ul>
+</li>
+</ol>
+<p><img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f3d16c92-7e28-4b76-c106-458211015c00/public alt=img></p>
+<p>在 MSFS 的 FlyByWire 中可以用旁邊的 FlyPad 申請後推。</p>
+<p><img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/71f815a8-11e0-4d0b-38a5-2de486a4e000/public alt=img></p>
+<h2 id=啟動引擎>啟動引擎</h2>
+<ol>
+<li>ENG MODE selector -> IGN/START
+<ul>
+<li>把 ENG MODE selector 轉到右邊的啟動引擎模式</li>
+</ul>
+</li>
+<li>ENGINE 2 START -> ON
+<ul>
+<li>啟動右邊的 2 號引擎</li>
+<li>我也不知道為甚麼都是先啟動 2 號引擎</li>
+<li>等待發動完成後再發動 1 號引擎</li>
+<li>發動時應監控引擎數據，19% N1, 68% N2, 520°C EGT, 290 kg/h FF，等待 2 號引擎 AVAIL 字樣出現</li>
+</ul>
+</li>
+<li>ENGINE 1 START -> ON
+<ul>
+<li>啟動左邊的 1 號引擎，重複第 2 步直到 1 號引擎 AVAIL 字樣出現</li>
+</ul>
+</li>
+</ol>
+<p><img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/1e82de0e-18d0-402e-b279-780fe5f6b800/public alt=img></p>
+<p><img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/d164d67d-9afb-4bd6-2eb9-835d7fe24300/public alt=img></p>
+<h2 id=啟動引擎後>啟動引擎後</h2>
+<ol>
+<li>ENG MODE selectgor -> NORM
+<ul>
+<li>引擎模式轉回中間 NORM</li>
+</ul>
+</li>
+<li>APU Bleed -> OFF
+<ul>
+<li>關閉 APU 供氣</li>
+</ul>
+</li>
+<li>APU MASTER -> OFF
+<ul>
+<li>關閉 APU</li>
+</ul>
+</li>
+<li>FLAPS lever -> SET TAKEOFF POSITION
+<ul>
+<li>放出襟翼到起飛需要的位置</li>
+</ul>
+</li>
+</ol>
+<h2 id=滑行-taxi>滑行 Taxi</h2>
+<ol>
+<li>NOSE Light -> Taxi
+<ul>
+<li>開啟滑行燈</li>
+</ul>
+</li>
+<li>RWY TURN OFF -> ON
+<ul>
+<li>開啟脫離跑道燈 (轉彎燈)</li>
+</ul>
+</li>
+<li>PARK BRK -> OFF
+<ul>
+<li>關閉手煞車</li>
+</ul>
+</li>
+<li>AUTO BRK MAX -> ON
+<ul>
+<li>開啟最大自動煞車</li>
+</ul>
+</li>
+</ol>
+<h2 id=起飛>起飛</h2>
 <h2 id=reference>Reference</h2>
 <ul>
 <li><a href=https://www.youtube.com/channel/UCDKKDx4mNVI7vONL1vqTx7g>教官我想飛</a></li>
 <li><a href=https://www.youtube.com/channel/UCOHc8xzWD25Nn-snDBJUMGQ>機師阿楷</a></li>
-<li><a href=https://www.theairlinepilots.com/forumarchive/a320/a320-normal-procedures.pdf>a320-normal-procedures.pdf</a></li>
+<li><a href=https://github.com/flybywiresim/manuals/blob/master/pdf/A32NX%20Documentation/FBW%20A32NX%20Checklist.pdf>FBW A32NX Checklist.pdf</a></li>
+<li><a href=https://github.com/flybywiresim/manuals/blob/master/pdf/A32NX%20Documentation/FBW%20A32NX%20SOP.pdf>FBW A32NX SOP.pdf</a></li>
 </ul>
 </article>
 </div>
@@ -214,7 +305,11 @@
 </ul>
 </li>
 <li><a href=#mcdu-飛行電腦>MCDU 飛行電腦</a></li>
-<li><a href=#todo>TODO</a></li>
+<li><a href=#後推-and-啟動引擎前檢查>後推 and 啟動引擎前檢查</a></li>
+<li><a href=#啟動引擎>啟動引擎</a></li>
+<li><a href=#啟動引擎後>啟動引擎後</a></li>
+<li><a href=#滑行-taxi>滑行 Taxi</a></li>
+<li><a href=#起飛>起飛</a></li>
 <li><a href=#reference>Reference</a></li>
 </ul>
 </nav>

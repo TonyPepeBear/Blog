@@ -4,9 +4,7 @@
 <meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
 <meta name=viewport content="width=device-width,initial-scale=1">
 <link rel=stylesheet href="/HugoBlog/css/main.min.ec65659f16e27fb708381e54bb6c75962ea17bb015b43ce715b936fb92141460.css" integrity="sha256-7GVlnxbif7cIOB5Uu2x1li6he7AVtDznFbk2+5IUFGA=">
-<title>用 Hugo 來寫文章吧 - TonyPepe</title>
-</head>
-<body class=bg-gray-200>
+<title>用 Hugo 來寫文章吧 - TonyPepe</title></head><body class=bg-gray-200>
 <script src=https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js defer></script>
 <div class="container mx-auto lg:flex">
 <aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4">
@@ -15,141 +13,65 @@
 <img class="rounded-full w-32 h-32 hover:-rotate-12 transform duration-700" src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/cfccf3e2-7fd5-4e6c-adcb-a3cc5064f900/public alt>
 <div class=mt-3>
 <a href=/ class="mt-10 text-2xl font-black text-gray-800">TonyPepe</a>
-</div>
-</div>
-<div>
+</div></div><div>
 <div class="flex flex-col ml-4 lg:ml-0">
 <a href=/ class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
 <div class="flex flex-row items-center">
 <span class=iconify data-icon=mdi:home></span>
-<p class=ml-2>Home</p>
-</div>
-</a>
+<p class=ml-2>Home</p></div></a>
 <a href=/search class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
 <div class="flex flex-row items-center">
 <span class=iconify data-icon=mdi:file-search></span>
-<p class=ml-2>Search</p>
-</div>
-</a>
+<p class=ml-2>Search</p></div></a>
 <a href=/about class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900 transition">
 <div class="flex flex-row items-center">
 <span class=iconify data-icon=mdi:human-greeting-variant></span>
-<p class=ml-2>About</p>
-</div>
-</a>
-</div>
-</div>
-</nav>
-</aside>
-<div class="lg:w-3/5 z-10 mt-12">
+<p class=ml-2>About</p></div></a>
+</div></div></nav></aside><div class="lg:w-3/5 z-10 mt-12">
 <main>
 <div class="bg-white shadow-md rounded-xl my-5 mx-2">
 <img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f50473d3-1acc-431a-402d-3c79f4170b00/public class="filter w-full h-80 object-cover rounded-t-xl">
 <div class=px-3>
-<h1 class="text-4xl my-5 inline-block text-center w-full text-black">用 Hugo 來寫文章吧</h1>
-<div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
+<h1 class="text-4xl my-5 inline-block text-center w-full text-black">用 Hugo 來寫文章吧</h1><div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
 <span class=iconify data-icon=mdi:calendar-range></span>
 <time class=ml-1 datetime=2021-06-07T02:10:46+08:00>2021-Jun-07</time>
 <a href=https://github.com/TonyPepeBear/HugoBlog/commit/d98398c3ef9c1d13cddfb0fafc1656a4b681f4f9 target=_blank class="flex flex-row items-center ml-5">
 <span class=iconify data-icon=bi:git></span>
-<p class=ml-1>d98398c</p>
-</a>
+<p class=ml-1>d98398c</p></a>
 <a href=https://github.com/TonyPepeBear/HugoBlog/issues target=_blank class="flex flex-row items-center ml-5">
 <span class=iconify data-icon=bi:info-circle-fill></span>
-<p class=ml-1>Issue</p>
-</a>
-</div>
-<article class="mx-2 pb-4">
-<p>Hugo 是靜態網頁的產生器，類似 Hexo 和 Jekyll，Hugo 由 go 語言編寫，效率極高，我原本是用 Hexo 在產生文章，後來發現 Hugo 這個好東西，也觀望了一陣子<del>其實是懶</del>，就決定換過來了，目前也用得非常順手。</p>
-<h2 id=安裝-hugo>安裝 Hugo</h2>
-<p>這是 Hugo 的<a href=https://gohugo.io/>官網</a>，進去後可以看到一些簡單的介紹和安裝方法。</p>
-<p>我蠻推薦在 vscode 的 <code>code in container</code> 的方式用 Hugo，因為我自己也是這樣用，這樣就不用擔心會弄髒環境，但就讓有興趣的人自己研究吧，這裡我介紹一般電腦的安裝方式。</p>
-<h3 id=windows>Windows</h3>
-<p>Windows 我建議是用 Chocolatey 來安裝是最方便的：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ps1 data-lang=ps1>choco install hugo
-</code></pre></div><p>但是如果不想要用 Chocolatey 安裝，可以去官方的 <a href=https://github.com/gohugoio/hugo/releases>Github Release</a> 下載最新的 Windows 版本，下載完後記得加入 PATH。</p>
-<h3 id=mac>Mac</h3>
-<p>macOS 安裝最簡單，用 Homebrew 就可以快速的安裝。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>brew install hugo
-</code></pre></div><h3 id=linux>Linux</h3>
-<p>Linux 我一律建議從官方的 <a href=https://github.com/gohugoio/hugo/releases>Github Release</a> 下載最新的版本，並自己加到 PATH。</p>
-<p>雖然 apt 等版本管理器好像有提供，但官方的文件上都說版本幾乎都不是最新版，所以也不建議。用下載的方式還是最方便的，或是用 Docker 也是好辦法。</p>
-<h2 id=開始使用-hugo>開始使用 Hugo</h2>
-<p>先創建一個新的 Hugo 專案，下面的 <code>MyBlog</code> 可以換成自己想要的專案名稱：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>hugo new site MyBlog
-</code></pre></div><h3 id=新增主題>新增主題</h3>
-<p>創建好專案後，就可以來新增主題，目前在 Hugo 上提供非常多的主題，我們可以到官方的這個<a href=https://themes.gohugo.io/>網站</a>找找看，但目前些不要增加難度，用最官房提供的簡單的 ananke 主題就好，反正主題是隨時都可以換的。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cd MyBlog
-git init
-git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
-echo theme <span style=color:#f92672>=</span> <span style=color:#ae81ff>\&#34;</span>ananke<span style=color:#ae81ff>\&#34;</span> &gt;&gt; config.toml
-</code></pre></div><p>可以看到，官方是建議使用 <code>git submodule</code> 的方式新增主題，這樣之後在更新主題的時候也比較方便。</p>
-<p>最後一行的 <code>echo</code> 指令會在專案底下產生一個 <code>config.toml</code> 的檔案，基本上之後所有有關 Hugo 網站的設定，都可以在這裡變更。這一行指令應該會幫你在檔案中產生如下的內容：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=color:#a6e22e>theme</span> = <span style=color:#e6db74>&#34;ananke&#34;</span>
-</code></pre></div><h3 id=新增文章>新增文章</h3>
-<p>在 Hugo 中新增文章的指令就是如下，可以自己修改檔名。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>hugo new posts/my-first-post.md
-</code></pre></div><p>產生完成後可以看到 Hugo 幫你產生了一些 Front Matter。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-md data-lang=md>---
-title: &#34;My First Post&#34;
-date: 2019-03-26T08:47:11+01:00
-draft: true
----
-</code></pre></div><p>上面的 <code>draft</code> 的指令是草稿的意思，如果沒有在上線前改成 <code>false</code>，是不會在正式網站中渲染的。</p>
-<p>現在可以自己產生的 Markdown 檔案中加一些內容，等等就可以看看效果怎麼樣。</p>
-<h2 id=執行-hugo-server>執行 Hugo Server</h2>
-<p>要啟動 Hugo Server 也非常簡單：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>hugo server -D
-</code></pre></div><p>上面的 <code>-D</code> 參數的意思是把 <code>draft</code> 的草稿文件也渲染，如果想要看看上線的網頁會長怎樣，可以不要加上這個參數。</p>
-<h2 id=產生靜態網頁>產生靜態網頁</h2>
-<p>這個最簡單了，連猴子都會，<code>-D</code> 的參數一樣是渲染草稿文件，可視需求加上。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>hugo
-</code></pre></div><p>到這裡就介紹完成所有 Hugo 基本的使用方法了，之後我會介紹如何使用 Github Action，讓我們每次只需要 Push 專案，Github 就會幫我們重新建置並部署網站。</p>
-<h2 id=reference>Reference</h2>
-<ul>
-<li><a href=https://gohugo.io/getting-started/quick-start/>Hugo Quick Start</a></li>
-</ul>
-</article>
-</div>
-</div>
-</main>
-</div>
-<aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4 pl-3">
+<p class=ml-1>Issue</p></a>
+</div><article class="mx-2 pb-4">
+<p>Hugo 是靜態網頁的產生器，類似 Hexo 和 Jekyll，Hugo 由 go 語言編寫，效率極高，我原本是用 Hexo 在產生文章，後來發現 Hugo 這個好東西，也觀望了一陣子<del>其實是懶</del>，就決定換過來了，目前也用得非常順手。</p><h2 id=安裝-hugo>安裝 Hugo</h2><p>這是 Hugo 的<a href=https://gohugo.io/>官網</a>，進去後可以看到一些簡單的介紹和安裝方法。</p><p>我蠻推薦在 vscode 的 <code>code in container</code> 的方式用 Hugo，因為我自己也是這樣用，這樣就不用擔心會弄髒環境，但就讓有興趣的人自己研究吧，這裡我介紹一般電腦的安裝方式。</p><h3 id=windows>Windows</h3><p>Windows 我建議是用 Chocolatey 來安裝是最方便的：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ps1 data-lang=ps1><span style=display:flex><span>choco install hugo
+</span></span></code></pre></div><p>但是如果不想要用 Chocolatey 安裝，可以去官方的 <a href=https://github.com/gohugoio/hugo/releases>Github Release</a> 下載最新的 Windows 版本，下載完後記得加入 PATH。</p><h3 id=mac>Mac</h3><p>macOS 安裝最簡單，用 Homebrew 就可以快速的安裝。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>brew install hugo
+</span></span></code></pre></div><h3 id=linux>Linux</h3><p>Linux 我一律建議從官方的 <a href=https://github.com/gohugoio/hugo/releases>Github Release</a> 下載最新的版本，並自己加到 PATH。</p><p>雖然 apt 等版本管理器好像有提供，但官方的文件上都說版本幾乎都不是最新版，所以也不建議。用下載的方式還是最方便的，或是用 Docker 也是好辦法。</p><h2 id=開始使用-hugo>開始使用 Hugo</h2><p>先創建一個新的 Hugo 專案，下面的 <code>MyBlog</code> 可以換成自己想要的專案名稱：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>hugo new site MyBlog
+</span></span></code></pre></div><h3 id=新增主題>新增主題</h3><p>創建好專案後，就可以來新增主題，目前在 Hugo 上提供非常多的主題，我們可以到官方的這個<a href=https://themes.gohugo.io/>網站</a>找找看，但目前些不要增加難度，用最官房提供的簡單的 ananke 主題就好，反正主題是隨時都可以換的。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>cd MyBlog
+</span></span><span style=display:flex><span>git init
+</span></span><span style=display:flex><span>git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
+</span></span><span style=display:flex><span>echo theme <span style=color:#f92672>=</span> <span style=color:#ae81ff>\&#34;</span>ananke<span style=color:#ae81ff>\&#34;</span> &gt;&gt; config.toml
+</span></span></code></pre></div><p>可以看到，官方是建議使用 <code>git submodule</code> 的方式新增主題，這樣之後在更新主題的時候也比較方便。</p><p>最後一行的 <code>echo</code> 指令會在專案底下產生一個 <code>config.toml</code> 的檔案，基本上之後所有有關 Hugo 網站的設定，都可以在這裡變更。這一行指令應該會幫你在檔案中產生如下的內容：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=display:flex><span><span style=color:#a6e22e>theme</span> = <span style=color:#e6db74>&#34;ananke&#34;</span>
+</span></span></code></pre></div><h3 id=新增文章>新增文章</h3><p>在 Hugo 中新增文章的指令就是如下，可以自己修改檔名。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>hugo new posts/my-first-post.md
+</span></span></code></pre></div><p>產生完成後可以看到 Hugo 幫你產生了一些 Front Matter。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-md data-lang=md><span style=display:flex><span>---
+</span></span><span style=display:flex><span>title: &#34;My First Post&#34;
+</span></span><span style=display:flex><span>date: 2019-03-26T08:47:11+01:00
+</span></span><span style=display:flex><span>draft: true
+</span></span><span style=display:flex><span>---
+</span></span></code></pre></div><p>上面的 <code>draft</code> 的指令是草稿的意思，如果沒有在上線前改成 <code>false</code>，是不會在正式網站中渲染的。</p><p>現在可以自己產生的 Markdown 檔案中加一些內容，等等就可以看看效果怎麼樣。</p><h2 id=執行-hugo-server>執行 Hugo Server</h2><p>要啟動 Hugo Server 也非常簡單：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>hugo server -D
+</span></span></code></pre></div><p>上面的 <code>-D</code> 參數的意思是把 <code>draft</code> 的草稿文件也渲染，如果想要看看上線的網頁會長怎樣，可以不要加上這個參數。</p><h2 id=產生靜態網頁>產生靜態網頁</h2><p>這個最簡單了，連猴子都會，<code>-D</code> 的參數一樣是渲染草稿文件，可視需求加上。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>hugo
+</span></span></code></pre></div><p>到這裡就介紹完成所有 Hugo 基本的使用方法了，之後我會介紹如何使用 Github Action，讓我們每次只需要 Push 專案，Github 就會幫我們重新建置並部署網站。</p><h2 id=reference>Reference</h2><ul>
+<li><a href=https://gohugo.io/getting-started/quick-start/>Hugo Quick Start</a></li></ul></article></div></div></main></div><aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4 pl-3">
 <nav>
 <div class="overflow-y-auto page-right-nav rounded-lg shadow-md bg-gray-50 my-10 p-3 mr-3" style=max-height:65vh>
-<h2 class="text-3xl m-4 text-gray-600">目錄</h2>
-<nav id=TableOfContents>
+<h2 class="text-3xl m-4 text-gray-600">目錄</h2><nav id=TableOfContents>
 <ul>
 <li><a href=#安裝-hugo>安裝 Hugo</a>
 <ul>
-<li><a href=#windows>Windows</a></li>
-<li><a href=#mac>Mac</a></li>
-<li><a href=#linux>Linux</a></li>
-</ul>
-</li>
-<li><a href=#開始使用-hugo>開始使用 Hugo</a>
+<li><a href=#windows>Windows</a></li><li><a href=#mac>Mac</a></li><li><a href=#linux>Linux</a></li></ul></li><li><a href=#開始使用-hugo>開始使用 Hugo</a>
 <ul>
-<li><a href=#新增主題>新增主題</a></li>
-<li><a href=#新增文章>新增文章</a></li>
-</ul>
-</li>
-<li><a href=#執行-hugo-server>執行 Hugo Server</a></li>
-<li><a href=#產生靜態網頁>產生靜態網頁</a></li>
-<li><a href=#reference>Reference</a></li>
-</ul>
-</nav>
-</div>
-</nav>
-</aside>
-</div>
-<footer class="h-60 bg-gray-800 flex justify-center items-center flex-col space-y-8">
-<p class="order-1 text-gray-100">TonyPepe &copy; 2020 - 2022</p>
-<div class="order-2 text-gray-100 inline-flex">
-<p>Made with </p>
-<span class="iconify mx-2" data-icon=ant-design:heart-filled style=color:#f21111></span>
-<p>and <a href=https://gohugo.io/ target=_blank>Hugo</a></p>
-</div>
-<div class="order-3 flex flex-row space-x-6">
+<li><a href=#新增主題>新增主題</a></li><li><a href=#新增文章>新增文章</a></li></ul></li><li><a href=#執行-hugo-server>執行 Hugo Server</a></li><li><a href=#產生靜態網頁>產生靜態網頁</a></li><li><a href=#reference>Reference</a></li></ul></nav></div></nav></aside></div><footer class="h-60 bg-gray-800 flex justify-center items-center flex-col space-y-8">
+<p class="order-1 text-gray-100">TonyPepe &copy; 2020 - 2022</p><div class="order-2 text-gray-100 inline-flex">
+<p>Made with </p><span class="iconify mx-2" data-icon=ant-design:heart-filled style=color:#f21111></span>
+<p>and <a href=https://gohugo.io/ target=_blank>Hugo</a></p></div><div class="order-3 flex flex-row space-x-6">
 <a href=https://github.com/TonyPepeBear/HugoBlog target=_blank>
 <span class="iconify text-white" data-icon=file-icons:hugo data-width=33></span>
 </a>
@@ -159,9 +81,7 @@ draft: true
 <a href=https://github.com/TonyPepeBear target=_blank>
 <span class="iconify text-white" data-icon=fontisto:github data-width=35></span>
 </a>
-</div>
-</footer>
-<link rel=preconnect href=https://fonts.googleapis.com>
+</div></footer><link rel=preconnect href=https://fonts.googleapis.com>
 <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Serif+TC:wght@600&display=swap" rel=stylesheet>
 <script src=https://code.iconify.design/2/2.1.0/iconify.min.js></script>
@@ -173,5 +93,4 @@ draft: true
 <script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/dockerfile.min.js></script>
 <script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/http.min.js></script>
 <script defer>hljs.highlightAll()</script>
-</body>
-</html>
+</body></html>

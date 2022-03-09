@@ -4,9 +4,7 @@
 <meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
 <meta name=viewport content="width=device-width,initial-scale=1">
 <link rel=stylesheet href="/HugoBlog/css/main.min.ec65659f16e27fb708381e54bb6c75962ea17bb015b43ce715b936fb92141460.css" integrity="sha256-7GVlnxbif7cIOB5Uu2x1li6he7AVtDznFbk2+5IUFGA=">
-<title>發布 Markdown 至 Medium - TonyPepe</title>
-</head>
-<body class=bg-gray-200>
+<title>發布 Markdown 至 Medium - TonyPepe</title></head><body class=bg-gray-200>
 <script src=https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js defer></script>
 <div class="container mx-auto lg:flex">
 <aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4">
@@ -15,218 +13,152 @@
 <img class="rounded-full w-32 h-32 hover:-rotate-12 transform duration-700" src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/cfccf3e2-7fd5-4e6c-adcb-a3cc5064f900/public alt>
 <div class=mt-3>
 <a href=/ class="mt-10 text-2xl font-black text-gray-800">TonyPepe</a>
-</div>
-</div>
-<div>
+</div></div><div>
 <div class="flex flex-col ml-4 lg:ml-0">
 <a href=/ class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
 <div class="flex flex-row items-center">
 <span class=iconify data-icon=mdi:home></span>
-<p class=ml-2>Home</p>
-</div>
-</a>
+<p class=ml-2>Home</p></div></a>
 <a href=/search class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
 <div class="flex flex-row items-center">
 <span class=iconify data-icon=mdi:file-search></span>
-<p class=ml-2>Search</p>
-</div>
-</a>
+<p class=ml-2>Search</p></div></a>
 <a href=/about class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900 transition">
 <div class="flex flex-row items-center">
 <span class=iconify data-icon=mdi:human-greeting-variant></span>
-<p class=ml-2>About</p>
-</div>
-</a>
-</div>
-</div>
-</nav>
-</aside>
-<div class="lg:w-3/5 z-10 mt-12">
+<p class=ml-2>About</p></div></a>
+</div></div></nav></aside><div class="lg:w-3/5 z-10 mt-12">
 <main>
 <div class="bg-white shadow-md rounded-xl my-5 mx-2">
 <img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/98587dc3-5d4e-446a-7d98-b0b1ad36d500/public class="filter w-full h-80 object-cover rounded-t-xl">
 <div class=px-3>
-<h1 class="text-4xl my-5 inline-block text-center w-full text-black">發布 Markdown 至 Medium</h1>
-<div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
+<h1 class="text-4xl my-5 inline-block text-center w-full text-black">發布 Markdown 至 Medium</h1><div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
 <span class=iconify data-icon=mdi:calendar-range></span>
 <time class=ml-1 datetime=2021-06-16T02:35:56+08:00>2021-Jun-16</time>
 <a href=https://github.com/TonyPepeBear/HugoBlog/commit/d98398c3ef9c1d13cddfb0fafc1656a4b681f4f9 target=_blank class="flex flex-row items-center ml-5">
 <span class=iconify data-icon=bi:git></span>
-<p class=ml-1>d98398c</p>
-</a>
+<p class=ml-1>d98398c</p></a>
 <a href=https://github.com/TonyPepeBear/HugoBlog/issues target=_blank class="flex flex-row items-center ml-5">
 <span class=iconify data-icon=bi:info-circle-fill></span>
-<p class=ml-1>Issue</p>
-</a>
-</div>
-<article class="mx-2 pb-4">
-<p>我認為用 Markdown 用來寫技術文章還是最順手的，但是 Medium 的編輯器卻不支援 Markdown。前幾天用 import 的方式也失敗，另尋他處後發現 Medium 支援用 API 發布文章，更還支援用 Markdown 和 Html 發布。雖然不懂官方為何不直接讓用戶用 Markdown 發布，而是要用 API，但是竟然找到了一絲希望，就來試試看用 API 的方式發布文章。</p>
-<p>本篇使用 Kotlin 和 OKHttp，來嘗試撰寫一個應用程式，來協助發布 Markdwon 至 Medium，專案原始碼在 <a href=https://github.com/TonyPepeBear/MediumMarkdownUploader>Github</a> 上。</p>
-<p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/2021/02/10-21-47-48-%E6%88%AA%E5%9C%96%202021-02-10%20%E4%B8%8B%E5%8D%889.47.40.png alt="截圖 2021-02-10 下午9.47.40.png"></p>
-<h2 id=申請-token>申請 token</h2>
-<p>Medium API 的 <a href=https://github.com/Medium/medium-api-docs>官方文件</a> 在這，可以用 <code>HTTP POST</code> 的方式來發布文章。要使用 API 第一件事就是要有 <code>token</code>，要申請 <code>token</code> 不用錢，官方目前好像也沒有使用限制，到 <a href=https://medium.com/me/settings>用戶設定</a> 的頁面，找到 <code>Integration tokens</code> 的地方，申請一個 token，說明隨便輸入就好。</p>
-<p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/2021/02/10-01-42-07-%E6%88%AA%E5%9C%96%202021-02-10%20%E4%B8%8A%E5%8D%881.42.04.png alt=img></p>
-<h2 id=userid>UserID</h2>
-<p>根據官方文檔，想要發布文章，需要 UserID，我找了好久才發現 UserID 不是 Name 也不是 UserName，也是要先用 API 的方式取得。</p>
-<p>用 Http GET 的方式可以取得 token 主人資料，使用方式如下：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-http data-lang=http><span style=color:#960050;background-color:#1e0010>GET https://api.medium.com/v1/me
-</span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-http data-lang=http><span style=color:#a6e22e>GET</span> /v1/me <span style=color:#66d9ef>HTTP</span><span style=color:#f92672>/</span><span style=color:#ae81ff>1.1</span>
-Host<span style=color:#f92672>:</span> <span style=color:#ae81ff>api.medium.com</span>
-Authorization<span style=color:#f92672>:</span> <span style=color:#ae81ff>Bearer 181d415f34379af07b2c11d144dfbe35d</span>
-Content-Type<span style=color:#f92672>:</span> <span style=color:#ae81ff>application/json</span>
-Accept<span style=color:#f92672>:</span> <span style=color:#ae81ff>application/json</span>
-Accept-Charset<span style=color:#f92672>:</span> <span style=color:#ae81ff>utf-8</span>
-</code></pre></div><p><code>token</code> 是放在 Post 的 header，的 <code>Authorization:Bearer</code> 後方，下方是用 Kotlin 和 OKHttp 實作的方法：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> request = Request.Builder()
-    .url(<span style=color:#e6db74>&#34;https://api.medium.com/v1/me&#34;</span>)
-    .<span style=color:#66d9ef>get</span>()
-    .addHeader(<span style=color:#e6db74>&#34;Authorization&#34;</span>, <span style=color:#e6db74>&#34;Bearer </span><span style=color:#e6db74>$token</span><span style=color:#e6db74>&#34;</span>)
-    .build()
-<span style=color:#66d9ef>val</span> response = client.newCall(request).execute()
-</code></pre></div><p>範例的 Response 如下，可以拿到用 UserID、UserName 等資料：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
-  <span style=color:#f92672>&#34;data&#34;</span>: {
-    <span style=color:#f92672>&#34;id&#34;</span>: <span style=color:#e6db74>&#34;5303d74c64f66366f00cb9b2a94f3251bf5&#34;</span>,
-    <span style=color:#f92672>&#34;username&#34;</span>: <span style=color:#e6db74>&#34;majelbstoat&#34;</span>,
-    <span style=color:#f92672>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;Jamie Talbot&#34;</span>,
-    <span style=color:#f92672>&#34;url&#34;</span>: <span style=color:#e6db74>&#34;https://medium.com/@majelbstoat&#34;</span>,
-    <span style=color:#f92672>&#34;imageUrl&#34;</span>: <span style=color:#e6db74>&#34;https://images.medium.com/0*fkfQiTzT7TlUGGyI.png&#34;</span>
-  }
-}
-</code></pre></div><p>根據上方的 Json，可以產生 <code>Kotlin Data Class</code> 來放取回的資料：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MediumApiMe</span>(
-    <span style=color:#66d9ef>val</span> `data`: MediumMeData
-)
-
-<span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MediumMeData</span>(
-    <span style=color:#66d9ef>val</span> id: String,
-    <span style=color:#66d9ef>val</span> imageUrl: String,
-    <span style=color:#66d9ef>val</span> name: String,
-    <span style=color:#66d9ef>val</span> url: String,
-    <span style=color:#66d9ef>val</span> username: String
-)
-</code></pre></div><p>取回的 Response 用 <code>gson</code> 轉換 json 到 Data Class，最後寫成一個完整的方法如下：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>getUserData</span>(token: String): MediumApiMe {
-    <span style=color:#66d9ef>val</span> request = Request.Builder()
-        .url(<span style=color:#e6db74>&#34;https://api.medium.com/v1/me&#34;</span>)
-        .<span style=color:#66d9ef>get</span>()
-        .addHeader(<span style=color:#e6db74>&#34;Authorization&#34;</span>, <span style=color:#e6db74>&#34;Bearer </span><span style=color:#e6db74>$token</span><span style=color:#e6db74>&#34;</span>)
-        .build()
-    <span style=color:#66d9ef>val</span> response = client.newCall(request).execute()
-    <span style=color:#66d9ef>if</span> (response.code <span style=color:#f92672>!=</span> <span style=color:#ae81ff>200</span> <span style=color:#f92672>||</span> response.body <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span>)
-        <span style=color:#66d9ef>throw</span> RuntimeException(
-            <span style=color:#e6db74>&#34;Can not get User info. Maybe token is wrong.&#34;</span> +
-            {response.body<span style=color:#f92672>?.</span>byteStream()<span style=color:#f92672>?.</span>reader()<span style=color:#f92672>?.</span>readLines()}
-        )
-
-    <span style=color:#66d9ef>val</span> text = response.body<span style=color:#f92672>!!</span>.byteStream()
-        .reader()
-        .readText()
-    <span style=color:#66d9ef>return</span> gson.fromJson(text, MediumApiMe<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
-}
-</code></pre></div><p>上方的程式碼有判斷 Response Code 是否為 200，若不是 200 代表取得資料沒有成功，就拋出 Exception。</p>
-<h2 id=post-文章>Post 文章</h2>
-<p>取得 UserID 後就可以用 Http Post 的方式向 Medium 發布文章。下方的 authorId 就是剛剛用 Http Get 的方式取得的 UserID。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-http data-lang=http><span style=color:#960050;background-color:#1e0010>POST https://api.medium.com/v1/users/{{authorId}}/posts
-</span></code></pre></div><p>下面是 Post 的範例，<code>token</code> 一樣是放在 <code>header</code> 裡。官方的範例是用 html 來發布文章，我們只要將 <code>contentFormat</code> 改成 markdown 就可以達成目的。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-http data-lang=http><span style=color:#a6e22e>POST</span> /v1/users/5303d74c64f66366f00cb9b2a94f3251bf5/posts <span style=color:#66d9ef>HTTP</span><span style=color:#f92672>/</span><span style=color:#ae81ff>1.1</span>
-Host<span style=color:#f92672>:</span> <span style=color:#ae81ff>api.medium.com</span>
-Authorization<span style=color:#f92672>:</span> <span style=color:#ae81ff>Bearer 181d415f34379af07b2c11d144dfbe35d</span>
-Content-Type<span style=color:#f92672>:</span> <span style=color:#ae81ff>application/json</span>
-Accept<span style=color:#f92672>:</span> <span style=color:#ae81ff>application/json</span>
-Accept-Charset<span style=color:#f92672>:</span> <span style=color:#ae81ff>utf-8</span>
-
-{
-  <span style=color:#f92672>&#34;title&#34;</span>: <span style=color:#e6db74>&#34;Liverpool FC&#34;</span>,
-  <span style=color:#f92672>&#34;contentFormat&#34;</span>: <span style=color:#e6db74>&#34;html&#34;</span>,
-  <span style=color:#f92672>&#34;content&#34;</span>: <span style=color:#e6db74>&#34;&lt;h1&gt;Liverpool FC&lt;/h1&gt;&lt;p&gt;You’ll never walk alone.&lt;/p&gt;&#34;</span>,
-  <span style=color:#f92672>&#34;canonicalUrl&#34;</span>: <span style=color:#e6db74>&#34;http://jamietalbot.com/posts/liverpool-fc&#34;</span>,
-  <span style=color:#f92672>&#34;tags&#34;</span>: [<span style=color:#e6db74>&#34;football&#34;</span>, <span style=color:#e6db74>&#34;sport&#34;</span>, <span style=color:#e6db74>&#34;Liverpool&#34;</span>],
-  <span style=color:#f92672>&#34;publishStatus&#34;</span>: <span style=color:#e6db74>&#34;public&#34;</span>
-}
-</code></pre></div><p>根據上面 Post 的 Json 範例，我們可以產生出如下的 Kotlin Data Class，我順便寫了一個快速轉成 Json 的方法：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MediumApiPost</span>(
-    <span style=color:#66d9ef>val</span> title: String,
-    <span style=color:#66d9ef>val</span> content: String,
-    <span style=color:#66d9ef>val</span> contentFormat: String,
-    <span style=color:#66d9ef>val</span> tags: List&lt;String&gt; = listOf(),
-    <span style=color:#66d9ef>val</span> publishStatus: String = <span style=color:#e6db74>&#34;draft&#34;</span>, <span style=color:#75715e>//預設是草稿
-</span><span style=color:#75715e></span>    <span style=color:#66d9ef>val</span> canonicalUrl: String = <span style=color:#e6db74>&#34;&#34;</span>,
-) {
-    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>toJson</span>(): String {
-        <span style=color:#66d9ef>return</span> gson.toJson(<span style=color:#66d9ef>this</span>)
-    }
-}
-</code></pre></div><p>產生出 Data Class 就可以嘗試 Post 看看，是否會發布文章，直接利用剛剛寫好的 <code>getUserData</code> 拿到 UserID，之後在 Post：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> userID = getUserData(token).<span style=color:#66d9ef>data</span>.id
-<span style=color:#66d9ef>val</span> medimuApiPost = 
-    MdieumApiPost(<span style=color:#e6db74>&#34;Title&#34;</span>, <span style=color:#e6db74>&#34;# Title</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>Hi&#34;</span>, <span style=color:#e6db74>&#34;markdown&#34;</span>)
-<span style=color:#66d9ef>val</span> request = Request.Builder()
-    .url(<span style=color:#e6db74>&#34;https://api.medium.com/v1/users/</span><span style=color:#e6db74>$userID</span><span style=color:#e6db74>/posts&#34;</span>)
-    .post(mediumApiPost.toJson().toRequestBody(contentType = <span style=color:#e6db74>&#34;application/json&#34;</span>.toMediaType()))
-    .addHeader(<span style=color:#e6db74>&#34;Authorization&#34;</span>, <span style=color:#e6db74>&#34;Bearer </span><span style=color:#e6db74>$token</span><span style=color:#e6db74>&#34;</span>)
-    .build()
-<span style=color:#66d9ef>val</span> response = client.newCall(request).execute()
-</code></pre></div><p>如果發布成功，可以拿到 Response Code 201，其他的都代表發布失敗。</p>
-<p>寫成完整的發布方法如下：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>newPost</span>(token: String, mediumApiPost: MediumApiPost): String {
-    <span style=color:#66d9ef>val</span> userID = getUserData(token).<span style=color:#66d9ef>data</span>.id
-
-    <span style=color:#66d9ef>val</span> request = Request.Builder()
-        .url(<span style=color:#e6db74>&#34;https://api.medium.com/v1/users/</span><span style=color:#e6db74>$userID</span><span style=color:#e6db74>/posts&#34;</span>)
-        .post(mediumApiPost.toJson().toRequestBody(contentType = <span style=color:#e6db74>&#34;application/json&#34;</span>.toMediaType()))
-        .addHeader(<span style=color:#e6db74>&#34;Authorization&#34;</span>, <span style=color:#e6db74>&#34;Bearer </span><span style=color:#e6db74>$token</span><span style=color:#e6db74>&#34;</span>)
-        .build()
-    <span style=color:#66d9ef>val</span> response = client.newCall(request).execute()
-
-    <span style=color:#66d9ef>if</span> (response.code <span style=color:#f92672>!=</span> <span style=color:#ae81ff>201</span> <span style=color:#f92672>||</span> response.body <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span>)
-        <span style=color:#66d9ef>throw</span> RuntimeException(<span style=color:#e6db74>&#34;Something Wrong. </span><span style=color:#e6db74>${response.body?.byteStream()?.reader()?.readText()}</span><span style=color:#e6db74>&#34;</span>)
-
-    <span style=color:#66d9ef>val</span> text = response.body<span style=color:#f92672>!!</span>.byteStream().reader().readText()
-    println(text)
-
-    <span style=color:#66d9ef>var</span> json = gson.fromJson(text, MediumNewPostResponse<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
-
-    <span style=color:#66d9ef>return</span> json.<span style=color:#66d9ef>data</span>.url
-}
-</code></pre></div><p>上面的方法會直接回傳發布成功的 URL，失敗則會直接拋出 Exception。</p>
-<h2 id=gui>GUI</h2>
-<p>寫好方法後，最後再用 <code>TornadoFX</code> 寫 GUI，這邊就不講述 GUI 的部分，有興趣可以自己到 GitHub 上看專案的原始碼。</p>
-<h2 id=程式碼區塊>程式碼區塊</h2>
-<p>因為 Medium 目前並不支援程式碼高亮，傳上去的程式碼區塊都會變成黑底的，目前我有想到的解法是在 Post 上去之前，就先將程式碼區塊都換成 GitHub Gist，但這就需要更複雜的方式解決問題了，有興趣的人可以自己試試看。</p>
-<h2 id=reference>Reference</h2>
-<p><a href=https://github.com/Medium/medium-api-docs>Medium’s API Documentation</a></p>
-</article>
-</div>
-</div>
-</main>
-</div>
-<aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4 pl-3">
+<p class=ml-1>Issue</p></a>
+</div><article class="mx-2 pb-4">
+<p>我認為用 Markdown 用來寫技術文章還是最順手的，但是 Medium 的編輯器卻不支援 Markdown。前幾天用 import 的方式也失敗，另尋他處後發現 Medium 支援用 API 發布文章，更還支援用 Markdown 和 Html 發布。雖然不懂官方為何不直接讓用戶用 Markdown 發布，而是要用 API，但是竟然找到了一絲希望，就來試試看用 API 的方式發布文章。</p><p>本篇使用 Kotlin 和 OKHttp，來嘗試撰寫一個應用程式，來協助發布 Markdwon 至 Medium，專案原始碼在 <a href=https://github.com/TonyPepeBear/MediumMarkdownUploader>Github</a> 上。</p><p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/2021/02/10-21-47-48-%E6%88%AA%E5%9C%96%202021-02-10%20%E4%B8%8B%E5%8D%889.47.40.png alt="截圖 2021-02-10 下午9.47.40.png"></p><h2 id=申請-token>申請 token</h2><p>Medium API 的 <a href=https://github.com/Medium/medium-api-docs>官方文件</a> 在這，可以用 <code>HTTP POST</code> 的方式來發布文章。要使用 API 第一件事就是要有 <code>token</code>，要申請 <code>token</code> 不用錢，官方目前好像也沒有使用限制，到 <a href=https://medium.com/me/settings>用戶設定</a> 的頁面，找到 <code>Integration tokens</code> 的地方，申請一個 token，說明隨便輸入就好。</p><p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/2021/02/10-01-42-07-%E6%88%AA%E5%9C%96%202021-02-10%20%E4%B8%8A%E5%8D%881.42.04.png alt=img></p><h2 id=userid>UserID</h2><p>根據官方文檔，想要發布文章，需要 UserID，我找了好久才發現 UserID 不是 Name 也不是 UserName，也是要先用 API 的方式取得。</p><p>用 Http GET 的方式可以取得 token 主人資料，使用方式如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-http data-lang=http><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>GET https://api.medium.com/v1/me
+</span></span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-http data-lang=http><span style=display:flex><span><span style=color:#a6e22e>GET</span> /v1/me <span style=color:#66d9ef>HTTP</span><span style=color:#f92672>/</span><span style=color:#ae81ff>1.1</span>
+</span></span><span style=display:flex><span>Host<span style=color:#f92672>:</span> <span style=color:#ae81ff>api.medium.com</span>
+</span></span><span style=display:flex><span>Authorization<span style=color:#f92672>:</span> <span style=color:#ae81ff>Bearer 181d415f34379af07b2c11d144dfbe35d</span>
+</span></span><span style=display:flex><span>Content-Type<span style=color:#f92672>:</span> <span style=color:#ae81ff>application/json</span>
+</span></span><span style=display:flex><span>Accept<span style=color:#f92672>:</span> <span style=color:#ae81ff>application/json</span>
+</span></span><span style=display:flex><span>Accept-Charset<span style=color:#f92672>:</span> <span style=color:#ae81ff>utf-8</span>
+</span></span></code></pre></div><p><code>token</code> 是放在 Post 的 header，的 <code>Authorization:Bearer</code> 後方，下方是用 Kotlin 和 OKHttp 實作的方法：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#66d9ef>val</span> request = Request.Builder()
+</span></span><span style=display:flex><span>    .url(<span style=color:#e6db74>&#34;https://api.medium.com/v1/me&#34;</span>)
+</span></span><span style=display:flex><span>    .<span style=color:#66d9ef>get</span>()
+</span></span><span style=display:flex><span>    .addHeader(<span style=color:#e6db74>&#34;Authorization&#34;</span>, <span style=color:#e6db74>&#34;Bearer </span><span style=color:#e6db74>$token</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>    .build()
+</span></span><span style=display:flex><span><span style=color:#66d9ef>val</span> response = client.newCall(request).execute()
+</span></span></code></pre></div><p>範例的 Response 如下，可以拿到用 UserID、UserName 等資料：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;data&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;id&#34;</span>: <span style=color:#e6db74>&#34;5303d74c64f66366f00cb9b2a94f3251bf5&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;username&#34;</span>: <span style=color:#e6db74>&#34;majelbstoat&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;Jamie Talbot&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;url&#34;</span>: <span style=color:#e6db74>&#34;https://medium.com/@majelbstoat&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;imageUrl&#34;</span>: <span style=color:#e6db74>&#34;https://images.medium.com/0*fkfQiTzT7TlUGGyI.png&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>根據上方的 Json，可以產生 <code>Kotlin Data Class</code> 來放取回的資料：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MediumApiMe</span>(
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> `data`: MediumMeData
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MediumMeData</span>(
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> id: String,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> imageUrl: String,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> name: String,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> url: String,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> username: String
+</span></span><span style=display:flex><span>)
+</span></span></code></pre></div><p>取回的 Response 用 <code>gson</code> 轉換 json 到 Data Class，最後寫成一個完整的方法如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>getUserData</span>(token: String): MediumApiMe {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> request = Request.Builder()
+</span></span><span style=display:flex><span>        .url(<span style=color:#e6db74>&#34;https://api.medium.com/v1/me&#34;</span>)
+</span></span><span style=display:flex><span>        .<span style=color:#66d9ef>get</span>()
+</span></span><span style=display:flex><span>        .addHeader(<span style=color:#e6db74>&#34;Authorization&#34;</span>, <span style=color:#e6db74>&#34;Bearer </span><span style=color:#e6db74>$token</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>        .build()
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> response = client.newCall(request).execute()
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (response.code <span style=color:#f92672>!=</span> <span style=color:#ae81ff>200</span> <span style=color:#f92672>||</span> response.body <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>throw</span> RuntimeException(
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;Can not get User info. Maybe token is wrong.&#34;</span> +
+</span></span><span style=display:flex><span>            {response.body<span style=color:#f92672>?.</span>byteStream()<span style=color:#f92672>?.</span>reader()<span style=color:#f92672>?.</span>readLines()}
+</span></span><span style=display:flex><span>        )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> text = response.body<span style=color:#f92672>!!</span>.byteStream()
+</span></span><span style=display:flex><span>        .reader()
+</span></span><span style=display:flex><span>        .readText()
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> gson.fromJson(text, MediumApiMe<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>上方的程式碼有判斷 Response Code 是否為 200，若不是 200 代表取得資料沒有成功，就拋出 Exception。</p><h2 id=post-文章>Post 文章</h2><p>取得 UserID 後就可以用 Http Post 的方式向 Medium 發布文章。下方的 authorId 就是剛剛用 Http Get 的方式取得的 UserID。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-http data-lang=http><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>POST https://api.medium.com/v1/users/{{authorId}}/posts
+</span></span></span></code></pre></div><p>下面是 Post 的範例，<code>token</code> 一樣是放在 <code>header</code> 裡。官方的範例是用 html 來發布文章，我們只要將 <code>contentFormat</code> 改成 markdown 就可以達成目的。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-http data-lang=http><span style=display:flex><span><span style=color:#a6e22e>POST</span> /v1/users/5303d74c64f66366f00cb9b2a94f3251bf5/posts <span style=color:#66d9ef>HTTP</span><span style=color:#f92672>/</span><span style=color:#ae81ff>1.1</span>
+</span></span><span style=display:flex><span>Host<span style=color:#f92672>:</span> <span style=color:#ae81ff>api.medium.com</span>
+</span></span><span style=display:flex><span>Authorization<span style=color:#f92672>:</span> <span style=color:#ae81ff>Bearer 181d415f34379af07b2c11d144dfbe35d</span>
+</span></span><span style=display:flex><span>Content-Type<span style=color:#f92672>:</span> <span style=color:#ae81ff>application/json</span>
+</span></span><span style=display:flex><span>Accept<span style=color:#f92672>:</span> <span style=color:#ae81ff>application/json</span>
+</span></span><span style=display:flex><span>Accept-Charset<span style=color:#f92672>:</span> <span style=color:#ae81ff>utf-8</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;title&#34;</span>: <span style=color:#e6db74>&#34;Liverpool FC&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;contentFormat&#34;</span>: <span style=color:#e6db74>&#34;html&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;content&#34;</span>: <span style=color:#e6db74>&#34;&lt;h1&gt;Liverpool FC&lt;/h1&gt;&lt;p&gt;You’ll never walk alone.&lt;/p&gt;&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;canonicalUrl&#34;</span>: <span style=color:#e6db74>&#34;http://jamietalbot.com/posts/liverpool-fc&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;tags&#34;</span>: [<span style=color:#e6db74>&#34;football&#34;</span>, <span style=color:#e6db74>&#34;sport&#34;</span>, <span style=color:#e6db74>&#34;Liverpool&#34;</span>],
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;publishStatus&#34;</span>: <span style=color:#e6db74>&#34;public&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>根據上面 Post 的 Json 範例，我們可以產生出如下的 Kotlin Data Class，我順便寫了一個快速轉成 Json 的方法：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#66d9ef>data</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MediumApiPost</span>(
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> title: String,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> content: String,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> contentFormat: String,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> tags: List&lt;String&gt; = listOf(),
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> publishStatus: String = <span style=color:#e6db74>&#34;draft&#34;</span>, <span style=color:#75715e>//預設是草稿
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>val</span> canonicalUrl: String = <span style=color:#e6db74>&#34;&#34;</span>,
+</span></span><span style=display:flex><span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>toJson</span>(): String {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> gson.toJson(<span style=color:#66d9ef>this</span>)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>產生出 Data Class 就可以嘗試 Post 看看，是否會發布文章，直接利用剛剛寫好的 <code>getUserData</code> 拿到 UserID，之後在 Post：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#66d9ef>val</span> userID = getUserData(token).<span style=color:#66d9ef>data</span>.id
+</span></span><span style=display:flex><span><span style=color:#66d9ef>val</span> medimuApiPost = 
+</span></span><span style=display:flex><span>    MdieumApiPost(<span style=color:#e6db74>&#34;Title&#34;</span>, <span style=color:#e6db74>&#34;# Title</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>Hi&#34;</span>, <span style=color:#e6db74>&#34;markdown&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>val</span> request = Request.Builder()
+</span></span><span style=display:flex><span>    .url(<span style=color:#e6db74>&#34;https://api.medium.com/v1/users/</span><span style=color:#e6db74>$userID</span><span style=color:#e6db74>/posts&#34;</span>)
+</span></span><span style=display:flex><span>    .post(mediumApiPost.toJson().toRequestBody(contentType = <span style=color:#e6db74>&#34;application/json&#34;</span>.toMediaType()))
+</span></span><span style=display:flex><span>    .addHeader(<span style=color:#e6db74>&#34;Authorization&#34;</span>, <span style=color:#e6db74>&#34;Bearer </span><span style=color:#e6db74>$token</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>    .build()
+</span></span><span style=display:flex><span><span style=color:#66d9ef>val</span> response = client.newCall(request).execute()
+</span></span></code></pre></div><p>如果發布成功，可以拿到 Response Code 201，其他的都代表發布失敗。</p><p>寫成完整的發布方法如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>newPost</span>(token: String, mediumApiPost: MediumApiPost): String {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> userID = getUserData(token).<span style=color:#66d9ef>data</span>.id
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> request = Request.Builder()
+</span></span><span style=display:flex><span>        .url(<span style=color:#e6db74>&#34;https://api.medium.com/v1/users/</span><span style=color:#e6db74>$userID</span><span style=color:#e6db74>/posts&#34;</span>)
+</span></span><span style=display:flex><span>        .post(mediumApiPost.toJson().toRequestBody(contentType = <span style=color:#e6db74>&#34;application/json&#34;</span>.toMediaType()))
+</span></span><span style=display:flex><span>        .addHeader(<span style=color:#e6db74>&#34;Authorization&#34;</span>, <span style=color:#e6db74>&#34;Bearer </span><span style=color:#e6db74>$token</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>        .build()
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> response = client.newCall(request).execute()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (response.code <span style=color:#f92672>!=</span> <span style=color:#ae81ff>201</span> <span style=color:#f92672>||</span> response.body <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>throw</span> RuntimeException(<span style=color:#e6db74>&#34;Something Wrong. </span><span style=color:#e6db74>${response.body?.byteStream()?.reader()?.readText()}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> text = response.body<span style=color:#f92672>!!</span>.byteStream().reader().readText()
+</span></span><span style=display:flex><span>    println(text)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> json = gson.fromJson(text, MediumNewPostResponse<span style=color:#f92672>::</span><span style=color:#66d9ef>class</span>.java)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> json.<span style=color:#66d9ef>data</span>.url
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>上面的方法會直接回傳發布成功的 URL，失敗則會直接拋出 Exception。</p><h2 id=gui>GUI</h2><p>寫好方法後，最後再用 <code>TornadoFX</code> 寫 GUI，這邊就不講述 GUI 的部分，有興趣可以自己到 GitHub 上看專案的原始碼。</p><h2 id=程式碼區塊>程式碼區塊</h2><p>因為 Medium 目前並不支援程式碼高亮，傳上去的程式碼區塊都會變成黑底的，目前我有想到的解法是在 Post 上去之前，就先將程式碼區塊都換成 GitHub Gist，但這就需要更複雜的方式解決問題了，有興趣的人可以自己試試看。</p><h2 id=reference>Reference</h2><p><a href=https://github.com/Medium/medium-api-docs>Medium’s API Documentation</a></p></article></div></div></main></div><aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4 pl-3">
 <nav>
 <div class="overflow-y-auto page-right-nav rounded-lg shadow-md bg-gray-50 my-10 p-3 mr-3" style=max-height:65vh>
-<h2 class="text-3xl m-4 text-gray-600">目錄</h2>
-<nav id=TableOfContents>
+<h2 class="text-3xl m-4 text-gray-600">目錄</h2><nav id=TableOfContents>
 <ul>
-<li><a href=#申請-token>申請 token</a></li>
-<li><a href=#userid>UserID</a></li>
-<li><a href=#post-文章>Post 文章</a></li>
-<li><a href=#gui>GUI</a></li>
-<li><a href=#程式碼區塊>程式碼區塊</a></li>
-<li><a href=#reference>Reference</a></li>
-</ul>
-</nav>
-</div>
-</nav>
-</aside>
-</div>
-<footer class="h-60 bg-gray-800 flex justify-center items-center flex-col space-y-8">
-<p class="order-1 text-gray-100">TonyPepe &copy; 2020 - 2022</p>
-<div class="order-2 text-gray-100 inline-flex">
-<p>Made with </p>
-<span class="iconify mx-2" data-icon=ant-design:heart-filled style=color:#f21111></span>
-<p>and <a href=https://gohugo.io/ target=_blank>Hugo</a></p>
-</div>
-<div class="order-3 flex flex-row space-x-6">
+<li><a href=#申請-token>申請 token</a></li><li><a href=#userid>UserID</a></li><li><a href=#post-文章>Post 文章</a></li><li><a href=#gui>GUI</a></li><li><a href=#程式碼區塊>程式碼區塊</a></li><li><a href=#reference>Reference</a></li></ul></nav></div></nav></aside></div><footer class="h-60 bg-gray-800 flex justify-center items-center flex-col space-y-8">
+<p class="order-1 text-gray-100">TonyPepe &copy; 2020 - 2022</p><div class="order-2 text-gray-100 inline-flex">
+<p>Made with </p><span class="iconify mx-2" data-icon=ant-design:heart-filled style=color:#f21111></span>
+<p>and <a href=https://gohugo.io/ target=_blank>Hugo</a></p></div><div class="order-3 flex flex-row space-x-6">
 <a href=https://github.com/TonyPepeBear/HugoBlog target=_blank>
 <span class="iconify text-white" data-icon=file-icons:hugo data-width=33></span>
 </a>
@@ -236,9 +168,7 @@ Accept-Charset<span style=color:#f92672>:</span> <span style=color:#ae81ff>utf-8
 <a href=https://github.com/TonyPepeBear target=_blank>
 <span class="iconify text-white" data-icon=fontisto:github data-width=35></span>
 </a>
-</div>
-</footer>
-<link rel=preconnect href=https://fonts.googleapis.com>
+</div></footer><link rel=preconnect href=https://fonts.googleapis.com>
 <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Serif+TC:wght@600&display=swap" rel=stylesheet>
 <script src=https://code.iconify.design/2/2.1.0/iconify.min.js></script>
@@ -250,5 +180,4 @@ Accept-Charset<span style=color:#f92672>:</span> <span style=color:#ae81ff>utf-8
 <script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/dockerfile.min.js></script>
 <script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/http.min.js></script>
 <script defer>hljs.highlightAll()</script>
-</body>
-</html>
+</body></html>

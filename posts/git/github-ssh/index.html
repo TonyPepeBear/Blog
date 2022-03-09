@@ -4,9 +4,7 @@
 <meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
 <meta name=viewport content="width=device-width,initial-scale=1">
 <link rel=stylesheet href="/HugoBlog/css/main.min.ec65659f16e27fb708381e54bb6c75962ea17bb015b43ce715b936fb92141460.css" integrity="sha256-7GVlnxbif7cIOB5Uu2x1li6he7AVtDznFbk2+5IUFGA=">
-<title>GitHub SSH - TonyPepe</title>
-</head>
-<body class=bg-gray-200>
+<title>GitHub SSH - TonyPepe</title></head><body class=bg-gray-200>
 <script src=https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js defer></script>
 <div class="container mx-auto lg:flex">
 <aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4">
@@ -15,130 +13,74 @@
 <img class="rounded-full w-32 h-32 hover:-rotate-12 transform duration-700" src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/cfccf3e2-7fd5-4e6c-adcb-a3cc5064f900/public alt>
 <div class=mt-3>
 <a href=/ class="mt-10 text-2xl font-black text-gray-800">TonyPepe</a>
-</div>
-</div>
-<div>
+</div></div><div>
 <div class="flex flex-col ml-4 lg:ml-0">
 <a href=/ class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
 <div class="flex flex-row items-center">
 <span class=iconify data-icon=mdi:home></span>
-<p class=ml-2>Home</p>
-</div>
-</a>
+<p class=ml-2>Home</p></div></a>
 <a href=/search class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
 <div class="flex flex-row items-center">
 <span class=iconify data-icon=mdi:file-search></span>
-<p class=ml-2>Search</p>
-</div>
-</a>
+<p class=ml-2>Search</p></div></a>
 <a href=/about class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900 transition">
 <div class="flex flex-row items-center">
 <span class=iconify data-icon=mdi:human-greeting-variant></span>
-<p class=ml-2>About</p>
-</div>
-</a>
-</div>
-</div>
-</nav>
-</aside>
-<div class="lg:w-3/5 z-10 mt-12">
+<p class=ml-2>About</p></div></a>
+</div></div></nav></aside><div class="lg:w-3/5 z-10 mt-12">
 <main>
 <div class="bg-white shadow-md rounded-xl my-5 mx-2">
 <img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/8fdd1b8a-21b2-4d15-9947-a6bdcc6f1000/public class="filter w-full h-80 object-cover rounded-t-xl">
 <div class=px-3>
-<h1 class="text-4xl my-5 inline-block text-center w-full text-black">GitHub SSH</h1>
-<div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
+<h1 class="text-4xl my-5 inline-block text-center w-full text-black">GitHub SSH</h1><div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
 <span class=iconify data-icon=mdi:calendar-range></span>
 <time class=ml-1 datetime=2021-09-12T14:32:19Z>2021-Sep-12</time>
 <a href=https://github.com/TonyPepeBear/HugoBlog/commit/d98398c3ef9c1d13cddfb0fafc1656a4b681f4f9 target=_blank class="flex flex-row items-center ml-5">
 <span class=iconify data-icon=bi:git></span>
-<p class=ml-1>d98398c</p>
-</a>
+<p class=ml-1>d98398c</p></a>
 <a href=https://github.com/TonyPepeBear/HugoBlog/issues target=_blank class="flex flex-row items-center ml-5">
 <span class=iconify data-icon=bi:info-circle-fill></span>
-<p class=ml-1>Issue</p>
-</a>
-</div>
-<article class="mx-2 pb-4">
-<p>在本機與 GitHub 溝通最安全的方式就是透過 ssh，最大的好處就是不需要輸入帳號密碼來確認身分，也可以享受到 ssh 加密所提供的安全性。</p>
-<h2 id=ssh-keygen>ssh-keygen</h2>
-<p>要使用 ssh 非對稱加密，就會需要公鑰與私鑰，創建 ssh key 的方法就是 <code>ssh-keygen</code>：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>user@66c0bf85e710:~$ ssh-keygen
-Generating public/private rsa key pair.
-Enter file in which to save the key <span style=color:#f92672>(</span>/home/user/.ssh/id_rsa<span style=color:#f92672>)</span>:
-Created directory <span style=color:#e6db74>&#39;/home/user/.ssh&#39;</span>.
-Enter passphrase <span style=color:#f92672>(</span>empty <span style=color:#66d9ef>for</span> no passphrase<span style=color:#f92672>)</span>:
-Enter same passphrase again:
-Your identification has been saved in /home/user/.ssh/id_rsa
-Your public key has been saved in /home/user/.ssh/id_rsa.pub
-The key fingerprint is:
-SHA256:+UUuTN0YLUi2eh7HJoJvuy0whUuLvXIQejjPPTZ9gw4 user@66c0bf85e710
-The key<span style=color:#960050;background-color:#1e0010>&#39;</span>s randomart image is:
-+---<span style=color:#f92672>[</span>RSA 3072<span style=color:#f92672>]</span>----+
-|         .o...   |
-|         ..o.+.  |
-|       .  o +..  |
-|    . o..<span style=color:#f92672>=</span> +     |
-|   o <span style=color:#f92672>=</span>.+S * *    |
-|  + + *. <span style=color:#f92672>=</span> B     |
-|   <span style=color:#f92672>=</span> oE<span style=color:#f92672>=</span>o.o      |
-|    + Bo+oo      |
-|     + +++..     |
-+----<span style=color:#f92672>[</span>SHA256<span style=color:#f92672>]</span>-----+
-</code></pre></div><p><code>ssh-keygen</code> 會問一些問題，最快的方式就是直接留白(保持預設)，一直按 enter 就可以看到已經在 <code>~/.ssh</code> 產生了兩個檔案：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>user@66c0bf85e710:~$ ls -l ~/.ssh
-total <span style=color:#ae81ff>8</span>
--rw------- <span style=color:#ae81ff>1</span> user user <span style=color:#ae81ff>2602</span> Sep <span style=color:#ae81ff>12</span> 22:42 id_rsa
--rw-r--r-- <span style=color:#ae81ff>1</span> user user  <span style=color:#ae81ff>571</span> Sep <span style=color:#ae81ff>12</span> 22:42 id_rsa.pub
-user@66c0bf85e710:~$
-</code></pre></div><p><code>id_rsa</code> 就是私鑰，而多個 pub 結尾的 <code>id_rsa.pub</code> 就是公鑰。私鑰請不要傳給任何人，公鑰則提供給 GitHub。可以用 cat 將公鑰顯示出來並複製他：</p>
-<p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210912/image.714d829xbug0.png alt=image></p>
-<h2 id=把公鑰交給-github>把公鑰交給 GitHub</h2>
-<p>到 GitHub 的 Settings -> SSH and GPG keys -> New SSH key：</p>
-<p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210912/image.5frveu05dt00.png alt=image></p>
-<p>把剛剛複製下來的公鑰貼上，Title 可以自己隨便輸入或打這台電腦的名字：</p>
-<p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210912/image.56vkhmb55ps0.png alt=image></p>
-<h2 id=測試連線>測試連線</h2>
-<p>輸入下面命令就可以知道有沒有連線成功，如果有看到自己的使用者名稱，就代表已經完成 ssh 的認證：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>ssh -T git@github.com
-</code></pre></div><p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210912/image.5f99gnzo3ps0.png alt=image></p>
-<p>第一次連線可能會問要不要信任，輸入 <code>yes</code> 即可。</p>
-<blockquote>
-<p>如果覺得上面的方法麻煩，也可以直接創建一個私有 repo，然後試著 clone 和 push，就知道有沒有認證成功了。</p>
-</blockquote>
-<h2 id=reference>Reference</h2>
-<ul>
-<li><a href=https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/testing-your-ssh-connection>Testing your SSH connection</a></li>
-</ul>
-</article>
-</div>
-</div>
-</main>
-</div>
-<aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4 pl-3">
+<p class=ml-1>Issue</p></a>
+</div><article class="mx-2 pb-4">
+<p>在本機與 GitHub 溝通最安全的方式就是透過 ssh，最大的好處就是不需要輸入帳號密碼來確認身分，也可以享受到 ssh 加密所提供的安全性。</p><h2 id=ssh-keygen>ssh-keygen</h2><p>要使用 ssh 非對稱加密，就會需要公鑰與私鑰，創建 ssh key 的方法就是 <code>ssh-keygen</code>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>user@66c0bf85e710:~$ ssh-keygen
+</span></span><span style=display:flex><span>Generating public/private rsa key pair.
+</span></span><span style=display:flex><span>Enter file in which to save the key <span style=color:#f92672>(</span>/home/user/.ssh/id_rsa<span style=color:#f92672>)</span>:
+</span></span><span style=display:flex><span>Created directory <span style=color:#e6db74>&#39;/home/user/.ssh&#39;</span>.
+</span></span><span style=display:flex><span>Enter passphrase <span style=color:#f92672>(</span>empty <span style=color:#66d9ef>for</span> no passphrase<span style=color:#f92672>)</span>:
+</span></span><span style=display:flex><span>Enter same passphrase again:
+</span></span><span style=display:flex><span>Your identification has been saved in /home/user/.ssh/id_rsa
+</span></span><span style=display:flex><span>Your public key has been saved in /home/user/.ssh/id_rsa.pub
+</span></span><span style=display:flex><span>The key fingerprint is:
+</span></span><span style=display:flex><span>SHA256:+UUuTN0YLUi2eh7HJoJvuy0whUuLvXIQejjPPTZ9gw4 user@66c0bf85e710
+</span></span><span style=display:flex><span>The key<span style=color:#960050;background-color:#1e0010>&#39;</span>s randomart image is:
+</span></span><span style=display:flex><span>+---<span style=color:#f92672>[</span>RSA 3072<span style=color:#f92672>]</span>----+
+</span></span><span style=display:flex><span>|         .o...   |
+</span></span><span style=display:flex><span>|         ..o.+.  |
+</span></span><span style=display:flex><span>|       .  o +..  |
+</span></span><span style=display:flex><span>|    . o..<span style=color:#f92672>=</span> +     |
+</span></span><span style=display:flex><span>|   o <span style=color:#f92672>=</span>.+S * *    |
+</span></span><span style=display:flex><span>|  + + *. <span style=color:#f92672>=</span> B     |
+</span></span><span style=display:flex><span>|   <span style=color:#f92672>=</span> oE<span style=color:#f92672>=</span>o.o      |
+</span></span><span style=display:flex><span>|    + Bo+oo      |
+</span></span><span style=display:flex><span>|     + +++..     |
+</span></span><span style=display:flex><span>+----<span style=color:#f92672>[</span>SHA256<span style=color:#f92672>]</span>-----+
+</span></span></code></pre></div><p><code>ssh-keygen</code> 會問一些問題，最快的方式就是直接留白(保持預設)，一直按 enter 就可以看到已經在 <code>~/.ssh</code> 產生了兩個檔案：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>user@66c0bf85e710:~$ ls -l ~/.ssh
+</span></span><span style=display:flex><span>total <span style=color:#ae81ff>8</span>
+</span></span><span style=display:flex><span>-rw------- <span style=color:#ae81ff>1</span> user user <span style=color:#ae81ff>2602</span> Sep <span style=color:#ae81ff>12</span> 22:42 id_rsa
+</span></span><span style=display:flex><span>-rw-r--r-- <span style=color:#ae81ff>1</span> user user  <span style=color:#ae81ff>571</span> Sep <span style=color:#ae81ff>12</span> 22:42 id_rsa.pub
+</span></span><span style=display:flex><span>user@66c0bf85e710:~$
+</span></span></code></pre></div><p><code>id_rsa</code> 就是私鑰，而多個 pub 結尾的 <code>id_rsa.pub</code> 就是公鑰。私鑰請不要傳給任何人，公鑰則提供給 GitHub。可以用 cat 將公鑰顯示出來並複製他：</p><p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210912/image.714d829xbug0.png alt=image></p><h2 id=把公鑰交給-github>把公鑰交給 GitHub</h2><p>到 GitHub 的 Settings -> SSH and GPG keys -> New SSH key：</p><p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210912/image.5frveu05dt00.png alt=image></p><p>把剛剛複製下來的公鑰貼上，Title 可以自己隨便輸入或打這台電腦的名字：</p><p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210912/image.56vkhmb55ps0.png alt=image></p><h2 id=測試連線>測試連線</h2><p>輸入下面命令就可以知道有沒有連線成功，如果有看到自己的使用者名稱，就代表已經完成 ssh 的認證：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>ssh -T git@github.com
+</span></span></code></pre></div><p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210912/image.5f99gnzo3ps0.png alt=image></p><p>第一次連線可能會問要不要信任，輸入 <code>yes</code> 即可。</p><blockquote>
+<p>如果覺得上面的方法麻煩，也可以直接創建一個私有 repo，然後試著 clone 和 push，就知道有沒有認證成功了。</p></blockquote><h2 id=reference>Reference</h2><ul>
+<li><a href=https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/testing-your-ssh-connection>Testing your SSH connection</a></li></ul></article></div></div></main></div><aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4 pl-3">
 <nav>
 <div class="overflow-y-auto page-right-nav rounded-lg shadow-md bg-gray-50 my-10 p-3 mr-3" style=max-height:65vh>
-<h2 class="text-3xl m-4 text-gray-600">目錄</h2>
-<nav id=TableOfContents>
+<h2 class="text-3xl m-4 text-gray-600">目錄</h2><nav id=TableOfContents>
 <ul>
-<li><a href=#ssh-keygen>ssh-keygen</a></li>
-<li><a href=#把公鑰交給-github>把公鑰交給 GitHub</a></li>
-<li><a href=#測試連線>測試連線</a></li>
-<li><a href=#reference>Reference</a></li>
-</ul>
-</nav>
-</div>
-</nav>
-</aside>
-</div>
-<footer class="h-60 bg-gray-800 flex justify-center items-center flex-col space-y-8">
-<p class="order-1 text-gray-100">TonyPepe &copy; 2020 - 2022</p>
-<div class="order-2 text-gray-100 inline-flex">
-<p>Made with </p>
-<span class="iconify mx-2" data-icon=ant-design:heart-filled style=color:#f21111></span>
-<p>and <a href=https://gohugo.io/ target=_blank>Hugo</a></p>
-</div>
-<div class="order-3 flex flex-row space-x-6">
+<li><a href=#ssh-keygen>ssh-keygen</a></li><li><a href=#把公鑰交給-github>把公鑰交給 GitHub</a></li><li><a href=#測試連線>測試連線</a></li><li><a href=#reference>Reference</a></li></ul></nav></div></nav></aside></div><footer class="h-60 bg-gray-800 flex justify-center items-center flex-col space-y-8">
+<p class="order-1 text-gray-100">TonyPepe &copy; 2020 - 2022</p><div class="order-2 text-gray-100 inline-flex">
+<p>Made with </p><span class="iconify mx-2" data-icon=ant-design:heart-filled style=color:#f21111></span>
+<p>and <a href=https://gohugo.io/ target=_blank>Hugo</a></p></div><div class="order-3 flex flex-row space-x-6">
 <a href=https://github.com/TonyPepeBear/HugoBlog target=_blank>
 <span class="iconify text-white" data-icon=file-icons:hugo data-width=33></span>
 </a>
@@ -148,9 +90,7 @@ user@66c0bf85e710:~$
 <a href=https://github.com/TonyPepeBear target=_blank>
 <span class="iconify text-white" data-icon=fontisto:github data-width=35></span>
 </a>
-</div>
-</footer>
-<link rel=preconnect href=https://fonts.googleapis.com>
+</div></footer><link rel=preconnect href=https://fonts.googleapis.com>
 <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Serif+TC:wght@600&display=swap" rel=stylesheet>
 <script src=https://code.iconify.design/2/2.1.0/iconify.min.js></script>
@@ -162,5 +102,4 @@ user@66c0bf85e710:~$
 <script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/dockerfile.min.js></script>
 <script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/http.min.js></script>
 <script defer>hljs.highlightAll()</script>
-</body>
-</html>
+</body></html>

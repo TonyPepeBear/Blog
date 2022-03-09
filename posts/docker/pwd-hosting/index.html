@@ -4,9 +4,7 @@
 <meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
 <meta name=viewport content="width=device-width,initial-scale=1">
 <link rel=stylesheet href="/HugoBlog/css/main.min.ec65659f16e27fb708381e54bb6c75962ea17bb015b43ce715b936fb92141460.css" integrity="sha256-7GVlnxbif7cIOB5Uu2x1li6he7AVtDznFbk2+5IUFGA=">
-<title>自架 Play With Docker - TonyPepe</title>
-</head>
-<body class=bg-gray-200>
+<title>自架 Play With Docker - TonyPepe</title></head><body class=bg-gray-200>
 <script src=https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js defer></script>
 <div class="container mx-auto lg:flex">
 <aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4">
@@ -15,162 +13,82 @@
 <img class="rounded-full w-32 h-32 hover:-rotate-12 transform duration-700" src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/cfccf3e2-7fd5-4e6c-adcb-a3cc5064f900/public alt>
 <div class=mt-3>
 <a href=/ class="mt-10 text-2xl font-black text-gray-800">TonyPepe</a>
-</div>
-</div>
-<div>
+</div></div><div>
 <div class="flex flex-col ml-4 lg:ml-0">
 <a href=/ class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
 <div class="flex flex-row items-center">
 <span class=iconify data-icon=mdi:home></span>
-<p class=ml-2>Home</p>
-</div>
-</a>
+<p class=ml-2>Home</p></div></a>
 <a href=/search class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
 <div class="flex flex-row items-center">
 <span class=iconify data-icon=mdi:file-search></span>
-<p class=ml-2>Search</p>
-</div>
-</a>
+<p class=ml-2>Search</p></div></a>
 <a href=/about class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900 transition">
 <div class="flex flex-row items-center">
 <span class=iconify data-icon=mdi:human-greeting-variant></span>
-<p class=ml-2>About</p>
-</div>
-</a>
-</div>
-</div>
-</nav>
-</aside>
-<div class="lg:w-3/5 z-10 mt-12">
+<p class=ml-2>About</p></div></a>
+</div></div></nav></aside><div class="lg:w-3/5 z-10 mt-12">
 <main>
 <div class="bg-white shadow-md rounded-xl my-5 mx-2">
 <img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f6db1841-15c5-40fc-7174-8a5e73647700/public class="filter w-full h-80 object-cover rounded-t-xl">
 <div class=px-3>
-<h1 class="text-4xl my-5 inline-block text-center w-full text-black">自架 Play With Docker</h1>
-<div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
+<h1 class="text-4xl my-5 inline-block text-center w-full text-black">自架 Play With Docker</h1><div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
 <span class=iconify data-icon=mdi:calendar-range></span>
 <time class=ml-1 datetime=2021-06-05T16:08:29Z>2021-Jun-05</time>
 <a href=https://github.com/TonyPepeBear/HugoBlog/commit/d98398c3ef9c1d13cddfb0fafc1656a4b681f4f9 target=_blank class="flex flex-row items-center ml-5">
 <span class=iconify data-icon=bi:git></span>
-<p class=ml-1>d98398c</p>
-</a>
+<p class=ml-1>d98398c</p></a>
 <a href=https://github.com/TonyPepeBear/HugoBlog/issues target=_blank class="flex flex-row items-center ml-5">
 <span class=iconify data-icon=bi:info-circle-fill></span>
-<p class=ml-1>Issue</p>
-</a>
-</div>
-<article class="mx-2 pb-4">
-<p>學過 Docker 的人都應該有用過 Docker Playground 來學習或是測試過軟體，不想在本機跑 Docker 可以先用 Docker Playground 試試看軟體可不可以跑。</p>
-<p>官方已經有架設 <a href=https://labs.play-with-docker.com/>Docker Playground</a>，可以讓大家方便使用，但我使用的時後常發現他會 Lag，也不知道是 Docker Server 的問題，還是臺灣網路的問題。剛好最近想要教社團 Docker，這樣我架好一個，大家就不需要準備環境，直接就可以開始學了。</p>
-<p>本專案的 <a href=https://github.com/play-with-docker/play-with-docker>GitHub</a></p>
-<h2 id=準備環境>準備環境</h2>
-<ul>
+<p class=ml-1>Issue</p></a>
+</div><article class="mx-2 pb-4">
+<p>學過 Docker 的人都應該有用過 Docker Playground 來學習或是測試過軟體，不想在本機跑 Docker 可以先用 Docker Playground 試試看軟體可不可以跑。</p><p>官方已經有架設 <a href=https://labs.play-with-docker.com/>Docker Playground</a>，可以讓大家方便使用，但我使用的時後常發現他會 Lag，也不知道是 Docker Server 的問題，還是臺灣網路的問題。剛好最近想要教社團 Docker，這樣我架好一個，大家就不需要準備環境，直接就可以開始學了。</p><p>本專案的 <a href=https://github.com/play-with-docker/play-with-docker>GitHub</a></p><h2 id=準備環境>準備環境</h2><ul>
 <li>
-<p>Docker <code>18.06.0+</code></p>
-</li>
-<li>
-<p>Go 最新版</p>
-</li>
-</ul>
-<p>以上的安裝兩個在這邊都不贅述，請自行參閱官方文檔。</p>
-<h2 id=開始部署>開始部署</h2>
-<h3 id=第一步下載專案>第一步：下載專案</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git clone https://github.com/play-with-docker/play-with-docker
-cd play-with-docker
-</code></pre></div><h3 id=第二步確認驅動>第二步：確認驅動</h3>
-<p>其實我不是很確定這一步驟是要幹嘛，但是官方文檔有寫到，但是我在 Mac 上無法執行此命令，也可以順利部署。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo modprobe xt_ipvs
-</code></pre></div><h3 id=第三步docker-swarm>第三步：Docker swarm</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker swarm init
-</code></pre></div><h3 id=第四步下載-image>第四步：下載 image</h3>
-<p>這個 Image 是之後在 PWD 中創建容器時要用到的 Image。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker pull franela/dind
-</code></pre></div><h3 id=第五步go-mod>第五步：go mod</h3>
-<p>這步也是非必要的，我也不懂 Golang 所以也不確定是要幹嘛。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>go mod vendor
-</code></pre></div><h3 id=最後啟動>最後：啟動</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker-compose up
-</code></pre></div><p>若沒有其他問題，理論上現在連接到 <code>http://localhost:80</code> 就可以看到 PWD 正在執行，也可以開始創建容器使用。</p>
-<h2 id=localhost-or-404>localhost or 404</h2>
-<p>上一段的最後寫到可以連接到 localhost，但如果你試著用 localhost 以外的方式連接，就會出現問題，不管是 <code>127.0.0.1</code> 或是用網址 <code>pwd.example.com</code> 之類的都沒有辦法連接到 PWD，會不斷地出現 404，就是只有 localhost 可以。官方的文件就寫到這裡，也沒寫解法，以下是我自己發現的解決方法。</p>
-<p>基本上這個問題是 DNS 解析發生的問題，PWD 一次只能解析一種網址，預設是 <code>localhost</code>，我們可以去他的設定檔中變更他。</p>
-<p>設定檔案在 <code>play-with-docker/config/config.go</code> 之中，其中會有一行長下面的樣子：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>flag</span>.<span style=color:#a6e22e>StringVar</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>PlaygroundDomain</span>, <span style=color:#e6db74>&#34;playground-domain&#34;</span>, <span style=color:#e6db74>&#34;localhost&#34;</span>, <span style=color:#e6db74>&#34;Domain to use for the playground&#34;</span>)
-</code></pre></div><p>可以看到 PWD 這裡可以設定要解析的網址就是 <code>localhost</code>，所以只要將此變更為 <code>pwd.example.com</code>，就可以用這個網址連上 PWD。</p>
-<h3 id=連上容器內的-port>連上容器內的 Port</h3>
-<p>就算做完上面的設定，也順利了啟動 Docker 容器，但最後才發現想要連上特定的 Port 還是會失敗，因為他是用子網域的方式去連線 <code>http://ip&lt;hyphen-ip>-&lt;session_jd>-&lt;port>.direct.pwd.example.com</code>，所以又會遇到無法解析 DNS 的情況，我的解法是在 DNS 的設定中把 <code>pwd.example.com</code> 和 <code>*.pwd.example.com</code> 都加入 A Record，才順利連上。</p>
-<h2 id=nginx-proxy-pass>Nginx Proxy Pass</h2>
-<p>這部分我研究了蠻久，如果要把 Server 隱藏在 Nginx 後面，要設定的東西比較複雜，因為 PWD 有使用到 WebSocket，但是這部分我沒有過多的心得，所以直接把我的 <code>conf</code> 放在下面，容我不做解釋了：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-nginx data-lang=nginx><span style=color:#66d9ef>map</span> $http_upgrade $connection_upgrade {
-    <span style=color:#f92672>default</span> <span style=color:#e6db74>upgrade</span>;
-    <span style=color:#f92672>&#39;&#39;</span>      <span style=color:#e6db74>close</span>;
-}
-
-<span style=color:#66d9ef>server</span> {
-    <span style=color:#f92672>listen</span>       <span style=color:#ae81ff>80</span>;
-    <span style=color:#f92672>server_name</span>  <span style=color:#e6db74>pwd.example.com</span> <span style=color:#e6db74>*.pwd.example.com</span>;
-
-    <span style=color:#f92672>location</span> <span style=color:#e6db74>/</span> {
-        <span style=color:#f92672>proxy_pass</span> <span style=color:#e6db74>http://192.168.1.1:80</span>;
-        <span style=color:#f92672>proxy_set_header</span> <span style=color:#e6db74>Upgrade</span> $http_upgrade;
-        <span style=color:#f92672>proxy_set_header</span> <span style=color:#e6db74>Connection</span> $connection_upgrade;
-        <span style=color:#f92672>proxy_set_header</span> <span style=color:#e6db74>Host</span> $host;
-        <span style=color:#f92672>proxy_cache_bypass</span> $http_upgrade;
-    }
-
-    <span style=color:#f92672>error_page</span>   <span style=color:#ae81ff>500</span> <span style=color:#ae81ff>502</span> <span style=color:#ae81ff>503</span> <span style=color:#ae81ff>504</span>  <span style=color:#e6db74>/50x.html</span>;
-    <span style=color:#f92672>location</span> = <span style=color:#e6db74>/50x.html</span> {
-        <span style=color:#f92672>root</span>   <span style=color:#e6db74>/usr/share/nginx/html</span>;
-    }
-}
-</code></pre></div><p>上面是假設 PWD Server 跑在 <code>192.168.1.1:80</code> 上。</p>
-<h2 id=reference>Reference</h2>
-<ul>
-<li><a href=https://github.com/play-with-docker/play-with-docker>Play With Docker</a></li>
-</ul>
-</article>
-</div>
-</div>
-</main>
-</div>
-<aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4 pl-3">
+<p>Docker <code>18.06.0+</code></p></li><li>
+<p>Go 最新版</p></li></ul><p>以上的安裝兩個在這邊都不贅述，請自行參閱官方文檔。</p><h2 id=開始部署>開始部署</h2><h3 id=第一步下載專案>第一步：下載專案</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git clone https://github.com/play-with-docker/play-with-docker
+</span></span><span style=display:flex><span>cd play-with-docker
+</span></span></code></pre></div><h3 id=第二步確認驅動>第二步：確認驅動</h3><p>其實我不是很確定這一步驟是要幹嘛，但是官方文檔有寫到，但是我在 Mac 上無法執行此命令，也可以順利部署。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo modprobe xt_ipvs
+</span></span></code></pre></div><h3 id=第三步docker-swarm>第三步：Docker swarm</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>docker swarm init
+</span></span></code></pre></div><h3 id=第四步下載-image>第四步：下載 image</h3><p>這個 Image 是之後在 PWD 中創建容器時要用到的 Image。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>docker pull franela/dind
+</span></span></code></pre></div><h3 id=第五步go-mod>第五步：go mod</h3><p>這步也是非必要的，我也不懂 Golang 所以也不確定是要幹嘛。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>go mod vendor
+</span></span></code></pre></div><h3 id=最後啟動>最後：啟動</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>docker-compose up
+</span></span></code></pre></div><p>若沒有其他問題，理論上現在連接到 <code>http://localhost:80</code> 就可以看到 PWD 正在執行，也可以開始創建容器使用。</p><h2 id=localhost-or-404>localhost or 404</h2><p>上一段的最後寫到可以連接到 localhost，但如果你試著用 localhost 以外的方式連接，就會出現問題，不管是 <code>127.0.0.1</code> 或是用網址 <code>pwd.example.com</code> 之類的都沒有辦法連接到 PWD，會不斷地出現 404，就是只有 localhost 可以。官方的文件就寫到這裡，也沒寫解法，以下是我自己發現的解決方法。</p><p>基本上這個問題是 DNS 解析發生的問題，PWD 一次只能解析一種網址，預設是 <code>localhost</code>，我們可以去他的設定檔中變更他。</p><p>設定檔案在 <code>play-with-docker/config/config.go</code> 之中，其中會有一行長下面的樣子：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#a6e22e>flag</span>.<span style=color:#a6e22e>StringVar</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>PlaygroundDomain</span>, <span style=color:#e6db74>&#34;playground-domain&#34;</span>, <span style=color:#e6db74>&#34;localhost&#34;</span>, <span style=color:#e6db74>&#34;Domain to use for the playground&#34;</span>)
+</span></span></code></pre></div><p>可以看到 PWD 這裡可以設定要解析的網址就是 <code>localhost</code>，所以只要將此變更為 <code>pwd.example.com</code>，就可以用這個網址連上 PWD。</p><h3 id=連上容器內的-port>連上容器內的 Port</h3><p>就算做完上面的設定，也順利了啟動 Docker 容器，但最後才發現想要連上特定的 Port 還是會失敗，因為他是用子網域的方式去連線 <code>http://ip&lt;hyphen-ip>-&lt;session_jd>-&lt;port>.direct.pwd.example.com</code>，所以又會遇到無法解析 DNS 的情況，我的解法是在 DNS 的設定中把 <code>pwd.example.com</code> 和 <code>*.pwd.example.com</code> 都加入 A Record，才順利連上。</p><h2 id=nginx-proxy-pass>Nginx Proxy Pass</h2><p>這部分我研究了蠻久，如果要把 Server 隱藏在 Nginx 後面，要設定的東西比較複雜，因為 PWD 有使用到 WebSocket，但是這部分我沒有過多的心得，所以直接把我的 <code>conf</code> 放在下面，容我不做解釋了：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-nginx data-lang=nginx><span style=display:flex><span><span style=color:#66d9ef>map</span> $http_upgrade $connection_upgrade {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>default</span> <span style=color:#e6db74>upgrade</span>;
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#39;&#39;</span>      <span style=color:#e6db74>close</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>server</span> {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>listen</span>       <span style=color:#ae81ff>80</span>;
+</span></span><span style=display:flex><span>    <span style=color:#f92672>server_name</span>  <span style=color:#e6db74>pwd.example.com</span> <span style=color:#e6db74>*.pwd.example.com</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>location</span> <span style=color:#e6db74>/</span> {
+</span></span><span style=display:flex><span>        <span style=color:#f92672>proxy_pass</span> <span style=color:#e6db74>http://192.168.1.1:80</span>;
+</span></span><span style=display:flex><span>        <span style=color:#f92672>proxy_set_header</span> <span style=color:#e6db74>Upgrade</span> $http_upgrade;
+</span></span><span style=display:flex><span>        <span style=color:#f92672>proxy_set_header</span> <span style=color:#e6db74>Connection</span> $connection_upgrade;
+</span></span><span style=display:flex><span>        <span style=color:#f92672>proxy_set_header</span> <span style=color:#e6db74>Host</span> $host;
+</span></span><span style=display:flex><span>        <span style=color:#f92672>proxy_cache_bypass</span> $http_upgrade;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>error_page</span>   <span style=color:#ae81ff>500</span> <span style=color:#ae81ff>502</span> <span style=color:#ae81ff>503</span> <span style=color:#ae81ff>504</span>  <span style=color:#e6db74>/50x.html</span>;
+</span></span><span style=display:flex><span>    <span style=color:#f92672>location</span> = <span style=color:#e6db74>/50x.html</span> {
+</span></span><span style=display:flex><span>        <span style=color:#f92672>root</span>   <span style=color:#e6db74>/usr/share/nginx/html</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>上面是假設 PWD Server 跑在 <code>192.168.1.1:80</code> 上。</p><h2 id=reference>Reference</h2><ul>
+<li><a href=https://github.com/play-with-docker/play-with-docker>Play With Docker</a></li></ul></article></div></div></main></div><aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4 pl-3">
 <nav>
 <div class="overflow-y-auto page-right-nav rounded-lg shadow-md bg-gray-50 my-10 p-3 mr-3" style=max-height:65vh>
-<h2 class="text-3xl m-4 text-gray-600">目錄</h2>
-<nav id=TableOfContents>
+<h2 class="text-3xl m-4 text-gray-600">目錄</h2><nav id=TableOfContents>
 <ul>
-<li><a href=#準備環境>準備環境</a></li>
-<li><a href=#開始部署>開始部署</a>
+<li><a href=#準備環境>準備環境</a></li><li><a href=#開始部署>開始部署</a>
 <ul>
-<li><a href=#第一步下載專案>第一步：下載專案</a></li>
-<li><a href=#第二步確認驅動>第二步：確認驅動</a></li>
-<li><a href=#第三步docker-swarm>第三步：Docker swarm</a></li>
-<li><a href=#第四步下載-image>第四步：下載 image</a></li>
-<li><a href=#第五步go-mod>第五步：go mod</a></li>
-<li><a href=#最後啟動>最後：啟動</a></li>
-</ul>
-</li>
-<li><a href=#localhost-or-404>localhost or 404</a>
+<li><a href=#第一步下載專案>第一步：下載專案</a></li><li><a href=#第二步確認驅動>第二步：確認驅動</a></li><li><a href=#第三步docker-swarm>第三步：Docker swarm</a></li><li><a href=#第四步下載-image>第四步：下載 image</a></li><li><a href=#第五步go-mod>第五步：go mod</a></li><li><a href=#最後啟動>最後：啟動</a></li></ul></li><li><a href=#localhost-or-404>localhost or 404</a>
 <ul>
-<li><a href=#連上容器內的-port>連上容器內的 Port</a></li>
-</ul>
-</li>
-<li><a href=#nginx-proxy-pass>Nginx Proxy Pass</a></li>
-<li><a href=#reference>Reference</a></li>
-</ul>
-</nav>
-</div>
-</nav>
-</aside>
-</div>
-<footer class="h-60 bg-gray-800 flex justify-center items-center flex-col space-y-8">
-<p class="order-1 text-gray-100">TonyPepe &copy; 2020 - 2022</p>
-<div class="order-2 text-gray-100 inline-flex">
-<p>Made with </p>
-<span class="iconify mx-2" data-icon=ant-design:heart-filled style=color:#f21111></span>
-<p>and <a href=https://gohugo.io/ target=_blank>Hugo</a></p>
-</div>
-<div class="order-3 flex flex-row space-x-6">
+<li><a href=#連上容器內的-port>連上容器內的 Port</a></li></ul></li><li><a href=#nginx-proxy-pass>Nginx Proxy Pass</a></li><li><a href=#reference>Reference</a></li></ul></nav></div></nav></aside></div><footer class="h-60 bg-gray-800 flex justify-center items-center flex-col space-y-8">
+<p class="order-1 text-gray-100">TonyPepe &copy; 2020 - 2022</p><div class="order-2 text-gray-100 inline-flex">
+<p>Made with </p><span class="iconify mx-2" data-icon=ant-design:heart-filled style=color:#f21111></span>
+<p>and <a href=https://gohugo.io/ target=_blank>Hugo</a></p></div><div class="order-3 flex flex-row space-x-6">
 <a href=https://github.com/TonyPepeBear/HugoBlog target=_blank>
 <span class="iconify text-white" data-icon=file-icons:hugo data-width=33></span>
 </a>
@@ -180,9 +98,7 @@ cd play-with-docker
 <a href=https://github.com/TonyPepeBear target=_blank>
 <span class="iconify text-white" data-icon=fontisto:github data-width=35></span>
 </a>
-</div>
-</footer>
-<link rel=preconnect href=https://fonts.googleapis.com>
+</div></footer><link rel=preconnect href=https://fonts.googleapis.com>
 <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Serif+TC:wght@600&display=swap" rel=stylesheet>
 <script src=https://code.iconify.design/2/2.1.0/iconify.min.js></script>
@@ -194,5 +110,4 @@ cd play-with-docker
 <script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/dockerfile.min.js></script>
 <script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/http.min.js></script>
 <script defer>hljs.highlightAll()</script>
-</body>
-</html>
+</body></html>

@@ -4,9 +4,7 @@
 <meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
 <meta name=viewport content="width=device-width,initial-scale=1">
 <link rel=stylesheet href="/HugoBlog/css/main.min.ec65659f16e27fb708381e54bb6c75962ea17bb015b43ce715b936fb92141460.css" integrity="sha256-7GVlnxbif7cIOB5Uu2x1li6he7AVtDznFbk2+5IUFGA=">
-<title>MeiliSearch with Hugo - TonyPepe</title>
-</head>
-<body class=bg-gray-200>
+<title>MeiliSearch with Hugo - TonyPepe</title></head><body class=bg-gray-200>
 <script src=https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js defer></script>
 <div class="container mx-auto lg:flex">
 <aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4">
@@ -15,252 +13,166 @@
 <img class="rounded-full w-32 h-32 hover:-rotate-12 transform duration-700" src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/cfccf3e2-7fd5-4e6c-adcb-a3cc5064f900/public alt>
 <div class=mt-3>
 <a href=/ class="mt-10 text-2xl font-black text-gray-800">TonyPepe</a>
-</div>
-</div>
-<div>
+</div></div><div>
 <div class="flex flex-col ml-4 lg:ml-0">
 <a href=/ class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
 <div class="flex flex-row items-center">
 <span class=iconify data-icon=mdi:home></span>
-<p class=ml-2>Home</p>
-</div>
-</a>
+<p class=ml-2>Home</p></div></a>
 <a href=/search class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
 <div class="flex flex-row items-center">
 <span class=iconify data-icon=mdi:file-search></span>
-<p class=ml-2>Search</p>
-</div>
-</a>
+<p class=ml-2>Search</p></div></a>
 <a href=/about class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900 transition">
 <div class="flex flex-row items-center">
 <span class=iconify data-icon=mdi:human-greeting-variant></span>
-<p class=ml-2>About</p>
-</div>
-</a>
-</div>
-</div>
-</nav>
-</aside>
-<div class="lg:w-3/5 z-10 mt-12">
+<p class=ml-2>About</p></div></a>
+</div></div></nav></aside><div class="lg:w-3/5 z-10 mt-12">
 <main>
 <div class="bg-white shadow-md rounded-xl my-5 mx-2">
 <img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f9f8be53-5393-4190-b6da-baf27d8a7500/public class="filter w-full h-80 object-cover rounded-t-xl">
 <div class=px-3>
-<h1 class="text-4xl my-5 inline-block text-center w-full text-black">MeiliSearch with Hugo</h1>
-<div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
+<h1 class="text-4xl my-5 inline-block text-center w-full text-black">MeiliSearch with Hugo</h1><div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
 <span class=iconify data-icon=mdi:calendar-range></span>
 <time class=ml-1 datetime=2022-01-17T17:40:09Z>2022-Jan-17</time>
 <a href=https://github.com/TonyPepeBear/HugoBlog/commit/3edba05df3105dbce0a3a484e4afe468a43675cc target=_blank class="flex flex-row items-center ml-5">
 <span class=iconify data-icon=bi:git></span>
-<p class=ml-1>3edba05</p>
-</a>
+<p class=ml-1>3edba05</p></a>
 <a href=https://github.com/TonyPepeBear/HugoBlog/issues target=_blank class="flex flex-row items-center ml-5">
 <span class=iconify data-icon=bi:info-circle-fill></span>
-<p class=ml-1>Issue</p>
-</a>
-</div>
-<article class="mx-2 pb-4">
-<p>說到搜尋的解決方案，最有名的大概就是 <a href=https://www.algolia.com/>Algolia</a>，可以方便的創建索引，也有很多寫好的前端網頁元件可以使用，唯一的缺點就是收費。雖然 Algolia 要收費，但其實對於我這個小網頁都索引量是完全不用錢的，但是就還是覺得自己架一個索引系統比較有感覺，然後我就在 GitHub 上發現了開源的 <a href=https://meilisearch.com>MeiliSearch</a>，功能基本上跟 Algolia 很像，也支援中文，甚至有些前端元件可以直接使用 Algolia 的，缺點就是要自己架設 Server。</p>
-<p>本文以搜尋本站為目的撰寫，所以後面的範例大多與 Hugo 相關，如果想要看完整的程式碼，可以直接到本站的 GitHub。</p>
-<h2 id=簡介-meilisearch-server>簡介 MeiliSearch Server</h2>
-<p><img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f93885e8-f670-44ec-ea24-264a97c9a500/public alt=img></p>
-<p>基本上 MeiliSearch 就是一個 RESTful API，目標是要提供現成的搜尋解決方案，完全開源，提供即時搜尋、拼寫錯誤、同義詞、模糊搜尋、自訂排名、排序和多語言搜尋的支援，連中文也不例外。根據官方文件的介紹，MeiliSearch 以易用性為首要目標，對於開發者，只需要少少幾行 code 就可以使用；對於使用者，提供直觀的即時輸入即時反應的搜尋結果。</p>
-<p>官方也有很多的 SDK，.NET, Dart, Go, Java, JS, Python, Swift，而且上面這些還不是全部，所以在開發各語言的應用程式時，都可以考慮用 MeiliSearch 做為後端搜尋引擎。</p>
-<p>MeiliSearch 也不是完全沒有缺點，缺點就是要自己有伺服器，像是本文今天的案例就是要幫 Static Site 做搜尋的功能，通常 Static Site 大家應該都是用 GitHub Pages 等 Statice Site Hosting 服務，所以網頁本身是沒有自己架 Server 的，為了加個搜尋功能會要多一個 Server 就是很大的缺點。</p>
-<h2 id=searchindexjson>SearchIndex.json</h2>
-<p>在開始使用 MeiliSearch 之前，我們先來把要索引的資料準備好，MeiliSearch 會需要使用 json 當作索引，所以我們要產生一個 json 的範本。創建 <code>/layouts/list.searchindex.json</code>，內容如下：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>[ {{- $i := 0 -}}
-    {{- range where .Site.RegularPages &#34;Section&#34; &#34;ne&#34; &#34;&#34; -}}
-       {{- if not .Params.noSearch -}}
-          {{- if gt $i 0 }},{{ end -}}
-          {&#34;id&#34;:{{ $i }}, &#34;date&#34;:&#34;{{ .Date.Unix }}&#34;, &#34;url&#34;:&#34;{{ .Permalink }}&#34;, &#34;title&#34;:{{ .Title | jsonify  }}, &#34;summary&#34;:{{ with .Description}}{{ . | plainify | jsonify }}{{ else }}{{ .Summary | plainify | jsonify }}{{ end }}, &#34;content&#34;:{{ .Content | plainify | jsonify }},&#34;tags&#34;:[ {{- $t := 0 }}{{- range .Param &#34;tags&#34; -}}{{ if gt $t 0 }},{{ end }}{{ . | jsonify }}{{ $t = add $t 1 }}{{ end -}} ], &#34;section&#34;: {{ .Section | jsonify -}} }
-        {{- $i = add $i 1 -}}
-    {{- end -}}
-{{- end -}} ]
-</code></pre></div><p>然後在 <code>config.yaml</code> 中加入下面的設定值：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>outputFormats</span>:
-    <span style=color:#f92672>SearchIndex</span>:
-        <span style=color:#f92672>mediaType</span>: <span style=color:#e6db74>&#34;application/json&#34;</span>
-        <span style=color:#f92672>baseName</span>: <span style=color:#e6db74>&#34;searchindex&#34;</span>
-        <span style=color:#f92672>isPlainText</span>: <span style=color:#66d9ef>true</span>
-        <span style=color:#f92672>notAlternative</span>: <span style=color:#66d9ef>true</span>
-<span style=color:#f92672>outputs</span>:
-    <span style=color:#f92672>home</span>: [<span style=color:#e6db74>&#34;HTML&#34;</span>,<span style=color:#e6db74>&#34;RSS&#34;</span>, <span style=color:#e6db74>&#34;SearchIndex&#34;</span>]
-</code></pre></div><p>完成上面兩樣設定後，可以 <code>hugo</code> 一下試試看，有沒有在 <code>/public/searchindex.json</code> 中看到索引檔案，應該會類似如下：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>[
-  {
-    <span style=color:#f92672>&#34;id&#34;</span>: <span style=color:#ae81ff>0</span>,
-    <span style=color:#f92672>&#34;date&#34;</span>: <span style=color:#e6db74>&#34;1622891718&#34;</span>,
-    <span style=color:#f92672>&#34;url&#34;</span>: <span style=color:#e6db74>&#34;https://tonypepe.com/posts/others/hello-world/&#34;</span>,
-    <span style=color:#f92672>&#34;title&#34;</span>: <span style=color:#e6db74>&#34;Hello World&#34;</span>,
-    <span style=color:#f92672>&#34;summary&#34;</span>: <span style=color:#e6db74>&#34;Hello World. This is a test post.&#34;</span>,
-    <span style=color:#f92672>&#34;content&#34;</span>: <span style=color:#e6db74>&#34;This is my first post in hugo\ncontent&#34;</span>,
-    <span style=color:#f92672>&#34;tags&#34;</span>: [ <span style=color:#e6db74>&#34;hugo&#34;</span>, <span style=color:#e6db74>&#34;test&#34;</span> ],
-    <span style=color:#f92672>&#34;section&#34;</span>: <span style=color:#e6db74>&#34;posts&#34;</span>
-  }
-]
-</code></pre></div><h2 id=架設-meilisearch-server>架設 MeiliSearch Server</h2>
-<p>準備好索引檔案後，我們就來架設 MeiliSearch 的 Server，MeiliSearch 是用 Rust 編寫，所以也是跨平台通用。官方提供很多種安裝方式，還有一鍵啟動腳本，當然，為了避免弄髒環境，最推薦的當然還是 Docker，下面就先以 Docker 為範例：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker run -it --rm <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>    -p 7700:7700 <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>    -v <span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span>/data.ms:/data.ms <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>    getmeili/meilisearch:latest
-</code></pre></div><p>注意一下，上面掛載了一個 <code>data.ms</code> 的資料夾，所以在執行上面的指令前，記得先創建好。<code>data.ms</code> 這個資料夾是為了存放索引資料，避免因為 Docker 容器重啟就損失資料，所以很重要。</p>
-<p>現在可以到 <a href=http://localhost:7700>http://localhost:7700</a>，會看到有一個簡易的 WEB UI。</p>
-<p><img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/5664dc51-5d55-415a-3633-ac45e17d7a00/public alt=img></p>
-<p>如果不想用 Docker，還是可以參考官方文件的其他安裝方式安裝。</p>
-<h2 id=提交索引資料>提交索引資料</h2>
-<p>前面有提到 MeiliSearch 是 RESTful API，所以要向他搜尋或是提供資料，都是用 HTTP Method。官方文件寫的都是 curl，我們還是使用 GUI 的方式介紹。HTTP 的 GUI 大家應該都會想到 Postman，但今天我們要使用他的開源替代 <a href=https://hoppspot.io>Hoppsotch</a>，他是一個網頁工具，所以不需要安裝。</p>
-<p>可以先對 <code>/health</code> 做 <code>GET</code> 試試看有沒有連上，如果沒有連上，可能要檢查一下有沒有成功啟動 MeiliSearch Server。</p>
-<p><img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/cf86e106-a1f6-472e-d2c1-a6b186944f00/public alt=img></p>
-<p>確定連上後，我們就來提交索引資料，如果還沒有 Hugo 產生的索引資料，可以先到本站的 GitHub，拿本站的 <a href=https://github.com/TonyPepeBear/HugoBlog/blob/1bfae9859a44338d24a9f6676be37f72cc983505/searchindex.json>searchindex.json</a> 做測試。</p>
-<p>因為 MeiliSearch 也可以同時有多個 Indexes 做搜尋，我們下面的範例以 <code>hugo_blog</code> 作為範例名稱，大家可以根據需求自己決定使用的名稱。</p>
-<p><img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/71797a57-6f97-44cd-f4dc-675ec42ffd00/public alt=img></p>
-<p>可以看到上圖對 <code>/indexes/&lt;&lt;IndexName>>/documents</code> 做 <code>POST</code> 方法，就可以把索引資料提交到 MeiliSearch Server。記得內容類型是 <code>application/json</code>，然後把索引資料放到 body。</p>
-<p>現在回到 <a href=http://localhost:7700>localhost:7700</a>，應該就可以看到原本空空如也的 WEB UI 現在可以做搜尋了，可以先在這裡做一些簡單的搜尋，試試看自己的索引資料有沒有被成功的使用。</p>
-<p><img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/c58970b0-53b5-4a16-50bb-ff40fa6fde00/public alt=img></p>
-<h2 id=meilisearch-in-production>MeiliSearch in Production</h2>
-<p>MeiliSearch 預設的啟動方式其實是 <code>development</code>，這模式只是方便本地做測試使用的，如果要使用在生產環境，應該要以 <code>production</code> 模式啟動。在 Production 模式下，會有兩個不一樣的地方，第一項是 Web UI 會被停用，第二項是會必須要設定 <code>Master Key</code>，下面還是用 Docker 作為範例：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker run -it --rm <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>    -p 7700:7700 <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>    -v <span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span>/data.ms:/data.ms <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>    -e MEILI_ENV<span style=color:#f92672>=</span>production <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>    -e MEILI_MASTER_KEY<span style=color:#f92672>=</span>&lt;Your Master Key&gt; <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>    getmeili/meilisearch:latest
-</code></pre></div><p>上面設定的 Master Key，就是管理權限最大的 API Key，所以要記得妥善保存。</p>
-<p>下面用剛剛的 Master Key 去對 <code>/keys</code> 做 <code>GET</code>，然後在 Headers 中，加上剛剛的 Master Key，就可以拿到預設的搜尋 KEY，和預設的 ADMIN KEY。如果要再另外新增 API KEY，可以參考官方的文件，這裡就不多著墨。</p>
-<p><img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/91af11f7-29fc-446b-7ae1-dcb47f82b900/public alt=img></p>
-<h2 id=為網頁加上搜尋功能>為網頁加上搜尋功能</h2>
-<p>我們會用到 MeiliSearch 提供的 <a href=https://github.com/meilisearch/instant-meilisearch>Instant MeiliSearch</a>，這個 JS 庫就是使用 Algolia 的 Instant Search 改的，所以有些文件可以直接去看 Algolia 的官方文件。Instant MeiliSearch 最簡單的使用方式也是直接用 CDN 的方式，下面是一個最簡單的模板，看懂後用類似的邏輯加到自己的網頁中就好。</p>
-<p>html:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=color:#75715e>&lt;!DOCTYPE html&gt;</span>
-&lt;<span style=color:#f92672>html</span> <span style=color:#a6e22e>lang</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;en&#34;</span>&gt;
-  &lt;<span style=color:#f92672>head</span>&gt;
-    &lt;<span style=color:#f92672>meta</span> <span style=color:#a6e22e>charset</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;utf-8&#34;</span> /&gt;
-  &lt;/<span style=color:#f92672>head</span>&gt;
-
-  &lt;<span style=color:#f92672>body</span>&gt;
-    &lt;<span style=color:#f92672>div</span>&gt;
-      &lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;searchbox&#34;</span>&gt;&lt;/<span style=color:#f92672>div</span>&gt;
-      &lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;hits&#34;</span>&gt;&lt;/<span style=color:#f92672>div</span>&gt;
-    &lt;/<span style=color:#f92672>div</span>&gt;
-
-    &lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://cdn.jsdelivr.net/npm/@meilisearch/instant-meilisearch/dist/instant-meilisearch.umd.min.js&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;
-    &lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://cdn.jsdelivr.net/npm/instantsearch.js@4&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;
-    &lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;./app.js&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;
-  &lt;/<span style=color:#f92672>body</span>&gt;
-&lt;/<span style=color:#f92672>html</span>&gt;
-</code></pre></div><p>下面是剛剛的 html 會用到的 <code>app.js</code>，用來作為 Search 的設定值，只要把下面的網址設定成自己的網址，和自己在前幾步驟拿到的搜尋 API KEY 就可以使用了：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>search</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>instantsearch</span>({
-  <span style=color:#a6e22e>indexName</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;steam-video-games&#39;</span>,
-  <span style=color:#a6e22e>searchClient</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>instantMeiliSearch</span>(
-    <span style=color:#e6db74>&#39;https://integration-demos.meilisearch.com&#39;</span>,
-    <span style=color:#e6db74>&#39;q7QHwGiX841a509c8b05ef29e55f2d94c02c00635f729ccf097a734cbdf7961530f47c47&#39;</span>
-  ),
-})
-
-<span style=color:#a6e22e>search</span>.<span style=color:#a6e22e>addWidgets</span>([
-  <span style=color:#a6e22e>instantsearch</span>.<span style=color:#a6e22e>widgets</span>.<span style=color:#a6e22e>searchBox</span>({
-    <span style=color:#a6e22e>container</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;#searchbox&#39;</span>,
-  }),
-  <span style=color:#a6e22e>instantsearch</span>.<span style=color:#a6e22e>widgets</span>.<span style=color:#a6e22e>hits</span>({
-    <span style=color:#a6e22e>container</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;#hits&#39;</span>,
-    <span style=color:#a6e22e>templates</span><span style=color:#f92672>:</span> {
-      <span style=color:#a6e22e>item</span><span style=color:#f92672>:</span> <span style=color:#e6db74>`
-</span><span style=color:#e6db74>        &lt;div&gt;
-</span><span style=color:#e6db74>          &lt;div class=&#34;hit-name&#34;&gt;
-</span><span style=color:#e6db74>            {{#helpers.highlight}}{ &#34;attribute&#34;: &#34;name&#34; }{{/helpers.highlight}}
-</span><span style=color:#e6db74>          &lt;/div&gt;
-</span><span style=color:#e6db74>        &lt;/div&gt;
-</span><span style=color:#e6db74>      `</span>,
-    },
-  }),
-])
-
-<span style=color:#a6e22e>search</span>.<span style=color:#a6e22e>start</span>()
-</code></pre></div><p>如果覺得他預設提供的 UI 很醜，可以用 CSS 的方式去改他。</p>
-<h2 id=github-actions-自動提交索引>GitHub Actions 自動提交索引</h2>
-<p>不廢話，直接上本站的 yml:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml data-lang=yml><span style=color:#f92672>name</span>: <span style=color:#ae81ff>MeiliSearch Index</span>
-
-<span style=color:#f92672>on</span>:
-  <span style=color:#f92672>push</span>:
-    <span style=color:#f92672>branches</span>:
-      - <span style=color:#ae81ff>master </span> <span style=color:#75715e># Set a branch to deploy</span>
-
-<span style=color:#f92672>jobs</span>:
-  <span style=color:#f92672>deploy</span>:
-    <span style=color:#f92672>runs-on</span>: <span style=color:#ae81ff>ubuntu-20.04</span>
-    <span style=color:#f92672>steps</span>:
-      - <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>actions/checkout@v2</span>
-        <span style=color:#f92672>with</span>:
-          <span style=color:#f92672>submodules</span>: <span style=color:#66d9ef>true</span>  <span style=color:#75715e># Fetch Hugo themes (true OR recursive)</span>
-          <span style=color:#f92672>fetch-depth</span>: <span style=color:#ae81ff>0</span>    <span style=color:#75715e># Fetch all history for .GitInfo and .Lastmod</span>
-
-      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Setup Node</span>
-        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>actions/setup-node@v2</span>
-        <span style=color:#f92672>with</span>:
-          <span style=color:#f92672>node-version</span>: <span style=color:#e6db74>&#39;14&#39;</span>
-
-      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Setup Hugo</span>
-        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>peaceiris/actions-hugo@v2</span>
-        <span style=color:#f92672>with</span>:
-          <span style=color:#f92672>hugo-version</span>: <span style=color:#e6db74>&#39;latest&#39;</span>
-          <span style=color:#f92672>extended</span>: <span style=color:#66d9ef>true</span>
-
-      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Build</span>
-        <span style=color:#f92672>run</span>: <span style=color:#ae81ff>| </span>
-          <span style=color:#ae81ff>npm i</span>
-          <span style=color:#ae81ff>hugo --minify</span>
-
-      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Post Index</span>
-        <span style=color:#f92672>run</span>: <span style=color:#ae81ff>| </span>
-          <span style=color:#ae81ff>curl \</span>
-            -<span style=color:#ae81ff>X POST &#34;https://search.tonypepe.com/indexes/hugo_blog/documents&#34; \</span>
-            <span style=color:#f92672>-H &#39;Authorization</span>: <span style=color:#ae81ff>Bearer ${{ secrets.MEILISEARCH_KEY }}&#39; \</span>
-            <span style=color:#f92672>-H &#39;Content-Type</span>: <span style=color:#ae81ff>application/json&#39; \</span>
-            --<span style=color:#ae81ff>data-binary &#34;@public/searchindex.json&#34;</span>
-</code></pre></div><p>其實重點就是在最後一步，把索引檔案 POST 到 MeiliSearch 就可以了。</p>
-<h2 id=referenc>Referenc。。</h2>
-<ul>
-<li><a href=https://meilisearch.com>MeiliSearch</a></li>
-<li><a href=https://discourse.gohugo.io/t/a-simple-javascript-based-full-text-search-function/29119>A simple javascript based full text search function</a></li>
-<li><a href=https://hoppspot.io>Hoppsotch</a></li>
-<li><a href=https://github.com/meilisearch/instant-meilisearch>Instant MeiliSearch</a></li>
-</ul>
-</article>
-</div>
-</div>
-</main>
-</div>
-<aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4 pl-3">
+<p class=ml-1>Issue</p></a>
+</div><article class="mx-2 pb-4">
+<p>說到搜尋的解決方案，最有名的大概就是 <a href=https://www.algolia.com/>Algolia</a>，可以方便的創建索引，也有很多寫好的前端網頁元件可以使用，唯一的缺點就是收費。雖然 Algolia 要收費，但其實對於我這個小網頁都索引量是完全不用錢的，但是就還是覺得自己架一個索引系統比較有感覺，然後我就在 GitHub 上發現了開源的 <a href=https://meilisearch.com>MeiliSearch</a>，功能基本上跟 Algolia 很像，也支援中文，甚至有些前端元件可以直接使用 Algolia 的，缺點就是要自己架設 Server。</p><p>本文以搜尋本站為目的撰寫，所以後面的範例大多與 Hugo 相關，如果想要看完整的程式碼，可以直接到本站的 GitHub。</p><h2 id=簡介-meilisearch-server>簡介 MeiliSearch Server</h2><p><img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f93885e8-f670-44ec-ea24-264a97c9a500/public alt=img></p><p>基本上 MeiliSearch 就是一個 RESTful API，目標是要提供現成的搜尋解決方案，完全開源，提供即時搜尋、拼寫錯誤、同義詞、模糊搜尋、自訂排名、排序和多語言搜尋的支援，連中文也不例外。根據官方文件的介紹，MeiliSearch 以易用性為首要目標，對於開發者，只需要少少幾行 code 就可以使用；對於使用者，提供直觀的即時輸入即時反應的搜尋結果。</p><p>官方也有很多的 SDK，.NET, Dart, Go, Java, JS, Python, Swift，而且上面這些還不是全部，所以在開發各語言的應用程式時，都可以考慮用 MeiliSearch 做為後端搜尋引擎。</p><p>MeiliSearch 也不是完全沒有缺點，缺點就是要自己有伺服器，像是本文今天的案例就是要幫 Static Site 做搜尋的功能，通常 Static Site 大家應該都是用 GitHub Pages 等 Statice Site Hosting 服務，所以網頁本身是沒有自己架 Server 的，為了加個搜尋功能會要多一個 Server 就是很大的缺點。</p><h2 id=searchindexjson>SearchIndex.json</h2><p>在開始使用 MeiliSearch 之前，我們先來把要索引的資料準備好，MeiliSearch 會需要使用 json 當作索引，所以我們要產生一個 json 的範本。創建 <code>/layouts/list.searchindex.json</code>，內容如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>[ {{- $i := 0 -}}
+</span></span><span style=display:flex><span>    {{- range where .Site.RegularPages &#34;Section&#34; &#34;ne&#34; &#34;&#34; -}}
+</span></span><span style=display:flex><span>       {{- if not .Params.noSearch -}}
+</span></span><span style=display:flex><span>          {{- if gt $i 0 }},{{ end -}}
+</span></span><span style=display:flex><span>          {&#34;id&#34;:{{ $i }}, &#34;date&#34;:&#34;{{ .Date.Unix }}&#34;, &#34;url&#34;:&#34;{{ .Permalink }}&#34;, &#34;title&#34;:{{ .Title | jsonify  }}, &#34;summary&#34;:{{ with .Description}}{{ . | plainify | jsonify }}{{ else }}{{ .Summary | plainify | jsonify }}{{ end }}, &#34;content&#34;:{{ .Content | plainify | jsonify }},&#34;tags&#34;:[ {{- $t := 0 }}{{- range .Param &#34;tags&#34; -}}{{ if gt $t 0 }},{{ end }}{{ . | jsonify }}{{ $t = add $t 1 }}{{ end -}} ], &#34;section&#34;: {{ .Section | jsonify -}} }
+</span></span><span style=display:flex><span>        {{- $i = add $i 1 -}}
+</span></span><span style=display:flex><span>    {{- end -}}
+</span></span><span style=display:flex><span>{{- end -}} ]
+</span></span></code></pre></div><p>然後在 <code>config.yaml</code> 中加入下面的設定值：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>outputFormats</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>SearchIndex</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>mediaType</span>: <span style=color:#e6db74>&#34;application/json&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>baseName</span>: <span style=color:#e6db74>&#34;searchindex&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>isPlainText</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>notAlternative</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>outputs</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>home</span>: [<span style=color:#e6db74>&#34;HTML&#34;</span>,<span style=color:#e6db74>&#34;RSS&#34;</span>, <span style=color:#e6db74>&#34;SearchIndex&#34;</span>]
+</span></span></code></pre></div><p>完成上面兩樣設定後，可以 <code>hugo</code> 一下試試看，有沒有在 <code>/public/searchindex.json</code> 中看到索引檔案，應該會類似如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>[
+</span></span><span style=display:flex><span>  {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;id&#34;</span>: <span style=color:#ae81ff>0</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;date&#34;</span>: <span style=color:#e6db74>&#34;1622891718&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;url&#34;</span>: <span style=color:#e6db74>&#34;https://tonypepe.com/posts/others/hello-world/&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;title&#34;</span>: <span style=color:#e6db74>&#34;Hello World&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;summary&#34;</span>: <span style=color:#e6db74>&#34;Hello World. This is a test post.&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;content&#34;</span>: <span style=color:#e6db74>&#34;This is my first post in hugo\ncontent&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;tags&#34;</span>: [ <span style=color:#e6db74>&#34;hugo&#34;</span>, <span style=color:#e6db74>&#34;test&#34;</span> ],
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;section&#34;</span>: <span style=color:#e6db74>&#34;posts&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>]
+</span></span></code></pre></div><h2 id=架設-meilisearch-server>架設 MeiliSearch Server</h2><p>準備好索引檔案後，我們就來架設 MeiliSearch 的 Server，MeiliSearch 是用 Rust 編寫，所以也是跨平台通用。官方提供很多種安裝方式，還有一鍵啟動腳本，當然，為了避免弄髒環境，最推薦的當然還是 Docker，下面就先以 Docker 為範例：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>docker run -it --rm <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    -p 7700:7700 <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    -v <span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span>/data.ms:/data.ms <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    getmeili/meilisearch:latest
+</span></span></code></pre></div><p>注意一下，上面掛載了一個 <code>data.ms</code> 的資料夾，所以在執行上面的指令前，記得先創建好。<code>data.ms</code> 這個資料夾是為了存放索引資料，避免因為 Docker 容器重啟就損失資料，所以很重要。</p><p>現在可以到 <a href=http://localhost:7700>http://localhost:7700</a>，會看到有一個簡易的 WEB UI。</p><p><img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/5664dc51-5d55-415a-3633-ac45e17d7a00/public alt=img></p><p>如果不想用 Docker，還是可以參考官方文件的其他安裝方式安裝。</p><h2 id=提交索引資料>提交索引資料</h2><p>前面有提到 MeiliSearch 是 RESTful API，所以要向他搜尋或是提供資料，都是用 HTTP Method。官方文件寫的都是 curl，我們還是使用 GUI 的方式介紹。HTTP 的 GUI 大家應該都會想到 Postman，但今天我們要使用他的開源替代 <a href=https://hoppspot.io>Hoppsotch</a>，他是一個網頁工具，所以不需要安裝。</p><p>可以先對 <code>/health</code> 做 <code>GET</code> 試試看有沒有連上，如果沒有連上，可能要檢查一下有沒有成功啟動 MeiliSearch Server。</p><p><img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/cf86e106-a1f6-472e-d2c1-a6b186944f00/public alt=img></p><p>確定連上後，我們就來提交索引資料，如果還沒有 Hugo 產生的索引資料，可以先到本站的 GitHub，拿本站的 <a href=https://github.com/TonyPepeBear/HugoBlog/blob/1bfae9859a44338d24a9f6676be37f72cc983505/searchindex.json>searchindex.json</a> 做測試。</p><p>因為 MeiliSearch 也可以同時有多個 Indexes 做搜尋，我們下面的範例以 <code>hugo_blog</code> 作為範例名稱，大家可以根據需求自己決定使用的名稱。</p><p><img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/71797a57-6f97-44cd-f4dc-675ec42ffd00/public alt=img></p><p>可以看到上圖對 <code>/indexes/&lt;&lt;IndexName>>/documents</code> 做 <code>POST</code> 方法，就可以把索引資料提交到 MeiliSearch Server。記得內容類型是 <code>application/json</code>，然後把索引資料放到 body。</p><p>現在回到 <a href=http://localhost:7700>localhost:7700</a>，應該就可以看到原本空空如也的 WEB UI 現在可以做搜尋了，可以先在這裡做一些簡單的搜尋，試試看自己的索引資料有沒有被成功的使用。</p><p><img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/c58970b0-53b5-4a16-50bb-ff40fa6fde00/public alt=img></p><h2 id=meilisearch-in-production>MeiliSearch in Production</h2><p>MeiliSearch 預設的啟動方式其實是 <code>development</code>，這模式只是方便本地做測試使用的，如果要使用在生產環境，應該要以 <code>production</code> 模式啟動。在 Production 模式下，會有兩個不一樣的地方，第一項是 Web UI 會被停用，第二項是會必須要設定 <code>Master Key</code>，下面還是用 Docker 作為範例：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>docker run -it --rm <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    -p 7700:7700 <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    -v <span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span>/data.ms:/data.ms <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    -e MEILI_ENV<span style=color:#f92672>=</span>production <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    -e MEILI_MASTER_KEY<span style=color:#f92672>=</span>&lt;Your Master Key&gt; <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    getmeili/meilisearch:latest
+</span></span></code></pre></div><p>上面設定的 Master Key，就是管理權限最大的 API Key，所以要記得妥善保存。</p><p>下面用剛剛的 Master Key 去對 <code>/keys</code> 做 <code>GET</code>，然後在 Headers 中，加上剛剛的 Master Key，就可以拿到預設的搜尋 KEY，和預設的 ADMIN KEY。如果要再另外新增 API KEY，可以參考官方的文件，這裡就不多著墨。</p><p><img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/91af11f7-29fc-446b-7ae1-dcb47f82b900/public alt=img></p><h2 id=為網頁加上搜尋功能>為網頁加上搜尋功能</h2><p>我們會用到 MeiliSearch 提供的 <a href=https://github.com/meilisearch/instant-meilisearch>Instant MeiliSearch</a>，這個 JS 庫就是使用 Algolia 的 Instant Search 改的，所以有些文件可以直接去看 Algolia 的官方文件。Instant MeiliSearch 最簡單的使用方式也是直接用 CDN 的方式，下面是一個最簡單的模板，看懂後用類似的邏輯加到自己的網頁中就好。</p><p>html:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span><span style=color:#75715e>&lt;!DOCTYPE html&gt;</span>
+</span></span><span style=display:flex><span>&lt;<span style=color:#f92672>html</span> <span style=color:#a6e22e>lang</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;en&#34;</span>&gt;
+</span></span><span style=display:flex><span>  &lt;<span style=color:#f92672>head</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>meta</span> <span style=color:#a6e22e>charset</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;utf-8&#34;</span> /&gt;
+</span></span><span style=display:flex><span>  &lt;/<span style=color:#f92672>head</span>&gt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  &lt;<span style=color:#f92672>body</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>      &lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;searchbox&#34;</span>&gt;&lt;/<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>      &lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>id</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;hits&#34;</span>&gt;&lt;/<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>    &lt;/<span style=color:#f92672>div</span>&gt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://cdn.jsdelivr.net/npm/@meilisearch/instant-meilisearch/dist/instant-meilisearch.umd.min.js&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://cdn.jsdelivr.net/npm/instantsearch.js@4&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;
+</span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;./app.js&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;
+</span></span><span style=display:flex><span>  &lt;/<span style=color:#f92672>body</span>&gt;
+</span></span><span style=display:flex><span>&lt;/<span style=color:#f92672>html</span>&gt;
+</span></span></code></pre></div><p>下面是剛剛的 html 會用到的 <code>app.js</code>，用來作為 Search 的設定值，只要把下面的網址設定成自己的網址，和自己在前幾步驟拿到的搜尋 API KEY 就可以使用了：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>search</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>instantsearch</span>({
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>indexName</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;steam-video-games&#39;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>searchClient</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>instantMeiliSearch</span>(
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#39;https://integration-demos.meilisearch.com&#39;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#39;q7QHwGiX841a509c8b05ef29e55f2d94c02c00635f729ccf097a734cbdf7961530f47c47&#39;</span>
+</span></span><span style=display:flex><span>  ),
+</span></span><span style=display:flex><span>})
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>search</span>.<span style=color:#a6e22e>addWidgets</span>([
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>instantsearch</span>.<span style=color:#a6e22e>widgets</span>.<span style=color:#a6e22e>searchBox</span>({
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>container</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;#searchbox&#39;</span>,
+</span></span><span style=display:flex><span>  }),
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>instantsearch</span>.<span style=color:#a6e22e>widgets</span>.<span style=color:#a6e22e>hits</span>({
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>container</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;#hits&#39;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>templates</span><span style=color:#f92672>:</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>item</span><span style=color:#f92672>:</span> <span style=color:#e6db74>`
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        &lt;div&gt;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &lt;div class=&#34;hit-name&#34;&gt;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            {{#helpers.highlight}}{ &#34;attribute&#34;: &#34;name&#34; }{{/helpers.highlight}}
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &lt;/div&gt;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        &lt;/div&gt;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      `</span>,
+</span></span><span style=display:flex><span>    },
+</span></span><span style=display:flex><span>  }),
+</span></span><span style=display:flex><span>])
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>search</span>.<span style=color:#a6e22e>start</span>()
+</span></span></code></pre></div><p>如果覺得他預設提供的 UI 很醜，可以用 CSS 的方式去改他。</p><h2 id=github-actions-自動提交索引>GitHub Actions 自動提交索引</h2><p>不廢話，直接上本站的 yml:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml data-lang=yml><span style=display:flex><span><span style=color:#f92672>name</span>: <span style=color:#ae81ff>MeiliSearch Index</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>on</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>push</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>branches</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>master </span> <span style=color:#75715e># Set a branch to deploy</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>jobs</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>deploy</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>runs-on</span>: <span style=color:#ae81ff>ubuntu-20.04</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>steps</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>actions/checkout@v2</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>with</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>submodules</span>: <span style=color:#66d9ef>true</span>  <span style=color:#75715e># Fetch Hugo themes (true OR recursive)</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>fetch-depth</span>: <span style=color:#ae81ff>0</span>    <span style=color:#75715e># Fetch all history for .GitInfo and .Lastmod</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Setup Node</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>actions/setup-node@v2</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>with</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>node-version</span>: <span style=color:#e6db74>&#39;14&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Setup Hugo</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>peaceiris/actions-hugo@v2</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>with</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>hugo-version</span>: <span style=color:#e6db74>&#39;latest&#39;</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>extended</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Build</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>run</span>: <span style=color:#ae81ff>| </span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>npm i</span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>hugo --minify</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Post Index</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>run</span>: <span style=color:#ae81ff>| </span>
+</span></span><span style=display:flex><span>          <span style=color:#ae81ff>curl \</span>
+</span></span><span style=display:flex><span>            -<span style=color:#ae81ff>X POST &#34;https://search.tonypepe.com/indexes/hugo_blog/documents&#34; \</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>-H &#39;Authorization</span>: <span style=color:#ae81ff>Bearer ${{ secrets.MEILISEARCH_KEY }}&#39; \</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>-H &#39;Content-Type</span>: <span style=color:#ae81ff>application/json&#39; \</span>
+</span></span><span style=display:flex><span>            --<span style=color:#ae81ff>data-binary &#34;@public/searchindex.json&#34;</span>
+</span></span></code></pre></div><p>其實重點就是在最後一步，把索引檔案 POST 到 MeiliSearch 就可以了。</p><h2 id=referenc>Referenc。。</h2><ul>
+<li><a href=https://meilisearch.com>MeiliSearch</a></li><li><a href=https://discourse.gohugo.io/t/a-simple-javascript-based-full-text-search-function/29119>A simple javascript based full text search function</a></li><li><a href=https://hoppspot.io>Hoppsotch</a></li><li><a href=https://github.com/meilisearch/instant-meilisearch>Instant MeiliSearch</a></li></ul></article></div></div></main></div><aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4 pl-3">
 <nav>
 <div class="overflow-y-auto page-right-nav rounded-lg shadow-md bg-gray-50 my-10 p-3 mr-3" style=max-height:65vh>
-<h2 class="text-3xl m-4 text-gray-600">目錄</h2>
-<nav id=TableOfContents>
+<h2 class="text-3xl m-4 text-gray-600">目錄</h2><nav id=TableOfContents>
 <ul>
-<li><a href=#簡介-meilisearch-server>簡介 MeiliSearch Server</a></li>
-<li><a href=#searchindexjson>SearchIndex.json</a></li>
-<li><a href=#架設-meilisearch-server>架設 MeiliSearch Server</a></li>
-<li><a href=#提交索引資料>提交索引資料</a></li>
-<li><a href=#meilisearch-in-production>MeiliSearch in Production</a></li>
-<li><a href=#為網頁加上搜尋功能>為網頁加上搜尋功能</a></li>
-<li><a href=#github-actions-自動提交索引>GitHub Actions 自動提交索引</a></li>
-<li><a href=#referenc>Referenc。。</a></li>
-</ul>
-</nav>
-</div>
-</nav>
-</aside>
-</div>
-<footer class="h-60 bg-gray-800 flex justify-center items-center flex-col space-y-8">
-<p class="order-1 text-gray-100">TonyPepe &copy; 2020 - 2022</p>
-<div class="order-2 text-gray-100 inline-flex">
-<p>Made with </p>
-<span class="iconify mx-2" data-icon=ant-design:heart-filled style=color:#f21111></span>
-<p>and <a href=https://gohugo.io/ target=_blank>Hugo</a></p>
-</div>
-<div class="order-3 flex flex-row space-x-6">
+<li><a href=#簡介-meilisearch-server>簡介 MeiliSearch Server</a></li><li><a href=#searchindexjson>SearchIndex.json</a></li><li><a href=#架設-meilisearch-server>架設 MeiliSearch Server</a></li><li><a href=#提交索引資料>提交索引資料</a></li><li><a href=#meilisearch-in-production>MeiliSearch in Production</a></li><li><a href=#為網頁加上搜尋功能>為網頁加上搜尋功能</a></li><li><a href=#github-actions-自動提交索引>GitHub Actions 自動提交索引</a></li><li><a href=#referenc>Referenc。。</a></li></ul></nav></div></nav></aside></div><footer class="h-60 bg-gray-800 flex justify-center items-center flex-col space-y-8">
+<p class="order-1 text-gray-100">TonyPepe &copy; 2020 - 2022</p><div class="order-2 text-gray-100 inline-flex">
+<p>Made with </p><span class="iconify mx-2" data-icon=ant-design:heart-filled style=color:#f21111></span>
+<p>and <a href=https://gohugo.io/ target=_blank>Hugo</a></p></div><div class="order-3 flex flex-row space-x-6">
 <a href=https://github.com/TonyPepeBear/HugoBlog target=_blank>
 <span class="iconify text-white" data-icon=file-icons:hugo data-width=33></span>
 </a>
@@ -270,9 +182,7 @@
 <a href=https://github.com/TonyPepeBear target=_blank>
 <span class="iconify text-white" data-icon=fontisto:github data-width=35></span>
 </a>
-</div>
-</footer>
-<link rel=preconnect href=https://fonts.googleapis.com>
+</div></footer><link rel=preconnect href=https://fonts.googleapis.com>
 <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Serif+TC:wght@600&display=swap" rel=stylesheet>
 <script src=https://code.iconify.design/2/2.1.0/iconify.min.js></script>
@@ -284,5 +194,4 @@
 <script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/dockerfile.min.js></script>
 <script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/http.min.js></script>
 <script defer>hljs.highlightAll()</script>
-</body>
-</html>
+</body></html>

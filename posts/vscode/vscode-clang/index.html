@@ -1,80 +1,17 @@
-<!doctype html><html lang=zh-tw>
-<head>
-<meta http-equiv=content-type content="text/html" charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<meta name=viewport content="width=device-width,initial-scale=1">
-<link rel=stylesheet href="/HugoBlog/css/main.min.ec65659f16e27fb708381e54bb6c75962ea17bb015b43ce715b936fb92141460.css" integrity="sha256-7GVlnxbif7cIOB5Uu2x1li6he7AVtDznFbk2+5IUFGA=">
-<title>用 VSCode 寫 C/C++ - TonyPepe</title></head><body class=bg-gray-200>
-<script src=https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js defer></script>
-<div class="container mx-auto lg:flex">
-<aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4">
-<nav class="mx-4 lg:mx-0 flex flex-row lg:flex-col xl:ml-28">
-<div>
-<img class="rounded-full w-32 h-32 hover:-rotate-12 transform duration-700" src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/cfccf3e2-7fd5-4e6c-adcb-a3cc5064f900/public alt>
-<div class=mt-3>
-<a href=/ class="mt-10 text-2xl font-black text-gray-800">TonyPepe</a>
-</div></div><div>
-<div class="flex flex-col ml-4 lg:ml-0">
-<a href=/ class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
-<div class="flex flex-row items-center">
-<span class=iconify data-icon=mdi:home></span>
-<p class=ml-2>Home</p></div></a>
-<a href=/search class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900">
-<div class="flex flex-row items-center">
-<span class=iconify data-icon=mdi:file-search></span>
-<p class=ml-2>Search</p></div></a>
-<a href=/about class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900 transition">
-<div class="flex flex-row items-center">
-<span class=iconify data-icon=mdi:human-greeting-variant></span>
-<p class=ml-2>About</p></div></a>
-</div></div></nav></aside><div class="lg:w-3/5 z-10 mt-12">
-<main>
-<div class="bg-white shadow-md rounded-xl my-5 mx-2">
-<img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/48d8b9f1-209f-44ab-0f7b-92b5f082a500/public class="filter w-full h-80 object-cover rounded-t-xl">
-<div class=px-3>
-<h1 class="text-4xl my-5 inline-block text-center w-full text-black">用 VSCode 寫 C/C++</h1><div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
-<span class=iconify data-icon=mdi:calendar-range></span>
+<!doctype html><html lang=zh-tw><head><meta http-equiv=content-type content="text/html" charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet href="/HugoBlog/css/main.min.ec65659f16e27fb708381e54bb6c75962ea17bb015b43ce715b936fb92141460.css" integrity="sha256-7GVlnxbif7cIOB5Uu2x1li6he7AVtDznFbk2+5IUFGA="><title>用 VSCode 寫 C/C++ - TonyPepe</title></head><body class=bg-gray-200><script src=https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js defer></script><div class="container mx-auto lg:flex"><aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4"><nav class="mx-4 lg:mx-0 flex flex-row lg:flex-col xl:ml-28"><div><img class="rounded-full w-32 h-32 hover:-rotate-12 transform duration-700" src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/cfccf3e2-7fd5-4e6c-adcb-a3cc5064f900/public alt><div class=mt-3><a href=/ class="mt-10 text-2xl font-black text-gray-800">TonyPepe</a></div></div><div><div class="flex flex-col ml-4 lg:ml-0"><a href=/ class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900"><div class="flex flex-row items-center"><span class=iconify data-icon=mdi:home></span><p class=ml-2>Home</p></div></a><a href=/search class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900"><div class="flex flex-row items-center"><span class=iconify data-icon=mdi:file-search></span><p class=ml-2>Search</p></div></a><a href=/about class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900 transition"><div class="flex flex-row items-center"><span class=iconify data-icon=mdi:human-greeting-variant></span><p class=ml-2>About</p></div></a></div></div></nav></aside><div class="lg:w-3/5 z-10 mt-12"><main><div class="bg-white shadow-md rounded-xl my-5 mx-2"><img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/48d8b9f1-209f-44ab-0f7b-92b5f082a500/public class="filter w-full h-80 object-cover rounded-t-xl"><div class=px-3><h1 class="text-4xl my-5 inline-block text-center w-full text-black">用 VSCode 寫 C/C++</h1><div class="mx-2 flex flex-row pb-2 text-gray-500 items-center"><span class=iconify data-icon=mdi:calendar-range></span>
 <time class=ml-1 datetime=2021-06-08T00:55:19+08:00>2021-Jun-08</time>
-<a href=https://github.com/TonyPepeBear/HugoBlog/commit/d98398c3ef9c1d13cddfb0fafc1656a4b681f4f9 target=_blank class="flex flex-row items-center ml-5">
-<span class=iconify data-icon=bi:git></span>
-<p class=ml-1>d98398c</p></a>
-<a href=https://github.com/TonyPepeBear/HugoBlog/issues target=_blank class="flex flex-row items-center ml-5">
-<span class=iconify data-icon=bi:info-circle-fill></span>
-<p class=ml-1>Issue</p></a>
-</div><article class="mx-2 pb-4">
-<p>其實在 VSCode 寫 C 根本不是一件難事，VSCode 本來就是一個優秀的文字編輯器，所以要要寫 C 完全不是問題，但問題是出在執行或 Debug 寫好的 Code 實在是很麻煩，要先經過不少設定。而且在官方的文件中，其實是教你怎麼建置專案，執行 Debug，如果只是寫一點簡單的小程式根本用不到那麼複雜的設定，所以本文是我目前發現比較容易在 VSCode 中執行 C 和 C++ 的方法。</p><h2 id=gcc-g>gcc g++</h2><p>在了解如何設定 vscode 前，我們先來了解一下基本的 gcc、g++ 指令，這是一個用來編譯 C 程式碼最快的方法，gcc 就是 C 的編譯器，g++ 則是 C++ 的。這裡不會解說如何安裝，在 Windows 下可以使用 MinGW，macOS 則是只要在 Terminal 下 gcc 指令，就會自動問你要不要安裝。</p><p>下面的範例會編譯 <code>main.cpp</code> 的 C++ 檔案：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>g++ main.cpp
+<a href=https://github.com/TonyPepeBear/HugoBlog/commit/d98398c3ef9c1d13cddfb0fafc1656a4b681f4f9 target=_blank class="flex flex-row items-center ml-5"><span class=iconify data-icon=bi:git></span><p class=ml-1>d98398c</p></a><a href=https://github.com/TonyPepeBear/HugoBlog/issues target=_blank class="flex flex-row items-center ml-5"><span class=iconify data-icon=bi:info-circle-fill></span><p class=ml-1>Issue</p></a></div><article class="mx-2 pb-4"><p>其實在 VSCode 寫 C 根本不是一件難事，VSCode 本來就是一個優秀的文字編輯器，所以要要寫 C 完全不是問題，但問題是出在執行或 Debug 寫好的 Code 實在是很麻煩，要先經過不少設定。而且在官方的文件中，其實是教你怎麼建置專案，執行 Debug，如果只是寫一點簡單的小程式根本用不到那麼複雜的設定，所以本文是我目前發現比較容易在 VSCode 中執行 C 和 C++ 的方法。</p><h2 id=gcc-g>gcc g++</h2><p>在了解如何設定 vscode 前，我們先來了解一下基本的 gcc、g++ 指令，這是一個用來編譯 C 程式碼最快的方法，gcc 就是 C 的編譯器，g++ 則是 C++ 的。這裡不會解說如何安裝，在 Windows 下可以使用 MinGW，macOS 則是只要在 Terminal 下 gcc 指令，就會自動問你要不要安裝。</p><p>下面的範例會編譯 <code>main.cpp</code> 的 C++ 檔案：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>g++ main.cpp
 </span></span></code></pre></div><p>執行上面的指令後，會產生名為 <code>a.out</code> 的檔案，因為我們沒有指定輸出檔名，所以預設就是 <code>a.out</code>，在 Windows 上則為 <code>a.exe</code> 的執行檔。如果要執行產生的執行檔案：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>./a.out
 </span></span><span style=display:flex><span>./a.exe <span style=color:#75715e># On Windows</span>
 </span></span></code></pre></div><p>要指定輸出檔名也很簡單，加個 <code>-o</code>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>g++ -o main.out main.cpp
 </span></span></code></pre></div><p>這樣就可以將 <code>main.cpp</code> 編譯成 <code>main.out</code> 的執行檔。</p><p>上面這些不會也沒關係，但我還是建議了解一下，因為等一下要安裝的模組，只是幫你完成這些步驟，如果完全不了解指令的功能，發生問題可能自己會沒辦法解決。</p><h2 id=設定-vscode>設定 VSCode</h2><p>第一步就是先在 VSCode 中安裝 <strong>C/C++</strong>，和 <strong>Code Runner</strong>，兩個延伸模組。</p><p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210608014749.png alt=img></p><p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210608021309.png alt=img></p><p>安裝完成後，應該就會看到右上角出現了一個執行的按鈕，可以按按看程式會不會執行。</p><p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210608021808.png alt=img></p><p>如果找不到按鈕，或是想要停下程式，也可以用按下 <code>f1</code> 的方式叫出 VSCode 的指令輸入窗，輸入 <code>Run Code</code> 或是 <code>Stop Code Run</code>。</p><p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210608022037.png alt=img></p><h2 id=run-in-terminal>Run In Terminal</h2><p>現在可能會發先一個問題，這種執行模式是沒有辦法接收鍵盤輸入的，如果想要接收鍵盤輸入，我們要把執行模式改成在 Terminal 中。所以我們要開啟 VSCode 的 <code>settings.json</code> 設定檔，來更改設定，一樣是用 <code>f1</code> 叫出命令輸入區，並尋找 <code>open settings json</code>：</p><p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210608024052.png alt=img></p><p>打開後在裡面新增一行：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span><span style=color:#e6db74>&#34;code-runner.runInTerminal&#34;</span><span style=color:#960050;background-color:#1e0010>:</span> <span style=color:#66d9ef>true</span>
-</span></span></code></pre></div><p>如果前方有其他設定值，記得在前面的設定值的最後面加個逗號 <code>,</code>：</p><p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210608024259.png alt=img></p><p>現在就可以方便的在 VSCode 中寫 C，和方便的執行他們。</p></article></div></div></main></div><aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4 pl-3">
-<nav>
-<div class="overflow-y-auto page-right-nav rounded-lg shadow-md bg-gray-50 my-10 p-3 mr-3" style=max-height:65vh>
-<h2 class="text-3xl m-4 text-gray-600">目錄</h2><nav id=TableOfContents>
-<ul>
-<li><a href=#gcc-g>gcc g++</a></li><li><a href=#設定-vscode>設定 VSCode</a></li><li><a href=#run-in-terminal>Run In Terminal</a></li></ul></nav></div></nav></aside></div><footer class="h-60 bg-gray-800 flex justify-center items-center flex-col space-y-8">
-<p class="order-1 text-gray-100">TonyPepe &copy; 2020 - 2022</p><div class="order-2 text-gray-100 inline-flex">
-<p>Made with </p><span class="iconify mx-2" data-icon=ant-design:heart-filled style=color:#f21111></span>
-<p>and <a href=https://gohugo.io/ target=_blank>Hugo</a></p></div><div class="order-3 flex flex-row space-x-6">
-<a href=https://github.com/TonyPepeBear/HugoBlog target=_blank>
-<span class="iconify text-white" data-icon=file-icons:hugo data-width=33></span>
-</a>
-<a href=https://www.wikiwand.com/en/Taiwan target=_blank>
-<span class=iconify data-icon=twemoji:flag-for-flag-taiwan style=color:#f21111 data-width=40></span>
-</a>
-<a href=https://github.com/TonyPepeBear target=_blank>
-<span class="iconify text-white" data-icon=fontisto:github data-width=35></span>
-</a>
-</div></footer><link rel=preconnect href=https://fonts.googleapis.com>
-<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Serif+TC:wght@600&display=swap" rel=stylesheet>
-<script src=https://code.iconify.design/2/2.1.0/iconify.min.js></script>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/dracula.min.css>
-<script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js></script>
+</span></span></code></pre></div><p>如果前方有其他設定值，記得在前面的設定值的最後面加個逗號 <code>,</code>：</p><p><img src=https://cdn.jsdelivr.net/gh/TonyPepeBear/ImageBed@main/20210608024259.png alt=img></p><p>現在就可以方便的在 VSCode 中寫 C，和方便的執行他們。</p></article></div></div></main></div><aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4 pl-3"><nav><div class="overflow-y-auto page-right-nav rounded-lg shadow-md bg-gray-50 my-10 p-3 mr-3" style=max-height:65vh><h2 class="text-3xl m-4 text-gray-600">目錄</h2><nav id=TableOfContents><ul><li><a href=#gcc-g>gcc g++</a></li><li><a href=#設定-vscode>設定 VSCode</a></li><li><a href=#run-in-terminal>Run In Terminal</a></li></ul></nav></div></nav></aside></div><footer class="h-60 bg-gray-800 flex justify-center items-center flex-col space-y-8"><p class="order-1 text-gray-100">TonyPepe &copy; 2020 - 2022</p><div class="order-2 text-gray-100 inline-flex"><p>Made with</p><span class="iconify mx-2" data-icon=ant-design:heart-filled style=color:#f21111></span><p>and <a href=https://gohugo.io/ target=_blank>Hugo</a></p></div><div class="order-3 flex flex-row space-x-6"><a href=https://github.com/TonyPepeBear/HugoBlog target=_blank><span class="iconify text-white" data-icon=file-icons:hugo data-width=33></span></a>
+<a href=https://www.wikiwand.com/en/Taiwan target=_blank><span class=iconify data-icon=twemoji:flag-for-flag-taiwan style=color:#f21111 data-width=40></span></a>
+<a href=https://github.com/TonyPepeBear target=_blank><span class="iconify text-white" data-icon=fontisto:github data-width=35></span></a></div></footer><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Serif+TC:wght@600&display=swap" rel=stylesheet><script src=https://code.iconify.design/2/2.1.0/iconify.min.js></script>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/dracula.min.css><script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js></script>
 <script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/kotlin.min.js></script>
 <script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/groovy.min.js></script>
 <script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/dart.min.js></script>
 <script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/dockerfile.min.js></script>
 <script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/http.min.js></script>
-<script defer>hljs.highlightAll()</script>
-</body></html>
+<script defer>hljs.highlightAll()</script></body></html>

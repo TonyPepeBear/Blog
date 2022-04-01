@@ -59,7 +59,7 @@ gpg --full-generate-key
 
 ![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/56a8fc50-5a1e-4a0e-e9ef-30b9fe74fc00/public)
 
-這樣就產生成功了，可以寄一下這個畫面出現的資料
+這樣就產生成功了，可以記一下這個畫面出現的資料
 
 如果要顯示所有的 Key：
 

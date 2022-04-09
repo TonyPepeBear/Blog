@@ -1,0 +1,10 @@
+on: workflow_dispatch
+
+jobs:
+  empty-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: EndBug/add-and-commit@v9
+        with:
+          commit: --allow-empty

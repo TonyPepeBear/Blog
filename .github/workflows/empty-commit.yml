@@ -1,3 +1,4 @@
+name: empty-commit
 on: workflow_dispatch
 
 jobs:

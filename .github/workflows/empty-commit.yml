@@ -6,7 +6,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Import GPG key
+        id: import_gpg
+        uses: crazy-max/ghaction-import-gpg@v4
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+      - run: |
+        git config user.signingkey 024CE4E863B28113A590C72349CFB1937571D066
       - uses: EndBug/add-and-commit@v9
         with:
-          commit: --allow-empty
           message: Update
+          commit: --allow-empty -S
+          committer_name: TonyPepeBear
+          committer_email: tonybear55665566@gmail.com
+
+

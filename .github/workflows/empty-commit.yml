@@ -12,7 +12,7 @@ jobs:
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
       - run: |
-        git config user.signingkey 024CE4E863B28113A590C72349CFB1937571D066
+          git config user.signingkey 024CE4E863B28113A590C72349CFB1937571D066
       - uses: EndBug/add-and-commit@v9
         with:
           message: Update

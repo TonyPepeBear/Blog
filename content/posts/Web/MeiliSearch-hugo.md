@@ -241,7 +241,7 @@ jobs:
 
 其實重點就是在最後一步，把索引檔案 POST 到 MeiliSearch 就可以了。
 
-## Referenc。。
+## Referenc
 
 * [MeiliSearch](https://meilisearch.com)
 * [A simple javascript based full text search function](https://discourse.gohugo.io/t/a-simple-javascript-based-full-text-search-function/29119)

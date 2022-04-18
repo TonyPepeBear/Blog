@@ -1,0 +1,169 @@
+<!doctype html><html lang=zh-tw><head><meta http-equiv=content-type content="text/html" charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet href="/HugoBlog/css/main.min.ec65659f16e27fb708381e54bb6c75962ea17bb015b43ce715b936fb92141460.css" integrity="sha256-7GVlnxbif7cIOB5Uu2x1li6he7AVtDznFbk2+5IUFGA="><title>Kotlin Flow - TonyPepe</title></head><body class=bg-gray-200><script src=https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js defer></script><div class="container mx-auto lg:flex"><aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4"><nav class="mx-4 lg:mx-0 flex flex-row lg:flex-col xl:ml-28"><div><img class="rounded-full w-32 h-32 hover:-rotate-12 transform duration-700" src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/cfccf3e2-7fd5-4e6c-adcb-a3cc5064f900/public alt><div class=mt-3><a href=/ class="mt-10 text-2xl font-black text-gray-800">TonyPepe</a></div></div><div><div class="flex flex-col ml-4 lg:ml-0"><a href=/ class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900"><div class="flex flex-row items-center"><span class=iconify data-icon=mdi:home></span><p class=ml-2>Home</p></div></a><a href=/search class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900"><div class="flex flex-row items-center"><span class=iconify data-icon=mdi:file-search></span><p class=ml-2>Search</p></div></a><a href=/about class="mt-5 text-xl font-black text-gray-800 hover:text-blue-900 transition"><div class="flex flex-row items-center"><span class=iconify data-icon=mdi:human-greeting-variant></span><p class=ml-2>About</p></div></a></div></div></nav></aside><div class="lg:w-3/5 z-10 mt-12"><main><div class="bg-white shadow-md rounded-xl my-5 mx-2"><img src=https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/973beda6-caa9-4559-1f92-8ab5bd7d2700/public class="filter w-full h-80 object-cover rounded-t-xl"><div class=px-3><h1 class="text-4xl my-5 inline-block text-center w-full text-black">Kotlin Flow</h1><div class="mx-2 flex flex-row pb-2 text-gray-500 items-center"><span class=iconify data-icon=mdi:calendar-range></span>
+<time class=ml-1 datetime=2022-04-17T14:00:13Z>2022-Apr-17</time>
+<a href=https://github.com/TonyPepeBear/HugoBlog/commit/f3512d8714492da5ce76603aa812765ad562cba2 target=_blank class="flex flex-row items-center ml-5"><span class=iconify data-icon=bi:git></span><p class=ml-1>f3512d8</p></a><a href=https://github.com/TonyPepeBear/HugoBlog/issues target=_blank class="flex flex-row items-center ml-5"><span class=iconify data-icon=bi:info-circle-fill></span><p class=ml-1>Issue</p></a></div><article class="mx-2 pb-4"><p>Kotlin 在多工處理上提供非常好用的 Coroutine。當不同 Job 之間需要傳遞資料時，總會遇到許多問題，以前最簡單的方式就是 Callback，但 Callback 模式已經在各個程式語言中產生許多問題，這邊就不多討論。Kotlin Coroutine 如果只是要回傳一個值，可以直接用 Suspend 的 Return 值，但如果是要回傳很多資料呢？簡單的方式是直接回傳 List，可是如果資料非常大，也會產生出問題。所以 Kotlin 提供 Flow 來幫助解決大量資料傳遞的問題。</p><h2 id=kotline-coroutine>Kotline Coroutine</h2><p>如果還不知道什麼是 Coroutine 的，我以前也有寫過<a href=/posts/kotlin/kotlin-coroutine/>Kotlin Coroutine</a>。</p><h2 id=list-of-numbers>List OF Numbers</h2><p>讓我們先來看一個簡單的範例，產生一個會回傳 1 到 100 的 Int Function：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>nums</span>(): List&lt;Int&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> ans = mutableListOf&lt;Int&gt;()
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>1.</span>.<span style=color:#ae81ff>100</span>) {
+</span></span><span style=display:flex><span>        ans.add(i)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> ans
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>    nums().forEach { value <span style=color:#f92672>-&gt;</span>
+</span></span><span style=display:flex><span>        println(value)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>乍看之下沒什麼問題，但是如果這是一個需要大量 CPU 或 IO 處理的工作而且回傳值非常大，就會對記憶體產生負擔。下面假設我們需要 1 到 100,000，並用 <code>delay()</code> 模擬 CPU 工作，然後改成 Suspend Function。下面也把 main 改成 <code>runBlocking</code>，方便執行 Suspend Function：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#66d9ef>suspend</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>nums</span>(): List&lt;Int&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>val</span> ans = mutableListOf&lt;Int&gt;()
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>1.</span>.<span style=color:#ae81ff>100</span>_000) {
+</span></span><span style=display:flex><span>        delay(<span style=color:#ae81ff>100</span>)
+</span></span><span style=display:flex><span>        ans.add(i)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> ans
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>() = runBlocking {
+</span></span><span style=display:flex><span>    nums().forEach { value <span style=color:#f92672>-&gt;</span>
+</span></span><span style=display:flex><span>        println(value)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>上面的範例就會對記憶體產生一定的負擔，這時就是改成 Flow 的好時機：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#66d9ef>suspend</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>nums</span>(): Flow&lt;Int&gt; = flow {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>1.</span>.<span style=color:#ae81ff>100</span>_000) {
+</span></span><span style=display:flex><span>        delay(<span style=color:#ae81ff>100</span>)
+</span></span><span style=display:flex><span>        emit(i)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>() = runBlocking {
+</span></span><span style=display:flex><span>    nums().collect {
+</span></span><span style=display:flex><span>        println(<span style=color:#66d9ef>it</span>)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>可以看到上面的範例沒有一次產生一個很大的 List，再一次把資料回傳，寫的也可以更簡潔。</p><h2 id=flow-is-cold>Flow is Cold</h2><p>這句話的意思是，如果 Flow 沒有被 Collect，那麼 Flow 就永遠不會被執行。</p><p>下面的例子我們在 Emit 前加上一個 <code>println</code> ，並用一個變數接住一個 Flow，但不去呼叫 Collect，所以會先輸出 <code>Hello World</code> 才會輸出 <code>Start Flow</code>。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#66d9ef>suspend</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>nums</span>(): Flow&lt;Int&gt; = flow {
+</span></span><span style=display:flex><span>    println(<span style=color:#e6db74>&#34;Start Flow&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>1.</span>.<span style=color:#ae81ff>5</span>) {
+</span></span><span style=display:flex><span>        delay(<span style=color:#ae81ff>100</span>)
+</span></span><span style=display:flex><span>        emit(i)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>() = runBlocking {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> n: Flow&lt;Int&gt; = nums()
+</span></span><span style=display:flex><span>    println(<span style=color:#e6db74>&#34;Hello World&#34;</span>)
+</span></span><span style=display:flex><span>    n.collect {
+</span></span><span style=display:flex><span>        println(<span style=color:#66d9ef>it</span>)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>輸出：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>Hello World
+</span></span><span style=display:flex><span>Start Flow
+</span></span><span style=display:flex><span>1
+</span></span><span style=display:flex><span>2
+</span></span><span style=display:flex><span>3
+</span></span><span style=display:flex><span>4
+</span></span><span style=display:flex><span>5
+</span></span></code></pre></div><h2 id=emit-時-才會呼叫-collect>Emit 時 才會呼叫 Collect</h2><p>把上面的例子再 emit 前加上一個 <code>println()</code>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#66d9ef>suspend</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>nums</span>(): Flow&lt;Int&gt; = flow {
+</span></span><span style=display:flex><span>    println(<span style=color:#e6db74>&#34;Start Flow&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>1.</span>.<span style=color:#ae81ff>5</span>) {
+</span></span><span style=display:flex><span>        delay(<span style=color:#ae81ff>100</span>)
+</span></span><span style=display:flex><span>        println(<span style=color:#e6db74>&#34;emit </span><span style=color:#e6db74>$i</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>        emit(i)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>() = runBlocking {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> n: Flow&lt;Int&gt; = nums()
+</span></span><span style=display:flex><span>    println(<span style=color:#e6db74>&#34;Hello World&#34;</span>)
+</span></span><span style=display:flex><span>    n.collect {
+</span></span><span style=display:flex><span>        println(<span style=color:#66d9ef>it</span>)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>看到輸出可以發現，會先看到 emit() 上面的 print 被執行，才會執行到呼叫 collect 時傳進去的 function。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>Hello World
+</span></span><span style=display:flex><span>Start Flow
+</span></span><span style=display:flex><span>emit 1
+</span></span><span style=display:flex><span>1
+</span></span><span style=display:flex><span>emit 2
+</span></span><span style=display:flex><span>2
+</span></span><span style=display:flex><span>emit 3
+</span></span><span style=display:flex><span>3
+</span></span><span style=display:flex><span>emit 4
+</span></span><span style=display:flex><span>4
+</span></span><span style=display:flex><span>emit 5
+</span></span><span style=display:flex><span>5
+</span></span></code></pre></div><h2 id=flow-的資料量是固定的>Flow 的資料量是固定的</h2><p>這句話的意思並不是說 flow 只能定義好數量再回傳，而是說如果 flow 裡的所有 emit 沒有被 collect，就會出錯。</p><p>下面的 flow 就一定要被 collect 五次，如果因為呼叫他的 function 被意外中斷，這個 flow 也會拋出錯誤。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#66d9ef>suspend</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>nums</span>(): Flow&lt;Int&gt; = flow {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>1.</span>.<span style=color:#ae81ff>5</span>) {
+</span></span><span style=display:flex><span>        emit(i)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>那麼如果我只要一定數量的資料怎麼辦？下面範例取自官方文件：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>numbers</span>(): Flow&lt;Int&gt; = flow {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span> {                          
+</span></span><span style=display:flex><span>        emit(<span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>        emit(<span style=color:#ae81ff>2</span>) 
+</span></span><span style=display:flex><span>        println(<span style=color:#e6db74>&#34;This line will not execute&#34;</span>)
+</span></span><span style=display:flex><span>        emit(<span style=color:#ae81ff>3</span>)    
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>finally</span> {
+</span></span><span style=display:flex><span>        println(<span style=color:#e6db74>&#34;Finally in numbers&#34;</span>)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>() = runBlocking&lt;Unit&gt; {
+</span></span><span style=display:flex><span>    numbers() 
+</span></span><span style=display:flex><span>        .take(<span style=color:#ae81ff>2</span>) <span style=color:#75715e>// take only the first two
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        .collect { value <span style=color:#f92672>-&gt;</span> println(value) }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/* output:
+</span></span></span><span style=display:flex><span><span style=color:#75715e>1
+</span></span></span><span style=display:flex><span><span style=color:#75715e>2
+</span></span></span><span style=display:flex><span><span style=color:#75715e>Finally in numbers
+</span></span></span><span style=display:flex><span><span style=color:#75715e>*/</span>
+</span></span></code></pre></div><h2 id=flow-mapping>Flow mapping</h2><p>Flow 可以用 map 的方式，轉換成另一個 Flow。</p><p>這個例子產生平方數：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#66d9ef>suspend</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>allNumbers</span>(n: Int): Flow&lt;Int&gt; = flow {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>1.</span>.n) {
+</span></span><span style=display:flex><span>        emit(i)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>suspend</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>square</span>(n: Int): Flow&lt;Int&gt; = allNumbers(n).map { <span style=color:#66d9ef>it</span> * <span style=color:#66d9ef>it</span> }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>() = runBlocking {
+</span></span><span style=display:flex><span>    square(<span style=color:#ae81ff>10</span>).collect {
+</span></span><span style=display:flex><span>        println(<span style=color:#66d9ef>it</span>)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// output: 1 4 9 16 25 36 49 64 81 100 
+</span></span></span></code></pre></div><h2 id=flow-filter>Flow Filter</h2><p>這個例子輸出 1 到 100 之間的所有質數：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#66d9ef>suspend</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>allNumbers</span>(n: Int): Flow&lt;Int&gt; = flow {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>1.</span>.n) {
+</span></span><span style=display:flex><span>        emit(i)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>suspend</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>primeNumbers</span>(n: Int): Flow&lt;Int&gt; = allNumbers(n).filter { <span style=color:#66d9ef>it</span>.isPrime() }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>Int</span>.isPrime(): Boolean {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>1</span>) <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (i <span style=color:#66d9ef>in</span> <span style=color:#ae81ff>2.</span>.<span style=color:#66d9ef>this</span> / <span style=color:#ae81ff>2</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span> % i <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>main</span>() = runBlocking {
+</span></span><span style=display:flex><span>    primeNumbers(<span style=color:#ae81ff>100</span>).collect {
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>$it</span><span style=color:#e6db74> &#34;</span>)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#75715e>// output: 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 
+</span></span></span></code></pre></div><blockquote><p>碎念：這段程式真的充分展現 Kotlin 的威力..</p></blockquote><h2 id=後記>後記</h2><p>Flow 還有很多複雜的用法，像是合併兩個 flow 之類的，建議有興趣的人可以自己去看官方文件。</p><h2 id=reference>Reference</h2><ul><li><a href=https://kotlinlang.org/docs/flow.html>Asynchronous Flow</a></li></ul></article></div></div><div class=py-2><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1667006488909532" crossorigin=anonymous></script>
+<ins class=adsbygoogle style=display:block;text-align:center data-ad-layout=in-article data-ad-format=fluid data-ad-client=ca-pub-1667006488909532 data-ad-slot=8852856882></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div></main></div><aside class="lg:w-1/5 top-4 lg:sticky h-full z-0 mt-4 pl-3"><nav><div class="overflow-y-auto page-right-nav rounded-lg shadow-md bg-gray-50 my-10 p-3 mr-3" style=max-height:65vh><h2 class="text-3xl m-4 text-gray-600">目錄</h2><nav id=TableOfContents><ul><li><a href=#kotline-coroutine>Kotline Coroutine</a></li><li><a href=#list-of-numbers>List OF Numbers</a></li><li><a href=#flow-is-cold>Flow is Cold</a></li><li><a href=#emit-時-才會呼叫-collect>Emit 時 才會呼叫 Collect</a></li><li><a href=#flow-的資料量是固定的>Flow 的資料量是固定的</a></li><li><a href=#flow-mapping>Flow mapping</a></li><li><a href=#flow-filter>Flow Filter</a></li><li><a href=#後記>後記</a></li><li><a href=#reference>Reference</a></li></ul></nav></div></nav></aside></div><footer class="h-60 bg-gray-800 flex justify-center items-center flex-col space-y-8"><p class="order-1 text-gray-100">TonyPepe &copy; 2020 - 2022</p><div class="order-2 text-gray-100 inline-flex"><p>Made with</p><span class="iconify mx-2" data-icon=ant-design:heart-filled style=color:#f21111></span><p>and <a href=https://gohugo.io/ target=_blank>Hugo</a> in Taiwan</p></div><div class="order-3 flex flex-row space-x-6"><a href=https://github.com/TonyPepeBear/HugoBlog target=_blank><span class="iconify text-white" data-icon=file-icons:hugo data-width=33></span></a>
+<a href=https://www.wikiwand.com/en/Taiwan target=_blank><span class=iconify data-icon=twemoji:flag-for-flag-taiwan style=color:#f21111 data-width=40></span></a>
+<a href=https://github.com/TonyPepeBear target=_blank><span class="iconify text-white" data-icon=fontisto:github data-width=35></span></a></div></footer><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Noto+Serif+TC:wght@600&display=swap" rel=stylesheet><script src=https://code.iconify.design/2/2.1.0/iconify.min.js></script>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/dracula.min.css><script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js></script>
+<script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/kotlin.min.js></script>
+<script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/groovy.min.js></script>
+<script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/dart.min.js></script>
+<script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/dockerfile.min.js></script>
+<script data-cfasync=false src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/http.min.js></script>
+<script defer>hljs.highlightAll()</script></body></html>

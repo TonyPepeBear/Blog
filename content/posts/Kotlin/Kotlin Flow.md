@@ -211,7 +211,7 @@ suspend fun square(n: Int): Flow<Int> = allNumbers(n).map { it * it }
 
 fun main() = runBlocking {
     square(10).collect {
-        println(it)
+        print("$it ")
     }
 }
 

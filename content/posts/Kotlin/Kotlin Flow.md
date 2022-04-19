@@ -221,7 +221,7 @@ fun main() = runBlocking {
 
 ## Flow Filter
 
-這個例子輸出 1 到 100 之間的所有質數：
+這個例子輸出 1 到 100 之間的所有質數(勿模仿，效率堪憂)：
 
 ```kotlin
 suspend fun allNumbers(n: Int): Flow<Int> = flow {

@@ -2,7 +2,7 @@
 title: "Web Basic"
 description: 瀏覽器只看得懂三種東西：Html、CSS、Javascript。但是常可以發現以這些以外的語言編寫網頁，像是 Python、Ruby、PHP、Java 等等，其實這些東西寫出來的網頁，最後也都是編譯(轉換)成 Html、CSS、Javascript。所以要學網頁，就先從這三樣東西開始學。
 date: 2021-09-01T14:07:00Z
-draft: false
+draft: true
 image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/8d7dadd3-36a3-42c8-a452-3c93c541c600/public
 tags: 
     - web

@@ -14,12 +14,8 @@ article > * {
   @apply my-3;
 }
 
-article > p {
-  /* @apply  ; */
-}
-
 article > h2 {
-  @apply text-3xl text-blue-900 cursor-default hover:underline transition-all duration-300;
+  @apply text-3xl py-4 text-blue-900 cursor-default hover:underline transition-all duration-300;
 }
 
 article > h2:before {
@@ -29,7 +25,7 @@ article > h2:before {
 }
 
 article > h3 {
-  @apply text-2xl text-blue-900 cursor-default hover:underline transition-all duration-300;
+  @apply text-2xl py-4 text-blue-900 cursor-default hover:underline transition-all duration-300;
 }
 
 article > h3:before {

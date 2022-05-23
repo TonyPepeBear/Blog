@@ -2,7 +2,7 @@ const search = instantsearch({
   indexName: "hugo_blog",
   searchClient: instantMeiliSearch(
     "https://search.tonypepe.com",
-    "6xWF8OOP6f0a7f4c0eaddff20b31a8f4e3dadbd3ccf40f809da73ab625f6ddc6c7dc9d72"
+    "RelTuTBT6c8e8b5bdb81f783d45f135975ff59e8cfe8a63990f9d7f6757b68f5e36b8c1e"
   ),
 });
 

@@ -257,6 +257,8 @@ fun main() = runBlocking {
 
 Flow 還有很多複雜的用法，像是合併兩個 flow 之類的，建議有興趣的人可以自己去看官方文件。
 
+另外，Kotlin 其實還有一個叫做 Sequence 的 Interface，跟 Flow 非常像，在不是需要多線程的時候就已經很夠用，Flow 主要在多線程中使用，Sequence 單線程中使用。
+
 ## Reference
 
 - [Asynchronous Flow](https://kotlinlang.org/docs/flow.html)

@@ -3,12 +3,12 @@ title: "VSCode SSH 連入 Docker Container"
 date: 2022-05-21T14:07:16Z
 image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/0f3867f8-dd79-482c-1f27-a7a166f7dc00/public
 draft: false
-tags: 
-    - vscode
-    - ssh
-    - docker
+tags:
+  - vscode
+  - ssh
+  - docker
 categories:
-    - VSCode
+  - VSCode
 ---
 
 為什麼要在 Container 中 Coding？因爲開發中最大的難題總是在環境建置，好不容易建置好環境，要寫下個專案時，因為電腦已經髒兮兮，安裝環境時就會容易衝到版本，而造成惡性循環，環境建置一次比一次困難，最後發現重灌電腦最快。在 Container 中 Coding 就可以簡單用完即丟，每次都可以在乾淨的電腦安裝環境，裝任何東西也不怕把本機弄髒，在 Windows 上更可以簡單的在 Linux 中開發。
@@ -87,10 +87,10 @@ ssh -p 8222 ubuntu@localhost
 
 ## 後記
 
-其實我也不會每個專案都新增一個新的 Container，而是用到我受不了在創建一個新的，畢竟每次創新的 Container 也是有點麻煩。希望大家在開發的路上可以更加順利。
+其實我也不會每個專案都新增一個新的 Container，而是用到我受不了或衝突到後，才創建一個新的，畢竟每次創新的 Container 也是有點麻煩，但是能讓我在安裝一些亂七八糟的環境 (就是在說你們 npm, pip) 時，可以大膽地按下去，不用擔心把電腦搞到受不了才是重點。希望大家在開發的路上可以更加順利。
 
 另外，VSCode 的 SSH 連線功能真的做的不錯，甚至可以 Port Forwarding，在開發網頁的時候不用在 Docker 中多 Forwarding 一個 Port，可以隨時用 VSCode Forwarding 到本機上。
 
 ## Reference
 
-* [Remote Development using SSH](https://code.visualstudio.com/docs/remote/ssh)
+- [Remote Development using SSH](https://code.visualstudio.com/docs/remote/ssh)

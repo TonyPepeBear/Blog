@@ -1,18 +1,18 @@
 ---
 title: "用 Go 寫 Telegram Bot"
-description: Telegram Bot 沒有任何使用限制，可以寫出許多屬於自己的幫手。本篇簡單的用 Go 寫一個鸚鵡機器人，用戶說什麼，機器人就回什麼。 
+description: Telegram Bot 沒有任何使用限制，可以寫出許多屬於自己的幫手。本篇簡單的用 Go 寫一個鸚鵡機器人，用戶說什麼，機器人就回什麼。
 date: 2021-12-11T14:30:15Z
 image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f8c04956-a2ef-4cba-b9fe-2a5ceff40b00/public
 hidden: false
 draft: false
-tags: 
-    - go
-    - golang
-    - telegram
-    - bot
-    - telegram-bot
+tags:
+  - go
+  - golang
+  - telegram
+  - bot
+  - telegram-bot
 categories:
-    - Telegram
+  - Telegram
 ---
 
 Telegram Bot 沒有任何使用限制，可以寫出許多屬於自己的幫手。本篇簡單的用 Go 寫一個鸚鵡機器人，用戶說什麼，機器人就回什麼。
@@ -192,5 +192,5 @@ func handleUpdate(bot *tgbotapi.BotAPI, update tgbotapi.Update) {
 
 ## Reference
 
-* [Telegram APIs](https://core.telegram.org/)
-* [Golang bindings for the Telegram Bot API - GitHub](https://github.com/go-telegram-bot-api/telegram-bot-api)
+- [Telegram APIs](https://core.telegram.org/)
+- [Golang bindings for the Telegram Bot API - GitHub](https://github.com/go-telegram-bot-api/telegram-bot-api)

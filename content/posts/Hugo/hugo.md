@@ -4,14 +4,14 @@ description: Hugo 是靜態網頁的產生器，類似 Hexo 和 Jekyll，Hugo �
 date: 2021-06-07T02:10:46+08:00
 draft: false
 image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f50473d3-1acc-431a-402d-3c79f4170b00/public
-tags: 
-    - hugo
-    - blog
-    - mac
-    - linux
-    - windows
+tags:
+  - hugo
+  - blog
+  - mac
+  - linux
+  - windows
 categories:
-    - Hugo
+  - Hugo
 ---
 
 Hugo 是靜態網頁的產生器，類似 Hexo 和 Jekyll，Hugo 由 go 語言編寫，效率極高，我原本是用 Hexo 在產生文章，後來發現 Hugo 這個好東西，也觀望了一陣子~~其實是懶~~，就決定換過來了，目前也用得非常順手。
@@ -119,4 +119,4 @@ hugo
 
 ## Reference
 
-* [Hugo Quick Start](https://gohugo.io/getting-started/quick-start/)
+- [Hugo Quick Start](https://gohugo.io/getting-started/quick-start/)

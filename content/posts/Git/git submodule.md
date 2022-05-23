@@ -4,12 +4,12 @@ description: 要在一個 Git 專案中有子專案 (我稱為 git in git)，有
 date: 2021-09-14T05:11:27Z
 draft: false
 image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/6c29c4ca-3fc9-49b2-3109-0876c7492400/public
-tags: 
-    - git
-    - submodule
-    - linux
+tags:
+  - git
+  - submodule
+  - linux
 categories:
-    - Git
+  - Git
 ---
 
 要在一個 Git 專案中有子專案 (我都叫他 git in git)，有兩個辦法，一個是直接 clone 到目錄下，另一個就是使用 submodule。兩者的不同是前者的子專案會在母專案中佔掉所有的空間，而後者只會紀錄 submodule 的路徑和 commit 版本。

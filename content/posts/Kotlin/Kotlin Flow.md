@@ -3,13 +3,13 @@ title: "Kotlin Flow"
 date: 2022-04-17T14:00:13Z
 image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/973beda6-caa9-4559-1f92-8ab5bd7d2700/public
 draft: false
-tags: 
-    - kotlin
-    - coroutines
-    - flow
-    - android
+tags:
+  - kotlin
+  - coroutines
+  - flow
+  - android
 categories:
-    - Kotlin
+  - Kotlin
 ---
 
 Kotlin 在多工處理上提供非常好用的 Coroutine。當不同 Job 之間需要傳遞資料時，總會遇到許多問題，以前最簡單的方式就是 Callback，但 Callback 模式已經在各個程式語言中產生許多問題，這邊就不多討論。Kotlin Coroutine 如果只是要回傳一個值，可以直接用 Suspend 的 Return 值，但如果是要回傳很多資料呢？簡單的方式是直接回傳 List，可是如果資料非常大，也會產生出問題。所以 Kotlin 提供 Flow 來幫助解決大量資料傳遞的問題。
@@ -172,18 +172,18 @@ suspend fun nums(): Flow<Int> = flow {
 
 ```kotlin
 fun numbers(): Flow<Int> = flow {
-    try {                          
+    try {
         emit(1)
-        emit(2) 
+        emit(2)
         println("This line will not execute")
-        emit(3)    
+        emit(3)
     } finally {
         println("Finally in numbers")
     }
 }
 
 fun main() = runBlocking<Unit> {
-    numbers() 
+    numbers()
         .take(2) // take only the first two
         .collect { value -> println(value) }
 }
@@ -216,7 +216,7 @@ fun main() = runBlocking {
     }
 }
 
-// output: 1 4 9 16 25 36 49 64 81 100 
+// output: 1 4 9 16 25 36 49 64 81 100
 ```
 
 ## Flow Filter
@@ -248,7 +248,7 @@ fun main() = runBlocking {
     }
 }
 
-// output: 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 
+// output: 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97
 ```
 
 > 碎念：這段程式真的充分展現 Kotlin 的威力..
@@ -259,4 +259,4 @@ Flow 還有很多複雜的用法，像是合併兩個 flow 之類的，建議有
 
 ## Reference
 
-* [Asynchronous Flow](https://kotlinlang.org/docs/flow.html)
+- [Asynchronous Flow](https://kotlinlang.org/docs/flow.html)

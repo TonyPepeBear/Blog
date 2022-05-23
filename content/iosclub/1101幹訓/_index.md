@@ -8,10 +8,10 @@ draft: false
 
 ## 課程教材
 
-* [Command and Git](https://drive.google.com/file/d/1SUcLFZc3rxJg3X8tXbayVtMRZxAOOWFY/view?usp=sharing)
-* [Docker](/posts/docker/docker/)
-* [Web Basic](/posts/web/web-basic/)
-* [Markdown](/posts/others/markdown/)
+- [Command and Git](https://drive.google.com/file/d/1SUcLFZc3rxJg3X8tXbayVtMRZxAOOWFY/view?usp=sharing)
+- [Docker](/posts/docker/docker/)
+- [Web Basic](/posts/web/web-basic/)
+- [Markdown](/posts/others/markdown/)
 
 ## PyCharm Community
 

@@ -40,9 +40,9 @@ ol
 
 ul
 
-* one
-* two
-* three
+- one
+- two
+- three
 
 preview
 

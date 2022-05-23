@@ -3,15 +3,15 @@ title: "MeiliSearch with Hugo"
 date: 2022-01-17T17:40:09Z
 image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f9f8be53-5393-4190-b6da-baf27d8a7500/public
 draft: false
-tags: 
-    - meilisearch
-    - search
-    - web
-    - hugo
-    - github
-    - actions
+tags:
+  - meilisearch
+  - search
+  - web
+  - hugo
+  - github
+  - actions
 categories:
-    - Web
+  - Web
 ---
 
 說到搜尋的解決方案，最有名的大概就是 [Algolia](https://www.algolia.com/)，可以方便的創建索引，也有很多寫好的前端網頁元件可以使用，唯一的缺點就是收費。雖然 Algolia 要收費，但其實對於我這個小網頁都索引量是完全不用錢的，但是就還是覺得自己架一個索引系統比較有感覺，然後我就在 GitHub 上發現了開源的 [MeiliSearch](https://meilisearch.com)，功能基本上跟 Algolia 很像，也支援中文，甚至有些前端元件可以直接使用 Algolia 的，缺點就是要自己架設 Server。
@@ -49,13 +49,13 @@ MeiliSearch 也不是完全沒有缺點，缺點就是要自己有伺服器，�
 
 ```yaml
 outputFormats:
-    SearchIndex:
-        mediaType: "application/json"
-        baseName: "searchindex"
-        isPlainText: true
-        notAlternative: true
+  SearchIndex:
+    mediaType: "application/json"
+    baseName: "searchindex"
+    isPlainText: true
+    notAlternative: true
 outputs:
-    home: ["HTML","RSS", "SearchIndex"]
+  home: ["HTML", "RSS", "SearchIndex"]
 ```
 
 完成上面兩樣設定後，可以 `hugo` 一下試試看，有沒有在 `/public/searchindex.json` 中看到索引檔案，應該會類似如下：
@@ -69,7 +69,7 @@ outputs:
     "title": "Hello World",
     "summary": "Hello World. This is a test post.",
     "content": "This is my first post in hugo\ncontent",
-    "tags": [ "hugo", "test" ],
+    "tags": ["hugo", "test"],
     "section": "posts"
   }
 ]
@@ -163,19 +163,19 @@ html:
 
 ```js
 const search = instantsearch({
-  indexName: 'steam-video-games',
+  indexName: "steam-video-games",
   searchClient: instantMeiliSearch(
-    'https://integration-demos.meilisearch.com',
-    'q7QHwGiX841a509c8b05ef29e55f2d94c02c00635f729ccf097a734cbdf7961530f47c47'
+    "https://integration-demos.meilisearch.com",
+    "q7QHwGiX841a509c8b05ef29e55f2d94c02c00635f729ccf097a734cbdf7961530f47c47"
   ),
-})
+});
 
 search.addWidgets([
   instantsearch.widgets.searchBox({
-    container: '#searchbox',
+    container: "#searchbox",
   }),
   instantsearch.widgets.hits({
-    container: '#hits',
+    container: "#hits",
     templates: {
       item: `
         <div>
@@ -186,9 +186,9 @@ search.addWidgets([
       `,
     },
   }),
-])
+]);
 
-search.start()
+search.start();
 ```
 
 如果覺得他預設提供的 UI 很醜，可以用 CSS 的方式去改他。
@@ -203,7 +203,7 @@ name: MeiliSearch Index
 on:
   push:
     branches:
-      - master  # Set a branch to deploy
+      - master # Set a branch to deploy
 
 jobs:
   deploy:
@@ -211,27 +211,27 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          submodules: true # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: "latest"
           extended: true
 
       - name: Build
-        run: | 
+        run: |
           npm i
           hugo --minify
 
       - name: Post Index
-        run: | 
+        run: |
           curl \
             -X POST "https://search.tonypepe.com/indexes/hugo_blog/documents" \
             -H 'Authorization: Bearer ${{ secrets.MEILISEARCH_KEY }}' \
@@ -243,7 +243,7 @@ jobs:
 
 ## Referenc
 
-* [MeiliSearch](https://meilisearch.com)
-* [A simple javascript based full text search function](https://discourse.gohugo.io/t/a-simple-javascript-based-full-text-search-function/29119)
-* [Hoppsotch](https://hoppspot.io)
-* [Instant MeiliSearch](https://github.com/meilisearch/instant-meilisearch)
+- [MeiliSearch](https://meilisearch.com)
+- [A simple javascript based full text search function](https://discourse.gohugo.io/t/a-simple-javascript-based-full-text-search-function/29119)
+- [Hoppsotch](https://hoppspot.io)
+- [Instant MeiliSearch](https://github.com/meilisearch/instant-meilisearch)

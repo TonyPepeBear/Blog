@@ -4,17 +4,17 @@ description: 打不贏別人，至少長得比他帥。最近終於把我的 Ter
 date: 2021-07-16T23:43:07+08:00
 draft: false
 image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/939d8b79-aeab-465b-8bc7-fcf3cc4def00/public
-tags: 
-    - terminl
-    - zsh
-    - zim
-    - powerlevel
-    - powerlevel10k
-    - nerd font
-    - ubuntu
-    - mac
+tags:
+  - terminl
+  - zsh
+  - zim
+  - powerlevel
+  - powerlevel10k
+  - nerd font
+  - ubuntu
+  - mac
 categories:
-    - Linux
+  - Linux
 ---
 
 打不贏別人，至少長得比他帥。最近終於把我的 Terminal 弄成自己喜歡的樣子，所以做一下簡單的紀錄，希望大家都可以把東西變成自己喜歡的樣子。
@@ -92,7 +92,7 @@ curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | 
 
 ## Reference
 
-* [zsh](https://zsh.sourceforge.io/)
-* [powerlevel10K](https://github.com/romkatv/powerlevel10k)
-* [zim](https://zimfw.sh/#install)
-* [Nerd Fonts](https://www.nerdfonts.com/)
+- [zsh](https://zsh.sourceforge.io/)
+- [powerlevel10K](https://github.com/romkatv/powerlevel10k)
+- [zim](https://zimfw.sh/#install)
+- [Nerd Fonts](https://www.nerdfonts.com/)

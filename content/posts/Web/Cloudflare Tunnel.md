@@ -4,13 +4,13 @@ description: Cloudflare 真的是佛心公司，提供免費的 DNS、DDoS 防�
 date: 2021-08-13T15:17:39+08:00
 draft: false
 image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/00e85cf1-4c03-45ea-004c-f61e6216d400/public
-tags: 
-    - cloudflare
-    - tunnel
-    - teams
-    - cloudflare-tunnel
+tags:
+  - cloudflare
+  - tunnel
+  - teams
+  - cloudflare-tunnel
 categories:
-    - Web
+  - Web
 ---
 
 Cloudflare 真的是佛心公司，提供免費的 DNS、DDoS 防護，還可以拿來託管靜態網頁，而今天是介紹他們公司的 Tunnel，這個服務可以將本地電腦的特定 port 開放到網路上，而且完全免費，在台灣的速度也不慢，真的很佛，幾乎等於拿到免費的 IPv4。
@@ -50,7 +50,7 @@ cloudflared update
 ## 免登入測試 Tunnel
 
 ```sh
-cloudflared tunnel --url http://localhost:8080  
+cloudflared tunnel --url http://localhost:8080
 ```
 
 執行上面的指令，就可以將本地電腦的 8080 port 用 http 公開到網路上，應該會看到輸出中會給一串個 `*-*-*.trycloudflare.com` 的網址，現在只要訪問那個網址，就可以發現本地的網頁已經可以從全網連到，不需註冊，也不用設定複雜的 Domain，還不限流量。
@@ -132,4 +132,4 @@ cloudflared tunnel --config test.yml run
 
 ## Reference
 
-* [Cloudflare for Teams documentation](https://developers.cloudflare.com/cloudflare-one/)
+- [Cloudflare for Teams documentation](https://developers.cloudflare.com/cloudflare-one/)

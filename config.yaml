@@ -1,20 +1,16 @@
 baseurl: https://tonypepe.com
 title: TonyPepe
 params:
-    mainSections:
-        - posts
+  mainSections:
+    - posts
+  gitHubURL: https://github.com/TonyPepeBear/HugoBlog
 paginate: 8
 enableGitInfo: true
-
-params:
-    gitHubURL: https://github.com/TonyPepeBear/HugoBlog
-    
 outputFormats:
-    SearchIndex:
-        mediaType: "application/json"
-        baseName: "searchindex"
-        isPlainText: true
-        notAlternative: true
-
+  SearchIndex:
+    mediaType: "application/json"
+    baseName: "searchindex"
+    isPlainText: true
+    notAlternative: true
 outputs:
-    home: ["HTML","RSS", "SearchIndex"]
+  home: ["HTML", "RSS", "SearchIndex"]

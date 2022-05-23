@@ -1,49 +1,46 @@
-<div class="my-10 mx-auto flex flex-row text-3xl text-gray-500 justify-center items-center">
-    {{ if .Paginator.HasPrev }}
-        {{ $prev := .Paginator.Prev }}
-        <a href="{{ $prev.URL }}" class="mx-4">
-            <span class="iconify" data-icon="mdi:chevron-left" data-inline="false"></span></a>
-        {{ if $prev.HasPrev }}
-            {{ $prev := $prev.Prev }}
-            {{ if not (eq $prev.PageNumber .Paginator.First.PageNumber ) }}
-                <a href="{{ .Paginator.First.URL }}" class="mx-4 text-xl">
-                    {{ .Paginator.First.PageNumber }}
-                </a>
-                {{ if not (eq $prev.PageNumber (add .Paginator.First.PageNumber 1)) }}
-                    <p class="text-lg">...</p>
-                {{ end }}
-            {{ end }}
-            <a href="{{ $prev.URL }}" class="mx-4 text-xl">
-                {{ $prev.PageNumber }}</a>
-        {{ end}}
-        <a href="{{ $prev.URL }}" class="mx-4 text-xl">
-            {{ $prev.PageNumber }}</a>
-    {{ end }}
-    <div class="mx-4 text-2xl text-gray-700">
-        {{ .Paginator.PageNumber }}
-    </div>
-    {{ if .Paginator.HasNext }}
-        {{ $next := .Paginator.Next }}
-        <a href="{{ $next.URL }}" class="mx-4 text-xl">
-            {{ $next.PageNumber }}
-        </a>
+<div
+  class="my-10 mx-auto flex flex-row text-3xl text-gray-500 justify-center items-center"
+>
+  {{ if .Paginator.HasPrev }} {{ $prev := .Paginator.Prev }}
+  <a href="{{ $prev.URL }}" class="mx-4">
+    <span
+      class="iconify"
+      data-icon="mdi:chevron-left"
+      data-inline="false"
+    ></span
+  ></a>
+  {{ if $prev.HasPrev }} {{ $prev := $prev.Prev }} {{ if not (eq
+  $prev.PageNumber .Paginator.First.PageNumber ) }}
+  <a href="{{ .Paginator.First.URL }}" class="mx-4 text-xl">
+    {{ .Paginator.First.PageNumber }}
+  </a>
+  {{ if not (eq $prev.PageNumber (add .Paginator.First.PageNumber 1)) }}
+  <p class="text-lg">...</p>
+  {{ end }} {{ end }}
+  <a href="{{ $prev.URL }}" class="mx-4 text-xl"> {{ $prev.PageNumber }}</a>
+  {{ end}}
+  <a href="{{ $prev.URL }}" class="mx-4 text-xl"> {{ $prev.PageNumber }}</a>
+  {{ end }}
+  <div class="mx-4 text-2xl text-gray-700">{{ .Paginator.PageNumber }}</div>
+  {{ if .Paginator.HasNext }} {{ $next := .Paginator.Next }}
+  <a href="{{ $next.URL }}" class="mx-4 text-xl"> {{ $next.PageNumber }} </a>
 
-        {{ if $next.HasNext }}
-            {{ $next := $next.Next }}
-            <a href="{{ $next.URL }}" class="mx-4 text-xl">
-                {{ $next.PageNumber }}
-            </a>
-            {{ if not (eq $next.PageNumber .Paginator.Last.PageNumber ) }}
-                {{ if not (eq (add $next.PageNumber 1) .Paginator.Last.PageNumber) }}
-                {{ end }}
-                <p class="text-lg">...</p>
-                <a href="{{ .Paginator.Last.URL }}" class="mx-4 text-xl">
-                    {{ .Paginator.Last.PageNumber }}
-                </a>
-            {{ end }}
-        {{ end }}
+  {{ if $next.HasNext }} {{ $next := $next.Next }}
+  <a href="{{ $next.URL }}" class="mx-4 text-xl"> {{ $next.PageNumber }} </a>
+  {{ if not (eq $next.PageNumber .Paginator.Last.PageNumber ) }} {{ if not (eq
+  (add $next.PageNumber 1) .Paginator.Last.PageNumber) }} {{ end }}
+  <p class="text-lg">...</p>
+  <a href="{{ .Paginator.Last.URL }}" class="mx-4 text-xl">
+    {{ .Paginator.Last.PageNumber }}
+  </a>
+  {{ end }} {{ end }}
 
-        <a href="{{ $next.URL }}" class="mx-4">
-            <span class="iconify" data-icon="mdi:chevron-right" data-inline="false"></span></a>
-    {{ end }}
+  <a href="{{ $next.URL }}" class="mx-4">
+    <span
+      class="iconify"
+      data-icon="mdi:chevron-right"
+      data-inline="false"
+    ></span
+  ></a>
+  {{ end }}
 </div>

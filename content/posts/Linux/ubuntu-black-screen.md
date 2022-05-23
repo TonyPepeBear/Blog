@@ -5,9 +5,9 @@ date: 2021-06-06T01:17:17+08:00
 draft: false
 image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/87c17ef3-d429-42ba-30ab-32ac2864c500/public
 tags:
-    - ubuntu
+  - ubuntu
 categories:
-    - Linux
+  - Linux
 ---
 
 我目前的工作環境都是用 Ubuntu ~~(被 Windows 氣到)~~，前幾天我重新安裝 Ubuntu 的時候，一直安裝失敗，重新安裝四、五次後都沒有畫面，最後才發現是顯卡驅動問題。
@@ -50,4 +50,4 @@ sudo ubuntu-drivers autoinstall
 
 ## Reference
 
-* [My computer boots to a black screen, what options do I have to fix it?](https://askubuntu.com/questions/162075/my-computer-boots-to-a-black-screen-what-options-do-i-have-to-fix-it)
+- [My computer boots to a black screen, what options do I have to fix it?](https://askubuntu.com/questions/162075/my-computer-boots-to-a-black-screen-what-options-do-i-have-to-fix-it)

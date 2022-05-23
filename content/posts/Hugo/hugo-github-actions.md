@@ -4,13 +4,13 @@ description: Github Actions 是 Github 官方提供的 CI/CD 服務，編寫簡�
 date: 2021-06-07T22:00:53+08:00
 draft: false
 image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/3820056d-8496-4b29-efa0-716d71a45100/public
-tags: 
-    - hugo
-    - github
-    - github-actions
-    - web
+tags:
+  - hugo
+  - github
+  - github-actions
+  - web
 categories:
-    - Hugo
+  - Hugo
 ---
 
 Github Actions 是 Github 官方提供的 CI/CD 服務，編寫簡單的腳本，就可以在每次 Push、 PR 時，自動的檢查程式碼可不可以通過 Test，或是直接產生 Release 來交付專案成品。另外一個重點是，這個服務完全免費，而在私有 Repo，則是有限制容器的執行時間。本文使用 Github Actions 來自動將 Hugo 專案自動產生靜態網頁，並且將網頁發布到 `gh-pages` 的 git 分支。
@@ -33,7 +33,7 @@ name: github pages
 on:
   push:
     branches:
-      - master  # Set a branch to deploy
+      - master # Set a branch to deploy
   pull_request:
 
 jobs:
@@ -42,13 +42,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          submodules: true # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: "latest"
           extended: true
 
       - name: Build
@@ -74,7 +74,7 @@ jobs:
 on:
   push:
     branches:
-      - master  # Set a branch to deploy
+      - master # Set a branch to deploy
   pull_request:
 ```
 
@@ -94,10 +94,10 @@ jobs 是整個檔案中最核心的部分，可以分成許多不同的 Job，�
 
 終於來到最核心的部分，deploy 任務中的第一行，就定義了這個任務要 Run 在哪個容器內，或是稱作哪個系統內。這邊是用 `ubuntu` 的 20.04，建議不要亂改，因為其他的 Linux 不一定可以完任務。
 
-``` yml
+```yml
 deploy:
-    runs-on: ubuntu-20.04
-    ## 以下省略
+  runs-on: ubuntu-20.04
+  ## 以下省略
 ```
 
 ### Steps

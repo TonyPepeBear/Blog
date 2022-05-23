@@ -21,5 +21,3 @@ jobs:
           commit: --allow-empty -S
           committer_name: TonyPepeBear
           committer_email: tonybear55665566@gmail.com
-
-

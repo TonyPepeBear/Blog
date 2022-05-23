@@ -4,11 +4,11 @@ description: frp 全名是 fast reverse proxy，可以將在 NAT 後方的服務
 date: 2021-06-20T21:48:33+08:00
 draft: false
 image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/34046c81-cb6e-40a5-7b3a-8623c613f400/public
-tags: 
-    - frp
-    - linux
+tags:
+  - frp
+  - linux
 categories:
-    - Linux
+  - Linux
 ---
 
 frp 全名是 fast reverse proxy，可以將在 NAT 後方的服務快速的發布到公網 ip 上，可以支援 TCP 和 UDP 協議，我覺得唯一的缺點就是所有流量都會經過 Server 端，所以如果 Server 端的流量有限制就需要注意一下。
@@ -84,7 +84,7 @@ remote_port = 25565
 
 ## Token 認證
 
-不知道大家有沒有發現，基本上只要知道你 Server  ip 或 domain 的人都可以新增自己的 port，要避免這樣的狀況，我們可以使用 token。使用方法也很簡單，只要在 Server 和 Client 端的 `[common]` 都加上相同的 token 參數，就可以進行簡單的認證。
+不知道大家有沒有發現，基本上只要知道你 Server ip 或 domain 的人都可以新增自己的 port，要避免這樣的狀況，我們可以使用 token。使用方法也很簡單，只要在 Server 和 Client 端的 `[common]` 都加上相同的 token 參數，就可以進行簡單的認證。
 
 Server 端範例：
 

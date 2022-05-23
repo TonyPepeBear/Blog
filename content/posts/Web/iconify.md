@@ -4,14 +4,14 @@ date: 2022-01-14T13:48:25Z
 image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/ca9b8ae2-b684-421a-a662-2dd4356ce600/public
 hidden: false
 draft: false
-tags: 
-    - icon
-    - web
-    - ios
-    - android
-    - design
+tags:
+  - icon
+  - web
+  - ios
+  - android
+  - design
 categories:
-    - Category
+  - Category
 ---
 
 GitHub 上有許許多多開源的 icon，但是每個用法不盡相同，甚至大部分的使用方式，都是直接下載 SVG 使用。雖然使用 SVG 也不是不好，但是就會需要自己多一步驟的使用。Iconify 把許多 icon 整合在一起，並且提供非常簡單的辦法，就可以讓網頁有很精美的 icon。
@@ -50,4 +50,4 @@ GitHub 上有許許多多開源的 icon，但是每個用法不盡相同，甚�
 
 ## Reference
 
-* [Iconify](https://iconify.design/)
+- [Iconify](https://iconify.design/)

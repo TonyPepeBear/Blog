@@ -1,46 +1,66 @@
 {{ define "main" }}
 
 <main>
-    <div class="bg-white shadow-md rounded-xl my-5 mx-2">
-        {{ $image := .Params.image }}
-        {{ if $image }}
-        <img src="{{ .Params.image }}" class="filter w-full h-80 object-cover rounded-t-xl">
+  <div class="bg-white shadow-md rounded-xl my-5 mx-2">
+    {{ $image := .Params.image }} {{ if $image }}
+    <img
+      src="{{ .Params.image }}"
+      class="filter w-full h-80 object-cover rounded-t-xl"
+    />
+    {{ end }}
+    <div class="px-3">
+      <h1 class="text-4xl my-5 inline-block text-center w-full text-black">
+        {{ .Title }}
+      </h1>
+      <div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
+        <span class="iconify" data-icon="mdi:calendar-range"></span>
+        <time
+          class="ml-1"
+          datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'
+        >
+          {{- .Date.Format (or .Site.Params.dateFormat.published "2006-Jan-02")
+          -}}
+        </time>
+        {{ if .GitInfo }}
+        <a
+          href="{{ $.Site.Params.gitHubURL }}/commit/{{ .GitInfo.Hash }}"
+          target="_blank"
+          class="flex flex-row items-center ml-5"
+        >
+          <span class="iconify" data-icon="bi:git"></span>
+          <p class="ml-1">{{ .GitInfo.AbbreviatedHash }}</p>
+        </a>
         {{ end }}
-        <div class="px-3">
-            <h1 class="text-4xl my-5 inline-block text-center w-full text-black">{{ .Title }}</h1>
-            <div class="mx-2 flex flex-row pb-2 text-gray-500 items-center">
-                <span class="iconify" data-icon="mdi:calendar-range"></span>
-                <time class="ml-1" datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>
-                    {{- .Date.Format (or .Site.Params.dateFormat.published "2006-Jan-02") -}}
-                </time>
-                {{ if .GitInfo }}
-                <a href="{{ $.Site.Params.gitHubURL }}/commit/{{ .GitInfo.Hash }}" target="_blank"
-                    class="flex flex-row items-center ml-5">
-                    <span class="iconify" data-icon="bi:git"></span>
-                    <p class="ml-1">{{ .GitInfo.AbbreviatedHash }}</p>
-                </a>
-                {{ end }}
-                <a href="{{ $.Site.Params.gitHubURL }}/issues" target="_blank" class="flex flex-row items-center ml-5">
-                    <span class="iconify" data-icon="bi:info-circle-fill"></span>
-                    <p class="ml-1">Issue</p>
-                </a>
-            </div>
-            <article class="mx-2 pb-4">
-                {{ .Content }}
-            </article>
-        </div>
+        <a
+          href="{{ $.Site.Params.gitHubURL }}/issues"
+          target="_blank"
+          class="flex flex-row items-center ml-5"
+        >
+          <span class="iconify" data-icon="bi:info-circle-fill"></span>
+          <p class="ml-1">Issue</p>
+        </a>
+      </div>
+      <article class="mx-2 pb-4 text-justify">{{ .Content }}</article>
     </div>
-    <div class="py-2">
-        <script async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1667006488909532"
-            crossorigin="anonymous"></script>
-        <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
-            data-ad-format="fluid" data-ad-client="ca-pub-1667006488909532"
-            data-ad-slot="8852856882"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+  </div>
+  <div class="py-2">
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1667006488909532"
+      crossorigin="anonymous"
+    ></script>
+    <ins
+      class="adsbygoogle"
+      style="display: block; text-align: center"
+      data-ad-layout="in-article"
+      data-ad-format="fluid"
+      data-ad-client="ca-pub-1667006488909532"
+      data-ad-slot="8852856882"
+    ></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 </main>
 
 {{ end }}

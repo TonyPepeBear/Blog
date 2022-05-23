@@ -3,10 +3,10 @@ title: "Git"
 date: 2021-06-07T03:31:04+08:00
 draft: true
 tags:
-    - git
-    - linux
+  - git
+  - linux
 categories:
-    - Linux
+  - Linux
 ---
 
 Git 是一個強大的版本控制系統，也是目前最主流的版控系統。Git 是 Linux 開發者為了維護 Linux 的原始碼而開發的，Git 已經是現在程式設計師不可或缺的技能。

@@ -1,16 +1,16 @@
 ---
 title: "Flutter/Dart (){} 和 () => 的差別"
-description: Flutter 因為大量使用依賴注入，所以常常會需要傳入 Function。傳入 Function 時，常常會看到兩種寫法，一下是 () {} 寫法，另一個是 () => 寫法。我剛開始寫的時候被搞得頭昏腦脹，查了一下才發現這兩個本身沒什麼不同。 
+description: Flutter 因為大量使用依賴注入，所以常常會需要傳入 Function。傳入 Function 時，常常會看到兩種寫法，一下是 () {} 寫法，另一個是 () => 寫法。我剛開始寫的時候被搞得頭昏腦脹，查了一下才發現這兩個本身沒什麼不同。
 date: 2021-11-04T05:52:44Z
 image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f8a3eaa5-e9c2-455f-d301-43fc77fee200/large
 hidden: false
 draft: false
-tags: 
-    - dart
-    - flutter
-    - function
-categories: 
-    - Flutter
+tags:
+  - dart
+  - flutter
+  - function
+categories:
+  - Flutter
 ---
 
 Flutter 因為大量使用依賴注入，所以常常會需要傳入 Function。傳入 Function 時，常常會看到兩種寫法，一下是 `() {}` 寫法，另一個是 `() =>` 寫法。我剛開始寫的時候被搞得頭昏腦脹，查了一下才發現這兩個本身沒什麼不同。
@@ -41,4 +41,4 @@ List<Text> list = List.generate(10, (index) {
 
 ## Reference
 
-* [Flutter/Dart - Difference between () {} and () => {}](https://stackoverflow.com/questions/51868395/flutter-dart-difference-between-and)
+- [Flutter/Dart - Difference between () {} and () => {}](https://stackoverflow.com/questions/51868395/flutter-dart-difference-between-and)

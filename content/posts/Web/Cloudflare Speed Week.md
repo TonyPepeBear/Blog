@@ -76,4 +76,4 @@ TLS 是一個非常複雜的加密協定，會牽涉到下面的設備：網路�
 
 ## Reference
 
-* [Welcome to Speed Week and a Waitless Internet](https://blog.cloudflare.com/fastest-internet/)
+- [Welcome to Speed Week and a Waitless Internet](https://blog.cloudflare.com/fastest-internet/)

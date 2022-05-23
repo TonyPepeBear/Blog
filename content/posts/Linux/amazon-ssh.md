@@ -3,10 +3,10 @@ title: "用 Teminal 連接到 Amazon Lightsail"
 date: 2021-06-06T17:16:35+08:00
 draft: true
 tags:
-    - linux
-    - ssh
+  - linux
+  - ssh
 categories:
-    - Linux
+  - Linux
 ---
 
 AWS 個體，要使用本地的 Terminal 連線都要使用他專門產生的 key 來確保安全性，但需要比較複雜的設定。
@@ -43,5 +43,5 @@ ssh -i aws.pem ubuntu@123.45.6.7.89
 
 ```bash
 ssh-add aws.pem
-ssh ubuntu@123.45.6.7.89 
+ssh ubuntu@123.45.6.7.89
 ```

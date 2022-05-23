@@ -4,12 +4,12 @@ description: 簡單記錄我所認知的 A320 的一些程序。
 date: 2021-07-21T22:08:20+08:00
 draft: false
 image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/06a43a08-dc77-48eb-9f4a-f47a29566900/public
-tags: 
-    - a320neo
-    - airbus
-    - msfs
+tags:
+  - a320neo
+  - airbus
+  - msfs
 categories:
-    - Flight
+  - Flight
 ---
 
 簡單記錄我所認知的 A320 的一些程序。
@@ -23,15 +23,15 @@ categories:
 ~~模擬器中跳過還是可以飛~~
 
 1. Engine Master 1 and 2 Switch -> OFF
-   * 主引擎 1, 2 都關閉
+   - 主引擎 1, 2 都關閉
 2. Engine Mode Selector -> NORM
-   * 引擎模式在 Normal 位置
+   - 引擎模式在 Normal 位置
 3. Weather Radar -> OFF
-   * 關閉氣象雷達
+   - 關閉氣象雷達
 4. Landing Gear -> Down
-   * 機輪放下
+   - 機輪放下
 5. Wipers -> Both OFF
-   * 兩個雨刷都關閉
+   - 兩個雨刷都關閉
 
 ![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/7e29f7e1-bf0b-44d4-7589-29286ed81b00/large)
 
@@ -41,20 +41,20 @@ categories:
 
 1. Batt 1 and 2 -> ON
 2. EXT Power -> ON
-   * 啟動外部電源
-   * 這時應該可以看到所有儀表亮起
+   - 啟動外部電源
+   - 這時應該可以看到所有儀表亮起
 3. APU Fire Test
-   * APU 滅火測試
+   - APU 滅火測試
 4. APU Master and wait 3 sec -> ON
-   * 打開 APU 主開關，並等待 3 秒
+   - 打開 APU 主開關，並等待 3 秒
 5. APU START -> ON
-   * 發動 APU
+   - 發動 APU
 6. Wait for APU START -> Green "AVAIL"
-   * 等 APU 發動完成
+   - 等 APU 發動完成
 7. APU BLEED -> ON
-   * 開啟 APU 供給氣壓
+   - 開啟 APU 供給氣壓
 8. EXT Power -> OFF
-   * 移除外部電源
+   - 移除外部電源
 
 ![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/bcc428a6-c065-4bc3-0d19-ad204b860700/large)
 
@@ -67,9 +67,9 @@ categories:
 ### 左邊那排
 
 1. CREW SUPPLY -> ON
-   * 打開組員氧氣供給
+   - 打開組員氧氣供給
 2. ADIRS 1, 2, 3 -> NAV
-   * 開啟三個慣性導航，需等待 6-7 分鐘校準
+   - 開啟三個慣性導航，需等待 6-7 分鐘校準
 
 ![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/b25f2e34-5ff9-4534-4fc2-927961a5ce00/large)
 
@@ -102,14 +102,14 @@ categories:
 
 > D > I > F > S > R > I > P > P
 
-* DATA
-* INIT A
-* F-PLN
-* SEC PLAN
-* RAD NAV
-* INIT B
-* PREF
-* PROG
+- DATA
+- INIT A
+- F-PLN
+- SEC PLAN
+- RAD NAV
+- INIT B
+- PREF
+- PROG
 
 > 飛行電腦設定蠻複雜的，本文就先跳過詳細步驟，專注在冷操到起飛。
 
@@ -119,9 +119,9 @@ categories:
 
 1. 申請後推
 2. BECON Light -> ON
-   * 啟動 BECAON 燈
+   - 啟動 BECAON 燈
 3. Trust Levers -> IDLE
-   * 確定推力桿在 IDLE
+   - 確定推力桿在 IDLE
 
 ![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/f3d16c92-7e28-4b76-c106-458211015c00/public)
 
@@ -132,14 +132,14 @@ categories:
 ## 啟動引擎
 
 1. ENG MODE selector -> IGN/START
-   * 把 ENG MODE selector 轉到右邊的啟動引擎模式
+   - 把 ENG MODE selector 轉到右邊的啟動引擎模式
 2. ENGINE 2 START -> ON
-   * 啟動右邊的 2 號引擎
-   * 我也不知道為甚麼都是先啟動 2 號引擎
-   * 等待發動完成後再發動 1 號引擎
-   * 發動時應監控引擎數據，19% N1, 68% N2, 520°C EGT, 290 kg/h FF，等待 2 號引擎 AVAIL 字樣出現
+   - 啟動右邊的 2 號引擎
+   - 我也不知道為甚麼都是先啟動 2 號引擎
+   - 等待發動完成後再發動 1 號引擎
+   - 發動時應監控引擎數據，19% N1, 68% N2, 520°C EGT, 290 kg/h FF，等待 2 號引擎 AVAIL 字樣出現
 3. ENGINE 1 START -> ON
-   * 啟動左邊的 1 號引擎，重複第 2 步直到 1 號引擎 AVAIL 字樣出現
+   - 啟動左邊的 1 號引擎，重複第 2 步直到 1 號引擎 AVAIL 字樣出現
 
 ![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/1e82de0e-18d0-402e-b279-780fe5f6b800/public)
 
@@ -148,30 +148,30 @@ categories:
 ## 啟動引擎後
 
 1. ENG MODE selectgor -> NORM
-   * 引擎模式轉回中間 NORM
+   - 引擎模式轉回中間 NORM
 2. APU Bleed -> OFF
-   * 關閉 APU 供氣
+   - 關閉 APU 供氣
 3. APU MASTER -> OFF
-   * 關閉 APU
+   - 關閉 APU
 4. FLAPS lever -> SET TAKEOFF POSITION
-   * 放出襟翼到起飛需要的位置
+   - 放出襟翼到起飛需要的位置
 
 ## 滑行 Taxi
 
 1. NOSE Light -> Taxi
-   * 開啟滑行燈
+   - 開啟滑行燈
 2. RWY TURN OFF -> ON
-   * 開啟脫離跑道燈 (轉彎燈)
+   - 開啟脫離跑道燈 (轉彎燈)
 3. PARK BRK -> OFF
-   * 關閉手煞車
+   - 關閉手煞車
 4. AUTO BRK MAX -> ON
-   * 開啟最大自動煞車
+   - 開啟最大自動煞車
 
 ## 起飛
 
 ## Reference
 
-* [教官我想飛](https://www.youtube.com/channel/UCDKKDx4mNVI7vONL1vqTx7g)
-* [機師阿楷](https://www.youtube.com/channel/UCOHc8xzWD25Nn-snDBJUMGQ)
-* [FBW A32NX Checklist.pdf](https://github.com/flybywiresim/manuals/blob/master/pdf/A32NX%20Documentation/FBW%20A32NX%20Checklist.pdf)
-* [FBW A32NX SOP.pdf](https://github.com/flybywiresim/manuals/blob/master/pdf/A32NX%20Documentation/FBW%20A32NX%20SOP.pdf)
+- [教官我想飛](https://www.youtube.com/channel/UCDKKDx4mNVI7vONL1vqTx7g)
+- [機師阿楷](https://www.youtube.com/channel/UCOHc8xzWD25Nn-snDBJUMGQ)
+- [FBW A32NX Checklist.pdf](https://github.com/flybywiresim/manuals/blob/master/pdf/A32NX%20Documentation/FBW%20A32NX%20Checklist.pdf)
+- [FBW A32NX SOP.pdf](https://github.com/flybywiresim/manuals/blob/master/pdf/A32NX%20Documentation/FBW%20A32NX%20SOP.pdf)

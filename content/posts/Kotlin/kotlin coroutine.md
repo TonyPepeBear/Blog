@@ -4,11 +4,11 @@ description: Kotlin 在非同步處理上有新的方法，協程 Coroutine，Co
 date: 2021-09-19T07:26:56Z
 draft: false
 image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/6f11a63e-3923-4ce5-3b6e-d06243815300/public
-tags: 
-    - kotlin
-    - coroutine
+tags:
+  - kotlin
+  - coroutine
 categories:
-    - Kotlin
+  - Kotlin
 ---
 
 Kotlin 在非同步處理上有新的方法，協程 `Coroutine`。`Coroutine` 不會像 `Thread` 會耗費大量的資源，能在原本的`線程`上創建極為輕量的`協程`，且較不會發生記憶體洩漏的情況。
@@ -49,7 +49,7 @@ fun main() {
 上面的程式碼輸出結果：
 
 ```kotlin
-Hellow, 
+Hellow,
 World
 ```
 
@@ -77,7 +77,7 @@ fun main() {
         delay(1000L)
         println("World!")
     }
-    println("Hello,") 
+    println("Hello,")
     runBlocking {     // 這個表達式會阻塞主線程
         delay(2000L)  // 延遲兩秒來確保主線程存活
     }
@@ -96,7 +96,7 @@ fun main() = runBlocking<Unit> { // 開始執行主協程
         delay(1000L)
         println("World!")
     }
-    println("Hello,") 
+    println("Hello,")
     delay(2000L)  // 延遲 2 秒來確保主線程存活
 }
 ```
@@ -108,12 +108,12 @@ fun main() = runBlocking<Unit> { // 開始執行主協程
 延遲一段時間來確保協程的運行並不是一個好辦法利用 `job.join()` 來確保工作執行結束。
 
 ```kotlin
-val job: Job = GlobalScope.launch { 
+val job: Job = GlobalScope.launch {
     delay(1000L)
     println("World!")
 }
 println("Hello,")
-job.join() 
+job.join()
 ```
 
 `launch` 會回傳一個 `Job` 物件，而 `job.join()` 其實就是會等待 `job` 的工作完成再繼續持行。
@@ -121,16 +121,16 @@ job.join()
 我們也可以利用 `job.cancel()` 取消協程：
 
 ```kotlin
-val job: Job = GlobalScope.launch { 
+val job: Job = GlobalScope.launch {
     delay(1000L)
     println("World!")
 }
 println("Hello,")
-job.cancel() 
+job.cancel()
 ```
 
 但是如果 `job` 已經完成工作，`cancel` 是不會發生任何事。
 
 ## 參考資料
 
-* [Coroutine Basics](https://kotlinlang.org/docs/reference/coroutines/basics.html)
+- [Coroutine Basics](https://kotlinlang.org/docs/reference/coroutines/basics.html)

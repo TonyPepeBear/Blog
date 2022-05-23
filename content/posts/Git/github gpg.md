@@ -4,15 +4,16 @@ description: 最近常常會看到別入 GitHub 上的 Commit 會有 Verified �
 date: 2022-03-24T14:32:19Z
 draft: false
 image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/eb2adedc-6625-46d1-73ea-07c01fc92000/public
-tags: 
-    - git
-    - github
-    - gpg
-    - verified
-    - commit
+tags:
+  - git
+  - github
+  - gpg
+  - verified
+  - commit
 categories:
-    - Git
+  - Git
 ---
+
 最近常常會看到別入 GitHub 上的 Commit 會有 Verified 的字樣，查了才知道這是為了防止有人盜用你的 email 簽 commit，畢竟 git 的 user.email 是可以自己隨便設的，所以 GitHub 就提供一個可以用公私鑰的方式來確認身份。
 
 ![img](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/6e429f76-94c1-46ff-77da-7d50a886d100/public)
@@ -113,6 +114,6 @@ git config --global commit.gpgsign true
 
 ## Reference
 
-* [Generating a new GPG key](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
-* [Adding a new GPG key to your GitHub account](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account)
-* [GnuPG](https://www.gnupg.org/)
+- [Generating a new GPG key](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
+- [Adding a new GPG key to your GitHub account](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-new-gpg-key-to-your-github-account)
+- [GnuPG](https://www.gnupg.org/)

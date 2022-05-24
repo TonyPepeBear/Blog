@@ -27,6 +27,6 @@ draft: false
 
 ## 再次感謝 Cloudflare 對本站性能的極大貢獻
 
-[Performance Report: https://tonypepe.com](https://www.fastorslow.com/app/profile/567c05fa-1457-5ab5-a631-0e7cd0779e0e)
+[Performance Report: https://tonypepe.com]()
 
 ![ ](https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/b0372f6a-61f0-4cef-6cc9-9603642db300/large)

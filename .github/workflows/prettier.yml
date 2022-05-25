@@ -23,12 +23,12 @@ jobs:
           npm run prettier --check .
           
       - name: Run Prettier
-        if: ${ failure() }
+        if: ${{ failure() }}
         run: |
           npm run prettier --write .
 
       - name: Commit and Push
-        if: ${ failure() }
+        if: ${{ failure() }}
         uses: EndBug/add-commit-message@v9
         with:
           add: "."

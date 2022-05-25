@@ -20,12 +20,12 @@ jobs:
       - name: Run Prettier
         continue-on-error: true
         run: |
-          npm run prettier --check .
+          npx prettier --check .
           
       - name: Run Prettier
         if: ${{ failure() }}
         run: |
-          npm run prettier --write .
+          npm run prettier
 
       - name: Commit and Push
         if: ${{ failure() }}

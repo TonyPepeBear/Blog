@@ -20,7 +20,7 @@ jobs:
       - name: Run Prettier Check
         run: |
           npx prettier --check .
-          
+
   prettier-write:
     runs-on: ubuntu-latest
     needs:
@@ -48,9 +48,3 @@ jobs:
           message: "Prettier"
           committer_name: TonyPepeBear
           committer_email: tonybear55665566@gmail.com
-
-
-
-
-
-

@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - prettier-check
-    if: ${ jobs.prettier-check.status == "failure" }
+    if: jobs.prettier-check.status == "failure" 
     steps:
       - name: Checkout
         uses: actions/checkout@v2

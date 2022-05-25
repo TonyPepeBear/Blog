@@ -1,6 +1,6 @@
 ---
 title: "一些 Command Line 技巧"
-date: 2022-05-22T15:27:30Z
+date: 2022-05-25T15:27:30Z
 image: https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/9dfac9e4-1de1-43dc-eead-381301a1b500/public
 draft: false
 tags:

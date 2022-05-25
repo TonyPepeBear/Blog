@@ -18,7 +18,6 @@ jobs:
           node-version: "14"
 
       - name: Run Prettier Check
-        continue-on-error: true
         run: |
           npx prettier --check .
           

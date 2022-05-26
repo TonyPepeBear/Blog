@@ -1,14 +1,6 @@
 module.exports = {
-  purge: ["layouts/**/*.html"],
-  darkMode: "media", // or 'media' or 'class'
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {
-      width: {
-        fit: "fit-content",
-      },
-    },
-  },
-  variants: {
     extend: {},
   },
   plugins: [],

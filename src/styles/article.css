@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.article-content > * {
+  @apply py-3;
+}
+
+.article-content > h2 {
+  @apply py-6 text-3xl underline underline-offset-4;
+}
+
+.article-content > h2::before {
+  @apply pr-4;
+  content: url("https://api.iconify.design/icon-park/h2.svg");
+}
+
+.article-content > h3 {
+  @apply py-6 text-2xl underline underline-offset-4;
+}
+
+.article-content > h3::before {
+  @apply pr-4;
+  content: url("https://api.iconify.design/icon-park/h3.svg");
+}
+
+.article-content > p {
+  @apply text-lg text-justify break-words;
+}
+
+.article-content * > a {
+  @apply text-blue-500 underline underline-offset-2;
+}
+
+.article-content > blockquote {
+  @apply p-3 border-l-4 border-indigo-300 italic;
+}
+
+.article-content > ul {
+  @apply list-disc list-inside;
+}
+
+.article-content * ul {
+  @apply mx-8 list-disc list-inside;
+}
+
+.article-content > ol {
+  @apply list-disc list-inside;
+}
+
+.article-content * ol {
+  @apply mx-8 list-disc list-inside;
+}

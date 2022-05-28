@@ -1,17 +1,29 @@
+import React from "react";
 import { graphql } from "gatsby";
-import * as React from "react";
 import MainLayout from "../components/layouts/main-layouts";
-import ArticleList from "../components/article-list";
+import { marked } from "marked";
 
-export default function IndexPage({ data }: Props) {
+export default function ArticleTemplate(props: Props) {
+  const { data } = props;
+
   return (
     <MainLayout>
       <div>
-        <ArticleList nodes={data.allMarkdownRemark.edges} />
+        <div className="flex flex-col w-full gap-14">
+          {data.allMarkdownRemark.edges.map(({ node }) => (
+            <div>
+              <div
+                dangerouslySetInnerHTML={{ __html: node.html }}
+                className="main-article"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </MainLayout>
   );
 }
+
 interface Props {
   data: {
     allMarkdownRemark: {
@@ -34,12 +46,11 @@ interface Props {
   };
 }
 
-export const qldata = graphql`
-  query IndexQuery {
+export const query = graphql`
+  query ArticlPageTemplateQuery($id: String!) {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { draft: { eq: false } } }
-      limit: 8
+      filter: { id: { eq: $id } }
     ) {
       edges {
         node {

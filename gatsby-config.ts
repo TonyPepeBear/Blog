@@ -12,6 +12,7 @@ const config: GatsbyConfig = {
     "gatsby-plugin-sitemap",
     "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
+    "gatsby-plugin-typescript",
     "gatsby-transformer-remark",
     "gatsby-transformer-sharp",
     {

@@ -5,19 +5,29 @@ import { marked } from "marked";
 
 export default function ArticleTemplate(props: Props) {
   const { data } = props;
-
   return (
     <MainLayout>
       <div>
         <div className="flex flex-col w-full gap-14">
-          {data.allMarkdownRemark.edges.map(({ node }) => (
-            <div>
-              <div
-                dangerouslySetInnerHTML={{ __html: node.html }}
-                className="main-article"
-              />
-            </div>
-          ))}
+          {data.allMarkdownRemark.edges.map(({ node }) => {
+            const { title, image } = node.frontmatter;
+            return (
+              <div className="bg-white w-full rounded-xl shadow-md break-words">
+                <img
+                  src={image}
+                  alt={title}
+                  className="w-full rounded-t-xl h-96 object-cover"
+                />
+                <div className="p-5">
+                  <h1 className="text-4xl">{title}</h1>
+                  <div
+                    className="main-article"
+                    dangerouslySetInnerHTML={{ __html: node.html }}
+                  />
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </MainLayout>

@@ -6,9 +6,7 @@ import ArticleList from "../components/article-list";
 export default function IndexPage({ data }: Props) {
   return (
     <MainLayout>
-      <div>
-        <ArticleList nodes={data.allMarkdownRemark.edges} />
-      </div>
+      <ArticleList nodes={data.allMarkdownRemark.edges} />
     </MainLayout>
   );
 }

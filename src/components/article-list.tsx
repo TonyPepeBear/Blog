@@ -1,5 +1,4 @@
 import React from "react";
-import MainLayout from "./layouts/main-layouts";
 import ArticleListItem from "./article-list-item";
 
 export default function ArticleList(props: Props) {

@@ -7,12 +7,12 @@ interface Props {
   title?: string;
 }
 
-export default function MainLayout({ children, title = "TonyPepe" }: Props) {
+export default function MainLayout({ children }: Props) {
   return (
     <div className="font-serif">
       <div className="bg-gray-400 flex flex-col lg:flex-row">
         <Navbar />
-        <main className="px-10 w-full">
+        <main className="px-2 lg:px-10 flex-grow w-full min-w-0">
           <div className="h-10" />
           {children}
           <div className="h-10" />

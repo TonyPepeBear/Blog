@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import MainLayout from "../components/layouts/main-layouts";
-import { marked } from "marked";
+import Article from "../components/aritcle";
 
 export default function ArticleTemplate(props: Props) {
   const { data } = props;
@@ -9,25 +9,9 @@ export default function ArticleTemplate(props: Props) {
     <MainLayout>
       <div>
         <div className="flex flex-col w-full gap-14">
-          {data.allMarkdownRemark.edges.map(({ node }) => {
-            const { title, image } = node.frontmatter;
-            return (
-              <div className="bg-white w-full rounded-xl shadow-md break-words">
-                <img
-                  src={image}
-                  alt={title}
-                  className="w-full rounded-t-xl h-96 object-cover"
-                />
-                <div className="p-5">
-                  <h1 className="text-4xl">{title}</h1>
-                  <div
-                    className="main-article"
-                    dangerouslySetInnerHTML={{ __html: node.html }}
-                  />
-                </div>
-              </div>
-            );
-          })}
+          {data.allMarkdownRemark.edges.map(({ node }) => (
+            <Article node={node} />
+          ))}
         </div>
       </div>
     </MainLayout>

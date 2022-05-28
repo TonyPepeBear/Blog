@@ -1,9 +1,10 @@
+import React from "react";
 import { graphql } from "gatsby";
-import * as React from "react";
 import MainLayout from "../components/layouts/main-layouts";
 import ArticleList from "../components/article-list";
 
-export default function IndexPage({ data }: Props) {
+export default function ArticleListPageTemplate(props: Props) {
+  const { data } = props;
   return (
     <MainLayout>
       <div>
@@ -12,6 +13,7 @@ export default function IndexPage({ data }: Props) {
     </MainLayout>
   );
 }
+
 interface Props {
   data: {
     allMarkdownRemark: {
@@ -34,12 +36,13 @@ interface Props {
   };
 }
 
-export const qldata = graphql`
-  query IndexQuery {
+export const query = graphql`
+  query ArticleListPageTemplateQuery($limit: Int!, $skip: Int!) {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
       filter: { frontmatter: { draft: { eq: false } } }
-      limit: 8
+      limit: $limit
+      skip: $skip
     ) {
       edges {
         node {

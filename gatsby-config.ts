@@ -6,8 +6,8 @@ const config: GatsbyConfig = {
     siteUrl: `https://tonypepe.com`,
   },
   plugins: [
-    "gatsby-plugin-postcss",
     "gatsby-plugin-image",
+    "gatsby-plugin-postcss",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-mdx",

@@ -32,4 +32,4 @@ jobs:
             -X POST "https://search.tonypepe.com/indexes/hugo_blog/documents" \
             -H 'Authorization: Bearer ${{ secrets.MEILISEARCH_KEY }}' \
             -H 'Content-Type: application/json' \
-            --data-binary "@public/searchindex.json"
+            --data-binary "@public/SearchIndex.json"

@@ -1,6 +1,8 @@
 import * as React from "react";
 import { Icon } from "@iconify/react";
 import { marked } from "marked";
+import tagIcon from "@iconify/icons-mdi/tag";
+import calendarMonth from "@iconify/icons-mdi/calendar-month";
 
 export default function ArticleListItem({ node }: Props) {
   const { title, date, tags, image } = node.frontmatter;
@@ -27,7 +29,7 @@ export default function ArticleListItem({ node }: Props) {
         </a>
         {/* Date */}
         <div className="pt-5 text-xl flex gap-2 items-center">
-          <Icon icon="mdi:calendar-month" />
+          <Icon icon={calendarMonth} />
           <time dateTime={date}>{outputDate}</time>
         </div>
         {/* Summary */}
@@ -46,7 +48,7 @@ export default function ArticleListItem({ node }: Props) {
         {/* Tages */}
         {tags && (
           <div className="flex py-3 flex-wrap gap-x-3 gap-y-4 items-center">
-            <Icon icon="mdi:tag" />
+            <Icon icon={tagIcon} />
             {tags.map((tag) => (
               <span className="px-3 py-1 text-sm bg-gray-200 rounded-full">
                 {tag}

@@ -25,7 +25,7 @@ categories:
 
 `~` 波浪符就是代表家目錄
 
-```
+```bash
 /etc$ cd ~
 
 ~$

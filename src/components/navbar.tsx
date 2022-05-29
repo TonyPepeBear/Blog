@@ -1,6 +1,10 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { Icon } from "@iconify/react";
+import antDesignHomeFill from "@iconify/icons-ant-design/home-fill";
+import document24Filled from "@iconify/icons-fluent/document-24-filled";
+import searchIcon from "@iconify/icons-fa/search";
+import humanGreetingVariant from "@iconify/icons-mdi/human-greeting-variant";
 
 export default function Navbar({ title = "TonyPepe" }: Props) {
   return (
@@ -35,21 +39,21 @@ const NavbarItems = [
   {
     name: "Home",
     path: "/",
-    icon: "ant-design:home-filled",
+    icon: antDesignHomeFill,
   },
   {
     name: "Posts",
     path: "/pages/1",
-    icon: "fluent:document-24-filled",
+    icon: document24Filled,
   },
   {
     name: "Search",
     path: "/search",
-    icon: "fa:search",
+    icon: searchIcon,
   },
   {
     name: "About",
     path: "/about",
-    icon: "mdi:human-greeting-variant",
+    icon: humanGreetingVariant,
   },
 ];

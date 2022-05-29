@@ -19,7 +19,7 @@ export default function Footer() {
         </div>
         <div className="lg:text-xl">Made with Love in Taiwan</div>
         <div className="flex justify-center gap-5 lg:gap-8">
-          <a href="htts://github.com/tonypepebear" target="_blank">
+          <a href="https://github.com/tonypepebear" target="_blank">
             <Icon icon={githubOutlined} width={40} height={40} />
           </a>
           <a

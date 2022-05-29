@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.article-content > * {
+.article-content * {
   @apply py-3;
 }
 
@@ -24,8 +24,16 @@
   content: url("https://api.iconify.design/icon-park/h3.svg");
 }
 
+.article-content > p > code {
+  @apply px-2;
+}
+
 .article-content > p {
   @apply text-lg text-justify break-words;
+}
+
+.article-content * > li {
+  @apply text-lg text-justify break-words p-0;
 }
 
 .article-content * > a {
@@ -33,7 +41,7 @@
 }
 
 .article-content > blockquote {
-  @apply p-3 border-l-4 border-indigo-300 italic;
+  @apply p-3 text-lg border-l-4 border-indigo-300 italic;
 }
 
 .article-content > ul {

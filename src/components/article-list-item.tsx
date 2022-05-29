@@ -6,7 +6,13 @@ export default function ArticleListItem({ node }: Props) {
   const { title, date, tags, image } = node.frontmatter;
   const summary = node.rawMarkdownBody.split("<!--more-->")[0];
   const outputDate = new Date(date).toLocaleDateString();
-  const href = "/articles/" + node.frontmatter.title;
+  const href =
+    "/posts/" +
+    node.fileAbsolutePath
+      .split("/posts/")[1]
+      .split(".md")[0]
+      .replace(" ", "-")
+      .toLowerCase();
   return (
     <div className="bg-white  w-full rounded-xl shadow-md">
       <img
@@ -57,6 +63,7 @@ interface Node {
   html: any;
   excerpt: string;
   rawMarkdownBody: string;
+  fileAbsolutePath: string;
   frontmatter: {
     title: string;
     date: string;

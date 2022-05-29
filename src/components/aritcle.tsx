@@ -43,6 +43,12 @@ export default function Article(props: Props) {
           className="article-content"
           dangerouslySetInnerHTML={{ __html: node.html }}
         />
+        {/* 分隔符 */}
+        <div>
+          <div className="h-4" />
+          <hr />
+          <div className="h-4" />
+        </div>
         {/* Tages */}
         {tags && (
           <div className="flex py-3 flex-wrap gap-x-3 gap-y-4 items-center">

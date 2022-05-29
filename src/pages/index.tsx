@@ -4,9 +4,14 @@ import MainLayout from "../components/layouts/main-layouts";
 import ArticleList from "../components/article-list";
 
 export default function IndexPage({ data }: Props) {
+  const numPages = Math.ceil(data!.allMarkdownRemark.edges.length / 8);
   return (
     <MainLayout>
-      <ArticleList nodes={data.allMarkdownRemark.edges} />
+      <ArticleList
+        nodes={data.allMarkdownRemark.edges.slice(0, 8)}
+        currentPage={1}
+        numPages={numPages}
+      />
     </MainLayout>
   );
 }
@@ -17,6 +22,8 @@ interface Props {
         node: {
           html: any;
           excerpt: string;
+          id: string;
+          fileAbsolutePath: string;
           rawMarkdownBody: string;
           frontmatter: {
             title: string;
@@ -37,13 +44,13 @@ export const qldata = graphql`
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
       filter: { frontmatter: { draft: { eq: false } } }
-      limit: 8
     ) {
       edges {
         node {
           id
           html
           rawMarkdownBody
+          fileAbsolutePath
           excerpt(pruneLength: 200, truncate: true)
           frontmatter {
             title

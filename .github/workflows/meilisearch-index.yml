@@ -19,16 +19,12 @@ jobs:
         with:
           node-version: "14"
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: "latest"
-          extended: true
-
       - name: Build
         run: |
-          npm i
-          hugo --minify
+          npm ci
+          npm run build
+
+      ################## TODO
 
       - name: Post Index
         run: |

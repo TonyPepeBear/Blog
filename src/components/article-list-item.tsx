@@ -4,6 +4,7 @@ import { marked } from "marked";
 import tagIcon from "@iconify/icons-mdi/tag";
 import calendarMonth from "@iconify/icons-mdi/calendar-month";
 import ReadMoreButton from "./read-more-button";
+import TagList from "./tag-list";
 
 export default function ArticleListItem({ node }: Props) {
   const { title, date, tags, image } = node.frontmatter;
@@ -40,16 +41,7 @@ export default function ArticleListItem({ node }: Props) {
         {/* Read More */}
         <ReadMoreButton href={href} />
         {/* Tages */}
-        {tags && (
-          <div className="flex py-3 flex-wrap gap-x-3 gap-y-4 items-center">
-            <Icon icon={tagIcon} />
-            {tags.map((tag) => (
-              <span className="px-3 py-1 text-sm bg-gray-200 rounded-full">
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
+        <TagList tags={tags} />
       </div>
     </div>
   );

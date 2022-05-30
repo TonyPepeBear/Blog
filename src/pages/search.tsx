@@ -10,6 +10,7 @@ import {
 } from "react-instantsearch-hooks-web";
 import { instantMeiliSearch } from "@meilisearch/instant-meilisearch";
 import ReadMoreButton from "../components/read-more-button";
+import TagList from "../components/tag-list";
 
 const searchClient = instantMeiliSearch(
   "https://search.tonypepe.com",
@@ -41,19 +42,22 @@ const MySearchBox = (props: UseSearchBoxProps) => {
       {isSearchStalled && (
         <span className="text-lg text-gray-600">Searching...</span>
       )}
+      {}
     </div>
   );
 };
 
 const Hit = (props: any) => {
   const hit: searchSechma = props.hit;
-  const { summary, title, url } = hit;
+  const { summary, title, url, tags } = hit;
   const html = marked(summary);
   return (
     <div className="my-4 bg-white rounded-md py-4 px-6">
       <h1 className="pt-2 text-2xl">{title}</h1>
       <div className="pt-5" dangerouslySetInnerHTML={{ __html: html }} />
       <ReadMoreButton href={url} />
+      <div className="h-2" />
+      {tags && <TagList tags={tags} />}
     </div>
   );
 };
@@ -63,4 +67,5 @@ interface searchSechma {
   date: number;
   url: string;
   summary: string;
+  tags: string[];
 }

@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import { marked } from "marked";
 import tagIcon from "@iconify/icons-mdi/tag";
 import calendarMonth from "@iconify/icons-mdi/calendar-month";
+import ReadMoreButton from "./read-more-button";
 
 export default function ArticleListItem({ node }: Props) {
   const { title, date, tags, image } = node.frontmatter;
@@ -37,14 +38,7 @@ export default function ArticleListItem({ node }: Props) {
           <div dangerouslySetInnerHTML={{ __html: marked.parse(summary) }} />
         </div>
         {/* Read More */}
-        <p className="my-8">
-          <a
-            className="w-fit py-3 px-6 rounded-full break-words bg-transparent border border-gray-700 hover:bg-gray-500 text-gray-800 hover:text-white transform duration-200"
-            href={href}
-          >
-            Read More
-          </a>
-        </p>
+        <ReadMoreButton href={href} />
         {/* Tages */}
         {tags && (
           <div className="flex py-3 flex-wrap gap-x-3 gap-y-4 items-center">

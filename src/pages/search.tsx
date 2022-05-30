@@ -14,7 +14,7 @@ import TagList from "../components/tag-list";
 
 const searchClient = instantMeiliSearch(
   "https://search.tonypepe.com",
-  
+
   "RelTuTBT6c8e8b5bdb81f783d45f135975ff59e8cfe8a63990f9d7f6757b68f5e36b8c1e"
 );
 

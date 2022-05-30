@@ -66,6 +66,7 @@ export const onPostBuild: GatsbyNode["onPostBuild"] = async ({
       title: node.frontmatter.title,
       summary: summary,
       content: node.internal.content.replace("\n", " "),
+      tags: node.frontmatter.tags,
     });
   });
   fs.writeFileSync("./public/SearchIndex.json", JSON.stringify(searchArr));
@@ -84,6 +85,7 @@ interface ArticleListData {
         frontmatter: {
           title: string;
           date: string;
+          tags: string[];
         };
       };
     }[];
@@ -106,6 +108,7 @@ const articleGraphql = `{
         frontmatter {
           title
           date
+          tags
         }
       }
     }
@@ -120,4 +123,5 @@ interface SearchIndex {
   title: string;
   summary: string;
   content: string;
+  tags: string[];
 }

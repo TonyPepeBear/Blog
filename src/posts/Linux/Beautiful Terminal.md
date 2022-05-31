@@ -10,7 +10,7 @@ tags:
   - zim
   - powerlevel
   - powerlevel10k
-  - nerd font
+  - nerd-font
   - ubuntu
   - mac
 categories:

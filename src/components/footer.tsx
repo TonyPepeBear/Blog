@@ -8,9 +8,9 @@ import roundSchool from "@iconify/icons-ic/round-school";
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="h-96 w-full bg-gray-600">
-      <div className="grid grid-col grid-col-5 items-center justify-center py-10 px-5 h-full">
-        <div />
+    <footer className="h-96 w-full bg-gray-600" style={{ height: "28rem" }}>
+      <div className="grid grid-col grid-col-6 items-center justify-center py-10 px-5 h-full">
+        <div className="row-span-2" />
         <div className="flex items-center justify-center text-3xl">
           <img
             className="w-16 h-16"
@@ -19,7 +19,6 @@ export default function Footer() {
           <div className="w-2" />
           TonyPepe
         </div>
-        <div className="lg:text-xl">Made with Love in Taiwan</div>
         <div className="flex justify-center gap-5 lg:gap-8">
           <a href="https://github.com/tonypepebear" target="_blank">
             <Icon icon={githubOutlined} width={40} height={40} />
@@ -34,6 +33,7 @@ export default function Footer() {
             <Icon icon={roundSchool} width={40} height={40} />
           </a>
         </div>
+        <div className="lg:text-xl">Made with Love in Taiwan</div>
         <div className="flex flex-row justify-center">
           Copyright
           <div className="w-5" />

@@ -13,6 +13,7 @@ const config: GatsbyConfig = {
     "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
     "gatsby-plugin-typescript",
+    "gatsby-plugin-use-query-params",
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",

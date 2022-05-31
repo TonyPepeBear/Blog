@@ -1,13 +1,15 @@
 import * as React from "react";
 import { Icon } from "@iconify/react";
+import copyrightIcon from "@iconify/icons-fa-solid/copyright";
 import githubOutlined from "@iconify/icons-ant-design/github-outlined";
 import flagTaiwan from "@iconify/icons-twemoji/flag-taiwan";
 import roundSchool from "@iconify/icons-ic/round-school";
 
 export default function Footer() {
+  const year = new Date().getFullYear();
   return (
     <footer className="h-96 w-full bg-gray-600">
-      <div className="grid grid-col grid-col-4 items-center justify-center py-10 px-5 h-full">
+      <div className="grid grid-col grid-col-5 items-center justify-center py-10 px-5 h-full">
         <div />
         <div className="flex items-center justify-center text-3xl">
           <img
@@ -31,6 +33,13 @@ export default function Footer() {
           <a href="https://iosclub.tw" target="_blank">
             <Icon icon={roundSchool} width={40} height={40} />
           </a>
+        </div>
+        <div className="flex flex-row justify-center">
+          Copyright
+          <div className="w-5" />
+          <Icon icon={copyrightIcon} width={20} height={20} />
+          <div className="w-5" />
+          <div>2020 - {year}</div>
         </div>
       </div>
     </footer>

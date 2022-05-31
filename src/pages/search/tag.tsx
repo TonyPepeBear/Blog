@@ -9,14 +9,13 @@ import { useQueryParams, StringParam } from "use-query-params";
 
 export default function SearchTags() {
   const [{ tag }, _] = useQueryParams({ tag: StringParam });
-  console.log(tag);
   const [result, setResult] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   React.useEffect(() => {
     client
       .index("gatsby-blog")
       .search("", {
-        filter: ["tags=" + tag],
+        filter: ["tags=" + (tag ? tag : "")],
         limit: Number.MAX_SAFE_INTEGER,
       })
       .then((res: any) => {

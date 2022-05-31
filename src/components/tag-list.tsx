@@ -9,9 +9,12 @@ export default function TagList({ tags }: Props) {
         <div className="flex py-3 flex-wrap gap-x-3 gap-y-4 items-center">
           <Icon icon={tagIcon} />
           {tags.map((tag) => (
-            <span className="px-3 py-1 text-sm bg-gray-200 rounded-full">
+            <a
+              className="px-3 py-1 text-sm bg-gray-200 rounded-full"
+              href={"/search/tag?tag=" + tag}
+            >
               {tag}
-            </span>
+            </a>
           ))}
         </div>
       )}

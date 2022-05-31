@@ -10,6 +10,15 @@ export default function Navbar({ title = "TonyPepe" }: Props) {
   return (
     <aside className="lg:w-96 p-3 bg-gray-700 lg:sticky lg:h-screen lg:top-0 lg:block grid grid-cols-2 justify-items-center items-center h-48">
       <Helmet title={title} />
+      <Helmet
+        script={[
+          {
+            src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1667006488909532",
+            crossOrigin: "anonymous",
+            async: true,
+          },
+        ]}
+      />
       <img
         src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/cfccf3e2-7fd5-4e6c-adcb-a3cc5064f900/public"
         className="rounded-full lg:h-auto lg:w-full h-40 w-40"

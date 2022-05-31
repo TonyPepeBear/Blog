@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import MainLayout from "../components/layouts/main-layouts";
-import Article from "../components/aritcle";
+import Article from "../components/article";
 import { Helmet } from "react-helmet";
 
 export default function ArticleTemplate(props: Props) {

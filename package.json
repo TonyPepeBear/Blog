@@ -34,6 +34,7 @@
     "gatsby-plugin-sharp": "^4.15.0",
     "gatsby-plugin-sitemap": "^5.15.0",
     "gatsby-plugin-typescript": "^4.15.0",
+    "gatsby-plugin-use-query-params": "^1.0.1",
     "gatsby-remark-prismjs": "^6.15.0",
     "gatsby-source-filesystem": "^4.15.0",
     "gatsby-transformer-remark": "^5.15.0",
@@ -45,7 +46,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
-    "react-instantsearch-dom": "^6.26.0"
+    "react-instantsearch-dom": "^6.26.0",
+    "use-query-params": "^1.2.3"
   },
   "devDependencies": {
     "@iconify/react": "^3.2.2",

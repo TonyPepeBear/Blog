@@ -5,10 +5,11 @@ import ReadMoreButton from "../../components/read-more-button";
 import TagList from "../../components/tag-list";
 import { marked } from "marked";
 import { Helmet } from "react-helmet";
+import { useQueryParams, StringParam } from "use-query-params";
 
 export default function SearchTags() {
-  const params = new URLSearchParams(window.location.search);
-  const tag = params.get("tag");
+  const [{ tag }, _] = useQueryParams({ tag: StringParam });
+  console.log(tag);
   const [result, setResult] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   React.useEffect(() => {

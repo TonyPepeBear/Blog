@@ -1,3 +1,4 @@
+import { Adsense } from "@ctrl/react-adsense";
 import * as React from "react";
 import Footer from "../footer";
 import Navbar from "../navbar";
@@ -16,6 +17,13 @@ export default function MainLayout({ children }: Props) {
           <div className="h-10" />
           {children}
           <div className="h-10" />
+          <Adsense
+            style={{ display: "block" }}
+            client="ca-pub-1667006488909532"
+            slot="4929923749"
+            format="auto"
+            responsive="true"
+          />
         </main>
         <div className="xl:w-52" />
       </div>

@@ -1188,6 +1188,13 @@
   resolved "https://registry.yarnpkg.com/@builder.io/partytown/-/partytown-0.5.4.tgz#1a89069978734e132fa4a59414ddb64e4b94fde7"
   integrity sha512-qnikpQgi30AS01aFlNQV6l8/qdZIcP76mp90ti+u4rucXHsn4afSKivQXApqxvrQG9+Ibv45STyvHizvxef/7A==
 
+"@ctrl/react-adsense@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@ctrl/react-adsense/-/react-adsense-1.6.0.tgz#8761bbb13934bf4c9acc520041463050cd96d032"
+  integrity sha512-FlekDNpaSkXpxVH9ic9p3fue3FTQl/Cwqv/DG8ZbN00XL6aujHsArCPo0ElnBBB3imGLtnL3q01L/PrB+5NahA==
+  dependencies:
+    tslib "^2.4.0"
+
 "@endemolshinegroup/cosmiconfig-typescript-loader@3.0.2":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@endemolshinegroup/cosmiconfig-typescript-loader/-/cosmiconfig-typescript-loader-3.0.2.tgz#eea4635828dde372838b0909693ebd9aafeec22d"

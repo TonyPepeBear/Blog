@@ -1585,6 +1585,13 @@
   dependencies:
     "@iconify/types" "^1.0.12"
 
+"@iconify/icons-fa-solid@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-fa-solid/-/icons-fa-solid-1.2.2.tgz#f55d69c2e93715dbecfea198a6f9fc2114cbb243"
+  integrity sha512-9f7nhCiECJkB1j7gxPgJVodqqN4RMsE/M7q8YJ5BuewZDlo0hDJUzP4mFDQS2G9+Qy00vmQ+UdcGUmj6NlgMQg==
+  dependencies:
+    "@iconify/types" "^1.0.12"
+
 "@iconify/icons-fa@^1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@iconify/icons-fa/-/icons-fa-1.2.1.tgz#a31a744fcbcba29a8e09fec83a0a29c1c621a111"

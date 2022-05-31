@@ -2,8 +2,8 @@ import React from "react";
 import "../styles/article.css";
 import { Icon } from "@iconify/react";
 import tagIcon from "@iconify/icons-mdi/tag";
-import calendarMonth from "@iconify/icons-mdi/calendar-month";
 import infoWithCircle from "@iconify/icons-entypo/info-with-circle";
+import TagList from "./tag-list";
 
 export default function Article(props: Props) {
   const { node } = props;
@@ -53,16 +53,7 @@ export default function Article(props: Props) {
           <div className="h-4" />
         </div>
         {/* Tages */}
-        {tags && (
-          <div className="flex py-3 flex-wrap gap-x-3 gap-y-4 items-center">
-            <Icon icon={tagIcon} />
-            {tags.map((tag) => (
-              <span className="px-3 py-1 text-sm bg-gray-200 rounded-full">
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
+        <TagList tags={tags} />
       </div>
     </div>
   );

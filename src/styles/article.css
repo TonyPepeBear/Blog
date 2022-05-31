@@ -59,3 +59,11 @@
 .article-content * ol {
   @apply mx-8 list-disc list-inside;
 }
+
+.article-content > .gatsby-highlight * {
+  @apply font-serif;
+}
+
+.article-content * > code {
+  @apply font-serif;
+}

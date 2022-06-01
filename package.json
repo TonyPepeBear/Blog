@@ -11,7 +11,8 @@
     "develop": "gatsby develop",
     "dev": "gatsby develop -H 0.0.0.0",
     "build": "gatsby build",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "new-post": "node new-post.ts"
   },
   "dependencies": {
     "@ctrl/react-adsense": "^1.6.0",

@@ -13,3 +13,9 @@
 - [Unsplash](https://unsplash.com/) 提供精美的圖片
 - [TailwindCSS](https://tailwindcss.com/) 讓我輕鬆寫出這個網站
 - [iconify](https://iconify.design/) 提供精美的圖標
+
+## New Post
+
+```bash
+yarn new-post Path/title.md
+```

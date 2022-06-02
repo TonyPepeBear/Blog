@@ -4,7 +4,6 @@ import MainLayout from "../../components/layouts/main-layouts";
 import ReadMoreButton from "../../components/read-more-button";
 import TagList from "../../components/tag-list";
 import { marked } from "marked";
-import { Helmet } from "react-helmet";
 import { useQueryParams, StringParam } from "use-query-params";
 
 export default function SearchTags() {
@@ -24,9 +23,8 @@ export default function SearchTags() {
       });
   }, []);
   return (
-    <MainLayout>
+    <MainLayout title={"tag: " + tag + " - TonyPepe"}>
       <div>
-        <Helmet title={"tag: " + tag + " - TonyPepe"} />
         <h1 className="my-4 bg-white rounded-md py-4 px-6 text-2xl">
           {"Tag: " + tag}
         </h1>

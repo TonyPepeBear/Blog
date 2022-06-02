@@ -13,7 +13,7 @@ tags:
   - meilisearch
   - search
 categories:
-  - Category
+  - Web
 ---
 
 最近把網站從 Hugo 遷移到 Gatsby，遇到了一些問題，我就來簡單記錄一下解決問題的過程，而且因為我對 Node 也不是很熟，所以主要是在當作我練習 Node 和 React。
@@ -110,7 +110,7 @@ export const onPostBuild: GatsbyNode["onPostBuild"] = async ({
 
 其實 Gatsby 應該也是有方法可以產生 Tag Page，但是因為我想到要用 Tag Page 時，我已經弄好 MeiliSearch 了，所以我就靈機一動，想想是不是也可以直接簡單的使用 MeiliSearch 來動態的產生 Tag Page 就好，結果還真的被我弄成功了，就來紀錄一下我大概的思路。雖然我知道這八成不是什麼好方法，但是簡單暴力。
 
-MeiliSearch 可以設定 `filterableAttributes` 的屬性，所以我把我的 Index 中的 Tag 屬性設定成可以 Filterable，然後再取得網址的 Params，最後向 MeiliSearch 搜尋後動態的把結果顯示在網頁上。
+MeiliSearch 可以設定 `filterableAttributes` 的屬性，所以我把我的 Index 中的 Tag 屬性設定成可以 Filterable，然後再取得網址的 Params，最後向 MeiliSearch 搜尋後動態的把結果顯示在網頁上。也可以參考[官方文件](https://docs.meilisearch.com/learn/advanced/filtering_and_faceted_search.html#configuring-filters)。
 
 這時遇到的問題就是 Gatsby 是 Server Side Rendering，所以取的 Params 要使用額外的 plugin，我是使用 `gatsby-plugin-use-query-params`，就可以像是 React 的 useState 的方式來取的網址的 Parm。
 
@@ -161,3 +161,4 @@ Node 在建置上實在是太慢，真的會有一點受不了，每次光是要
 ## Reference
 
 - [Gatsby](https://gatsbyjs.org/)
+- [MeiliSearch - Filtering and faceted search](https://docs.meilisearch.com/learn/advanced/filtering_and_faceted_search.html#configuring-filters)

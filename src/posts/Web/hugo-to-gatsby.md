@@ -62,7 +62,7 @@ Hello
 ```typescript
 import { marked } from "marked";
 
-export default function ({ node }: Props) {
+export default function Summary({ node }: Props) {
   const summary = node.rawMarkdownBody.spllit("<!--more-->")[0];
   return <div dangerouslaSetSetInnerHTML={{ __html: marked.parse(summary) }} />;
 }
@@ -70,7 +70,7 @@ export default function ({ node }: Props) {
 
 ## MeiliSearch
 
-我原本的 Hugo 網頁，就是使用 MeiliSearch 來當我的搜尋功能，可以參考[這一篇]("posts/web/meilisearch-hugo") 。所以一樣是會需要產生一個 `SearchIndex.json`，我直接在 `gatsby-node.ts` 裡的 `noPostBuild` 手動產生 json，再用 `fs` 寫入檔案，直接給大家程式碼參考。
+我原本的 Hugo 網頁，就是使用 MeiliSearch 來當我的搜尋功能，可以參考這個 [tag](/search/tag?tag=meilisearch) 。所以一樣是會需要產生一個 `SearchIndex.json`，我直接在 `gatsby-node.ts` 裡的 `noPostBuild` 手動產生 json，再用 `fs` 寫入檔案，直接給大家程式碼參考。
 
 ```typescript
 export const onPostBuild: GatsbyNode["onPostBuild"] = async ({

@@ -20,7 +20,7 @@ export default function Navbar({ title = "TonyPepe" }: Props) {
         ]}
       />
       <img
-        src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/cfccf3e2-7fd5-4e6c-adcb-a3cc5064f900/public"
+        src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/e1f21e2c-10fc-4c41-87ba-557d048b8300/public"
         className="rounded-full lg:h-auto lg:w-full h-40 w-40"
       />
       <nav className="lg:pt-5 flex flex-col gap-4 lg:gap-8 text-gray-300 h-full lg:h-autl">

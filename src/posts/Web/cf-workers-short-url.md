@@ -138,7 +138,7 @@ Add the following to your configuration file in your kv_namespaces array:
 { binding = "URLS", preview_id = "xxxxxxxxxxxxxxxxxxxx2" }
 ```
 
-這次把 `preview_id` 家在原本的 id 後方即可：
+這次把 `preview_id` 加在原本的 id 後方即可：
 
 ```toml
 kv_namespaces = [

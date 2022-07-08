@@ -19,10 +19,12 @@ const AboutPage = () => {
     >
       <div className="bg-white p-3 rounded-xl shadow-md">
         <div className="p-2 w-4/5vw lg:w-cardlg text-xl max-h-4/5vh overflow-y-auto">
-          <img
-            src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/e1f21e2c-10fc-4c41-87ba-557d048b8300/public"
-            className="rounded-full h-40 w-40"
-          />
+          <a href="/">
+            <img
+              src="https://imagedelivery.net/cdkaXPuFls5qlrh3GM4hfA/e1f21e2c-10fc-4c41-87ba-557d048b8300/public"
+              className="rounded-full h-40 w-40"
+            />
+          </a>
           <div className="flex py-5">
             <h2 className="text-4xl">TonyPepe</h2>
             <h3 className="px-3 text-gray-600 italic text-sm self-end">

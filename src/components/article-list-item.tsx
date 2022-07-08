@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Icon } from "@iconify/react";
 import { marked } from "marked";
-import tagIcon from "@iconify/icons-mdi/tag";
 import calendarMonth from "@iconify/icons-mdi/calendar-month";
 import ReadMoreButton from "./read-more-button";
 import TagList from "./tag-list";

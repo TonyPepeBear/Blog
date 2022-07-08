@@ -1,7 +1,6 @@
 import React from "react";
 import "../styles/article.css";
 import { Icon } from "@iconify/react";
-import tagIcon from "@iconify/icons-mdi/tag";
 import infoWithCircle from "@iconify/icons-entypo/info-with-circle";
 import TagList from "./tag-list";
 

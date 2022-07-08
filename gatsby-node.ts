@@ -47,8 +47,10 @@ export const onPostBuild: GatsbyNode["onPostBuild"] = async ({
   actions,
 }) => {
   const { errors, data } = await graphql<ArticleListData>(articleGraphql);
-  // SearchIndex.json
+  // SearchIndex.json , Sitemap
   const searchArr: SearchIndex[] = [];
+  let siteMapStr = "";
+  siteMapStr += "https://tonypepe.com/about" + "\n";
   data!!.allMarkdownRemark.edges.forEach(({ node }, index) => {
     const summary = node.rawMarkdownBody.split("<!--more-->")[0];
     const url =
@@ -68,8 +70,10 @@ export const onPostBuild: GatsbyNode["onPostBuild"] = async ({
       content: node.internal.content.replace("\n", " "),
       tags: node.frontmatter.tags,
     });
+    siteMapStr += "https://tonypepe.com" + url + "\n";
   });
   fs.writeFileSync("./public/SearchIndex.json", JSON.stringify(searchArr));
+  fs.writeFileSync("./public/sitemap.txt", siteMapStr);
 };
 
 interface ArticleListData {

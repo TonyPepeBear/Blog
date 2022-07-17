@@ -53,11 +53,11 @@
 }
 
 .article-content > ol {
-  @apply list-disc list-inside;
+  @apply list-decimal list-inside;
 }
 
 .article-content * ol {
-  @apply mx-8 list-disc list-inside;
+  @apply mx-8 list-decimal list-inside;
 }
 
 .article-content > .gatsby-highlight * {

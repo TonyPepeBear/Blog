@@ -1,4 +1,5 @@
 https://tonypepe.com/about
+https://tonypepe.com/posts/android/s7-poekmon root
 https://tonypepe.com/posts/blog/20220708-review
 https://tonypepe.com/posts/web/cf-workers-short-url
 https://tonypepe.com/posts/web/hugo-to-gatsby

@@ -1,5 +1,6 @@
 import { Adsense } from "@ctrl/react-adsense";
 import * as React from "react";
+import { Helmet } from "react-helmet";
 import Footer from "../footer";
 import Navbar from "../navbar";
 
@@ -17,6 +18,13 @@ export default function MainLayout({ children }: Props) {
           <div className="h-10" />
           {children}
           <div className="h-10" />
+          <Helmet>
+            <script
+              async
+              src="https://www.googletagmanager.com/gtag/js?id=G-FVGT5FB0W4"
+            />
+            <script src="/g-analytics.js" />
+          </Helmet>
           <Adsense
             style={{ display: "block" }}
             client="ca-pub-1667006488909532"

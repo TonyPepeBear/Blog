@@ -18,6 +18,7 @@ export default function MainLayout({ children }: Props) {
           <div className="h-10" />
           {children}
           <div className="h-10" />
+          {/* google analytics */}
           <Helmet>
             <script
               async

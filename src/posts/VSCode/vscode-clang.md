@@ -19,7 +19,7 @@ categories:
 
 ## gcc g++
 
-在了解如何設定 vscode 前，我們先來了解一下基本的 gcc、g++ 指令，這是一個用來編譯 C 程式碼最快的方法，gcc 就是 C 的編譯器，g++ 則是 C++ 的。這裡不會解說如何安裝，在 Windows 下可以使用 MinGW，macOS 則是只要在 Terminal 下 gcc 指令，就會自動問你要不要安裝。
+在了解如何設定 vscode 前，我們先來了解一下基本的 gcc、g++ 指令，這是一個用來編譯 C 程式碼最快的方法，gcc 就是 C 的編譯器，g++ 則是 C++ 的。這裡不會解說如何安裝，在 Windows 下可以使用 MinGW (如果要在 Windows 安裝 MinGW，用 Chocolatey 安裝是最快的方式)，macOS 則是只要在 Terminal 下 gcc 指令，就會自動問你要不要安裝。
 
 下面的範例會編譯 `main.cpp` 的 C++ 檔案：
 

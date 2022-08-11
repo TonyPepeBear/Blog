@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/article.css";
 import { Icon } from "@iconify/react";
 import infoWithCircle from "@iconify/icons-entypo/info-with-circle";
+import calendarMonth from "@iconify/icons-mdi/calendar-month";
 import TagList from "./tag-list";
 
 export default function Article(props: Props) {
@@ -20,7 +21,7 @@ export default function Article(props: Props) {
         <div className="flex flex-row flex-wrap gap-x-4 gap-y-1 py-4">
           {/* Date */}
           <div className="text-xl flex gap-2 items-center text-gray-700 font-medium">
-            <Icon icon={infoWithCircle} />
+            <Icon icon={calendarMonth} />
             <time dateTime={date}>{outputDate}</time>
           </div>
           {/* Issue */}
@@ -29,7 +30,7 @@ export default function Article(props: Props) {
             target="_blank"
           >
             <div className="text-xl flex gap-2 items-center text-gray-700 font-medium">
-              <Icon icon="entypo:info-with-circle" />
+              <Icon icon={infoWithCircle} />
               <span>Issue</span>
             </div>
           </a>

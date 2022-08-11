@@ -5,6 +5,7 @@ import homeAltOutline from "@iconify/icons-ant-design/home-fill";
 import githubOutlined from "@iconify/icons-ant-design/github-outlined";
 import roundSchool from "@iconify/icons-ic/round-school";
 import TagList from "../components/tag-list";
+import walkingIcon from '@iconify/icons-fa-solid/walking';
 
 const AboutPage = () => {
   return (
@@ -56,6 +57,9 @@ const AboutPage = () => {
           <div className="flex gap-5">
             <a href="/">
               <Icon icon={homeAltOutline} width={40} height={40} />
+            </a>
+            <a href="https://life.tonypepe.com" target="_blank">
+              <Icon icon={walkingIcon} width={40} height={40} />
             </a>
             <a href="https://github.com/tonypepebear" target="_blank">
               <Icon icon={githubOutlined} width={40} height={40} />

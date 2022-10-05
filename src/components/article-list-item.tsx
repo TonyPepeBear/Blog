@@ -18,11 +18,13 @@ export default function ArticleListItem({ node }: Props) {
       .toLowerCase();
   return (
     <div className="bg-white  w-full rounded-xl shadow-md">
-      <img
-        src={image}
-        alt={title}
-        className="w-full rounded-t-xl h-72 lg:h-96 object-cover"
-      />
+      <a href={href}>
+        <img
+          src={image}
+          alt={title}
+          className="w-full rounded-t-xl h-72 lg:h-96 object-cover"
+        />
+      </a>
       <div className="p-5">
         {/* Title */}
         <a className="" href={href}>

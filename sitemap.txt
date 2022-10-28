@@ -1,4 +1,5 @@
 https://tonypepe.com/about
+https://tonypepe.com/posts/others/cf-email-routing-gmail
 https://tonypepe.com/posts/others/itsgo-doc
 https://tonypepe.com/posts/github/github-actions-prettier
 https://tonypepe.com/posts/others/wikiwand-on safari

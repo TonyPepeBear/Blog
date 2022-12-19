@@ -1,6 +1,6 @@
 # TonyPepe Blog
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/TonyPepeBear/HugoBlog/github%20pages?style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/tonypepebear/blog/empty-commit.yml?branch=master&style=flat-square)
 [![GitHub issues](https://img.shields.io/github/issues/TonyPepeBear/HugoBlog?style=flat-square)](https://github.com/TonyPepeBear/HugoBlog/issues)
 
 網頁網址：[TonyPepe](https://tonypepe.com)

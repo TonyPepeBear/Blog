@@ -39,7 +39,7 @@
     "gatsby-plugin-use-query-params": "^1.0.1",
     "gatsby-remark-prismjs": "^6.15.0",
     "gatsby-source-filesystem": "^4.15.0",
-    "gatsby-transformer-remark": "^5.15.0",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^4.15.0",
     "marked": "^4.0.16",
     "prettier": "^2.6.2",

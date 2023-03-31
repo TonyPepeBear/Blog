@@ -73,6 +73,5 @@ interface ResultProp {
 
 const client = new MeiliSearch({
   host: "https://search.tonypepe.com",
-  apiKey:
-    "e98490acb78ad48ba2e978cb99444a0250c79d2d3788808acdf06790158341e9",
+  apiKey: "e98490acb78ad48ba2e978cb99444a0250c79d2d3788808acdf06790158341e9",
 });

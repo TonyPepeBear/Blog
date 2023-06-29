@@ -5,7 +5,6 @@ import homeAltOutline from "@iconify/icons-ant-design/home-fill";
 import githubOutlined from "@iconify/icons-ant-design/github-outlined";
 import roundSchool from "@iconify/icons-ic/round-school";
 import TagList from "../components/tag-list";
-import walkingIcon from "@iconify/icons-fa-solid/walking";
 
 const AboutPage = () => {
   return (
@@ -32,7 +31,8 @@ const AboutPage = () => {
               Tony Cheng
             </h3>
           </div>
-          <p className="pb-4">記錄各種自己掉進去的坑</p>
+          {/* 介紹言 */}
+          <p className="pb-4"></p>
           {/* 學歷 */}
           <div>
             學歷：
@@ -49,6 +49,21 @@ const AboutPage = () => {
               <li>逢甲大學 iOS Club 6th 網管</li>
             </ul>
           </div>
+          {/* 證照 */}
+          <div>
+            證照：
+            <ul className="pl-6 list-disc list-inside text-lg">
+              <li>
+                <a
+                  href="https://www.credential.net/d13d3687-565d-44f7-9ce3-8530ec357c28"
+                  target="_blank"
+                  className="text-blue-500"
+                >
+                  Associate Android Developer
+                </a>
+              </li>
+            </ul>
+          </div>
           {/* Tag List */}
           <div className="py-3">
             <TagList tags={tags} showIcon={false} />
@@ -57,9 +72,6 @@ const AboutPage = () => {
           <div className="flex gap-5">
             <a href="/">
               <Icon icon={homeAltOutline} width={40} height={40} />
-            </a>
-            <a href="https://life.tonypepe.com" target="_blank">
-              <Icon icon={walkingIcon} width={40} height={40} />
             </a>
             <a href="https://github.com/tonypepebear" target="_blank">
               <Icon icon={githubOutlined} width={40} height={40} />
@@ -83,11 +95,14 @@ const tags = [
   "Python",
   "Swift",
   "Go",
-  "JS",
+  "Javascript",
   "Android",
   "iOS",
   "SQL",
   "Web",
+  "React",
+  "Vue",
+  "Svelte",
   "Flutter",
 ];
 

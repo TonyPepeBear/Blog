@@ -28,7 +28,7 @@ categories:
 ## HTML
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <title>Page Title</title>
@@ -64,7 +64,7 @@ Bootstrap 就是來拯救世界的，提供網頁設計師們一個好用的框�
 只要套了下面的模板，就能開始使用 Bootstrap：
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />

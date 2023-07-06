@@ -140,7 +140,7 @@ docker run -it --rm \
 html:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -166,7 +166,7 @@ const search = instantsearch({
   indexName: "steam-video-games",
   searchClient: instantMeiliSearch(
     "https://integration-demos.meilisearch.com",
-    "q7QHwGiX841a509c8b05ef29e55f2d94c02c00635f729ccf097a734cbdf7961530f47c47"
+    "q7QHwGiX841a509c8b05ef29e55f2d94c02c00635f729ccf097a734cbdf7961530f47c47",
   ),
 });
 

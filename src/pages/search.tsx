@@ -13,7 +13,7 @@ import TagList from "../components/tag-list";
 
 const searchClient = instantMeiliSearch(
   "https://search.tonypepe.com",
-  "e98490acb78ad48ba2e978cb99444a0250c79d2d3788808acdf06790158341e9"
+  "e98490acb78ad48ba2e978cb99444a0250c79d2d3788808acdf06790158341e9",
 );
 
 export default function Search() {
